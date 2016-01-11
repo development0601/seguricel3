@@ -17,10 +17,8 @@ namespace Seguricel3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Contrato()
         {
-            this.Contrato_Acceso = new HashSet<Contrato_Acceso>();
             this.Contrato_Cartelera = new HashSet<Contrato_Cartelera>();
             this.Contrato_Cartelera_Imagen = new HashSet<Contrato_Cartelera_Imagen>();
-            this.Contrato_Contacto = new HashSet<Contrato_Contacto>();
             this.Contrato_Correos_Seguricel = new HashSet<Contrato_Correos_Seguricel>();
             this.Contrato_Correos_Seguricel_Destinatarios = new HashSet<Contrato_Correos_Seguricel_Destinatarios>();
             this.Contrato_Dispositivo_Actualizacion = new HashSet<Contrato_Dispositivo_Actualizacion>();
@@ -57,11 +55,13 @@ namespace Seguricel3
             this.Ticket = new HashSet<Ticket>();
             this.Usuario_Bitacora = new HashSet<Usuario_Bitacora>();
             this.Vendedor_Movimiento = new HashSet<Vendedor_Movimiento>();
+            this.Contrato_Contacto = new HashSet<Contrato_Contacto>();
+            this.Contrato_Acceso = new HashSet<Contrato_Acceso>();
         }
     
         public System.Guid IdContrato { get; set; }
         public int IdTipoContrato { get; set; }
-        public long NroContrato { get; set; }
+        public string NroContrato { get; set; }
         public string Contratante { get; set; }
         public string NombreCompleto { get; set; }
         public string Direccion { get; set; }
@@ -103,20 +103,16 @@ namespace Seguricel3
         public bool DetieneSMS_JC { get; set; }
         public int DiaCorte { get; set; }
         public bool AutoGestion_Aptos { get; set; }
-        public byte[] ImagenEdificio { get; set; }
+        public string ImagenEdificio { get; set; }
         public byte[] IdRedMiwi { get; set; }
         public int IdEstadoContrato { get; set; }
         public System.Data.Entity.Spatial.DbGeography UbicacionGeografica { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato_Acceso> Contrato_Acceso { get; set; }
-        public virtual Contrato_Administradora Contrato_Administradora { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Cartelera> Contrato_Cartelera { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Cartelera_Imagen> Contrato_Cartelera_Imagen { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato_Contacto> Contrato_Contacto { get; set; }
+        public virtual Contrato_Administradora Contrato_Administradora { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Correos_Seguricel> Contrato_Correos_Seguricel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -133,7 +129,6 @@ namespace Seguricel3
         public virtual ICollection<Contrato_Dispositivo_Estadistica> Contrato_Dispositivo_Estadistica { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Estacionamiento> Contrato_Estacionamiento { get; set; }
-        public virtual EstadoContrato EstadoContrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_TipoArea_Evento> Contrato_TipoArea_Evento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -159,7 +154,6 @@ namespace Seguricel3
         public virtual ICollection<Contrato_Ronda> Contrato_Ronda { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Ronda_Punto> Contrato_Ronda_Punto { get; set; }
-        public virtual TipoContrato TipoContrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Unidad_Anuncio> Contrato_Unidad_Anuncio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -194,5 +188,9 @@ namespace Seguricel3
         public virtual ICollection<Usuario_Bitacora> Usuario_Bitacora { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vendedor_Movimiento> Vendedor_Movimiento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contrato_Contacto> Contrato_Contacto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contrato_Acceso> Contrato_Acceso { get; set; }
     }
 }

@@ -61,6 +61,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Los caracteres indicados de la imagen no son válidos.
+        /// </summary>
+        public static string CaptchaErrorMessge {
+            get {
+                return ResourceManager.GetString("CaptchaErrorMessge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escriba los caracteres de la imagen.
+        /// </summary>
+        public static string CaptchaLabel {
+            get {
+                return ResourceManager.GetString("CaptchaLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debe escribir los caracteres que aparecen en la imagen.
+        /// </summary>
+        public static string CaptchaRequiredErrorMessage {
+            get {
+                return ResourceManager.GetString("CaptchaRequiredErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cerrar Sesión.
         /// </summary>
         public static string CloseSessionLabel {
@@ -120,6 +147,15 @@ namespace Resources {
         public static string EmailAddressErrorMessge {
             get {
                 return ResourceManager.GetString("EmailAddressErrorMessge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo electrónico indicado no existe.
+        /// </summary>
+        public static string EmailAddressNotExistMessge {
+            get {
+                return ResourceManager.GetString("EmailAddressNotExistMessge", resourceCulture);
             }
         }
         
@@ -264,6 +300,15 @@ namespace Resources {
         public static string RememberBrowserLabel {
             get {
                 return ResourceManager.GetString("RememberBrowserLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error interno enviando correo. Por favor intente mas tarde.
+        /// </summary>
+        public static string SendEmailMessage {
+            get {
+                return ResourceManager.GetString("SendEmailMessage", resourceCulture);
             }
         }
         

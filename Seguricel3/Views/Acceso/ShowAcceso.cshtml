@@ -1,0 +1,119 @@
+﻿@model Seguricel3.Models.AccesoViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<div>
+    @using (Html.BeginForm("EditAcceso", "Acceso", FormMethod.Post, htmlAttributes: new { id = "frmPpal" }))
+    {
+        @Html.HiddenFor(m => m.IdContrato)
+        @Html.HiddenFor(m => m.IdPais)
+        <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
+            <ul class="tabs-holder">
+                <li class="active"><a href="#tab_mailings">Edición</a></li>
+            </ul>
+            <div class="tabs-content form-actions">
+                <div class="tab-panel" id="tab_mailings">
+                    <div class="tab-panel-group">
+                        <div class="tab-group-content">
+                            @Html.ActionLlinkWithSpan("<span class=\"icon mif-backward\"></span>" + Resources.EtiquetasResource.labelBackLink, "Index", "Acceso", new { IdPais = Model.IdPais, IdContrato = Model.IdContrato }, new { @class = "fluent-big-button", @style = "text-decoration: none", onclick = "showDialog('#dialogoRegistro');" })
+                        </div>
+                        <div class="tab-group-caption">Edición</div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div style="border:1px solid #CCC; width:100%;">
+                <div class="form-horizontal padding10">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Nombre, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Entrada, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.Entrada, htmlAttributes: new { disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Salida, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.Salida, htmlAttributes: new { disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Principales, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.Principales, htmlAttributes: new { disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Secundarios, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.Secundarios, htmlAttributes: new { disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Visitante, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.Visitante, htmlAttributes: new { disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Peatonal, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.Peatonal, htmlAttributes: new { disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Vehicular, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.Vehicular, htmlAttributes: new { disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.RFID, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.RFID, htmlAttributes: new { disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.JuntaCondominio, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.JuntaCondominio, htmlAttributes: new { disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Servicio, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.Servicio, htmlAttributes: new { disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PlantillasPersona, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.PlantillasPersona, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                            @Html.ValidationMessageFor(m => m.PlantillasPersona, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

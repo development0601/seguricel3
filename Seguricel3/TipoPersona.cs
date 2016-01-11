@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class TipoPersona
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoPersona()
-        {
-            this.Contrato_Unidad_Persona = new HashSet<Contrato_Unidad_Persona>();
-        }
-    
+        public string Culture { get; set; }
         public int IdTipoPersona { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato_Unidad_Persona> Contrato_Unidad_Persona { get; set; }
     }
 }

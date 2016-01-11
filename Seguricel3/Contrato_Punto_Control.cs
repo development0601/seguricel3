@@ -27,8 +27,8 @@ namespace Seguricel3
         public float Altitud { get; set; }
         public string IpDispositivo { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Ronda_Punto> Contrato_Ronda_Punto { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

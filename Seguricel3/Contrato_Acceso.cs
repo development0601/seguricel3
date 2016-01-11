@@ -27,24 +27,22 @@ namespace Seguricel3
         public System.Guid IdContrato { get; set; }
         public System.Guid IdAcceso { get; set; }
         public string Nombre { get; set; }
-        public string Descripcion { get; set; }
-        public bool Invitados { get; set; }
         public int NroPersonas { get; set; }
         public bool JuntaCondominio { get; set; }
-        public string IdTipoPlantilla { get; set; }
         public int CantidadSecundarios { get; set; }
         public int Plantillas_X_Persona { get; set; }
         public int Plantillas_Emergencia { get; set; }
         public byte[] IdSubRed { get; set; }
         public bool Entrada { get; set; }
         public bool Salida { get; set; }
-        public bool Propietario { get; set; }
-        public bool Visitante { get; set; }
         public bool Personal { get; set; }
         public bool Peatonal { get; set; }
         public bool Vehicular { get; set; }
         public bool Servicio { get; set; }
         public bool RFID { get; set; }
+        public bool Principales { get; set; }
+        public bool Secundarios { get; set; }
+        public bool Visitante { get; set; }
     
         public virtual Contrato Contrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

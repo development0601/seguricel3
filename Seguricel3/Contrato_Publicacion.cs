@@ -18,11 +18,10 @@ namespace Seguricel3
         public System.Guid IdPublicacion { get; set; }
         public string Nombre { get; set; }
         public string Ruta { get; set; }
-        public System.Guid IdUsuario { get; set; }
+        public System.Guid IdUnidad { get; set; }
         public int IdEstadoPublicacion { get; set; }
     
         public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Usuario Contrato_Usuario { get; set; }
-        public virtual EstadoPublicacion EstadoPublicacion { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
     }
 }

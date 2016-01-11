@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class EstadoVenta
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EstadoVenta()
-        {
-            this.Vendedor_Movimiento = new HashSet<Vendedor_Movimiento>();
-        }
-    
+        public string Culture { get; set; }
         public int IdEstadoVenta { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Vendedor_Movimiento> Vendedor_Movimiento { get; set; }
     }
 }

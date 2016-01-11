@@ -29,9 +29,9 @@ namespace Seguricel3
         public string NombreEmisor { get; set; }
         public string NombreReceptor { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
         public virtual Contrato_Unidad_Persona Contrato_Unidad_Persona { get; set; }
         public virtual Contrato_Unidad_Persona_AlarmaSilente Contrato_Unidad_Persona_AlarmaSilente { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
     }
 }

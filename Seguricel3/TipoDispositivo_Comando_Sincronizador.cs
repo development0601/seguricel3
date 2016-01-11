@@ -14,6 +14,7 @@ namespace Seguricel3
     
     public partial class TipoDispositivo_Comando_Sincronizador
     {
+        public string Culture { get; set; }
         public int IdTipoDispositivo { get; set; }
         public int IdComando { get; set; }
         public string Comando { get; set; }

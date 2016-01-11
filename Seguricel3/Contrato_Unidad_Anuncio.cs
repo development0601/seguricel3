@@ -25,6 +25,5 @@ namespace Seguricel3
     
         public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Unidad Contrato_Unidad { get; set; }
-        public virtual TipoAnuncio TipoAnuncio { get; set; }
     }
 }

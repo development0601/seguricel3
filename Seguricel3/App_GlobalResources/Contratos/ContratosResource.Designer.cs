@@ -169,6 +169,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Gestionado por Contratante.
+        /// </summary>
+        public static string LabelAutoGestion {
+            get {
+                return ResourceManager.GetString("LabelAutoGestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Autogestion de Apartamentos.
         /// </summary>
         public static string LabelAutoGestion_Aptos {
@@ -286,7 +295,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Dirección.
+        ///   Busca una cadena traducida similar a Ubicación.
         /// </summary>
         public static string LabelDireccion {
             get {
@@ -345,6 +354,24 @@ namespace Resources {
         public static string LabelImagenEdificio {
             get {
                 return ResourceManager.GetString("LabelImagenEdificio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Latitud.
+        /// </summary>
+        public static string LabelLatitud {
+            get {
+                return ResourceManager.GetString("LabelLatitud", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Longitud.
+        /// </summary>
+        public static string LabelLongitud {
+            get {
+                return ResourceManager.GetString("LabelLongitud", resourceCulture);
             }
         }
         
@@ -561,6 +588,24 @@ namespace Resources {
         public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Información del Contrato.
+        /// </summary>
+        public static string ShowHeaderPage {
+            get {
+                return ResourceManager.GetString("ShowHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Información del Contrato.
+        /// </summary>
+        public static string ShowPageTitle {
+            get {
+                return ResourceManager.GetString("ShowPageTitle", resourceCulture);
             }
         }
         

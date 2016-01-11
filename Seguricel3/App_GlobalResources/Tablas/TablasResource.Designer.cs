@@ -61,6 +61,69 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Ciudades.
+        /// </summary>
+        public static string CiudadHeaderPage {
+            get {
+                return ResourceManager.GetString("CiudadHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Ciudades.
+        /// </summary>
+        public static string CiudadPageTitle {
+            get {
+                return ResourceManager.GetString("CiudadPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Relación de Ciudades.
+        /// </summary>
+        public static string CiudadTableHeader {
+            get {
+                return ResourceManager.GetString("CiudadTableHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nuevo Ciudad en el Estado.
+        /// </summary>
+        public static string CreateCiudadHeaderPage {
+            get {
+                return ResourceManager.GetString("CreateCiudadHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Nueva Ciudad.
+        /// </summary>
+        public static string CreateCiudadPageTitle {
+            get {
+                return ResourceManager.GetString("CreateCiudadPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nuevo Estado en el País.
+        /// </summary>
+        public static string CreateEstadoHeaderPage {
+            get {
+                return ResourceManager.GetString("CreateEstadoHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Nuevo Estado.
+        /// </summary>
+        public static string CreateEstadoPageTitle {
+            get {
+                return ResourceManager.GetString("CreateEstadoPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nuevo Grupo.
         /// </summary>
         public static string CreateGrupoHeaderPage {
@@ -79,7 +142,25 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Nuevo SubGrupo.
+        ///   Busca una cadena traducida similar a Nuevo Pais.
+        /// </summary>
+        public static string CreatePaisHeaderPage {
+            get {
+                return ResourceManager.GetString("CreatePaisHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Nuevo Pais.
+        /// </summary>
+        public static string CreatePaisPageTitle {
+            get {
+                return ResourceManager.GetString("CreatePaisPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nuevo SubGrupo en el Grupo.
         /// </summary>
         public static string CreateSubGrupoHeaderPage {
             get {
@@ -223,24 +304,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Nuevo Tipo de Contrato.
-        /// </summary>
-        public static string CreateTipoContratoHeaderPage {
-            get {
-                return ResourceManager.GetString("CreateTipoContratoHeaderPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Seguricel - Nuevo Tipo de Contrato.
-        /// </summary>
-        public static string CreateTipoContratoPageTitle {
-            get {
-                return ResourceManager.GetString("CreateTipoContratoPageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Nuevo Tipo de Dispositivo.
         /// </summary>
         public static string CreateTipoDispositivoHeaderPage {
@@ -367,6 +430,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Actualizar Ciudad en el Estado.
+        /// </summary>
+        public static string EditCiudadHeaderPage {
+            get {
+                return ResourceManager.GetString("EditCiudadHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Actualizar Ciudad.
+        /// </summary>
+        public static string EditCiudadPageTitle {
+            get {
+                return ResourceManager.GetString("EditCiudadPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Actualizar Estado en el País.
+        /// </summary>
+        public static string EditEstadoHeaderPage {
+            get {
+                return ResourceManager.GetString("EditEstadoHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Actualizar Estado.
+        /// </summary>
+        public static string EditEstadoPageTitle {
+            get {
+                return ResourceManager.GetString("EditEstadoPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Actualizar Grupo.
         /// </summary>
         public static string EditGrupoHeaderPage {
@@ -385,7 +484,25 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Actualizar SubGrupo.
+        ///   Busca una cadena traducida similar a Actualizar Pais.
+        /// </summary>
+        public static string EditPaisHeaderPage {
+            get {
+                return ResourceManager.GetString("EditPaisHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Actualizar Pais.
+        /// </summary>
+        public static string EditPaisPageTitle {
+            get {
+                return ResourceManager.GetString("EditPaisPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Actualizar SubGrupo del Grupo .
         /// </summary>
         public static string EditSubGrupoHeaderPage {
             get {
@@ -529,24 +646,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Actualizar Tipo de Contrato.
-        /// </summary>
-        public static string EditTipoContratoHeaderPage {
-            get {
-                return ResourceManager.GetString("EditTipoContratoHeaderPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Seguricel - Actualizar Tipo de Contrato.
-        /// </summary>
-        public static string EditTipoContratoPageTitle {
-            get {
-                return ResourceManager.GetString("EditTipoContratoPageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Actualizar Tipo de Dispositivo.
         /// </summary>
         public static string EditTipoDispositivoHeaderPage {
@@ -673,6 +772,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Estados.
+        /// </summary>
+        public static string EstadoHeaderPage {
+            get {
+                return ResourceManager.GetString("EstadoHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Estados.
+        /// </summary>
+        public static string EstadoPageTitle {
+            get {
+                return ResourceManager.GetString("EstadoPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Relación de Estados.
+        /// </summary>
+        public static string EstadoTableHeader {
+            get {
+                return ResourceManager.GetString("EstadoTableHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Grupos.
         /// </summary>
         public static string GrupoHeaderPage {
@@ -700,6 +826,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Activa.
+        /// </summary>
+        public static string labelActivoCiudad {
+            get {
+                return ResourceManager.GetString("labelActivoCiudad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Activo.
+        /// </summary>
+        public static string labelActivoEstado {
+            get {
+                return ResourceManager.GetString("labelActivoEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Activo.
+        /// </summary>
+        public static string labelActivoPais {
+            get {
+                return ResourceManager.GetString("labelActivoPais", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ciudad.
+        /// </summary>
+        public static string labelCiudad {
+            get {
+                return ResourceManager.GetString("labelCiudad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Código.
         /// </summary>
         public static string labelCodigoGrupo {
@@ -718,11 +880,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Estado.
+        /// </summary>
+        public static string labelEstado {
+            get {
+                return ResourceManager.GetString("labelEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Código.
         /// </summary>
         public static string labelId {
             get {
                 return ResourceManager.GetString("labelId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Latitud.
+        /// </summary>
+        public static string labelLatitud {
+            get {
+                return ResourceManager.GetString("labelLatitud", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Longitud.
+        /// </summary>
+        public static string labelLongitud {
+            get {
+                return ResourceManager.GetString("labelLongitud", resourceCulture);
             }
         }
         
@@ -738,9 +927,45 @@ namespace Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Nombre.
         /// </summary>
+        public static string labelNombreCiudad {
+            get {
+                return ResourceManager.GetString("labelNombreCiudad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cultura.
+        /// </summary>
+        public static string labelNombreCulture {
+            get {
+                return ResourceManager.GetString("labelNombreCulture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        public static string labelNombreEstado {
+            get {
+                return ResourceManager.GetString("labelNombreEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
         public static string labelNombreGrupo {
             get {
                 return ResourceManager.GetString("labelNombreGrupo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        public static string labelNombrePais {
+            get {
+                return ResourceManager.GetString("labelNombrePais", resourceCulture);
             }
         }
         
@@ -754,11 +979,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a País.
+        /// </summary>
+        public static string labelPais {
+            get {
+                return ResourceManager.GetString("labelPais", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Grupo.
         /// </summary>
         public static string labelSubGrupo_IdGrupo {
             get {
                 return ResourceManager.GetString("labelSubGrupo_IdGrupo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Paises.
+        /// </summary>
+        public static string PaisHeaderPage {
+            get {
+                return ResourceManager.GetString("PaisHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Paises.
+        /// </summary>
+        public static string PaisPageTitle {
+            get {
+                return ResourceManager.GetString("PaisPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Relación de Paises.
+        /// </summary>
+        public static string PaisTableHeader {
+            get {
+                return ResourceManager.GetString("PaisTableHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Por favor presione el botón para obtener las coodenadas.
+        /// </summary>
+        public static string RequiredPressButton {
+            get {
+                return ResourceManager.GetString("RequiredPressButton", resourceCulture);
             }
         }
         

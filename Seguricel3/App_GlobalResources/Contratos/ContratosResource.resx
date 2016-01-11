@@ -153,6 +153,9 @@
   <data name="LabelAlarmaSilente" xml:space="preserve">
     <value>Alarma Silente</value>
   </data>
+  <data name="LabelAutoGestion" xml:space="preserve">
+    <value>Gestionado por Contratante</value>
+  </data>
   <data name="LabelAutoGestion_Aptos" xml:space="preserve">
     <value>Autogestion de Apartamentos</value>
   </data>
@@ -193,7 +196,7 @@
     <value>Detiene SMS para Junta de Condominio</value>
   </data>
   <data name="LabelDireccion" xml:space="preserve">
-    <value>Dirección</value>
+    <value>Ubicación</value>
   </data>
   <data name="LabelEmergenciaVecinal" xml:space="preserve">
     <value>Emergencia Vecinal</value>
@@ -212,6 +215,12 @@
   </data>
   <data name="LabelImagenEdificio" xml:space="preserve">
     <value>Imagen del Edificio</value>
+  </data>
+  <data name="LabelLatitud" xml:space="preserve">
+    <value>Latitud</value>
+  </data>
+  <data name="LabelLongitud" xml:space="preserve">
+    <value>Longitud</value>
   </data>
   <data name="LabelMaximoInvitados" xml:space="preserve">
     <value>Total Invitados por Unidad</value>
@@ -284,6 +293,12 @@
   </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Seguricel - Mantenimiento de Contratos</value>
+  </data>
+  <data name="ShowHeaderPage" xml:space="preserve">
+    <value>Información del Contrato</value>
+  </data>
+  <data name="ShowPageTitle" xml:space="preserve">
+    <value>Seguricel - Información del Contrato</value>
   </data>
   <data name="TableHeader" xml:space="preserve">
     <value>Relación de Contratos</value>

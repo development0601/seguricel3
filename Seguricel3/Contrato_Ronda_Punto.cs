@@ -21,7 +21,7 @@ namespace Seguricel3
         public int DistanciaMts { get; set; }
         public int TiempoMin { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Punto_Control Contrato_Punto_Control { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

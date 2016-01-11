@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Seguricel3.Models.PaisViewModel>
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<script src="~/Scripts/Seguricel-DataGrid.js"></script>
+
+<div>
+    @Html.ActionLink(Resources.EtiquetasResource.labelNewLink, "CreatePais", "Tablas", htmlAttributes: new { @class = "btn btn-default place-right", onclick = "showDialog('#dialogoRegistro');" })
+</div>
+<div style="margin-top:60px; padding-top: 20px; border-top: 1px solid #000; width: 95%;">
+    <table id="dataTable" class="dataTable" cellspacing="0" style="margin: auto;  width:100%; font-size: 12pt;">
+        <thead>
+            <tr>
+                <th style="text-align:center; width: 55%;">
+                    @Html.DisplayNameFor(m => m.Nombre)
+                </th>
+                <th style="vertical-align: middle; width: 15%;">
+                    @Html.DisplayNameFor(m => m.Activo)
+                </th>
+                <th style="vertical-align: middle; width: 10%;">
+                    @Html.DisplayNameFor(m => m.Latitud)
+                </th>
+                <th style="vertical-align: middle; width: 10%;">
+                    @Html.DisplayNameFor(m => m.Longitud)
+                </th>
+                <th style="width: 5%;"></th>
+                <th style="width: 5%;"></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Nombre)
+                    </td>
+                    <td style="vertical-align: middle;">
+                        @Html.DisplayFor(m => item.Activo)
+                    </td>
+                    <td style="vertical-align: middle;">
+                        @Html.DisplayFor(m => item.Latitud)
+                    </td>
+                    <td style="vertical-align: middle;">
+                        @Html.DisplayFor(m => item.Longitud)
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="@Url.Action("EditPais", "Tablas", routeValues: new { id = item.Id })" onclick = "showDialog('#dialogoRegistro');"><span class="mif-pencil" title=@Resources.EtiquetasResource.labelEditLink></span></a>
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="@Url.Action("DeletePais", "Tablas", routeValues: new { id = item.Id })" onclick="return confirm('@item.Nombre @Resources.EtiquetasResource.DeleteConfirmMessage');"><span class="mif-bin" title=@Resources.EtiquetasResource.labelDeleteLink></span></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

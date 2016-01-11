@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class EstadoPublicacion
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EstadoPublicacion()
-        {
-            this.Contrato_Publicacion = new HashSet<Contrato_Publicacion>();
-        }
-    
+        public string Culture { get; set; }
         public int IdEstadoPublicacion { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato_Publicacion> Contrato_Publicacion { get; set; }
     }
 }

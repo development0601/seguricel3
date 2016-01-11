@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Seguricel3.Models.ModuloViewModel>
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<script src="~/Scripts/Seguricel-DataGrid.js"></script>
+
+<div>
+    @Html.ActionLink(Resources.EtiquetasResource.labelNewLink, "CreateModulo", "Seguridad", htmlAttributes: new { @class = "btn btn-default place-right" })
+</div>
+<div style="margin-top:60px; padding-top: 20px; border-top: 1px solid #000; width: 95%;">
+    <table id="dataTable" class="dataTable" cellspacing="0" style="margin: auto;  width:100%; font-size: 12pt;">
+        <thead>
+            <tr>
+                <th style="text-align:center; width: 30%;">
+                    @Html.DisplayNameFor(m => m.ModuloPadre)
+                </th>
+                <th style="vertical-align: middle; width: 40%;">
+                    @Html.DisplayNameFor(m => m.Nombre)
+                </th>
+                <th style="text-align:center; width: 15%;">
+                    @Html.DisplayNameFor(m => m.TipoElemento)
+                </th>
+                <th style="text-align:center; width: 5%;">
+                    @Html.DisplayNameFor(m => m.Activo)
+                </th>
+                <th style="width: 5%;"></th>
+                <th style="width: 5%;"></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="6">&nbsp;</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.ModuloPadre)
+                    </td>
+                    <td style="vertical-align: middle;">
+                        @Html.DisplayFor(m => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.TipoElemento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Activo)
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="@Url.Action("EditModulo", "Seguridad", routeValues: new { id = item.IdModulo })"><span class="mif-pencil" title=@Resources.EtiquetasResource.labelEditLink></span></a>
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="@Url.Action("DeleteModulo", "Seguridad", routeValues: new { id = item.IdModulo })" onclick="return confirm('@item.Nombre @Resources.EtiquetasResource.DeleteConfirmMessage');"><span class="mif-bin" title=@Resources.EtiquetasResource.labelDeleteLink></span></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

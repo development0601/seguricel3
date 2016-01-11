@@ -32,15 +32,14 @@ namespace Seguricel3
         public System.Guid IdTicketPadre { get; set; }
         public System.Guid IdUsuarioRegistra { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
         public virtual Contrato_Unidad_Persona Contrato_Unidad_Persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ticket> Ticket1 { get; set; }
         public virtual Ticket Ticket2 { get; set; }
-        public virtual TipoTicket TipoTicket { get; set; }
         public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TicketSeguimiento> TicketSeguimiento { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
     }
 }

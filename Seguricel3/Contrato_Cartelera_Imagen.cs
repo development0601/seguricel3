@@ -21,7 +21,7 @@ namespace Seguricel3
         public System.DateTime FechaPublicacion { get; set; }
         public byte[] Imagen { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Cartelera Contrato_Cartelera { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

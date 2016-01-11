@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class TipoMensaje
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoMensaje()
-        {
-            this.Contrato_Mensaje = new HashSet<Contrato_Mensaje>();
-        }
-    
+        public string Culture { get; set; }
         public int IdTipoMensaje { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato_Mensaje> Contrato_Mensaje { get; set; }
     }
 }

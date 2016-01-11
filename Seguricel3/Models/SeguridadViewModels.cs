@@ -9,80 +9,145 @@ using System.Web.Mvc;
 namespace Seguricel3.Models
 {
 
-    public class UsuarioMasterDetailModel
-    {
-        public UsuarioViewModel SelectedUsuario { get; set; }
-        public Guid SelectedUsuarioId { get; set; }
-        public List<UsuarioViewModel> Usuarios { get; set; }
-        public string LoginSubtitle { get { return Resources.LoginResource.LoginSubTitle; } }
-        public string HembraLabel { get { return Resources.PerfilResource.LabelHembra; } }
-        public string VaronLabel { get { return Resources.PerfilResource.LabelVaron; } }
-        public string DatosPersonalesHeader { get { return Resources.PerfilResource.HeaderDatosPersonales; } }
-        public string SeguridadHeader { get { return Resources.PerfilResource.HeaderSeguridad; } }
-        public string HeaderColumn1 { get { return Resources.UsuarioSeguridadResource.HeaderColumna1; } }
-        public string HeaderColumn2 { get { return Resources.UsuarioSeguridadResource.HeaderColumna2; } }
-        public string HeaderColumn3 { get { return Resources.UsuarioSeguridadResource.HeaderColumna3; } }
-        public string HeaderColumn4 { get { return Resources.UsuarioSeguridadResource.HeaderColumna4; } }
-        public string HeaderColumn5 { get { return Resources.UsuarioSeguridadResource.HeaderColumna5; } }
-        public string HeaderColumn6 { get { return Resources.UsuarioSeguridadResource.HeaderColumna6; } }
-        public string HeaderListSecction { get { return Resources.UsuarioSeguridadResource.HeaderListSecction; } }
-        public string LabelNewButton { get { return Resources.EtiquetasResource.labelNewLink; } }
-        public string LabelEditButton { get { return Resources.EtiquetasResource.labelEditLink; } }
-
-    }
     public class UsuarioViewModel
     {
-        [Display(Name = "LabelEmail", ResourceType = typeof(Resources.PerfilResource))]
+        [Display(Name = "labelEmail", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
         [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
         [EmailAddress(ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), ErrorMessageResourceName = "TypeValueErrorMessage")]
-        public string Email { get; set; }
-        [Display(Name = "LabelPassword", ResourceType = typeof(Resources.PerfilResource))]
+        public string EmailUsuario { get; set; }
+        [Display(Name = "labelPassword", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
         [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
         [StringLength(100, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), MinimumLength = 6)]
         [DataType(DataType.Password, ErrorMessageResourceName = "TypeValueErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
-        public string Password { get; set; }
-        [Display(Name = "LabelConfirmarContraseña", ResourceType = typeof(Resources.PerfilResource))]
+        public string PasswordUsuario { get; set; }
+        [Display(Name = "labelConfirmarContraseña", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
         [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
         [StringLength(100, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), MinimumLength = 6)]
         [DataType(DataType.Password, ErrorMessageResourceName = "TypeValueErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
-        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), ErrorMessageResourceName = "ConfirmarContraseñaCompareErrorMessage")]
-        public string ConfirmPassword { get; set; }
-        [Display(Name = "LabelNombre", ResourceType = typeof(Resources.PerfilResource))]
+        [System.ComponentModel.DataAnnotations.Compare("PasswordUsuario", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), ErrorMessageResourceName = "ConfirmarContraseñaCompareErrorMessage")]
+        public string ConfirmPasswordUsuario { get; set; }
+        [Display(Name = "labelNombre", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
         [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
         [StringLength(500, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), MinimumLength = 10)]
         public string Nombre { get; set; }
         [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
-        [Display(Name = "LabelNivelUsuario", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        [Display(Name = "labelTipoUsuario", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
         public int IdTipoUsuario { get; set; }
-        public IEnumerable<SelectListItem> NivelesUsuario { get; set; }
-        [Display(Name = "LabelNivelUsuario", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        [Display(Name = "labelTipoUsuario", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
         public string NivelUsuario { get; set; }
-        [Display(Name = "LabelFechaRegistro", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
-        public DateTime FechaRegistro { get; set; }
-        [Display(Name = "LabelFechaUltimaConexion", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        [Display(Name = "labelFechaUltimaConexion", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        [DisplayFormat(DataFormatString = "{0:g}", ApplyFormatInEditMode = true, ConvertEmptyStringToNull = true, NullDisplayText = "")]
         public DateTime FechaUltimaConexion { get; set; }
-        [Display(Name = "LabelFechaCambioEstado", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        [Display(Name = "labelFechaCambioEstado", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        [DisplayFormat(DataFormatString = "{0:g}", ApplyFormatInEditMode = true, ConvertEmptyStringToNull = true, NullDisplayText = "")]
         public DateTime FechaCambioEstado { get; set; }
-        [Display(Name = "LabelEstadoUsuario", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
-        public eEstadoUsuario Estado { get; set; }
-        [Display(Name = "LabelEstadoUsuario", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        [Display(Name = "labelEstadoUsuario", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        public int Estado { get; set; }
+        [Display(Name = "labelEstadoUsuario", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
         public string EstadoUsuario { get; set; }
         public Guid Id { get; set; }
-        public string UserTimeZone { get; set; }
-        public string ValidationSummaryText { get { return Resources.LoginResource.ValidationSummaryText; } }
-        private string _HeaderDetailSection;
-        public string HeaderDetailSection
+
+        public UsuarioViewModel()
         {
-            get { return _HeaderDetailSection; }
-            set { _HeaderDetailSection = value; }
+            this.EmailUsuario = string.Empty;
+            this.ConfirmPasswordUsuario = string.Empty;
+            this.Estado = (int)eEstadoUsuario.Activo;
+            this.EstadoUsuario = eEstadoUsuario.Activo.ToString();
+            this.FechaCambioEstado = DateTime.UtcNow;
+            this.IdTipoUsuario = 0;
+            this.Nombre = string.Empty;
+            this.PasswordUsuario = string.Empty;
         }
-        public string SaveButtonText { get { return Resources.UsuarioSeguridadResource.SaveButtonText; } }
-        public string LabelDeleteButton { get { return Resources.EtiquetasResource.labelDeleteLink; } }
-        public string LabelBackButton { get { return Resources.EtiquetasResource.labelBackLink; } }
     }
-    public class EstadoUsuarioViewModel
+    public class UsuarioContratoViewModel
     {
-        public int Id { get; set; }
-        public string Nombre { get; set; }
+        [Display(Name = "labelUsuario", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        public Guid IdUsuario { get; set; }
+        [Display(Name = "labelContrato", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        public Guid IdContrato { get; set; }
+        [Display(Name = "labelUnidad", ResourceType = typeof(Resources.UsuarioSeguridadResource))]
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        public Guid IdUnidad { get; set; }
+        [Display(Name = "labelPais", ResourceType = typeof(Resources.TablasResource))]
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        public int IdPais { get; set; }
+        [Display(Name = "labelEstado", ResourceType = typeof(Resources.TablasResource))]
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        public int IdEstado { get; set; }
+        [Display(Name = "labelCiudad", ResourceType = typeof(Resources.TablasResource))]
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        public int IdCiudad { get; set; }
     }
+    public class ModuloViewModel
+    {
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        [Display(Name = "labelModulo", ResourceType = typeof(Resources.ModuloResource))]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessageResourceName = "RegularExpressionMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        public long IdModulo { get; set; }
+        [Display(Name = "labelModuloPadre", ResourceType = typeof(Resources.ModuloResource))]
+        public Nullable<long> IdModuloPadre { get; set; }
+        [Display(Name = "labelModuloPadre", ResourceType = typeof(Resources.ModuloResource))]
+        public string ModuloPadre { get; set; }
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        [Display(Name = "labelModuloNombre", ResourceType = typeof(Resources.ModuloResource))]
+        [StringLength(50, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        public string Nombre { get; set; }
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        [Display(Name = "labelModuloTipoElemento", ResourceType = typeof(Resources.ModuloResource))]
+        public int IdTipoElemento { get; set; }
+        [Display(Name = "labelModuloTipoElemento", ResourceType = typeof(Resources.ModuloResource))]
+        public string TipoElemento { get; set; }
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        [Display(Name = "labelModuloController", ResourceType = typeof(Resources.ModuloResource))]
+        [StringLength(50, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        public string Controller { get; set; }
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        [Display(Name = "labelModuloAction", ResourceType = typeof(Resources.ModuloResource))]
+        [StringLength(50, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
+        public string Action { get; set; }
+        [Display(Name = "labelModuloActivo", ResourceType = typeof(Resources.ModuloResource))]
+        public bool Activo { get; set; }
+
+        public ModuloViewModel()
+        {
+            this.Action = string.Empty;
+            this.Activo = false;
+            this.Controller = string.Empty;
+            this.IdModulo = 0;
+            this.IdModuloPadre = 0;
+            this.IdTipoElemento = 0;
+            this.ModuloPadre = string.Empty;
+            this.Nombre= string.Empty;
+            this.TipoElemento = string.Empty;
+        }
+
+    }
+    public class RolesViewModel
+    {
+        public int RolID { get; set; }
+        public IEnumerable<SelectListItem> Roles { get; set; }
+        public bool showModulos { get; set; }
+        public List<RolViewModel> Modulos { get; set; }
+
+    }
+    public class RolViewModel
+    {
+        [Display(Name = "labelModulo", ResourceType = typeof(Resources.RolesResource))]
+        public long IdModulo { get; set; }
+        [Display(Name = "labelModulo", ResourceType = typeof(Resources.RolesResource))]
+        public string Modulo { get; set; }
+        [Display(Name = "labelModuloPadre", ResourceType = typeof(Resources.ModuloResource))]
+        public string ModuloPadre { get; set; }
+        [Display(Name = "labelTipoUsuario", ResourceType = typeof(Resources.RolesResource))]
+        public int IdTipoUsuario { get; set; }
+        [Display(Name = "labelFechaAsignación", ResourceType = typeof(Resources.RolesResource))]
+        [DisplayFormat(DataFormatString = "{0:g}", ApplyFormatInEditMode = true, ConvertEmptyStringToNull = true, NullDisplayText = "")]
+        public Nullable<DateTime> FechaAsignacion { get; set; }
+        [Display(Name = "labelAsignado", ResourceType = typeof(Resources.RolesResource))]
+        public bool Asignado { get; set; }
+    }
+
+
 }

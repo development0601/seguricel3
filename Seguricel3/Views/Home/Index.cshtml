@@ -1,134 +1,65 @@
-﻿@using Seguricel3.Models;
-@using System.Globalization;
+﻿@using System.Globalization;
 @using Resources;
-
-@model LoginViewModel
-
 @{
     ViewBag.Title = HomeResource.AppTitle;
 }
 
 <script type="text/javascript">
-    // Original script by Josh Fraser (http://www.onlineaspect.com)
-    // Some customization applied in this script code
-    $(document).ready(function () {
-        var minutes;
-        var rightNow = new Date();
-        var jan1 = new Date(rightNow.getFullYear(), 0, 1, 0, 0, 0, 0);  // jan 1st
-        var june1 = new Date(rightNow.getFullYear(), 6, 1, 0, 0, 0, 0); // june 1st
-        var temp = jan1.toGMTString();
-        var jan2 = new Date(temp.substring(0, temp.lastIndexOf(" ") - 1));
-        temp = june1.toGMTString();
-        var june2 = new Date(temp.substring(0, temp.lastIndexOf(" ") - 1));
-        var std_time_offset = (jan1 - jan2) / (1000 * 60 * 60);
-        var daylight_time_offset = (june1 - june2) / (1000 * 60 * 60);
-        var dst;
-        if (std_time_offset == daylight_time_offset) {
-            dst = "0"; // daylight savings time is NOT observed
-        } else {
-            // positive is southern, negative is northern hemisphere
-            var hemisphere = std_time_offset - daylight_time_offset;
-            if (hemisphere >= 0)
-                std_time_offset = daylight_time_offset;
-            dst = "1"; // daylight savings time is observed
-        }
-        var i;
-        // Here set the value of hidden field to the ClientTimeZone.
-        minutes = convert(std_time_offset);
-        $('#ClientTimeZone').val(minutes);
-    });
-    function convert(value) {
-        var hours = parseInt(value);
-        value -= parseInt(value);
-        value *= 60;
-        var mins = parseInt(value);
-        value -= parseInt(value);
-        value *= 60;
-        var secs = parseInt(value);
-        var display_hours = hours;
-        var display_mins = mins;
-        // handle GMT case (00:00)
-        if (hours == 0) {
-            display_hours = "00";
-        } else if (hours > 0) {
-            // add a plus sign and perhaps an extra 0
-            display_hours = (hours < 10) ? "+0" + hours : "+" + hours;
-        } else {
-            // add an extra 0 if needed
-            display_hours = (hours > -10) ? "-0" + Math.abs(hours) : hours;
-        }
-        if (mins == 0) {
-            display_mins = "00";
-        } else if (mins > 0) {
-            // add a plus sign and perhaps an extra 0
-            display_mins = (mins < 10) ? "+0" + mins : "+" + mins;
-        } else {
-            // add an extra 0 if needed
-            display_mins = (mins > -10) ? "-0" + Math.abs(mins) : mins;
-        }
+    @*$(document).ready(function () {
+        $("#submitButton").click(function () {
+            $.ajax({
+                url: "@Url.Action("Login", "Account")",
+                type: "post",
+                data: $("form").serialize(), //if you need to post Model data, use this
+                success: function (result) {
+                    $("#showLogin").html(result);
+                }
+            });
+        });
+    });*@
 
-        return display_hours + ":" + display_mins;
+    function showDialog(id) {
+        var dialog = $(id).data('dialog');
+        dialog.open();
     }
+
 </script>
+
+<!-- Contenedores de mensajes de dialogo -->
+<div data-role="dialog" class="padding20" data-overlay="true" data-overlay-color="op-dark" id="dialogoRegistro">
+    <h3>Seguricel</h3>
+    <p style="color:green">
+        <span class="mif-spinner5 mif-ani-spin"></span>
+        @HomeResource.ProgressBarText
+    </p>
+</div>
 
 <div class="row linearBg">
     <div class="app-bar">
         <div class="col-md-3">
-            <img class="logoimg" src="~/Imagenes/logo nuevo seguricel.png" height="40" />
+            <img class="logoimg" src="~/Imagenes/logo_nuevo_small.png" height="40" />
         </div>
         <div class="col-md-6">
             <div class="MenuOpciones" style="height:60px; ">
                 <ul>
-                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.HomeLink, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
-                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.SolucionLink, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
-                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.ContactoLink, "Contacto", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
-                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.CompanyLink, "Company", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.HomeLink, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "link-black", onclick = "showDialogo('#dialogoRegistro')" })</li>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.SolucionLink, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black", onclick = "showDialogo('#dialogoRegistro')" })</li>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.ContactoLink, "Contacto", "Home", routeValues: null, htmlAttributes: new { @class = "link-black", onclick = "showDialogo('#dialogoRegistro')" })</li>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.CompanyLink, "Company", "Home", routeValues: null, htmlAttributes: new { @class = "link-black", onclick = "showDialogo('#dialogoRegistro')" })</li>
                 </ul>
             </div>
         </div>
         <div class="col-md-3 Login">
-                <ul>
-                    <li class="Header">Usuarios</li>
-                    <li>
-                        <a><span class="mif-enter"></span> @HomeResource.LoginLink</a>
-                        <div id="showLogin" class="app-bar-drop-container bg-white fg-dark place-right padding10" data-role="dropdown" data-no-close="true" style="margin-right: 30px;">
-                            @Html.Partial("Login", new Seguricel3.Models.LoginViewModel())
-                        </div>
-
-                        @*
-                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                            {
-
-                                @Html.HiddenFor(m => m.UserTimeZone, new { id = "ClientTimeZone", name = "ClientTimeZone" })
-                                @Html.AntiForgeryToken()
-
-                                <h4 class="text-light">@Model.LoginSubtitle</h4>
-                                <hr />
-                                <div>
-                                    @Html.ValidationSummary(true, Model.ValidationSummaryText, htmlAttributes: new { @class = "text-danger", @style = "font-size: 18pt; font-weight: bold;" })
-                                    <div class="input-control text">
-                                        <span class="mif-user prepend-icon"></span>
-                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                    </div>
-                                    <div class="input-control text">
-                                        <span class="mif-lock prepend-icon"></span>
-                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <div style="margin-top: 30px;">
-                                    <div class="form-actions">
-                                        <input id="submitButton" type="submit" value=@Model.submitButtonText class="btn btn-default place-right" style="width: 100px;" />
-                                    </div>
-                                    <div>
-                                        @Html.ActionLink(Model.ForgotPasswordText, "ForgotPassword", null, new { @style = "font-size: 10pt; " })
-                                    </div>
-                                </div>
-                            }                        
-                        *@
-                    </li>
-                </ul>
+            <ul>
+                <li class="Header">@HomeResource.LoginHeader</li>
+                <li>
+                    <a id="btnlogin" name="btnlogin"><span class="mif-enter"></span> @HomeResource.LoginLink</a>
+                    <!--<div id="showLogin" class="app-bar-drop-container bg-white fg-dark place-right" data-role="dropdown" data-no-close="true" style="margin-right: 50px;">-->
+                    <div id="showLogin" class="app-bar-drop-container bg-white fg-dark place-right" data-role="dropdown" data-no-close="true" style="margin-right: 20px;">
+                        @Html.Partial("Login", new Seguricel3.Models.LoginViewModel())
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="col-md-12">
@@ -154,7 +85,7 @@
                 </span>
                 <ul>
                     <li>
-                        <a href="Contactos.aspx" style="border: 1px solid #b7b2b2; border-radius: 10px; font-size: 11pt;">@HomeResource.PageHeaderContactLink</a>
+                        <a href="Contactos.aspx" style="border: 1px solid #b7b2b2; border-radius: 10px; font-size: 11pt;" , onclick="showDialogo('#dialogoRegistro')">@HomeResource.PageHeaderContactLink</a>
                     </li>
                     <li>
                         <a href="#" style="border: 1px solid #b7b2b2;border-radius: 10px;">
@@ -311,9 +242,9 @@
         </div>
     </div>
 </div>
-<div style="background-color: #a79dcf; text-align: center; font-size: 26pt; color: #fff; padding: 15px; margin-top: 10px;" >
+<div style="background-color: #a79dcf; text-align: center; font-size: 26pt; color: #fff; padding: 15px; margin-top: 10px;">
     <span>
-        @Html.ActionLink(HomeResource.FooterLink1, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })
+        @Html.ActionLink(HomeResource.FooterLink1, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black", onclick = "showDialogo('#dialogoRegistro')" })
     </span>
 </div>
 <div style="margin-top: 20px;">
@@ -342,4 +273,4 @@
         </tr>
     </table>
 </div>
-
+}

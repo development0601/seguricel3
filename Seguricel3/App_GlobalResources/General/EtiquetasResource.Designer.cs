@@ -88,11 +88,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Contrato.
+        /// </summary>
+        internal static string labelDDLContrato {
+            get {
+                return ResourceManager.GetString("labelDDLContrato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Estado.
+        /// </summary>
+        internal static string labelDDLEstado {
+            get {
+                return ResourceManager.GetString("labelDDLEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Grupo.
         /// </summary>
         internal static string labelDDLGrupo {
             get {
                 return ResourceManager.GetString("labelDDLGrupo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se encuentran coincidencias.
+        /// </summary>
+        internal static string labelDDLItemNotFound {
+            get {
+                return ResourceManager.GetString("labelDDLItemNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tipo de Usuario.
+        /// </summary>
+        internal static string labelDDLNivelUsuario {
+            get {
+                return ResourceManager.GetString("labelDDLNivelUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Pais.
+        /// </summary>
+        internal static string labelDDLPais {
+            get {
+                return ResourceManager.GetString("labelDDLPais", resourceCulture);
             }
         }
         
@@ -111,6 +156,15 @@ namespace Resources {
         internal static string labelEditLink {
             get {
                 return ResourceManager.GetString("labelEditLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Obtener coordenadas....
+        /// </summary>
+        internal static string labelGetCoordenadas {
+            get {
+                return ResourceManager.GetString("labelGetCoordenadas", resourceCulture);
             }
         }
         
@@ -147,6 +201,42 @@ namespace Resources {
         internal static string labelSelectValue {
             get {
                 return ResourceManager.GetString("labelSelectValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ver.
+        /// </summary>
+        internal static string labelShowLink {
+            get {
+                return ResourceManager.GetString("labelShowLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sin unidad maestra asociada.
+        /// </summary>
+        internal static string lblddlUnidadMaestra {
+            get {
+                return ResourceManager.GetString("lblddlUnidadMaestra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Imágen del Contratante.
+        /// </summary>
+        internal static string lblImagenEdificioHeader {
+            get {
+                return ResourceManager.GetString("lblImagenEdificioHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Agregar archivo....
+        /// </summary>
+        internal static string lblUploadImage {
+            get {
+                return ResourceManager.GetString("lblUploadImage", resourceCulture);
             }
         }
     }

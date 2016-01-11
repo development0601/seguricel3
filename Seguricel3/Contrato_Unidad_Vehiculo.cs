@@ -28,11 +28,10 @@ namespace Seguricel3
         public Nullable<System.DateTime> FechaFinal { get; set; }
         public Nullable<System.Guid> IdRFID { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Estacionamiento Contrato_Estacionamiento { get; set; }
         public virtual Contrato_RFID Contrato_RFID { get; set; }
-        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
         public virtual Contrato_Unidad_Persona Contrato_Unidad_Persona { get; set; }
-        public virtual TipoVehiculo TipoVehiculo { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
     }
 }

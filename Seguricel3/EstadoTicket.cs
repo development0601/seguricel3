@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class EstadoTicket
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EstadoTicket()
-        {
-            this.TicketSeguimiento = new HashSet<TicketSeguimiento>();
-        }
-    
+        public string Culture { get; set; }
         public int IdEstadoTicket { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TicketSeguimiento> TicketSeguimiento { get; set; }
     }
 }

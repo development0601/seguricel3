@@ -14,24 +14,10 @@ namespace Seguricel3
     
     public partial class TipoContrato
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoContrato()
-        {
-            this.Contrato = new HashSet<Contrato>();
-        }
-    
+        public string Culture { get; set; }
         public int IdTipoContrato { get; set; }
         public string Nombre { get; set; }
         public long UltimoNroContrato { get; set; }
         public string LetraTipoContrato { get; set; }
-        public int IdPais { get; set; }
-        public int IdEstado { get; set; }
-        public int IdCiudad { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato> Contrato { get; set; }
-        public virtual Pais Pais { get; set; }
-        public virtual Pais_Estado Pais_Estado { get; set; }
-        public virtual Pais_Estado_Ciudad Pais_Estado_Ciudad { get; set; }
     }
 }

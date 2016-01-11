@@ -192,4 +192,19 @@
   <data name="LoginFailedMessageInactivo" xml:space="preserve">
     <value>El usuario se encuentra inactivo</value>
   </data>
+  <data name="CaptchaErrorMessge" xml:space="preserve">
+    <value>Los caracteres indicados de la imagen no son válidos</value>
+  </data>
+  <data name="CaptchaLabel" xml:space="preserve">
+    <value>Escriba los caracteres de la imagen</value>
+  </data>
+  <data name="CaptchaRequiredErrorMessage" xml:space="preserve">
+    <value>Debe escribir los caracteres que aparecen en la imagen</value>
+  </data>
+  <data name="EmailAddressNotExistMessge" xml:space="preserve">
+    <value>El correo electrónico indicado no existe</value>
+  </data>
+  <data name="SendEmailMessage" xml:space="preserve">
+    <value>Error interno enviando correo. Por favor intente mas tarde</value>
+  </data>
 </root>

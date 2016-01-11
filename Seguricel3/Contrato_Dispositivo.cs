@@ -61,8 +61,6 @@ namespace Seguricel3
         public Nullable<System.Guid> IdOperadora { get; set; }
         public System.DateTime FechaUltimaActualizacion { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Acceso Contrato_Acceso { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Dispositivo_Actualizacion> Contrato_Dispositivo_Actualizacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -80,13 +78,11 @@ namespace Seguricel3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Dispositivo_Estadistica> Contrato_Dispositivo_Estadistica { get; set; }
         public virtual Firmware Firmware { get; set; }
-        public virtual Grupo Grupo { get; set; }
-        public virtual Operadora Operadora { get; set; }
-        public virtual SubGrupo SubGrupo { get; set; }
-        public virtual TipoDispositivo TipoDispositivo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Unidad_Bloqueo_Acceso> Contrato_Unidad_Bloqueo_Acceso { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Unidad_Persona_Biometria_Trasmision> Contrato_Unidad_Persona_Biometria_Trasmision { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Acceso Contrato_Acceso { get; set; }
     }
 }

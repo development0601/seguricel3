@@ -20,7 +20,7 @@ namespace Seguricel3
         public System.DateTime FechaRegistro { get; set; }
         public string LineaLog { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Dispositivo Contrato_Dispositivo { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

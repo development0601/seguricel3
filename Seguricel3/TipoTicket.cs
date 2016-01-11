@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class TipoTicket
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoTicket()
-        {
-            this.Ticket = new HashSet<Ticket>();
-        }
-    
+        public string Culture { get; set; }
         public int IdTipoTicket { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Ticket { get; set; }
     }
 }

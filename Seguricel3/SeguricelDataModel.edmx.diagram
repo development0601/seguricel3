@@ -4,107 +4,172 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8dadb21fadfb4a489c870210a4abdf4b" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="SeguricelModel.Contacto" Width="1.5" PointX="12.75" PointY="105.5" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato" Width="1.5" PointX="9.75" PointY="98" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Acceso" Width="1.5" PointX="12" PointY="189" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Administradora" Width="1.5" PointX="12.75" PointY="111.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Cartelera" Width="1.5" PointX="20.25" PointY="109.5" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Cartelera_Comentario" Width="1.5" PointX="22.5" PointY="118.375" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Cartelera_Imagen" Width="1.5" PointX="27.5" PointY="101.25" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Contacto" Width="1.5" PointX="12" PointY="199.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Correos_Seguricel" Width="1.5" PointX="21" PointY="95" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Correos_Seguricel_Destinatarios" Width="1.5" PointX="25.25" PointY="100.75" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Dispositivo" Width="1.5" PointX="14.25" PointY="141.25" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Dispositivo_Actualizacion" Width="1.5" PointX="16.5" PointY="127" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Dispositivo_Bitacora" Width="1.5" PointX="16.5" PointY="123.75" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Dispositivo_Clonacion" Width="1.5" PointX="16.5" PointY="119.625" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Dispositivo_Estadistica" Width="1.5" PointX="19.5" PointY="145.875" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Estacionamiento" Width="1.5" PointX="12" PointY="196" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Facturacion" Width="1.5" PointX="12" PointY="185.625" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_JuntaCondominio" Width="1.5" PointX="12" PointY="116.625" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Mensaje" Width="1.5" PointX="23" PointY="106.5" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Mensaje_Anexo" Width="1.5" PointX="21" PointY="114.375" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Mensaje_Destinatario" Width="1.5" PointX="28.25" PointY="106.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Publicacion" Width="1.5" PointX="17.25" PointY="106.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Punto_Control" Width="1.5" PointX="12" PointY="158.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_RFID" Width="1.5" PointX="12" PointY="182.25" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Ronda" Width="1.5" PointX="17.25" PointY="102.25" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Ronda_Punto" Width="1.5" PointX="14.25" PointY="128.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_TipoArea" Width="1.5" PointX="21" PointY="91.25" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_TipoArea_Evento" Width="1.5" PointX="23.25" PointY="111.375" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad" Width="1.5" PointX="18.75" PointY="86.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Anuncio" Width="1.5" PointX="12" PointY="97" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Bloqueo_Acceso" Width="1.5" PointX="16.5" PointY="145.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Factura" Width="1.5" PointX="15" PointY="97.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona" Width="1.5" PointX="22.25" PointY="99.625" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_Acceso" Width="1.5" PointX="24.5" PointY="144.75" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_Acceso_Horario" Width="1.5" PointX="26.75" PointY="121.375" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_AlarmaSilente" Width="1.5" PointX="25.5" PointY="105" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_AlarmaSilente_Bitacora" Width="1.5" PointX="20" PointY="100.25" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_Biometria" Width="1.5" PointX="27.5" PointY="141" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_Biometria_Trasmision" Width="1.5" PointX="29.75" PointY="141.625" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Vehiculo" Width="1.5" PointX="27.5" PointY="145.875" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Visitas" Width="1.5" PointX="15" PointY="110.25" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Usuario" Width="1.5" PointX="15" PointY="105.75" />
-        <EntityTypeShape EntityType="SeguricelModel.Contrato_Usuario_Config_Cartelera" Width="1.5" PointX="20.25" PointY="106.375" />
-        <EntityTypeShape EntityType="SeguricelModel.Cotizacion" Width="1.5" PointX="18" PointY="109.875" />
-        <EntityTypeShape EntityType="SeguricelModel.Cotizacion_Acceso" Width="1.5" PointX="20.25" PointY="124" />
-        <EntityTypeShape EntityType="SeguricelModel.Cotizacion_Contacto" Width="1.5" PointX="20.25" PointY="118.25" />
-        <EntityTypeShape EntityType="SeguricelModel.Cotizacion_Dispositivo" Width="1.5" PointX="20.25" PointY="121.25" />
-        <EntityTypeShape EntityType="SeguricelModel.Cotizacion_Parametros_Calculo" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SeguricelModel.CuentaCorreoSeguricel" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SeguricelModel.EstadoContrato" Width="1.5" PointX="7.5" PointY="102.75" />
-        <EntityTypeShape EntityType="SeguricelModel.EstadoPropuesta" Width="1.5" PointX="15.75" PointY="134" />
-        <EntityTypeShape EntityType="SeguricelModel.EstadoPublicacion" Width="1.5" PointX="15" PointY="81.75" />
-        <EntityTypeShape EntityType="SeguricelModel.EstadoTicket" Width="1.5" PointX="25.5" PointY="114.75" />
-        <EntityTypeShape EntityType="SeguricelModel.EstadoUsuario" Width="1.5" PointX="13.5" PointY="94.125" />
-        <EntityTypeShape EntityType="SeguricelModel.EstadoVenta" Width="1.5" PointX="12.75" PointY="119.75" />
-        <EntityTypeShape EntityType="SeguricelModel.Firmware" Width="1.5" PointX="12" PointY="143.75" />
-        <EntityTypeShape EntityType="SeguricelModel.Franquicia" Width="1.5" PointX="12.75" PointY="100.875" />
-        <EntityTypeShape EntityType="SeguricelModel.Franquicia_Contacto" Width="1.5" PointX="15" PointY="101.375" />
-        <EntityTypeShape EntityType="SeguricelModel.Grupo" Width="1.5" PointX="12" PointY="150" />
-        <EntityTypeShape EntityType="SeguricelModel.Log_Visitas" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SeguricelModel.Modulo" Width="1.5" PointX="15.75" PointY="84.375" />
-        <EntityTypeShape EntityType="SeguricelModel.Modulo_TipoUsuario" Width="1.5" PointX="21" PointY="86.875" />
-        <EntityTypeShape EntityType="SeguricelModel.MonedaExtranjera" Width="1.5" PointX="0.75" PointY="87.125" />
-        <EntityTypeShape EntityType="SeguricelModel.MonedaExtranjera_TasaCambio" Width="1.5" PointX="5.25" PointY="132.375" />
-        <EntityTypeShape EntityType="SeguricelModel.Operadora" Width="1.5" PointX="12" PointY="141.25" />
-        <EntityTypeShape EntityType="SeguricelModel.Operadora_Contacto" Width="1.5" PointX="17.25" PointY="140.875" />
-        <EntityTypeShape EntityType="SeguricelModel.Pais" Width="1.5" PointX="3" PointY="86.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Pais_Estado" Width="1.5" PointX="5.25" PointY="125.5" />
-        <EntityTypeShape EntityType="SeguricelModel.Pais_Estado_Ciudad" Width="1.5" PointX="7.5" PointY="105.75" />
-        <EntityTypeShape EntityType="SeguricelModel.SubGrupo" Width="1.5" PointX="12" PointY="147.125" />
-        <EntityTypeShape EntityType="SeguricelModel.Ticket" Width="1.5" PointX="25.5" PointY="109.25" />
-        <EntityTypeShape EntityType="SeguricelModel.TicketSeguimiento" Width="1.5" PointX="27.75" PointY="110.25" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoAccion" Width="1.5" PointX="14.25" PointY="125.125" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoAnuncio" Width="1.5" PointX="9.75" PointY="94.75" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoBandeja" Width="1.5" PointX="20.75" PointY="130.75" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoCargoJuntaCondominio" Width="1.5" PointX="5.25" PointY="129.625" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoCartelera" Width="1.5" PointX="18" PointY="131.75" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoContacto" Width="1.5" PointX="15" PointY="153.375" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoContrato" Width="1.5" PointX="9.75" PointY="118" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoDispositivo" Width="1.5" PointX="9.75" PointY="144.125" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoDispositivo_Comando_Sincronizador" Width="1.5" PointX="12" PointY="138.125" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoMensaje" Width="1.5" PointX="20.75" PointY="128.5" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoPersona" Width="1.5" PointX="20" PointY="83.75" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoPropuesta" Width="1.5" PointX="15.75" PointY="131.75" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoTicket" Width="1.5" PointX="23.25" PointY="122.75" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoUsuario" Width="1.5" PointX="13.5" PointY="87.5" />
-        <EntityTypeShape EntityType="SeguricelModel.TipoVehiculo" Width="1.5" PointX="25.25" PointY="149.375" />
-        <EntityTypeShape EntityType="SeguricelModel.Usuario" Width="1.5" PointX="15.75" PointY="88.625" />
-        <EntityTypeShape EntityType="SeguricelModel.Usuario_Bitacora" Width="1.5" PointX="18" PointY="95.875" />
-        <EntityTypeShape EntityType="SeguricelModel.Usuario_Perfil" Width="1.5" PointX="13.5" PointY="90" />
-        <EntityTypeShape EntityType="SeguricelModel.Vendedor" Width="1.5" PointX="15.75" PointY="136.375" />
-        <EntityTypeShape EntityType="SeguricelModel.Vendedor_Movimiento" Width="1.5" PointX="15" PointY="113.875" />
+      <Diagram DiagramId="8dadb21fadfb4a489c870210a4abdf4b" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="SeguricelModel.Contacto" Width="1.5" PointX="9.75" PointY="80.5" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Administradora" Width="1.5" PointX="12.75" PointY="80.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Cartelera" Width="1.5" PointX="26.25" PointY="72.625" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Cartelera_Comentario" Width="1.5" PointX="28.5" PointY="76.25" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Cartelera_Imagen" Width="1.5" PointX="30.5" PointY="79.875" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Correos_Seguricel" Width="1.5" PointX="17.25" PointY="80.875" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Correos_Seguricel_Destinatarios" Width="1.5" PointX="28.5" PointY="85.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Dispositivo" Width="1.5" PointX="19.5" PointY="110.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Dispositivo_Actualizacion" Width="1.5" PointX="24.75" PointY="99.625" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Dispositivo_Bitacora" Width="1.5" PointX="21.75" PointY="97.375" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Dispositivo_Clonacion" Width="1.5" PointX="24.75" PointY="96.25" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Dispositivo_Estadistica" Width="1.5" PointX="24.75" PointY="114.25" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Estacionamiento" Width="1.5" PointX="17.25" PointY="157.75" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Facturacion" Width="1.5" PointX="17.25" PointY="167.25" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_JuntaCondominio" Width="1.5" PointX="17.25" PointY="73.375" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Mensaje" Width="1.5" PointX="20.25" PointY="85.625" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Mensaje_Anexo" Width="1.5" PointX="25.5" PointY="83.25" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Mensaje_Destinatario" Width="1.5" PointX="28.5" PointY="89.25" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Publicacion" Width="1.5" PointX="23.25" PointY="77.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Punto_Control" Width="1.5" PointX="17.25" PointY="160.875" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_RFID" Width="1.5" PointX="17.25" PointY="170.75" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Ronda" Width="1.5" PointX="23.25" PointY="73.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Ronda_Punto" Width="1.5" PointX="22.5" PointY="120" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_TipoArea" Width="1.5" PointX="21" PointY="101.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_TipoArea_Evento" Width="1.5" PointX="23.25" PointY="85.5" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Anuncio" Width="1.5" PointX="17.75" PointY="85" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Bloqueo_Acceso" Width="1.5" PointX="21.75" PointY="113.5" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Factura" Width="1.5" PointX="28.25" PointY="81" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona" Width="1.5" PointX="25.5" PointY="86.5" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_Acceso" Width="1.5" PointX="27.75" PointY="113.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_Acceso_Horario" Width="1.5" PointX="30" PointY="93.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_AlarmaSilente" Width="1.5" PointX="23.25" PointY="80.875" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_AlarmaSilente_Bitacora" Width="1.5" PointX="25.5" PointY="77.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_Biometria" Width="1.5" PointX="27.75" PointY="108.5" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Persona_Biometria_Trasmision" Width="1.5" PointX="30" PointY="113.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Vehiculo" Width="1.5" PointX="27.75" PointY="121" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad_Visitas" Width="1.5" PointX="23.25" PointY="90.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Usuario" Width="1.5" PointX="17.25" PointY="89" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Usuario_Config_Cartelera" Width="1.5" PointX="17.25" PointY="77.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Cotizacion" Width="1.5" PointX="20.25" PointY="72.875" />
+        <EntityTypeShape EntityType="SeguricelModel.Cotizacion_Acceso" Width="1.5" PointX="22.5" PointY="66.125" />
+        <EntityTypeShape EntityType="SeguricelModel.Cotizacion_Contacto" Width="1.5" PointX="22.5" PointY="70.25" />
+        <EntityTypeShape EntityType="SeguricelModel.Cotizacion_Dispositivo" Width="1.5" PointX="22.5" PointY="93.625" />
+        <EntityTypeShape EntityType="SeguricelModel.Cotizacion_Parametros_Calculo" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SeguricelModel.CuentaCorreoSeguricel" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SeguricelModel.EstadoContrato" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SeguricelModel.EstadoPropuesta" Width="1.5" PointX="6.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SeguricelModel.EstadoPublicacion" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SeguricelModel.EstadoTicket" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SeguricelModel.EstadoUsuario" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SeguricelModel.EstadoVenta" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SeguricelModel.Firmware" Width="1.5" PointX="17.25" PointY="113.875" />
+        <EntityTypeShape EntityType="SeguricelModel.Franquicia" Width="1.5" PointX="9.75" PointY="75.75" />
+        <EntityTypeShape EntityType="SeguricelModel.Franquicia_Contacto" Width="1.5" PointX="12" PointY="76.25" />
+        <EntityTypeShape EntityType="SeguricelModel.Grupo" Width="1.5" PointX="7.75" PointY="5" />
+        <EntityTypeShape EntityType="SeguricelModel.Log_Visitas" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SeguricelModel.Modulo" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="SeguricelModel.Modulo_TipoUsuario" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="SeguricelModel.MonedaExtranjera" Width="1.5" PointX="0.75" PointY="82.5" />
+        <EntityTypeShape EntityType="SeguricelModel.MonedaExtranjera_TasaCambio" Width="1.5" PointX="5.25" PointY="104.5" />
+        <EntityTypeShape EntityType="SeguricelModel.SubGrupo" Width="1.5" PointX="10" PointY="4.875" />
+        <EntityTypeShape EntityType="SeguricelModel.Ticket" Width="1.5" PointX="30.75" PointY="83.5" />
+        <EntityTypeShape EntityType="SeguricelModel.TicketSeguimiento" Width="1.5" PointX="33" PointY="84.5" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoAccion" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoAnuncio" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoBandeja" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoCargoJuntaCondominio" Width="1.5" PointX="5.25" PointY="101.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoCartelera" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoContacto" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoContrato" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoDispositivo" Width="1.5" PointX="5.75" PointY="1.125" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoDispositivo_Comando_Sincronizador" Width="1.5" PointX="8" PointY="0.875" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoMensaje" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoPersona" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoPropuesta" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoTicket" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoUsuario" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="SeguricelModel.TipoVehiculo" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SeguricelModel.Usuario" Width="1.5" PointX="21" PointY="59.5" />
+        <EntityTypeShape EntityType="SeguricelModel.Usuario_Bitacora" Width="1.5" PointX="20.25" PointY="90.875" />
+        <EntityTypeShape EntityType="SeguricelModel.Usuario_Perfil" Width="1.5" PointX="18.75" PointY="60.75" />
+        <EntityTypeShape EntityType="SeguricelModel.Vendedor" Width="1.5" PointX="18" PointY="69" />
+        <EntityTypeShape EntityType="SeguricelModel.Vendedor_Movimiento" Width="1.5" PointX="20.25" PointY="80.875" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Cartelera_Comentarios_Contrato_Cartelera" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Cartelera_Imagen_Contrato_Cartelera" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Correos_Seguricel_Destinatarios_Contrato_Correos_Seguricel" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Actualizacion_Contrato_Dispositivo" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Bitacora_Contrato_Dispositivo" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Clonacion_Contrato_Dispositivo_Activo" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Clonacion_Contrato_Dispositivo_Clonado" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Contrato_Dispositivo_Padre" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Contrato_Dispositivo_SMS" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Estadistica_Contrato_Dispositivo" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Firmware" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Bloqueo_Acceso_Contrato_Dispositivo" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Biometria_Trasmision_Contrato_Dispositivo" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Actualizacion_Usuario" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Vehiculo_Contrato_Estacionamiento" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Mensaje_Anexo_Contrato_Mensaje" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Mensaje_Destinatario_Contrato_Mensaje" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Ronda_Punto_Contrato_Punto" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Vehiculo_Contrato_RFID" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Ronda_Usuario" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Evento_Contrato_TipoArea" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Acceso_Contrato_Unidad_Persona" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Acceso_Horario_Contrato_Unidad_Persona" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_AlarmaSilente_Bitacora_Contrato_Unidad_Persona" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_AlarmaSilente_Contrato_Unidad_Persona" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Biometria_Trasmision_Contrato_Unidad_Persona" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Contrato_Usuario" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Usuario" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Vehiculo_Contrato_Unidad_Persona" />
+        <AssociationConnector Association="SeguricelModel.FK_Ticket_Contrato_Unidad_Persona" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Acceso_Horario_Contrato_Unidad_Persona_Acceso" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Biometria_Trasmision_Contrato_Unidad_Persona_Acceso" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_AlarmaSilente_Bitacora_Contrato_Unidad_Persona_AlarmaSilente" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Biometria_Trasmision_Contrato_Unidad_Persona_Biometria" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Usuario_Config_Cartelera_Contrato_Usuario" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Usuario_Usuario" />
+        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Acceso_Cotizacion" />
+        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Contacto_Cotizacion" />
+        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Dispositivo_Cotizacion" />
+        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Vendedor" />
+        <AssociationConnector Association="SeguricelModel.FK_Franquicia_Contacto_Franquicia" />
+        <AssociationConnector Association="SeguricelModel.FK_SubGrupo_Grupo" />
+        <AssociationConnector Association="SeguricelModel.FK_Modulo_Modulo_Padre" />
+        <AssociationConnector Association="SeguricelModel.FK_Modulo_TipoUsuario_Modulo" />
+        <AssociationConnector Association="SeguricelModel.FK_Modulo_TipoUsuario_TipoUsuario" />
+        <AssociationConnector Association="SeguricelModel.FK_Ticket_TicketPadre" />
+        <AssociationConnector Association="SeguricelModel.FK_Ticket_Usuario" />
+        <AssociationConnector Association="SeguricelModel.FK_TicketSeguimiento_Ticket" />
+        <AssociationConnector Association="SeguricelModel.FK_TicketSeguimiento_Usuario" />
+        <AssociationConnector Association="SeguricelModel.FK_TipoDispositivo_Comando_Sincronizador_TipoDispositivo" />
+        <AssociationConnector Association="SeguricelModel.FK_Usuario_Bitacora_Usuario" />
+        <AssociationConnector Association="SeguricelModel.FK_Usuario_UsuarioPerfil" />
+        <AssociationConnector Association="SeguricelModel.FK_Vendedor_Usuario" />
+        <AssociationConnector Association="SeguricelModel.FK_Vendedor_Movimiento_Vendedor" />
+        <EntityTypeShape EntityType="SeguricelModel.Pais" Width="1.5" PointX="3" PointY="81.5" />
         <AssociationConnector Association="SeguricelModel.FK_Contacto_Pais" />
+        <AssociationConnector Association="SeguricelModel.FK_Administradora_Pais" />
+        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Pais" />
+        <AssociationConnector Association="SeguricelModel.FK_Franquicia_Pais" />
+        <AssociationConnector Association="SeguricelModel.FK_Pais_MonedaExtranjera" />
+        <AssociationConnector Association="SeguricelModel.FK_MonedaExtranjera_TasaCambio_Pais" />
+        <AssociationConnector Association="SeguricelModel.FK_TipoCargoJuntaCondominio_Pais" />
+        <EntityTypeShape EntityType="SeguricelModel.Operadora" Width="1.5" PointX="2.75" PointY="5.375" />
+        <EntityTypeShape EntityType="SeguricelModel.Operadora_Contacto" Width="1.5" PointX="5" PointY="5" />
+        <AssociationConnector Association="SeguricelModel.FK_Operadora_Contacto_Operadora" />
+        <EntityTypeShape EntityType="SeguricelModel.Pais_Estado" Width="1.5" PointX="5.25" PointY="79.25" />
+        <EntityTypeShape EntityType="SeguricelModel.Pais_Estado_Ciudad" Width="1.5" PointX="7.5" PointY="80.625" />
         <AssociationConnector Association="SeguricelModel.FK_Contacto_Pais_Estado" />
         <AssociationConnector Association="SeguricelModel.FK_Contacto_Pais_Estado_Ciudad" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Acceso_Contrato" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Administradora" />
+        <AssociationConnector Association="SeguricelModel.FK_Administradora_Pais_Estado" />
+        <AssociationConnector Association="SeguricelModel.FK_Administradora_Pais_Estado_Ciudad" />
+        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Pais_Estado" />
+        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Pais_Estado_Ciudad" />
+        <AssociationConnector Association="SeguricelModel.FK_Franquicia_Pais_Estado" />
+        <AssociationConnector Association="SeguricelModel.FK_Franquicia_Pais_Estado_Ciudad" />
+        <AssociationConnector Association="SeguricelModel.FK_Pais_Estado_Ciudad_Pais" />
+        <AssociationConnector Association="SeguricelModel.FK_Pais_Estado_Pais" />
+        <AssociationConnector Association="SeguricelModel.FK_Pais_Estado_Ciudad_Pais_Estado" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato" Width="1.5" PointX="15" PointY="73" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Cartelera_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Cartelera_Imagen_Contrato" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Contacto_Contrato" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Contrato_Administradora" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Correos_Seguricel_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Correos_Seguricel_Destinatarios_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Actualizacion_Contrato" />
@@ -113,7 +178,6 @@
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Estadistica_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Estacionamiento_Contrato" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_EstadoContrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Evento_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Facturacion_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_JuntaCondominio_Contrato" />
@@ -128,7 +192,6 @@
         <AssociationConnector Association="SeguricelModel.FK_Contrato_RFID_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Ronda_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Ronda_Punto_Contrato" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_TipoContrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Anuncios_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Bloqueo_Acceso_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Factura_Contrato" />
@@ -146,58 +209,18 @@
         <AssociationConnector Association="SeguricelModel.FK_Ticket_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Usuario_Bitacora_Contrato" />
         <AssociationConnector Association="SeguricelModel.FK_Vendedor_Movimiento_Contrato" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Contrato_Acceso" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Estadistica_Contrato_Acceso" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Bloqueo_Acceso_Contrato_Acceso" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Acceso_Contrato_Acceso" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Biometria_Trasmision_Contrato_Acceso" />
-        <AssociationConnector Association="SeguricelModel.FK_Administradora_Pais" />
-        <AssociationConnector Association="SeguricelModel.FK_Administradora_Pais_Estado" />
-        <AssociationConnector Association="SeguricelModel.FK_Administradora_Pais_Estado_Ciudad" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Cartelera_Comentarios_Contrato_Cartelera" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Contacto" Width="1.5" PointX="17.25" PointY="93.125" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Contacto_Contrato" />
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Unidad" Width="1.5" PointX="15" PointY="95" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Cartelera_Contrato_Unidad" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Cartelera_Contrato_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Cartelera_Imagen_Contrato_Cartelera" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Cartelera_TipoCartelera" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Correos_Seguricel_Contrato_Unidad" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Correos_Seguricel_Destinatarios_Contrato_Correos_Seguricel" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Correos_Seguricel_Destinatarios_Contrato_Unidad" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Actualizacion_Contrato_Dispositivo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Bitacora_Contrato_Dispositivo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Clonacion_Contrato_Dispositivo_Activo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Clonacion_Contrato_Dispositivo_Clonado" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Contrato_Dispositivo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Contrato_Dispositivo1" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Estadistica_Contrato_Dispositivo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Firmware" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Grupo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Operadora" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_SubGrupo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_TipoDispositivo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Bloqueo_Acceso_Contrato_Dispositivo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Biometria_Trasmision_Contrato_Dispositivo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Actualizacion_TipoAccion" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Actualizacion_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Vehiculo_Contrato_Estacionamiento" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_JuntaCondominio_Contrato_Unidad" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_JuntaCondominio_TipoCargoJuntaCondominio" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Mensaje_Anexo_Contrato_Mensaje" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Mensaje_Contrato_Unidad_Origen" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Mensaje_Destinatario_Contrato_Mensaje" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Mensaje_Mensaje_Bandeja" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Mensaje_TipoBandeja" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Mensaje_TipoMensaje" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Mensaje_Destinatario_Contrato_Unidad" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Mensaje_Destinatario_Contrato_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Publicacion_Contrato_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Publicacion_EstadoPublicacion" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Ronda_Punto_Contrato_Punto" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Vehiculo_Contrato_RFID" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Ronda_Contrato_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Evento_Contrato_TipoArea" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Evento_Contrato_Unidad" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Evento_Contrato_Usuario_Aprueba" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Evento_Contrato_Usuario_Solicitud" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Publicacion_Contrato_Unidad" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Evento_Contrato_Unidad_Solicita" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_TipoArea_Evento_Contrato_Unidad_Aprueba" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Anuncios_Contrato_Unidad" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Bloqueo_Acceso_Contrato_Unidad" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Factura_Contrato_Unidad" />
@@ -209,69 +232,16 @@
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Contrato_Unidad" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Vehiculo_Contrato_Unidad" />
         <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Visitas_Contrato_Unidad" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Usuario_Contrato_Unidad" />
         <AssociationConnector Association="SeguricelModel.FK_Ticket_Contrato_Unidad" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Anuncios_TipoAnuncio" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Acceso_Contrato_Unidad_Persona" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Acceso_Horario_Contrato_Unidad_Persona" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_AlarmaSilente_Bitacora_Contrato_Unidad_Persona" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_AlarmaSilente_Contrato_Unidad_Persona" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Biometria_Trasmision_Contrato_Unidad_Persona" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Contrato_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_TipoPersona" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Vehiculo_Contrato_Unidad_Persona" />
-        <AssociationConnector Association="SeguricelModel.FK_Ticket_Contrato_Unidad_Persona" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Acceso_Horario_Contrato_Unidad_Persona_Acceso" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Biometria_Trasmision_Contrato_Unidad_Persona_Acceso" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_AlarmaSilente_Bitacora_Contrato_Unidad_Persona_AlarmaSilente" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Biometria_Trasmision_Contrato_Unidad_Persona_Biometria" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Vehiculo_TipoVehiculo" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Usuario_ConfigCartelera_Contrato_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Contrato_Usuario_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Acceso_Cotizacion" />
-        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Contacto_Cotizacion" />
-        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Dispositivo_Cotizacion" />
-        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_EstadoPropuesta" />
-        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Pais" />
-        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Pais_Estado" />
-        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Pais_Estado_Ciudad" />
-        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_TipoPropuesta" />
-        <AssociationConnector Association="SeguricelModel.FK_Cotizacion_Vendedor" />
-        <AssociationConnector Association="SeguricelModel.FK_TicketSeguimiento_EstadoTicket" />
-        <AssociationConnector Association="SeguricelModel.FK_Usuario_EstadoUsuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Vendedor_Movimiento_EstadoVenta" />
-        <AssociationConnector Association="SeguricelModel.FK_Firmware_TipoDispositivo" />
-        <AssociationConnector Association="SeguricelModel.FK_Franquicia_Contacto_Franquicia" />
-        <AssociationConnector Association="SeguricelModel.FK_Franquicia_Pais" />
-        <AssociationConnector Association="SeguricelModel.FK_Franquicia_Pais_Estado" />
-        <AssociationConnector Association="SeguricelModel.FK_Franquicia_Pais_Estado_Ciudad" />
-        <AssociationConnector Association="SeguricelModel.FK_SubGrupo_Grupo" />
-        <AssociationConnector Association="SeguricelModel.FK_Modulo_Modulo" />
-        <AssociationConnector Association="SeguricelModel.FK_Modulo_TipoUsuario_Modulo" />
-        <AssociationConnector Association="SeguricelModel.FK_Usuario_Bitacora_Modulo" />
-        <AssociationConnector Association="SeguricelModel.FK_Modulo_TipoUsuario_TipoUsuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Pais_MonedaExtranjera" />
-        <AssociationConnector Association="SeguricelModel.FK_MonedaExtranjera_TasaCambio_Pais" />
-        <AssociationConnector Association="SeguricelModel.FK_Operadora_Contacto_Operadora_Contacto" />
-        <AssociationConnector Association="SeguricelModel.FK_Operadora_Contacto_TipoContacto" />
-        <AssociationConnector Association="SeguricelModel.FK_Pais_Estado_Ciudad_Pais" />
-        <AssociationConnector Association="SeguricelModel.FK_Pais_Estado_Pais" />
-        <AssociationConnector Association="SeguricelModel.FK_TipoCargoJuntaCondominio_Pais" />
-        <AssociationConnector Association="SeguricelModel.FK_TipoContrato_Pais" />
-        <AssociationConnector Association="SeguricelModel.FK_Pais_Estado_Ciudad_Pais_Estado" />
-        <AssociationConnector Association="SeguricelModel.FK_TipoContrato_Pais_Estado" />
-        <AssociationConnector Association="SeguricelModel.FK_TipoContrato_Pais_Estado_Ciudad" />
-        <AssociationConnector Association="SeguricelModel.FK_Ticket_TicketPadre" />
-        <AssociationConnector Association="SeguricelModel.FK_Ticket_TipoTicket" />
-        <AssociationConnector Association="SeguricelModel.FK_Ticket_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_TicketSeguimiento_Ticket" />
-        <AssociationConnector Association="SeguricelModel.FK_TicketSeguimiento_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_TipoDispositivo_Comando_Sincronizador_TipoDispositivo" />
-        <AssociationConnector Association="SeguricelModel.FK_Usuario_TipoUsuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Usuario_Bitacora_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Usuario_UsuarioPerfil" />
-        <AssociationConnector Association="SeguricelModel.FK_Vendedor_Usuario" />
-        <AssociationConnector Association="SeguricelModel.FK_Vendedor_Movimiento_Vendedor" />
-      </Diagram>
+        <EntityTypeShape EntityType="SeguricelModel.Contrato_Acceso" Width="1.5" PointX="18.375" PointY="96.5" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Acceso_Contrato" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Contrato_Acceso" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Dispositivo_Estadistica_Contrato_Acceso" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Bloqueo_Acceso_Contrato_Acceso" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Acceso_Contrato_Acceso" />
+        <AssociationConnector Association="SeguricelModel.FK_Contrato_Unidad_Persona_Biometria_Trasmision_Contrato_Acceso" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

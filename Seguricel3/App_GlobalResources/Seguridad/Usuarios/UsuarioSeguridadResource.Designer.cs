@@ -61,155 +61,182 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Regresar.
+        ///   Busca una cadena traducida similar a Nuevo Usuario.
         /// </summary>
-        public static string BackButtonText {
+        public static string CreateUsuarioHeaderPage {
             get {
-                return ResourceManager.GetString("BackButtonText", resourceCulture);
+                return ResourceManager.GetString("CreateUsuarioHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Nuevo Usuario.
+        /// </summary>
+        public static string CreateUsuarioPageTitle {
+            get {
+                return ResourceManager.GetString("CreateUsuarioPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Actualizar Usuario.
+        /// </summary>
+        public static string EditUsuarioHeaderPage {
+            get {
+                return ResourceManager.GetString("EditUsuarioHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Actualizar Usuario.
+        /// </summary>
+        public static string EditUsuarioPageTitle {
+            get {
+                return ResourceManager.GetString("EditUsuarioPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirme la Contraseña.
+        /// </summary>
+        public static string labelConfirmarContraseña {
+            get {
+                return ResourceManager.GetString("labelConfirmarContraseña", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contrato.
+        /// </summary>
+        public static string labelContrato {
+            get {
+                return ResourceManager.GetString("labelContrato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Correo Electrónico.
+        /// </summary>
+        public static string labelEmail {
+            get {
+                return ResourceManager.GetString("labelEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Estado Actual.
+        /// </summary>
+        public static string labelEstadoUsuario {
+            get {
+                return ResourceManager.GetString("labelEstadoUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha Cambio Estado.
+        /// </summary>
+        public static string labelFechaCambioEstado {
+            get {
+                return ResourceManager.GetString("labelFechaCambioEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha Ultima Conexión.
+        /// </summary>
+        public static string labelFechaUltimaConexion {
+            get {
+                return ResourceManager.GetString("labelFechaUltimaConexion", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Busca una cadena traducida similar a Nombre.
         /// </summary>
-        public static string HeaderColumna1 {
+        public static string labelNombre {
             get {
-                return ResourceManager.GetString("HeaderColumna1", resourceCulture);
+                return ResourceManager.GetString("labelNombre", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Nivel.
+        ///   Busca una cadena traducida similar a Contraseña.
         /// </summary>
-        public static string HeaderColumna2 {
+        public static string labelPassword {
             get {
-                return ResourceManager.GetString("HeaderColumna2", resourceCulture);
+                return ResourceManager.GetString("labelPassword", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Estado.
+        ///   Busca una cadena traducida similar a Primera Vez.
         /// </summary>
-        public static string HeaderColumna3 {
+        public static string labelPrimeraVez {
             get {
-                return ResourceManager.GetString("HeaderColumna3", resourceCulture);
+                return ResourceManager.GetString("labelPrimeraVez", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Fecha de Estado.
+        ///   Busca una cadena traducida similar a Tipo de Usuario.
         /// </summary>
-        public static string HeaderColumna4 {
+        public static string labelTipoUsuario {
             get {
-                return ResourceManager.GetString("HeaderColumna4", resourceCulture);
+                return ResourceManager.GetString("labelTipoUsuario", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Fecha de Registro.
+        ///   Busca una cadena traducida similar a Unidad.
         /// </summary>
-        public static string HeaderColumna5 {
+        public static string labelUnidad {
             get {
-                return ResourceManager.GetString("HeaderColumna5", resourceCulture);
+                return ResourceManager.GetString("labelUnidad", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Fecha de Última Conexión.
+        ///   Busca una cadena traducida similar a Usuario.
         /// </summary>
-        public static string HeaderColumna6 {
+        public static string labelUsuario {
             get {
-                return ResourceManager.GetString("HeaderColumna6", resourceCulture);
+                return ResourceManager.GetString("labelUsuario", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Datos del Usuario {0}.
+        ///   Busca una cadena traducida similar a Relacionar Usuarios y Contratos.
         /// </summary>
-        public static string HeaderDetailSection {
+        public static string UsuarioContratoHeaderPage {
             get {
-                return ResourceManager.GetString("HeaderDetailSection", resourceCulture);
+                return ResourceManager.GetString("UsuarioContratoHeaderPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seguricel - Relacionar Usuarios y Contratos.
+        /// </summary>
+        public static string UsuarioContratoPageTitle {
+            get {
+                return ResourceManager.GetString("UsuarioContratoPageTitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Busca una cadena traducida similar a Relación de Usuarios.
         /// </summary>
-        public static string HeaderListSecction {
+        public static string UsuariosHeaderPage {
             get {
-                return ResourceManager.GetString("HeaderListSecction", resourceCulture);
+                return ResourceManager.GetString("UsuariosHeaderPage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Mantenimiento de Usuarios.
+        ///   Busca una cadena traducida similar a Seguricel - Usuarios.
         /// </summary>
-        public static string HeaderPage {
+        public static string UsuariosPageTitle {
             get {
-                return ResourceManager.GetString("HeaderPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Estado del Usuario.
-        /// </summary>
-        public static string LabelEstadoUsuario {
-            get {
-                return ResourceManager.GetString("LabelEstadoUsuario", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Fecha de Cambio de Estado.
-        /// </summary>
-        public static string LabelFechaCambioEstado {
-            get {
-                return ResourceManager.GetString("LabelFechaCambioEstado", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Fecha de Registro.
-        /// </summary>
-        public static string LabelFechaRegistro {
-            get {
-                return ResourceManager.GetString("LabelFechaRegistro", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Fecha de Última Conexión.
-        /// </summary>
-        public static string LabelFechaUltimaConexion {
-            get {
-                return ResourceManager.GetString("LabelFechaUltimaConexion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Nivel de Usuario.
-        /// </summary>
-        public static string LabelNivelUsuario {
-            get {
-                return ResourceManager.GetString("LabelNivelUsuario", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Seguricel - Mantenimiento de Usuarios.
-        /// </summary>
-        public static string PageTitle {
-            get {
-                return ResourceManager.GetString("PageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Guardar.
-        /// </summary>
-        public static string SaveButtonText {
-            get {
-                return ResourceManager.GetString("SaveButtonText", resourceCulture);
+                return ResourceManager.GetString("UsuariosPageTitle", resourceCulture);
             }
         }
     }

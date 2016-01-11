@@ -1,0 +1,38 @@
+﻿
+@*<style>
+        #map_canvas img {
+            max-width: none;
+        }
+
+        .infoDiv {
+            height: 200px;
+            width: 300px;
+            -webkit-user-select: none;
+            background-color: white;
+        }
+    </style>
+*@
+<script type="text/javascript">
+
+    // This code tells the browser to execute the "Initialize" method only when the complete document model has been loaded. -->
+    // Where all the fun happens
+    function Initialize() {
+
+        // Google has tweaked their interface somewhat - this tells the api to use that new UI
+        google.maps.visualRefresh = true;
+        var Ubicacion = new google.maps.LatLng(0, 0);
+
+        // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+        var mapOptions = {
+            zoom: 2,
+            center: Ubicacion,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        // This makes the div with id "map_canvas" a google map
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    }
+
+ </script>
+
+<div id="map_canvas" style=" width: 100%; height: 100%; border: 1px solid #000; border-radius: 10px;"></div>

@@ -27,7 +27,7 @@ namespace Seguricel3.Models
         [Display(Name = "labelPais", ResourceType = typeof(Resources.CotizacionResource))]
         [Required(ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), ErrorMessageResourceName = "RequiredMessage")]
         public int IdPais { get; set; }
-        public IList<SelectListItem> PaisesDisponibles { get; set; }
+        public IEnumerable<SelectListItem> PaisesDisponibles { get; set; }
 
         [Display(Name = "labelEstado", ResourceType = typeof(Resources.CotizacionResource))]
         [Required(ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), ErrorMessageResourceName = "RequiredMessage")]

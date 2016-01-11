@@ -28,10 +28,10 @@ namespace Seguricel3
         public string NroTelefono { get; set; }
         public string Mensaje { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
         public virtual Contrato_Unidad_Persona Contrato_Unidad_Persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Unidad_Persona_AlarmaSilente_Bitacora> Contrato_Unidad_Persona_AlarmaSilente_Bitacora { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
     }
 }

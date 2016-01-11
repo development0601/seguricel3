@@ -4,24 +4,23 @@
     ViewBag.Title = HomeResource.AppTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="row">
-    <div class="col-md-3">
-        <div>
-            <img src="~/Imagenes/logo nuevo seguricel.png" style="width: 100%; height: 100px;" />
+    <div class="app-bar">
+        <div class="col-md-3">
+            <img class="logoimg" src="~/Imagenes/logo_nuevo_small.png" height="40" />
         </div>
-    </div>
-    <div class="col-md-6">
-        <div class="MenuOpciones">
-            <ul>
-                <li>@Html.ActionLink(HomeResource.HomeLink, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
-                <li>@Html.ActionLink(HomeResource.SolucionLink, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
-                <li>@Html.ActionLink(HomeResource.ContactoLink, "Contacto", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
-                <li>@Html.ActionLink(HomeResource.CompanyLink, "Company", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
-            </ul>
+        <div class="col-md-6">
+            <div class="MenuOpciones" style="height:60px; ">
+                <ul>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.HomeLink, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "link-black", onclick = "showDialogo('#dialogoRegistro')" })</li>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.SolucionLink, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black", onclick = "showDialogo('#dialogoRegistro')" })</li>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.ContactoLink, "Contacto", "Home", routeValues: null, htmlAttributes: new { @class = "link-black", onclick = "showDialogo('#dialogoRegistro')" })</li>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.CompanyLink, "Company", "Home", routeValues: null, htmlAttributes: new { @class = "link-black", onclick = "showDialogo('#dialogoRegistro')" })</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="col-md-3">
+        <div class="col-md-3">
+        </div>
     </div>
 </div>
 <div class="PageHeader" style="font-size: 18pt;">

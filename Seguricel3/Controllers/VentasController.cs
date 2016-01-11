@@ -107,7 +107,7 @@ namespace Seguricel3.Controllers
         public JsonResult GetEstadosByPais(string Id)
         {
             int IdPais = int.Parse(Id);
-            IList<SelectListItem> Estados = ClasesVarias.GetEstados(IdPais);
+            IEnumerable<SelectListItem> Estados = ClasesVarias.GetEstados(IdPais);
 
             return Json(new SelectList(Estados, "Value", "Text"));
         }
@@ -119,11 +119,10 @@ namespace Seguricel3.Controllers
             int IdPais = int.Parse(IdP);
             int IdEstado = int.Parse(IdE);
 
-            IList<SelectListItem> Ciudades = ClasesVarias.GetCiudades(IdPais, IdEstado);
+            IEnumerable<SelectListItem> Ciudades = ClasesVarias.GetCiudades(IdPais, IdEstado);
 
             return Json(new SelectList(Ciudades, "Value", "Text"));
         }
-
         [SessionExpireFilter]
         [HandleError]
         public ActionResult Edit(Guid? Id)
@@ -142,7 +141,6 @@ namespace Seguricel3.Controllers
         {
             return View();
         }
-
     }
 
 }

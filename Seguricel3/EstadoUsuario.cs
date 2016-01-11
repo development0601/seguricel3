@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class EstadoUsuario
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EstadoUsuario()
-        {
-            this.Usuario = new HashSet<Usuario>();
-        }
-    
+        public string Culture { get; set; }
         public int IdEstadoUsuario { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario> Usuario { get; set; }
     }
 }

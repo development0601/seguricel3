@@ -30,13 +30,13 @@ namespace Seguricel3
         public bool AccesoBiometrico { get; set; }
         public string Telefono { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Acceso Contrato_Acceso { get; set; }
-        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
         public virtual Contrato_Unidad_Persona Contrato_Unidad_Persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Unidad_Persona_Acceso_Horario> Contrato_Unidad_Persona_Acceso_Horario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Unidad_Persona_Biometria_Trasmision> Contrato_Unidad_Persona_Biometria_Trasmision { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
+        public virtual Contrato_Acceso Contrato_Acceso { get; set; }
     }
 }

@@ -1,0 +1,282 @@
+﻿@using System.Globalization;
+@using Resources;
+@{
+    ViewBag.Title = HomeResource.AppTitle;
+}
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $("#submitButton").click(function () {
+            $.ajax({
+                url: "@Url.Action("Login", "Account")",
+                type: "post",
+                data: $("form").serialize(), //if you need to post Model data, use this
+                success: function (result) {
+                    $("#showLogin").html(result);
+                }
+            });
+        });
+    });
+</script>*@
+
+<!-- Contenedores de mensajes de dialogo - ->
+<!--<div data-role="dialog" class="padding20" data-overlay="true" data-overlay-color="op-dark" data-overlay-click-close="true" id="dialogoRegistro">-->
+    <div data-role="dialog" class="padding20" data-overlay="true" data-overlay-color="op-dark" id="dialogoRegistro">
+        <h3>Seguricel</h3>
+        <p style="color:green">
+            <span class="mif-checkmark"></span>
+            @HomeResource.ProgressBarText
+        </p>
+    </div>
+
+<div class="row linearBg">
+    <div class="app-bar">
+        <div class="col-md-3">
+            <img class="logoimg" src="~/Imagenes/logo nuevo seguricel.png" height="40" />
+        </div>
+        <div class="col-md-6">
+            <div class="MenuOpciones" style="height:60px; ">
+                <ul>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.HomeLink, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.SolucionLink, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.ContactoLink, "Contacto", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                    <li style="vertical-align:bottom;">@Html.ActionLink(HomeResource.CompanyLink, "Company", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 Login">
+                <ul>
+                    <li class="Header">Usuarios</li>
+                    <li>
+                        <a id="btnlogin" name="btnlogin"><span class="mif-enter"></span> @HomeResource.LoginLink</a>
+                        <!--<div id="showLogin" class="app-bar-drop-container bg-white fg-dark place-right" data-role="dropdown" data-no-close="true" style="margin-right: 50px;">-->
+                            <div id="showLogin" class="app-bar-drop-container bg-white fg-dark place-right" data-role="dropdown" data-no-close="true" style="margin-right: 20px;">
+                                @Html.Partial("Login", new Seguricel3.Models.LoginViewModel())
+                            </div>
+                    </li>
+                </ul>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="PageHeader" style="color: #fff;">
+            <div>
+                <img src="~/Imagenes/P1 imagen ppal foto_fondo azul.png" style="width:100%;" />
+            </div>
+            <div class="divTexto">
+                <span style="font-size: 30pt">
+                    @HomeResource.PageHeaderLine1
+                    <br />
+                    @HomeResource.PageHeaderLine2
+                </span>
+                <br />
+                <span style="font-size: 14pt;">
+                    @HomeResource.PageHeaderLine3
+                </span>
+                <br />
+                <span style="font-size: 12pt;">
+                    @HomeResource.PageHeaderLine4
+                    <br />
+                    @HomeResource.PageHeaderLine5
+                </span>
+                <ul>
+                    <li>
+                        <a href="Contactos.aspx" style="border: 1px solid #b7b2b2; border-radius: 10px; font-size: 11pt;">@HomeResource.PageHeaderContactLink</a>
+                    </li>
+                    <li>
+                        <a href="#" style="border: 1px solid #b7b2b2;border-radius: 10px;">
+                            <img src="~/Imagenes/VideoIcon.png" width="32" style="vertical-align: middle;" />
+                            <span style="margin-left: 5px; bottom: 5px; font-size: 11pt;">@HomeResource.PageHeaderVideo</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <table style="width: 100%; margin-top: 50px; font-family: Calibri; text-align: center;">
+                <tr>
+                    <td style="font-size: 42pt; color: #000;">
+                        @HomeResource.ContentLine1
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: #b9b7b7; font-size: 15pt; line-height: 30px;">
+                        <div style="width: 80%; margin: 0 auto;">
+                            <span>
+                                @HomeResource.ContentLine2
+                                <br />
+                                @HomeResource.ContentLine3_1
+                                <span style="color: #7fd9e5; text-decoration: underline;">@HomeResource.ContentLine3_2</span>
+                                <br />
+                                @HomeResource.ContentLine4
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: #909090; font-size: 18pt; height: 100px; vertical-align: middle;">
+                        @HomeResource.ContentLine5
+                    </td>
+                </tr>
+            </table>
+            <table style="margin: 0 auto;">
+                <tr>
+                    <td>
+                        <img src="~/Imagenes/p1%20fondo%20circular%20imagen%20dedo.png" />
+                    </td>
+                    <td>
+                        <img src="~/Imagenes/p1%20fondo%20circular%20imagen%20vigilante.png" />
+                    </td>
+                    <td>
+                        <img src="~/Imagenes/p1%20fondo%20circular%20imagen%20telefono%20en%20mano.png" />
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 100%; margin-top: 50px; font-family: Calibri; text-align: center; color: #fff;">
+                <tr>
+                    <td style="font-size: 42pt"><span style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">@HomeResource.ContentLine6</span></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 17pt; line-height: 30px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+                        <div style="width: 80%; margin: 0 auto; text-align:center;">
+                            @HomeResource.ContentLine7
+                            <br />
+                            @HomeResource.ContentLine8
+                            <br />
+                            @HomeResource.ContentLine9
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="margin: 80px auto">
+                            <tr>
+                                <td>
+                                    <img src="~/Imagenes/p1%20icono%20blanco%20control%20de%20acceso.png" />
+                                </td>
+                                <td>
+                                    <img src="~/Imagenes/p1%20icono%20blanco%20atención.png" />
+                                </td>
+                                <td>
+                                    <img src="~/Imagenes/p1%20icono%20blanco%20vigilantes.png" style="width: 60px;" />
+                                </td>
+                                <td>
+                                    <img src="~/Imagenes/p1%20icono%20blanco%20registro.png" />
+                                </td>
+                                <td>
+                                    <img src="~/Imagenes/p1%20icono%20blanco%20participación.png" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="white-space: nowrap; font-size: 16pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.ControlAccesoLinea1
+                                </td>
+                                <td style="white-space: nowrap; font-size: 16pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.AtencionLinea1
+                                </td>
+                                <td style="white-space: nowrap; font-size: 16pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.VIgilantesLinea1
+                                </td>
+                                <td style="white-space: nowrap; font-size: 16pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.RegistroLinea1
+                                </td>
+                                <td style="white-space: nowrap; font-size: 16pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.ParticipacionLinea1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="white-space: nowrap; font-size: 12pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.ControlAccesoLinea2
+                                    <br />
+                                    @HomeResource.ControlAccesoLinea3
+                                    <br />
+                                    @HomeResource.ControlAccesoLinea4
+                                </td>
+                                <td style="white-space: nowrap; font-size: 12pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.AtencionLinea2
+                                    <br />
+                                    @HomeResource.AtencionLinea3
+                                    <br />
+                                    @HomeResource.AtencionLinea4
+                                </td>
+                                <td style="white-space: nowrap; font-size: 12pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.VigilantesLinea2
+                                    <br />
+                                    @HomeResource.VigilantesLinea3
+                                    <br />
+                                    @HomeResource.VigilantesLinea4
+                                </td>
+                                <td style="white-space: nowrap; font-size: 12pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.RegistroLinea2
+                                    <br />
+                                    @HomeResource.RegistroLinea3
+                                    <br />
+                                    @HomeResource.RegistroLinea4
+                                </td>
+                                <td style="white-space: nowrap; font-size: 12pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.ParticipacionLinea2
+                                    <br />
+                                    @HomeResource.ParticipacionLinea3
+                                    <br />
+                                    @HomeResource.ParticipacionLinea4
+                                    <br />
+                                    @HomeResource.ParticipacionLinea5
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 24pt;">
+                        @HomeResource.FooterLinea1
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 32pt;">
+                        @HomeResource.FooterLinea2
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div style="background-color: #a79dcf; text-align: center; font-size: 26pt; color: #fff; padding: 15px; margin-top: 10px;" >
+    <span>
+        @Html.ActionLink(HomeResource.FooterLink1, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })
+    </span>
+</div>
+<div style="margin-top: 20px;">
+    <table style="margin:0 auto; width:100%; text-align:center;">
+        <tr>
+            <td style="color: #b9b7b7; font-size: 8pt;">
+                @HomeResource.FooterCopyright1 <br /> @HomeResource.FooterCopyright2
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="border-collapse: separate; border-spacing: 10px; margin: 0 auto; ">
+                    <tr>
+                        <td>
+                            <img src="~/Imagenes/LogoFacebook.png" height="20" />
+                        </td>
+                        <td>
+                            <img src="~/Imagenes/LogoTwitter.png" height="20" />
+                        </td>
+                        <td>
+                            <img src="~/Imagenes/LogoYouTube.png" height="20" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+    <script>
+       
+        $("#btnlogin").click();
+       
+        document.getElementById("errorlogin").style.display = "block";
+        //notifyOnErrorInput(input);
+       
+        //$('#Email').validar();
+        //notifyOnErrorInput($('#Email'));
+    </script>

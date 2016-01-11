@@ -20,17 +20,15 @@ namespace Seguricel3
         public Nullable<System.Guid> IdUnidad { get; set; }
         public string Motivo { get; set; }
         public System.DateTime FechaEvento { get; set; }
-        public Nullable<System.Guid> IdUsuarioSolicitud { get; set; }
         public System.DateTime FechaSolicitud { get; set; }
         public bool Aprobado { get; set; }
-        public System.Guid IdUsuarioAprueba { get; set; }
+        public System.Guid IdUnidadAprueba { get; set; }
         public System.DateTime FechaAprobado { get; set; }
         public bool SolicitudExterna { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_TipoArea Contrato_TipoArea { get; set; }
+        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Unidad Contrato_Unidad { get; set; }
-        public virtual Contrato_Usuario Contrato_Usuario { get; set; }
-        public virtual Contrato_Usuario Contrato_Usuario1 { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad1 { get; set; }
     }
 }

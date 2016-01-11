@@ -20,7 +20,7 @@ namespace Seguricel3
         public string IdTipoArchivo { get; set; }
         public string RutaArchivo { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Mensaje Contrato_Mensaje { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

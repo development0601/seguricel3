@@ -6,7 +6,9 @@
 
 @using (Html.BeginForm("CreateGrupo", "Tablas", FormMethod.Post))
 {
-    <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.IdPais)
+   <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
         <ul class="tabs-holder">
             <li class="active"><a href="#tab_mailings">Edición</a></li>
         </ul>
@@ -14,10 +16,10 @@
             <div class="tab-panel" id="tab_mailings">
                 <div class="tab-panel-group">
                     <div class="tab-group-content">
-                        <button type="submit" id="approve-btn" class="fluent-big-button">
+                        <button type="submit" id="approve-btn" class="fluent-big-button", onclick = "showDialog('#dialogoRegistro');">
                             <span class="icon mif-floppy-disk"></span>@Resources.EtiquetasResource.labelSaveLink<br />
                         </button>
-                        @Html.ActionLlinkWithSpan("<span class=\"icon mif-cancel\"></span>" + Resources.EtiquetasResource.labelCancelLink, "Grupos", "Tablas", null, new { @class = "fluent-big-button", @style = "text-decoration: none" })
+                        @Html.ActionLlinkWithSpan("<span class=\"icon mif-cancel\"></span>" + Resources.EtiquetasResource.labelCancelLink, "Grupos", "Tablas", new { IdPais = Model.IdPais   }, new { @class = "fluent-big-button", @style = "text-decoration: none", onclick = "showDialog('#dialogoRegistro');" })
                     </div>
                     <div class="tab-group-caption">Edición</div>
                 </div>
@@ -26,7 +28,6 @@
         <br />
         <div style=" border:1px solid #CCC; width:100%;">
             <div class="form-horizontal padding10">
-                @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })

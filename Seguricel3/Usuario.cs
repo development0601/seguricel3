@@ -18,6 +18,8 @@ namespace Seguricel3
         public Usuario()
         {
             this.Contrato_Dispositivo_Actualizacion = new HashSet<Contrato_Dispositivo_Actualizacion>();
+            this.Contrato_Ronda = new HashSet<Contrato_Ronda>();
+            this.Contrato_Unidad_Persona = new HashSet<Contrato_Unidad_Persona>();
             this.Contrato_Usuario = new HashSet<Contrato_Usuario>();
             this.Ticket = new HashSet<Ticket>();
             this.TicketSeguimiento = new HashSet<TicketSeguimiento>();
@@ -45,13 +47,15 @@ namespace Seguricel3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Dispositivo_Actualizacion> Contrato_Dispositivo_Actualizacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contrato_Ronda> Contrato_Ronda { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contrato_Unidad_Persona> Contrato_Unidad_Persona { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Usuario> Contrato_Usuario { get; set; }
-        public virtual EstadoUsuario EstadoUsuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ticket> Ticket { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TicketSeguimiento> TicketSeguimiento { get; set; }
-        public virtual TipoUsuario TipoUsuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario_Bitacora> Usuario_Bitacora { get; set; }
         public virtual Usuario_Perfil Usuario_Perfil { get; set; }

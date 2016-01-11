@@ -1,441 +1,731 @@
-﻿@*@model Seguricel3.Contrato*@
+﻿@model Seguricel3.Models.ContratoViewModel
 
-@*<h2>Create</h2>
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
 
-    <div class="modal-body">
-    <div class="modal-title" style="color: #3A87AD">
-        <h3>Add Note</h3>
-    </div>
-    <br/>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
+<script src="~/Scripts/Seguricel-Contrato.js"></script>
 
-    @using (Html.BeginForm("Create", "Ventas", FormMethod.Post))
-    {
-        <div class="row">
-            Enter note:
-        </div>
-        <div class="row">
-             Contenido
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" id="btnSave" class="btn btn-sm">Save</button>
-            </div>
-        </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#IdPais').selectpicker({
+            selectOnTab: true,
+            size: 10
+        });
+        $('#IdEstado').selectpicker({
+            noneResultsText: "@Resources.EtiquetasResource.labelDDLItemNotFound",
+            selectOnTab: true,
+            size: 10
+        });
+        $("#IdCiudad").selectpicker({
+            noneResultsText: "@Resources.EtiquetasResource.labelDDLItemNotFound",
+            selectOnTab: true,
+            size: 10
+        });
+        $('#IdTipoContrato').selectpicker({
+            noneResultsText: "@Resources.EtiquetasResource.labelDDLItemNotFound" +  "<button class=\"btn btn-default place-right\" onclick=\"ShowAddTipoContrato();\">@Resources.EtiquetasResource.labelNewLink</button>",
+            selectOnTab: true,
+            size: 10
+        });
+        $('#IdAdministradora').selectpicker({
+            noneResultsText: "@Resources.EtiquetasResource.labelDDLItemNotFound" +  "<button class=\"btn btn-default place-right\" onclick=\"ShowAddAdministradora();\">@Resources.EtiquetasResource.labelNewLink</button>",
+            selectOnTab: true,
+            size: 10
+        });
+        $("#IdEstadoContrato").selectpicker({
+            selectOnTab: true,
+            size: 10
+        });
+
+        var map;
+
+        Initialize();
+
+        $("#IdPais").change(function () {
+            $("#IdEstado").empty();
+            $("#IdEstado").attr("disabled", "disabled");
+            $('#IdEstado').selectpicker('refresh');
+            $("#IdCiudad").empty();
+            $("#IdCiudad").attr("disabled", "disabled");
+            $('#IdCiudad').selectpicker('refresh');
+            $("#IdTipoContrato").empty();
+            $("#IdTipoContrato").attr("disabled", "disabled");
+            $('#IdTipoContrato').selectpicker('refresh');
+            $("#IdAdministradora").empty();
+            $("#IdAdministradora").attr("disabled", "disabled");
+            $('#IdAdministradora').selectpicker('refresh');
+            $("#IdEstadoContrato").empty();
+            $("#IdEstadoContrato").attr("disabled", "disabled");
+            $('#IdEstadoContrato').selectpicker('refresh');
+            $("#Direccion").empty();
+            $("#Direccion").attr("readonly", "readonly");
+
+            if ($("#IdPais").val() == 0 || $("#IdPais").val() == null) {
+                return false;
+            }
+
+            var gmarkers = [];
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetEstadosByPais", "General")',
+                dataType: 'json',
+                data: {
+                    Id: $("#IdPais").val()
+                },
+                success: function (Estados) {
+                    $("#IdEstado").removeAttr("disabled");
+                    $.each(Estados, function (i, estado) {
+                        $("#IdEstado").append('<option value = "' + estado.Value + '">' + estado.Text + '</option>');
+                    });
+                    $('#IdEstado').selectpicker('refresh');
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de estados. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetTiposContrato", "Contrato")',
+                dataType: 'json',
+                data: {
+                    IdP: $("#IdPais").val(),
+                },
+                success: function (TiposContrato) {
+                    $("#IdTipoContrato").removeAttr("disabled");
+                    $.each(TiposContrato, function (i, tipoContrato) {
+                        $("#IdTipoContrato").append('<option value = "' + tipoContrato.Value + '">' + tipoContrato.Text + '</option>');
+                    });
+                    $('#IdTipoContrato').selectpicker('refresh');
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de Tipos de Contrato. ' + ex);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetAdministradoras", "Contrato")',
+                dataType: 'json',
+                data: {
+                    IdP: $("#IdPais").val(),
+                },
+                success: function (Administradoras) {
+                    $("#IdAdministradora").removeAttr("disabled");
+                    $.each(Administradoras, function (i, administradora) {
+                        $("#IdAdministradora").append('<option value = "' + administradora.Value + '">' + administradora.Text + '</option>');
+                    });
+                    $('#IdAdministradora').selectpicker('refresh');
+                },
+                error: function (xhr, ajaxOptions, errorThrown) {
+                    alert(xhr.responseText);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetEstadosContrato", "Contrato")',
+                dataType: 'json',
+                data: {
+                    IdP: $("#IdPais").val(),
+                },
+                success: function (EstadosContrato) {
+                    $("#IdEstadoContrato").removeAttr("disabled");
+                    $.each(EstadosContrato, function (i, estadoContrato) {
+                        $("#IdEstadoContrato").append('<option value = "' + estadoContrato.Value + '">' + estadoContrato.Text + '</option>');
+                    });
+                    $('#IdEstadoContrato').selectpicker('refresh');
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de EstadosContrato. ' + ex);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetCoordenadas", "GoogleMap")',
+                dataType: 'json',
+                data: {
+                    name: $("#IdPais option:selected").text()
+                },
+                success: function (data) {
+                    if (data.length > 0) {
+                        var result = data.split(" ");
+                        $("#Latitud").val(result[0]);
+                        $("#Longitud").val(result[1]);
+                        var latlng = new google.maps.LatLng(result[0], result[1]);
+
+                        var mapOptions = {
+                            zoom: 4,
+                            center: latlng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
+                        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                        var marker = new google.maps.Marker({
+                            position: latlng,
+                            map: map
+                        });
+
+                        for (i = 0; i < gmarkers.length; i++) {
+                            gmarkers[i].setmMap(null);
+                        }
+
+                        gmarkers.push(marker);
+                    }
+                    else {
+                        for (i = 0; i < gmarkers.length; i++) {
+                            gmarkers[i].setmMap(null);
+                        }
+
+                    }
+
+                    return false;
+                },
+                error: function (ex) {
+                    alert('Falló la extracción geográfica. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+
+            return false;
+        }) // Cerrando bloque de IdPais
+        $("#IdEstado").change(function () {
+            $("#IdCiudad").empty();
+            $("#IdCiudad").attr("disabled", "disabled");
+            $('#IdCiudad').selectpicker('refresh');
+
+            if ($("#IdEstado").val() == 0 || $("#IdEstado").val() == null) {
+                return false;
+            }
+
+            var gmarkers = [];
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetCiudadesByPais", "General")',
+                dataType: 'json',
+                data: {
+                    IdP: $("#IdPais").val(),
+                    IdE: $("#IdEstado").val()
+                },
+                success: function (Ciudades) {
+                    $("#IdCiudad").removeAttr("disabled");
+                    $.each(Ciudades, function (i, ciudad) {
+                        $("#IdCiudad").append('<option value = "' + ciudad.Value + '">' + ciudad.Text + '</option>');
+                    });
+                    $('#IdCiudad').selectpicker('refresh');
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de ciudades. ' + ex);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetCoordenadas", "GoogleMap")',
+                dataType: 'json',
+                data: {
+                    name: $("#IdEstado option:selected").text() + ", " + $("#IdPais option:selected").text()
+                },
+                success: function (data) {
+                    if (data.length > 0) {
+                        var result = data.split(" ");
+                        $("#Latitud").val(result[0]);
+                        $("#Longitud").val(result[1]);
+                        var latlng = new google.maps.LatLng(result[0], result[1]);
+
+                        var mapOptions = {
+                            zoom: 8,
+                            center: latlng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
+                        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                        var marker = new google.maps.Marker({
+                            position: latlng,
+                            map: map
+                        });
+
+                        for (i = 0; i < gmarkers.length; i++) {
+                            gmarkers[i].setmMap(null);
+                        }
+                        gmarkers.push(marker);
+                    }
+                    else {
+                        for (i = 0; i < gmarkers.length; i++) {
+                            gmarkers[i].setmMap(null);
+                        }
+
+                    }
+
+                    return false;
+                },
+                error: function (ex) {
+                    alert('Falló la extracción geográfica. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+
+            return false;
+        })// Cerrando bloque de IdEstado
+        $("#IdCiudad").change(function () {
+            $("#Direccion").empty();
+            $("#Direccion").attr("readonly", "readonly");
+            $("#NombreCompleto").empty();
+            $("#NombreCompleto").attr("readonly", "readonly");
+            $("#Contratante").empty();
+            $("#Contratante").attr("readonly", "readonly");
+            $("#CodigoPostal").empty();
+            $("#CodigoPostal").attr("readonly", "readonly");
+            $("#FechaContrato").empty();
+            $("#FechaContrato").attr("readonly", "readonly");
+            $("#RegistroFiscal").empty();
+            $("#RegistroFiscal").attr("readonly", "readonly");
+
+            $("#AccesoTelefonico").attr("disabled", "disabled");
+            $("#AccesoDactilar").attr("disabled", "disabled");
+            $("#AlarmaSilente").attr("disabled", "disabled");
+            $("#CondominioVirtual").attr("disabled", "disabled");
+            $("#ControlAscensores").attr("disabled", "disabled");
+            $("#ControlEstacionamiento").attr("disabled", "disabled");
+            $("#MaximoSecundarios").attr("readonly", "readonly");
+            $("#MaximoInvitados").attr("readonly", "readonly");
+            $("#MaximoPuestosFijos").attr("readonly", "readonly");
+            $("#MaximoPuestosVisitantes").attr("readonly", "readonly");
+
+            if ($("#IdEstado").val() == 0 || $("#IdEstado").val() == null) {
+                return false;
+            }
+            var gmarkers = [];
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetCoordenadas", "GoogleMap")',
+                dataType: 'json',
+                data: {
+                    name: $("#IdCiudad option:selected").text() + ", " + $("#IdEstado option:selected").text() + ", " + $("#IdPais option:selected").text()
+                },
+                success: function (data) {
+                    if (data.length > 0) {
+                        var result = data.split(" ");
+                        $("#Latitud").val(result[0]);
+                        $("#Longitud").val(result[1]);
+                        var latlng = new google.maps.LatLng(result[0], result[1]);
+
+                        var mapOptions = {
+                            zoom: 10,
+                            center: latlng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
+                        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                        var marker = new google.maps.Marker({
+                            position: latlng,
+                            map: map
+                        });
+
+                        for (i = 0; i < gmarkers.length; i++) {
+                            gmarkers[i].setmMap(null);
+                        }
+
+                        $("#Direccion").removeAttr("readonly");
+                        $("#NombreCompleto").removeAttr("readonly");
+                        $("#Contratante").removeAttr("readonly");
+                        $("#CodigoPostal").removeAttr("readonly");
+                        $("#FechaContrato").removeAttr("readonly");
+                        $(".datepicker").datepicker();
+                        $("#RegistroFiscal").removeAttr("readonly");
+                        $("#AccesoTelefonico").removeAttr("disabled");
+                        $("#AccesoDactilar").removeAttr("disabled");
+                        $("#AlarmaSilente").removeAttr("disabled");
+                        $("#CondominioVirtual").removeAttr("disabled");
+                        $("#ControlAscensores").removeAttr("disabled");
+                        $("#ControlEstacionamiento").removeAttr("disabled"); gmarkers.push(marker);
+                    }
+                    else {
+                        for (i = 0; i < gmarkers.length; i++) {
+                            gmarkers[i].setmMap(null);
+                        }
+
+                    }
+
+                    return false;
+                },
+                error: function (ex) {
+                    alert('Falló la extracción geográfica. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+
+            return false;
+        })// Cerrando bloque de IdCiudad
+        $("#Direccion").focusout(function () {
+            var gmarkers = [];
+            var nearData = [];
+            var actualData = [];
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetCoordenadas", "GoogleMap")',
+                dataType: 'json',
+                data: {
+                    name: $("#Direccion").val() + ", " + $("#IdCiudad option:selected").text() + ", " + $("#IdEstado option:selected").text() + ", " + $("#IdPais option:selected").text()
+                },
+                success: function (data) {
+                    if (data.length > 0) {
+                        actualData = data.split(" ");
+                        setLocalPoint(actualData[0], actualData[1]);
+                    }
+                    else {
+                        actualData = "";
+                        for (i = 0; i < gmarkers.length; i++) {
+                            gmarkers[i].setmMap(null);
+                        }
+
+                    }
+                },
+                error: function (ex) {
+                    alert('Falló la extracción geográfica. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+
+            return false;
+        })// Cerrando bloque de Direccion
+        $("#AccesoTelefonico").change(function () {
+
+            if ($("#AccesoTelefonico").is(':checked')) {
+                $("#CondominioVirtual").prop("checked", true);
+                $("#CondominioVirtual").attr("disabled", "disabled");
+                $("#MaximoSecundarios").val(99);
+                $("#MaximoSecundarios").removeAttr("readonly");
+                $("#MaximoInvitados").val(99);
+                $("#MaximoInvitados").removeAttr("readonly");
+            }
+            else {
+                $("#CondominioVirtual").prop("checked", false);
+                $("#CondominioVirtual").removeAttr("disabled");
+                $("#MaximoSecundarios").empty();
+                $("#MaximoSecundarios").attr("readonly", "readonly");
+                $("#MaximoInvitados").empty();
+                $("#MaximoInvitados").attr("readonly", "readonly");
+            }
+
+            return false;
+        })// Cerrando bloque de AccesoTelefonico
+        $("#ControlEstacionamiento").change(function () {
+
+            if ($("#ControlEstacionamiento").is(':checked')) {
+                $("#MaximoPuestosFijos").val(0);
+                $("#MaximoPuestosFijos").removeAttr("readonly");
+                $("#MaximoPuestosVisitantes").val(0);
+                $("#MaximoPuestosVisitantes").removeAttr("readonly");
+            }
+            else {
+                $("#MaximoPuestosFijos").empty();
+                $("#MaximoPuestosFijos").attr("readonly", "readonly");
+                $("#MaximoPuestosVisitantes").empty();
+                $("#MaximoPuestosVisitantes").attr("readonly", "readonly");
+            }
+
+            return false;
+        })// Cerrando bloque de ControlEstacionamiento
+        $('#fileupload').fileupload({
+            type: "POST",
+            dataType: 'json',
+            url: '@Url.Action("UploadFiles","Upload", routeValues: new { Folder = "~/FotosContrato" })',
+            autoUpload: true,
+            done: function (e, data) {
+                var showPath = "../../FotosContrato/" + data.result.name
+                var _html = "<img alt='' src='" + showPath + "' style='max-height: 150px;' />";
+                $("#LogoUrl").val(showPath);
+                $("#partial").html(_html);
+            }
+        }).on('fileuploadprogressall', function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('.progress .progress-bar').css('width', progress + '%');
+        }); // Cerrando file upload
+        $("#IdTipoContrato").change(function () {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetNroContrato", "Contrato")',
+                dataType: 'json',
+                data: {
+                    IdP: $("#IdPais").val(),
+                    IdTC: $("#IdTipoContrato").val()
+                },
+                success: function (nroContrato) {
+                    $("#NroContrato").val(nroContrato)
+                },
+                error: function (ex) {
+                    alert('Falló obtener último nro contrato. ' + ex);
+                }
+            });
+            return false;
+        })// Cerrando bloque de IdTipoContrato
+
+    }); // Cerrando form
+
+    function setLocalPoint(_latd, _long) {
+        $("#Latitud").val(_latd);
+        $("#Longitud").val(_long);
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetNearPoints", "GoogleMap")',
+            dataType: 'json',
+            data: {
+                lat: $("#Latitud").val(),
+                lng: $("#Longitud").val()
+            },
+            success: function (data) {
+                if (data.length > 0) {
+                    nearData = data.split("/");
+                    drawPoints(nearData);
+                }
+            },
+            error: function (ex) {
+                alert('Falló la extracción de puntos cercanos. ' + ex.status + ' ' + ex.statusText);
+            }
+        });
     }
-</div>
-@using (Html.BeginForm()) 
+    function ShowAddTipoContrato() {
+        $("#mwTipoContrato").modal('show');
+    }
+    function ShowAddAdministradora() {
+        $("#mwAdministradora").modal('show');
+    }
+</script>
+
+@using (Html.BeginForm("Create", "Contrato", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Contrato</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdTipoContrato, "IdTipoContrato", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdTipoContrato", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdTipoContrato, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.NroContrato, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NroContrato, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NroContrato, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Contratante, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Contratante, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Contratante, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Direccion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdPais, "IdPais", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdPais", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdPais, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdEstado, "IdEstado", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdEstado", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdCiudad, "IdCiudad", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdCiudad", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdCiudad, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CodigoPostal, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CodigoPostal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CodigoPostal, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FechaContrato, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaContrato, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FechaContrato, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RegistroFiscal, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RegistroFiscal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RegistroFiscal, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdAdministradora, "IdAdministradora", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdAdministradora", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdAdministradora, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AccesoTelefonico, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.AccesoTelefonico)
-                    @Html.ValidationMessageFor(model => model.AccesoTelefonico, "", new { @class = "text-danger" })
+    <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
+        <ul class="tabs-holder">
+            <li class="active"><a href="#tab_mailings">Edición</a></li>
+        </ul>
+        <div class="tabs-content form-actions">
+            <div class="tab-panel" id="tab_mailings">
+                <div class="tab-panel-group">
+                    <div class="tab-group-content">
+                        <button type="submit" id="approve-btn" class="fluent-big-button" onclick="showDialog('#dialogoRegistro')">
+                            <span class="icon mif-floppy-disk"></span>@Resources.EtiquetasResource.labelSaveLink<br />
+                        </button>
+                        @Html.ActionLlinkWithSpan("<span class=\"icon mif-cancel\"></span>" + Resources.EtiquetasResource.labelCancelLink, "Index", "Contrato", null, new { @class = "fluent-big-button", @style = "text-decoration: none", onclick = "showDialog('#dialogoRegistro')" })
+                    </div>
+                    <div class="tab-group-caption">Edición</div>
                 </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AccesoDactilar, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.AccesoDactilar)
-                    @Html.ValidationMessageFor(model => model.AccesoDactilar, "", new { @class = "text-danger" })
+        <br />
+        <div style=" border:1px solid #CCC; width:100%;">
+            <div class="form-horizontal padding10">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.IdPais, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.IdPais, Model.PaisesDisponibles, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control selectpicker show-menu-arrow"})
+                                @Html.ValidationMessageFor(m => m.IdPais, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.IdEstado, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.IdEstado, Model.Estados, htmlAttributes: new { @class = "form-control selectpicker show-menu-arrow", data_live_search = "true", @disabled = "disabled" })
+                                @Html.ValidationMessageFor(m => m.IdEstado, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.IdCiudad, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.IdCiudad, Model.Ciudades, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                @Html.ValidationMessageFor(m => m.IdCiudad, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.IdTipoContrato, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.IdTipoContrato, Model.TiposContrato, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                @Html.ValidationMessageFor(m => m.IdTipoContrato, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.NroContrato, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.NroContrato, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.NombreCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.NombreCompleto, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(m => m.NombreCompleto, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Contratante, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Contratante, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(m => m.Contratante, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 place-right ">
+                        <h3>@Resources.EtiquetasResource.lblImagenEdificioHeader</h3>
+                            <ul style="list-style: none;">
+                                <li>
+                                    <div id="partial" style="margin-top: 10px; margin-bottom: 10px;">
+                                        @if (!string.IsNullOrEmpty(Model.ImagenEdificio))
+                                        {
+                                            <img alt="" src="@Url.Content(Model.ImagenEdificio)" style="max-width: 310px;" />
+                                        }
+                                    </div>
+                                </li>
+                                <li>
+                                    @Html.Partial("UploadImageLogo")
+                                </li>
+                            </ul>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Vigicel, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Vigicel)
-                    @Html.ValidationMessageFor(model => model.Vigicel, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Direccion, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextAreaFor(m => m.Direccion, htmlAttributes: new { @class = "form-control", @style = "Height: 100px;", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(m => m.Direccion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CodigoPostal, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.CodigoPostal, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(m => m.CodigoPostal, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.FechaContrato, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(m => m.FechaContrato)
+                                @Html.ValidationMessageFor(m => m.FechaContrato, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.RegistroFiscal, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.RegistroFiscal, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(m => m.RegistroFiscal, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Latitud, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.Latitud, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" style="width: 100%; height: 255px; margin-left: auto; margin-right: auto;">
+                            @Html.Partial("GoogleMapLocation")
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Longitud, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.Longitud, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AlarmaSilente, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.AlarmaSilente)
-                    @Html.ValidationMessageFor(model => model.AlarmaSilente, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdAdministradora, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdAdministradora, Model.Administradoras, htmlAttributes: new { @class = "form-control selectpicker show-menu-arrow", data_live_search = "true", @disabled = "disabled", @id= "IdAdministradora" })
+                        @Html.ValidationMessageFor(m => m.IdAdministradora, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CondominioVirtual, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.CondominioVirtual)
-                    @Html.ValidationMessageFor(model => model.CondominioVirtual, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdEstadoContrato, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdEstadoContrato, Model.EstadosContrato, htmlAttributes: new { @class = "form-control selectpicker show-menu-arrow", @disabled = "disabled" })
+                        @Html.ValidationMessageFor(m => m.IdEstadoContrato, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ControlAscensores, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.ControlAscensores)
-                    @Html.ValidationMessageFor(model => model.ControlAscensores, "", new { @class = "text-danger" })
+                <h3>Caracteríticas del Contrato</h3>
+                <div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.AutoGestion, htmlAttributes: new { @class = "control-label col-md-9" })
+                        <div class="col-md-3">
+                            @Html.CheckBoxFor(m => m.AutoGestion, htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EmergenciaVecinal, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.EmergenciaVecinal)
-                    @Html.ValidationMessageFor(model => model.EmergenciaVecinal, "", new { @class = "text-danger" })
+                <div class="form-group" style="border: 1px solid #000; width: 90%; margin-right: auto; margin-left: auto; border-radius: 10px;">
+                    <div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(m => m.AccesoTelefonico, htmlAttributes: new { @class = "control-label col-md-9" })
+                            <div class="col-md-3">
+                                @Html.CheckBoxFor(m => m.AccesoTelefonico, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(m => m.AccesoDactilar, htmlAttributes: new { @class = "control-label col-md-9" })
+                            <div class="col-md-3">
+                                @Html.CheckBoxFor(m => m.AccesoDactilar, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(m => m.AlarmaSilente, htmlAttributes: new { @class = "control-label col-md-9" })
+                            <div class="col-md-3">
+                                @Html.CheckBoxFor(m => m.AlarmaSilente, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(m => m.CondominioVirtual, htmlAttributes: new { @class = "control-label col-md-9" })
+                            <div class="col-md-3">
+                                @Html.CheckBoxFor(m => m.CondominioVirtual, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(m => m.ControlAscensores, htmlAttributes: new { @class = "control-label col-md-9" })
+                            <div class="col-md-3">
+                                @Html.CheckBoxFor(m => m.ControlAscensores, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(m => m.ControlEstacionamiento, htmlAttributes: new { @class = "control-label col-md-9" })
+                            <div class="col-md-3">
+                                @Html.CheckBoxFor(m => m.ControlEstacionamiento, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.MaximoSecundarios, htmlAttributes: new { @class = "control-label col-md-9" })
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(m => m.MaximoSecundarios, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.MaximoInvitados, htmlAttributes: new { @class = "control-label col-md-9" })
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(m => m.MaximoInvitados, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.MaximoPuestosFijos, htmlAttributes: new { @class = "control-label col-md-9" })
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(m => m.MaximoPuestosFijos, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(m => m.MaximoPuestosVisitantes, htmlAttributes: new { @class = "control-label col-md-9" })
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(m => m.MaximoPuestosVisitantes, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaximoSecundarios, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaximoSecundarios, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaximoSecundarios, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaximoInvitados, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaximoInvitados, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaximoInvitados, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ControlEstacionamiento, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.ControlEstacionamiento)
-                    @Html.ValidationMessageFor(model => model.ControlEstacionamiento, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaximoPuestosVisitantes, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaximoPuestosVisitantes, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaximoPuestosVisitantes, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaximoPuestosFijos, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaximoPuestosFijos, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaximoPuestosFijos, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CorreoElectronicoJunta, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CorreoElectronicoJunta, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CorreoElectronicoJunta, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CorreoElectronicoComunida, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CorreoElectronicoComunida, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CorreoElectronicoComunida, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PuertoPOPGeneral, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PuertoPOPGeneral, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PuertoPOPGeneral, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PuertoSMTPGeneral, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PuertoSMTPGeneral, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PuertoSMTPGeneral, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ServidorPOPGeneral, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ServidorPOPGeneral, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ServidorPOPGeneral, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ServidorSMTPGeneral, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ServidorSMTPGeneral, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ServidorSMTPGeneral, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PuertoPOPJC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PuertoPOPJC, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PuertoPOPJC, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PuertoSMTPJC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PuertoSMTPJC, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PuertoSMTPJC, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ServidorPOPJC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ServidorPOPJC, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ServidorPOPJC, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ServidorSMTPJC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ServidorSMTPJC, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ServidorSMTPJC, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UsuarioCorreoComunidad, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UsuarioCorreoComunidad, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UsuarioCorreoComunidad, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ContraseñaCorreoComunidad, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ContraseñaCorreoComunidad, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ContraseñaCorreoComunidad, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UsuarioCorreoJC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UsuarioCorreoJC, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UsuarioCorreoJC, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ContraseñaCorreoJC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ContraseñaCorreoJC, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ContraseñaCorreoJC, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NroRedesInstalacion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NroRedesInstalacion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NroRedesInstalacion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NombreCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NombreCompleto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NombreCompleto, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DetieneSMS_Emergencia, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.DetieneSMS_Emergencia)
-                    @Html.ValidationMessageFor(model => model.DetieneSMS_Emergencia, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DetieneSMS_JC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.DetieneSMS_JC)
-                    @Html.ValidationMessageFor(model => model.DetieneSMS_JC, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DiaCorte, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DiaCorte, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DiaCorte, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AutoGestion_Aptos, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.AutoGestion_Aptos)
-                    @Html.ValidationMessageFor(model => model.AutoGestion_Aptos, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ImagenEdificio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ImagenEdificio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ImagenEdificio, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdEstadoContrato, "IdEstadoContrato", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdEstadoContrato", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdEstadoContrato, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UbicacionGeografica, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UbicacionGeografica, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UbicacionGeografica, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@
-
-
-<script type="text/javascript">
-    $(function () {
-        $('#btnSave').click(function () {
-            $('#modal-container').modal('hide');
-        });
-    });
-</script>

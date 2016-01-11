@@ -1,0 +1,243 @@
+﻿@model Seguricel3.Models.AdministradoraViewModel
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#modalIdEstado").selectpicker({
+            noneResultsText: "@Resources.EtiquetasResource.labelDDLItemNotFound",
+            selectOnTab: true,
+            size: 5
+        });
+        $("#modalIdCiudad").selectpicker({
+            noneResultsText: "@Resources.EtiquetasResource.labelDDLItemNotFound",
+            selectOnTab: true,
+            size: 5
+        });
+        $("#IdPais").change(function () {
+            $("#modalIdEstado").empty();
+            $("#modalIdEstado").attr("disabled", "disabled");
+            $('#modalIdEstado').selectpicker('refresh');
+            $("#modalIdCiudad").empty();
+            $("#modalIdCiudad").attr("disabled", "disabled");
+            $('#modalIdCiudad').selectpicker('refresh');
+
+            if ($("#IdPais").val() == 0 || $("#IdPais").val() == null) {
+                return false;
+            }
+
+            $("#modalIdPais").val($("#IdPais").val());
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetEstadosByPais", "General")',
+                dataType: 'json',
+                data: {
+                    Id: $("#IdPais").val()
+                },
+                success: function (Estados) {
+                    $("#modalIdEstado").removeAttr("disabled");
+                    $.each(Estados, function (i, estado) {
+                        $("#modalIdEstado").append('<option value = "' + estado.Value + '">' + estado.Text + '</option>');
+                    });
+                    $('#modalIdEstado').selectpicker('refresh');
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de estados. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+
+            return false;
+        }) // Cerrando bloque de IdPais
+        $("#modalIdEstado").change(function () {
+            $("#modalIdCiudad").empty();
+            $("#modalIdCiudad").enabled = true;
+            $("#modalIdCiudad").selectpicker("refresh");
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetCiudadesByPais", "General")',
+                dataType: 'json',
+                data: {
+                    IdP: $("#IdPais").val(),
+                    IdE: $("#modalIdEstado").val()
+                },
+                success: function (Ciudades) {
+                    $("#modalIdCiudad").empty();
+                    $("#modalIdCiudad").removeAttr("disabled");
+                    $.each(Ciudades, function (i, ciudad) {
+                        $("#modalIdCiudad").append('<option value = "' + ciudad.Value + '">' + ciudad.Text + '</option>');
+                    });
+                    $("#modalIdCiudad").selectpicker("refresh");
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de ciudades. ' + ex);
+                }
+            });
+            return false;
+        })
+        $("#botSaveAdministradora").click(function (e) {
+            e.preventDefault();
+
+            $("#mwAdministradora").modal('hide');
+            var frmData = $('#frmModalAdministradora').serialize();
+            $.ajax({
+                type: 'POST',
+                cache: false,
+                url: '@Url.Action("CreateAdministradora", "Contrato")',
+                data: frmData,
+                success: function (result) {
+                    if (result.success) {
+                        alert("done");
+                    }
+                    else {
+                        $("#frmModalAdministradora").html(result);
+                        $("#mwAdministradora").modal('show');
+                    }
+                    //var tiposCargo = result.TiposCargoJunta;
+                    //var newID = result.newID;
+                    //$("#IdCargoJunta").empty();
+                    //$.each(tiposCargo, function (i, tipoCargo) {
+                    //    $("#IdCargoJunta").append('<option value = "' + tipoCargo.Value + '">' + tipoCargo.Text + '</option>');
+                    //});
+                    //$("#IdCargoJunta").val(newID);
+                    //$("#IdCargoJunta").selectpicker('refresh');
+                    //$("#mwCargosJunta").modal('hide');
+
+                },
+                error: function (ex) {
+                    alert('Falló actualización de administradora. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+            return false;
+        })
+        $("#botCloseAdministradora").click(function (e) {
+            e.preventDefault();
+            $("#mwAdministradora").modal('hide');
+        })
+
+    });
+
+    //function ShowAddTipoContrato() {
+    //    $("#mwTipoContrato").modal('show');
+    //}
+    //function ShowAddAdministradora() {
+    //    $("#mwAdministradora").modal('show');
+    //}
+</script>
+
+@using (Html.BeginForm("CreateAdministradora", "Contrato", FormMethod.Post, htmlAttributes: new { id = "frmModalAdministradora" }))
+{
+    <div id="mwAdministradora" class="modal fade" style="margin-top: 150px;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">@Resources.ModalWindowResource.ModalAdministradoraHeader</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.IdPais, htmlAttributes: new { Id = "modalIdPais" })
+                    <div style=" border:1px solid #CCC; width:100%;">
+                        <div class="form-horizontal padding10">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <fieldset class="groupBox">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.Nombre, htmlAttributes: new { @class = "form-control", id = "modalNombre" })
+                                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Rif, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.Rif, htmlAttributes: new { @class = "form-control", id = "modalRif" })
+                                        @Html.ValidationMessageFor(model => model.Rif, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Direccion, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Direccion, htmlAttributes: new { @class = "form-control", id = "modalDireccion", @style = "height: 200px;" })
+                                        @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.IdEstado, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.DropDownListFor(m => m.IdEstado, Model.EstadosDisponibles, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control selectpicker show-menu-arrow", id = "modalIdEstado", data_live_search = "true" })
+                                        @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.IdCiudad, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.DropDownListFor(m => m.IdCiudad, Model.Ciudades, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control selectpicker show-menu-arrow", id = "modalIdCiudad", data_live_search = "true" })
+                                        @Html.ValidationMessageFor(model => model.IdCiudad, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.CodigoPostal, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.CodigoPostal, htmlAttributes: new { @class = "form-control", id = "modalCodigoPostal" })
+                                        @Html.ValidationMessageFor(model => model.CodigoPostal, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.CorreoAdministradora, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.CorreoAdministradora, htmlAttributes: new { @class = "form-control", id = "modalCorreoAdministradora" })
+                                        @Html.ValidationMessageFor(model => model.CorreoAdministradora, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.NombreContacto, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.NombreContacto, htmlAttributes: new { @class = "form-control", id = "modalNombreContacto" })
+                                        @Html.ValidationMessageFor(model => model.NombreContacto, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.CorreoContacto, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.CorreoContacto, htmlAttributes: new { @class = "form-control", id = "modalCorreoContacto" })
+                                        @Html.ValidationMessageFor(model => model.CorreoContacto, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.TelefonoOficina, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.TelefonoOficina, htmlAttributes: new { @class = "form-control", id = "modalTelefonoOficina" })
+                                        @Html.ValidationMessageFor(model => model.TelefonoOficina, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.TelefonoFax, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.TelefonoFax, htmlAttributes: new { @class = "form-control", id = "modalTelefonoFax" })
+                                        @Html.ValidationMessageFor(model => model.TelefonoFax, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.TelefonoCelular1, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.TelefonoCelular1, htmlAttributes: new { @class = "form-control", id = "modalTelefonoCelular1" })
+                                        @Html.ValidationMessageFor(model => model.TelefonoCelular1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.TelefonoCelular2, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.TelefonoCelular2, htmlAttributes: new { @class = "form-control", id = "modalTelefonoCelular2" })
+                                        @Html.ValidationMessageFor(model => model.TelefonoCelular2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="botCloseAdministradora" type="button" class="btn btn-default">@Resources.EtiquetasResource.labelCancelLink</button>
+                    <button id="botSaveAdministradora" type="Button" class="btn btn-default">@Resources.EtiquetasResource.labelSaveLink</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -23,12 +23,12 @@ namespace Seguricel3
         public System.DateTime FechaTrasmision { get; set; }
         public bool Verificada { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Acceso Contrato_Acceso { get; set; }
         public virtual Contrato_Dispositivo Contrato_Dispositivo { get; set; }
-        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
         public virtual Contrato_Unidad_Persona Contrato_Unidad_Persona { get; set; }
         public virtual Contrato_Unidad_Persona_Acceso Contrato_Unidad_Persona_Acceso { get; set; }
         public virtual Contrato_Unidad_Persona_Biometria Contrato_Unidad_Persona_Biometria { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
+        public virtual Contrato_Acceso Contrato_Acceso { get; set; }
     }
 }

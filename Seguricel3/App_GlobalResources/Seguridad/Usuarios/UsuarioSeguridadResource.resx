@@ -117,55 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BackButtonText" xml:space="preserve">
-    <value>Regresar</value>
+  <data name="CreateUsuarioHeaderPage" xml:space="preserve">
+    <value>Nuevo Usuario</value>
   </data>
-  <data name="HeaderColumna1" xml:space="preserve">
+  <data name="CreateUsuarioPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Usuario</value>
+  </data>
+  <data name="EditUsuarioHeaderPage" xml:space="preserve">
+    <value>Actualizar Usuario</value>
+  </data>
+  <data name="EditUsuarioPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Usuario</value>
+  </data>
+  <data name="labelConfirmarContraseña" xml:space="preserve">
+    <value>Confirme la Contraseña</value>
+  </data>
+  <data name="labelContrato" xml:space="preserve">
+    <value>Contrato</value>
+  </data>
+  <data name="labelEmail" xml:space="preserve">
+    <value>Correo Electrónico</value>
+  </data>
+  <data name="labelEstadoUsuario" xml:space="preserve">
+    <value>Estado Actual</value>
+  </data>
+  <data name="labelFechaCambioEstado" xml:space="preserve">
+    <value>Fecha Cambio Estado</value>
+  </data>
+  <data name="labelFechaUltimaConexion" xml:space="preserve">
+    <value>Fecha Ultima Conexión</value>
+  </data>
+  <data name="labelNombre" xml:space="preserve">
     <value>Nombre</value>
   </data>
-  <data name="HeaderColumna2" xml:space="preserve">
-    <value>Nivel</value>
+  <data name="labelPassword" xml:space="preserve">
+    <value>Contraseña</value>
   </data>
-  <data name="HeaderColumna3" xml:space="preserve">
-    <value>Estado</value>
+  <data name="labelPrimeraVez" xml:space="preserve">
+    <value>Primera Vez</value>
   </data>
-  <data name="HeaderColumna4" xml:space="preserve">
-    <value>Fecha de Estado</value>
+  <data name="labelTipoUsuario" xml:space="preserve">
+    <value>Tipo de Usuario</value>
   </data>
-  <data name="HeaderColumna5" xml:space="preserve">
-    <value>Fecha de Registro</value>
+  <data name="labelUnidad" xml:space="preserve">
+    <value>Unidad</value>
   </data>
-  <data name="HeaderColumna6" xml:space="preserve">
-    <value>Fecha de Última Conexión</value>
-  </data>
-  <data name="HeaderDetailSection" xml:space="preserve">
-    <value>Datos del Usuario {0}</value>
-  </data>
-  <data name="HeaderListSecction" xml:space="preserve">
+  <data name="UsuariosHeaderPage" xml:space="preserve">
     <value>Relación de Usuarios</value>
   </data>
-  <data name="HeaderPage" xml:space="preserve">
-    <value>Mantenimiento de Usuarios</value>
+  <data name="UsuariosPageTitle" xml:space="preserve">
+    <value>Seguricel - Usuarios</value>
   </data>
-  <data name="LabelEstadoUsuario" xml:space="preserve">
-    <value>Estado del Usuario</value>
+  <data name="labelUsuario" xml:space="preserve">
+    <value>Usuario</value>
   </data>
-  <data name="LabelFechaCambioEstado" xml:space="preserve">
-    <value>Fecha de Cambio de Estado</value>
+  <data name="UsuarioContratoHeaderPage" xml:space="preserve">
+    <value>Relacionar Usuarios y Contratos</value>
   </data>
-  <data name="LabelFechaRegistro" xml:space="preserve">
-    <value>Fecha de Registro</value>
-  </data>
-  <data name="LabelFechaUltimaConexion" xml:space="preserve">
-    <value>Fecha de Última Conexión</value>
-  </data>
-  <data name="LabelNivelUsuario" xml:space="preserve">
-    <value>Nivel de Usuario</value>
-  </data>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Seguricel - Mantenimiento de Usuarios</value>
-  </data>
-  <data name="SaveButtonText" xml:space="preserve">
-    <value>Guardar</value>
+  <data name="UsuarioContratoPageTitle" xml:space="preserve">
+    <value>Seguricel - Relacionar Usuarios y Contratos</value>
   </data>
 </root>

@@ -1,0 +1,118 @@
+﻿@model Seguricel3.Models.UnidadViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<div>
+    @using (Html.BeginForm("EditUnidad", "Unidad", FormMethod.Post, htmlAttributes: new { id = "frmPpal" }))
+    {
+        @Html.HiddenFor(m => m.IdContrato)
+        @Html.HiddenFor(m => m.IdUnidad)
+        @Html.HiddenFor(m => m.IdPais)
+        <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
+            <ul class="tabs-holder">
+                <li class="active"><a href="#tab_mailings">Edición</a></li>
+            </ul>
+            <div class="tabs-content form-actions">
+                <div class="tab-panel" id="tab_mailings">
+                    <div class="tab-panel-group">
+                        <div class="tab-group-content">
+                            <button type="submit" id="approve-btn" class="fluent-big-button" , onclick="showDialog('#dialogoRegistro');">
+                                <span class="icon mif-floppy-disk"></span>@Resources.EtiquetasResource.labelSaveLink<br />
+                            </button>
+                            @Html.ActionLlinkWithSpan("<span class=\"icon mif-cancel\"></span>" + Resources.EtiquetasResource.labelCancelLink, "Index", "Unidad", new { IdPais = Model.IdPais, IdContrato = Model.IdContrato }, new { @class = "fluent-big-button", @style = "text-decoration: none", onclick = "showDialog('#dialogoRegistro');" })
+                        </div>
+                        <div class="tab-group-caption">Edición</div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div style="border:1px solid #CCC; width:100%;">
+                <div class="form-horizontal padding10">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Nombre, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.IdUnidadMaestra, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.IdUnidadMaestra, Model.UnidadesContrato, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control selectpicker show-menu-arrow", data_live_search = "true" })
+                            @Html.ValidationMessageFor(model => model.IdUnidadMaestra, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Torre, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Torre, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Torre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Piso, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Piso, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Piso, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CodigoIdentificacionVigilancia, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.CodigoIdentificacionVigilancia, htmlAttributes: new { @class = "form-control", onkeydown = "return ValidateNumber(event);" })
+                            @Html.ValidationMessageFor(model => model.CodigoIdentificacionVigilancia, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CodigoAutorizacion, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.CodigoAutorizacion, htmlAttributes: new { @class = "form-control", onkeydown = "return ValidateNumber(event);" })
+                            @Html.ValidationMessageFor(model => model.CodigoAutorizacion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Vacaciones, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.CheckBoxFor(m => m.Vacaciones)
+                            @Html.ValidationMessageFor(model => model.Vacaciones, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Activa, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10 align-left">
+                            @Html.CheckBoxFor(m => m.Activa)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Seguridad, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10 align-left">
+                            @Html.CheckBoxFor(m => m.Seguridad)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AceptaSecundarios, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10 align-left">
+                            @Html.CheckBoxFor(m => m.AceptaSecundarios)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AceptaInvitados, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10 align-left">
+                            @Html.CheckBoxFor(m => m.AceptaInvitados)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.JuntaCondominio, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10 align-left">
+                            @Html.CheckBoxFor(m => m.JuntaCondominio)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

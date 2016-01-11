@@ -20,7 +20,6 @@ namespace Seguricel3
         public System.Guid IdUsuario { get; set; }
         public string Observacion { get; set; }
     
-        public virtual EstadoTicket EstadoTicket { get; set; }
         public virtual Ticket Ticket { get; set; }
         public virtual Usuario Usuario { get; set; }
     }

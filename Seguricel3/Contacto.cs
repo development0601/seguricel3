@@ -23,8 +23,8 @@ namespace Seguricel3
         public int CantidadVivienda { get; set; }
         public string Urbanizacion { get; set; }
         public int IdPais { get; set; }
-        public int IdEstado { get; set; }
-        public int IdCiudad { get; set; }
+        public Nullable<int> IdEstado { get; set; }
+        public Nullable<int> IdCiudad { get; set; }
         public string Comentario { get; set; }
     
         public virtual Pais Pais { get; set; }

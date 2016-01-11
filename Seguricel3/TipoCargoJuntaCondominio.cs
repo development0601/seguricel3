@@ -14,18 +14,11 @@ namespace Seguricel3
     
     public partial class TipoCargoJuntaCondominio
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoCargoJuntaCondominio()
-        {
-            this.Contrato_JuntaCondominio = new HashSet<Contrato_JuntaCondominio>();
-        }
-    
+        public string Culture { get; set; }
         public int IdCargoJunta { get; set; }
         public int IdPais { get; set; }
         public string Nombre { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato_JuntaCondominio> Contrato_JuntaCondominio { get; set; }
         public virtual Pais Pais { get; set; }
     }
 }

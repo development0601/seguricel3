@@ -83,7 +83,9 @@ namespace Seguricel3
                     Name = serializeModel.Name,
                     IdTipoUsuario = serializeModel.IdTipoUsuario,
                     HoursTimeZone = serializeModel.HoursTimeZone,
-                    MinutesTimeZone = serializeModel.MinutesTimeZone
+                    MinutesTimeZone = serializeModel.MinutesTimeZone,
+                    Culture = serializeModel.Culture,
+                    DefaultCulture = serializeModel.DefaultCulture
                 };
 
                 HttpContext.Current.User = newUser;

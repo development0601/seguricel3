@@ -17,15 +17,13 @@ namespace Seguricel3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Operadora()
         {
-            this.Contrato_Dispositivo = new HashSet<Contrato_Dispositivo>();
             this.Operadora_Contacto = new HashSet<Operadora_Contacto>();
         }
     
+        public int IdPais { get; set; }
         public System.Guid IdOperadora { get; set; }
         public string Nombre { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato_Dispositivo> Contrato_Dispositivo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Operadora_Contacto> Operadora_Contacto { get; set; }
     }

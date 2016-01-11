@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La {0} no puede ser mayor a la fecha del día.
+        /// </summary>
+        public static string DateTimeVsTodayErrorMessage {
+            get {
+                return ResourceManager.GetString("DateTimeVsTodayErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La dirección de correo electrónico para {0} no es válida..
         /// </summary>
         public static string EmailAddressErrorMessage {
@@ -79,11 +88,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El valor para {0} debe estar entre {0} y {1}.
+        ///   Busca una cadena traducida similar a El valor indicado no es un número de teléfono válido.
+        /// </summary>
+        public static string PhoneNumberMessage {
+            get {
+                return ResourceManager.GetString("PhoneNumberMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor para {0} debe estar entre {1} y {2}.
         /// </summary>
         public static string RangeErrorMessage {
             get {
                 return ResourceManager.GetString("RangeErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El valor no coincide con el tipo de información esperada..
+        /// </summary>
+        public static string RegularExpressionMessage {
+            get {
+                return ResourceManager.GetString("RegularExpressionMessage", resourceCulture);
             }
         }
         
@@ -97,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El número de caracteres de {0} debe ser al menos {2}.
+        ///   Busca una cadena traducida similar a El número de caracteres de {0} debe ser máximo de {1}.
         /// </summary>
         public static string StringLengthErrorMessage {
             get {

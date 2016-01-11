@@ -304,6 +304,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Password.
+        /// </summary>
+        internal static string LoginClave {
+            get {
+                return ResourceManager.GetString("LoginClave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email.
+        /// </summary>
+        internal static string LoginCorreo {
+            get {
+                return ResourceManager.GetString("LoginCorreo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email and/or password invalid.
+        /// </summary>
+        internal static string LoginError {
+            get {
+                return ResourceManager.GetString("LoginError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Users.
         /// </summary>
         internal static string LoginHeader {

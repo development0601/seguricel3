@@ -20,11 +20,11 @@ namespace Seguricel3
             this.Contrato = new HashSet<Contrato>();
         }
     
+        public int IdPais { get; set; }
         public System.Guid IdAdministradora { get; set; }
         public string Nombre { get; set; }
         public string Rif { get; set; }
         public string Direccion { get; set; }
-        public int IdPais { get; set; }
         public int IdEstado { get; set; }
         public int IdCiudad { get; set; }
         public string CodigoPostal { get; set; }
@@ -36,10 +36,10 @@ namespace Seguricel3
         public string CorreoElectronicoAdministradora { get; set; }
         public string CorreoElectronicoContacto { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato> Contrato { get; set; }
         public virtual Pais Pais { get; set; }
         public virtual Pais_Estado Pais_Estado { get; set; }
         public virtual Pais_Estado_Ciudad Pais_Estado_Ciudad { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contrato> Contrato { get; set; }
     }
 }

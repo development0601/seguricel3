@@ -1,0 +1,113 @@
+﻿@model Seguricel3.Models.EstadosViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<script src="~/Scripts/Seguricel-DataGrid.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#IdPais").change(function () {
+            $("#IdEstado").empty();
+            $("#IdCiudad").empty();
+            $("#IdCiudad").enabled = false;
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetEstadosByPais", "Tablas")',
+                dataType: 'json',
+                data: {
+                    Id: $("#IdPais").val()
+                },
+                success: function (Estados) {
+                    $("#partialPlaceHolder").hide();
+                    $.each(Estados, function (i, estado) {
+                        $("#IdEstado").append('<option value = "' + estado.Value + '">' + estado.Text + '</option>');
+                    });
+               },
+                error: function (ex) {
+                    alert('Falló la consulta de estados. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+            return false;
+        })
+
+    });
+</script>
+<div>
+    @using (Html.BeginForm("Ciudades", "Tablas", FormMethod.Post, htmlAttributes: new { id = "myForm", name = "myForm" }))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.IdPais, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.IdPais, Model.Paises, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdPais, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.IdEstado, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.IdEstado, Model.Estados, htmlAttributes: new { @class = "form-control", onchange = "showDialog('#dialogoRegistro'); this.form.submit();" })
+                @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    }
+</div>
+@if (Model.showCiudades)
+{
+    <div id="partialPlaceHolder" style="padding-top: 70px;">
+        <div style="margin-top: 20px;">
+            @Html.ActionLink(Resources.EtiquetasResource.labelNewLink, "CreateCiudad", "Tablas", routeValues: new { IdPais = Model.IdPais, IdEstado = Model.IdEstado }, htmlAttributes: new { @class = "btn btn-default place-right", onclick = "showDialog('#dialogoRegistro');" })
+        </div>
+        <div style="margin-top:60px; padding-top: 20px; border-top: 1px solid #000; width: 95%;">
+            <table id="dataTable" class="dataTable" cellspacing="0" style="margin: auto;  width:100%; font-size: 12pt;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center; width: 60%;">
+                            @Html.DisplayNameFor(m => m.Ciudades.FirstOrDefault().Nombre)
+                        </th>
+                        <th style="text-align:center; width: 10%;">
+                            @Html.DisplayNameFor(m => m.Ciudades.FirstOrDefault().Activo)
+                        </th>
+                        <th style="text-align:center; width: 10%;">
+                            @Html.DisplayNameFor(m => m.Ciudades.FirstOrDefault().Latitud)
+                        </th>
+                        <th style="text-align:center; width: 10%;">
+                            @Html.DisplayNameFor(m => m.Ciudades.FirstOrDefault().Longitud)
+                        </th>
+                        <th style="width: 5%;"></th>
+                        <th style="width: 5%;"></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">&nbsp;</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model.Ciudades)
+                {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Activo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Latitud)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Longitud)
+                            </td>
+                            <td style="text-align: center;">
+                                <a href="@Url.Action("EditCiudad", "Tablas", routeValues: new { IdPais = item.IdPais, IdEstado = item.IdEstado, Id = item.Id })" onclick = "showDialog('#dialogoRegistro');"><span class="mif-pencil" title=@Resources.EtiquetasResource.labelEditLink></span></a>
+                            </td>
+                            <td style="text-align: center;">
+                                <a href="@Url.Action("DeleteCiudad", "Tablas", routeValues: new { IdPais = item.IdPais, IdEstado = item.IdEstado, Id = item.Id })" onclick="return confirm('@item.Nombre @Resources.EtiquetasResource.DeleteConfirmMessage');"><span class="mif-bin" title=@Resources.EtiquetasResource.labelDeleteLink></span></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

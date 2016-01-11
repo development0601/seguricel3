@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class TipoCartelera
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoCartelera()
-        {
-            this.Contrato_Cartelera = new HashSet<Contrato_Cartelera>();
-        }
-    
+        public string Culture { get; set; }
         public int IdTipoCartelera { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato_Cartelera> Contrato_Cartelera { get; set; }
     }
 }

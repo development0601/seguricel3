@@ -26,13 +26,10 @@ namespace Seguricel3
         }
     
         public virtual DbSet<Contacto> Contacto { get; set; }
-        public virtual DbSet<Contrato> Contrato { get; set; }
-        public virtual DbSet<Contrato_Acceso> Contrato_Acceso { get; set; }
         public virtual DbSet<Contrato_Administradora> Contrato_Administradora { get; set; }
         public virtual DbSet<Contrato_Cartelera> Contrato_Cartelera { get; set; }
         public virtual DbSet<Contrato_Cartelera_Comentario> Contrato_Cartelera_Comentario { get; set; }
         public virtual DbSet<Contrato_Cartelera_Imagen> Contrato_Cartelera_Imagen { get; set; }
-        public virtual DbSet<Contrato_Contacto> Contrato_Contacto { get; set; }
         public virtual DbSet<Contrato_Correos_Seguricel> Contrato_Correos_Seguricel { get; set; }
         public virtual DbSet<Contrato_Correos_Seguricel_Destinatarios> Contrato_Correos_Seguricel_Destinatarios { get; set; }
         public virtual DbSet<Contrato_Dispositivo> Contrato_Dispositivo { get; set; }
@@ -53,7 +50,6 @@ namespace Seguricel3
         public virtual DbSet<Contrato_Ronda_Punto> Contrato_Ronda_Punto { get; set; }
         public virtual DbSet<Contrato_TipoArea> Contrato_TipoArea { get; set; }
         public virtual DbSet<Contrato_TipoArea_Evento> Contrato_TipoArea_Evento { get; set; }
-        public virtual DbSet<Contrato_Unidad> Contrato_Unidad { get; set; }
         public virtual DbSet<Contrato_Unidad_Anuncio> Contrato_Unidad_Anuncio { get; set; }
         public virtual DbSet<Contrato_Unidad_Bloqueo_Acceso> Contrato_Unidad_Bloqueo_Acceso { get; set; }
         public virtual DbSet<Contrato_Unidad_Factura> Contrato_Unidad_Factura { get; set; }
@@ -89,11 +85,6 @@ namespace Seguricel3
         public virtual DbSet<Modulo_TipoUsuario> Modulo_TipoUsuario { get; set; }
         public virtual DbSet<MonedaExtranjera> MonedaExtranjera { get; set; }
         public virtual DbSet<MonedaExtranjera_TasaCambio> MonedaExtranjera_TasaCambio { get; set; }
-        public virtual DbSet<Operadora> Operadora { get; set; }
-        public virtual DbSet<Operadora_Contacto> Operadora_Contacto { get; set; }
-        public virtual DbSet<Pais> Pais { get; set; }
-        public virtual DbSet<Pais_Estado> Pais_Estado { get; set; }
-        public virtual DbSet<Pais_Estado_Ciudad> Pais_Estado_Ciudad { get; set; }
         public virtual DbSet<SubGrupo> SubGrupo { get; set; }
         public virtual DbSet<Ticket> Ticket { get; set; }
         public virtual DbSet<TicketSeguimiento> TicketSeguimiento { get; set; }
@@ -117,5 +108,14 @@ namespace Seguricel3
         public virtual DbSet<Usuario_Perfil> Usuario_Perfil { get; set; }
         public virtual DbSet<Vendedor> Vendedor { get; set; }
         public virtual DbSet<Vendedor_Movimiento> Vendedor_Movimiento { get; set; }
+        public virtual DbSet<Pais> Pais { get; set; }
+        public virtual DbSet<Operadora> Operadora { get; set; }
+        public virtual DbSet<Operadora_Contacto> Operadora_Contacto { get; set; }
+        public virtual DbSet<Pais_Estado> Pais_Estado { get; set; }
+        public virtual DbSet<Pais_Estado_Ciudad> Pais_Estado_Ciudad { get; set; }
+        public virtual DbSet<Contrato> Contrato { get; set; }
+        public virtual DbSet<Contrato_Contacto> Contrato_Contacto { get; set; }
+        public virtual DbSet<Contrato_Unidad> Contrato_Unidad { get; set; }
+        public virtual DbSet<Contrato_Acceso> Contrato_Acceso { get; set; }
     }
 }

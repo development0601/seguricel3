@@ -27,6 +27,10 @@ namespace Seguricel3
         public int IdTipoUsuario { get; set; }
         public int HoursTimeZone { get; set; }
         public int MinutesTimeZone { get; set; }
+        public double Latitud { get; set; }
+        public double Longitd { get; set; }
+        public string Culture { get; set; }
+        public string DefaultCulture { get; set; }
         public string Rol
         {
             get
@@ -75,5 +79,9 @@ namespace Seguricel3
                 return _rol;
             }
         }
+        public double Latitud { get; set; }
+        public string Culture { get; set; }
+        public string DefaultCulture { get; set; }
+        public double Longitd { get; set; }
     }
 }

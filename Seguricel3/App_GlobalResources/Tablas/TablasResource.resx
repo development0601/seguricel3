@@ -117,20 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="labelId" xml:space="preserve">
-    <value>Código</value>
+  <data name="CreateGrupoHeaderPage" xml:space="preserve">
+    <value>Nuevo Grupo</value>
   </data>
-  <data name="labelNombre" xml:space="preserve">
-    <value>Nombre</value>
+  <data name="CreateGrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Grupo</value>
   </data>
-  <data name="TipoDispositivoHeaderPage" xml:space="preserve">
-    <value>Tipos de Dispositivo</value>
+  <data name="CreateSubGrupoHeaderPage" xml:space="preserve">
+    <value>Nuevo SubGrupo en el Grupo</value>
   </data>
-  <data name="TipoDispositivoPageTitle" xml:space="preserve">
-    <value>Seguricel - Tipos de Dispositivo</value>
-  </data>
-  <data name="TipoDispositivoTableHeader" xml:space="preserve">
-    <value>Relación de Tipos de Dispositivo</value>
+  <data name="CreateSubGrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo SubGrupo</value>
   </data>
   <data name="CreateTipoAccionHeaderPage" xml:space="preserve">
     <value>Nuevo Tipo de Acción</value>
@@ -174,12 +171,6 @@
   <data name="CreateTipoContactoTableHeader" xml:space="preserve">
     <value>Relación de Nuevo Tipo de Contacto</value>
   </data>
-  <data name="CreateTipoContratoHeaderPage" xml:space="preserve">
-    <value>Nuevo Tipo de Contrato</value>
-  </data>
-  <data name="CreateTipoContratoPageTitle" xml:space="preserve">
-    <value>Seguricel - Nuevo Tipo de Contrato</value>
-  </data>
   <data name="CreateTipoDispositivoHeaderPage" xml:space="preserve">
     <value>Nuevo Tipo de Dispositivo</value>
   </data>
@@ -221,6 +212,18 @@
   </data>
   <data name="CreateTipoVehiculoPageTitle" xml:space="preserve">
     <value>Seguricel - Nuevo Tipo de Vehiculo</value>
+  </data>
+  <data name="EditGrupoHeaderPage" xml:space="preserve">
+    <value>Actualizar Grupo</value>
+  </data>
+  <data name="EditGrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Grupo</value>
+  </data>
+  <data name="EditSubGrupoHeaderPage" xml:space="preserve">
+    <value>Actualizar SubGrupo del Grupo </value>
+  </data>
+  <data name="EditSubGrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar SubGrupo</value>
   </data>
   <data name="EditTipoAccionHeaderPage" xml:space="preserve">
     <value>Actualizar Tipo de Acción</value>
@@ -264,12 +267,6 @@
   <data name="EditTipoContactoTableHeader" xml:space="preserve">
     <value>Relación de Actualizar Tipo de Contacto</value>
   </data>
-  <data name="EditTipoContratoHeaderPage" xml:space="preserve">
-    <value>Actualizar Tipo de Contrato</value>
-  </data>
-  <data name="EditTipoContratoPageTitle" xml:space="preserve">
-    <value>Seguricel - Actualizar Tipo de Contrato</value>
-  </data>
   <data name="EditTipoDispositivoHeaderPage" xml:space="preserve">
     <value>Actualizar Tipo de Dispositivo</value>
   </data>
@@ -311,6 +308,45 @@
   </data>
   <data name="EditTipoVehiculoPageTitle" xml:space="preserve">
     <value>Seguricel - Actualizar Tipo de Vehiculo</value>
+  </data>
+  <data name="GrupoHeaderPage" xml:space="preserve">
+    <value>Grupos</value>
+  </data>
+  <data name="GrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - Grupos</value>
+  </data>
+  <data name="GrupoTableHeader" xml:space="preserve">
+    <value>Relación de Grupos</value>
+  </data>
+  <data name="labelCodigoGrupo" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="labelCodigoSubGrupo" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="labelId" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="labelNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="labelNombreGrupo" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="labelNombreSubGrupo" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="labelSubGrupo_IdGrupo" xml:space="preserve">
+    <value>Grupo</value>
+  </data>
+  <data name="SubGrupoHeaderPage" xml:space="preserve">
+    <value>SubGrupos</value>
+  </data>
+  <data name="SubGrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - SubGrupos</value>
+  </data>
+  <data name="SubGrupoTableHeader" xml:space="preserve">
+    <value>Relación de SubGrupos</value>
   </data>
   <data name="TipoAccionHeaderPage" xml:space="preserve">
     <value>Tipos de Acción</value>
@@ -375,6 +411,15 @@
   <data name="TipoContratoTableHeader" xml:space="preserve">
     <value>Relación de Tipos de Contrato</value>
   </data>
+  <data name="TipoDispositivoHeaderPage" xml:space="preserve">
+    <value>Tipos de Dispositivo</value>
+  </data>
+  <data name="TipoDispositivoPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Dispositivo</value>
+  </data>
+  <data name="TipoDispositivoTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Dispositivo</value>
+  </data>
   <data name="TipoMensajeHeaderPage" xml:space="preserve">
     <value>Tipos de Mensaje</value>
   </data>
@@ -429,61 +474,106 @@
   <data name="TipoVehiculoTableHeader" xml:space="preserve">
     <value>Relación de Tipos de Vehiculo</value>
   </data>
-  <data name="CreateGrupoHeaderPage" xml:space="preserve">
-    <value>Nuevo Grupo</value>
+  <data name="CiudadHeaderPage" xml:space="preserve">
+    <value>Ciudades</value>
   </data>
-  <data name="CreateGrupoPageTitle" xml:space="preserve">
-    <value>Seguricel - Nuevo Grupo</value>
+  <data name="CiudadPageTitle" xml:space="preserve">
+    <value>Seguricel - Ciudades</value>
   </data>
-  <data name="CreateSubGrupoHeaderPage" xml:space="preserve">
-    <value>Nuevo SubGrupo</value>
+  <data name="CiudadTableHeader" xml:space="preserve">
+    <value>Relación de Ciudades</value>
   </data>
-  <data name="CreateSubGrupoPageTitle" xml:space="preserve">
-    <value>Seguricel - Nuevo SubGrupo</value>
+  <data name="CreateCiudadHeaderPage" xml:space="preserve">
+    <value>Nuevo Ciudad en el Estado</value>
   </data>
-  <data name="EditGrupoHeaderPage" xml:space="preserve">
-    <value>Actualizar Grupo</value>
+  <data name="CreateCiudadPageTitle" xml:space="preserve">
+    <value>Seguricel - Nueva Ciudad</value>
   </data>
-  <data name="EditGrupoPageTitle" xml:space="preserve">
-    <value>Seguricel - Actualizar Grupo</value>
+  <data name="CreateEstadoHeaderPage" xml:space="preserve">
+    <value>Nuevo Estado en el País</value>
   </data>
-  <data name="EditSubGrupoHeaderPage" xml:space="preserve">
-    <value>Actualizar SubGrupo</value>
+  <data name="CreateEstadoPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Estado</value>
   </data>
-  <data name="EditSubGrupoPageTitle" xml:space="preserve">
-    <value>Seguricel - Actualizar SubGrupo</value>
+  <data name="CreatePaisHeaderPage" xml:space="preserve">
+    <value>Nuevo Pais</value>
   </data>
-  <data name="GrupoHeaderPage" xml:space="preserve">
-    <value>Grupos</value>
+  <data name="CreatePaisPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Pais</value>
   </data>
-  <data name="GrupoPageTitle" xml:space="preserve">
-    <value>Seguricel - Grupos</value>
+  <data name="EstadoHeaderPage" xml:space="preserve">
+    <value>Estados</value>
   </data>
-  <data name="GrupoTableHeader" xml:space="preserve">
-    <value>Relación de Grupos</value>
+  <data name="EstadoPageTitle" xml:space="preserve">
+    <value>Seguricel - Estados</value>
   </data>
-  <data name="labelCodigoGrupo" xml:space="preserve">
-    <value>Código</value>
+  <data name="EstadoTableHeader" xml:space="preserve">
+    <value>Relación de Estados</value>
   </data>
-  <data name="labelCodigoSubGrupo" xml:space="preserve">
-    <value>Código</value>
+  <data name="labelEstado" xml:space="preserve">
+    <value>Estado</value>
   </data>
-  <data name="labelNombreGrupo" xml:space="preserve">
+  <data name="labelNombreCiudad" xml:space="preserve">
     <value>Nombre</value>
   </data>
-  <data name="labelNombreSubGrupo" xml:space="preserve">
+  <data name="labelNombreEstado" xml:space="preserve">
     <value>Nombre</value>
   </data>
-  <data name="labelSubGrupo_IdGrupo" xml:space="preserve">
-    <value>Grupo</value>
+  <data name="labelNombrePais" xml:space="preserve">
+    <value>Nombre</value>
   </data>
-  <data name="SubGrupoHeaderPage" xml:space="preserve">
-    <value>SubGrupos</value>
+  <data name="PaisHeaderPage" xml:space="preserve">
+    <value>Paises</value>
   </data>
-  <data name="SubGrupoPageTitle" xml:space="preserve">
-    <value>Seguricel - SubGrupos</value>
+  <data name="PaisPageTitle" xml:space="preserve">
+    <value>Seguricel - Paises</value>
   </data>
-  <data name="SubGrupoTableHeader" xml:space="preserve">
-    <value>Relación de SubGrupos</value>
+  <data name="PaisTableHeader" xml:space="preserve">
+    <value>Relación de Paises</value>
+  </data>
+  <data name="EditCiudadHeaderPage" xml:space="preserve">
+    <value>Actualizar Ciudad en el Estado</value>
+  </data>
+  <data name="EditCiudadPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Ciudad</value>
+  </data>
+  <data name="EditEstadoHeaderPage" xml:space="preserve">
+    <value>Actualizar Estado en el País</value>
+  </data>
+  <data name="EditEstadoPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Estado</value>
+  </data>
+  <data name="EditPaisHeaderPage" xml:space="preserve">
+    <value>Actualizar Pais</value>
+  </data>
+  <data name="EditPaisPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Pais</value>
+  </data>
+  <data name="labelActivoCiudad" xml:space="preserve">
+    <value>Activa</value>
+  </data>
+  <data name="labelActivoEstado" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="labelActivoPais" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="labelPais" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="labelCiudad" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+  <data name="labelLatitud" xml:space="preserve">
+    <value>Latitud</value>
+  </data>
+  <data name="labelLongitud" xml:space="preserve">
+    <value>Longitud</value>
+  </data>
+  <data name="RequiredPressButton" xml:space="preserve">
+    <value>Por favor presione el botón para obtener las coodenadas</value>
+  </data>
+  <data name="labelNombreCulture" xml:space="preserve">
+    <value>Cultura</value>
   </data>
 </root>

@@ -24,8 +24,7 @@ namespace Seguricel3
         public Nullable<long> IdModulo { get; set; }
         public string Observacion { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual Modulo Modulo { get; set; }
         public virtual Usuario Usuario { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

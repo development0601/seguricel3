@@ -24,8 +24,7 @@ namespace Seguricel3
         public Nullable<int> DiasPospuesta { get; set; }
         public string MotivoRechazo { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual EstadoVenta EstadoVenta { get; set; }
         public virtual Vendedor Vendedor { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

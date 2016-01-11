@@ -21,9 +21,9 @@ namespace Seguricel3
         public System.Guid IdAcceso { get; set; }
         public System.Guid IdDispositivo { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Acceso Contrato_Acceso { get; set; }
         public virtual Contrato_Dispositivo Contrato_Dispositivo { get; set; }
+        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Unidad Contrato_Unidad { get; set; }
+        public virtual Contrato_Acceso Contrato_Acceso { get; set; }
     }
 }

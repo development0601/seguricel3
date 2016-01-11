@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'C:\Documentos\Visual Studio 2015\Projects\Seguricel3\Seguricel3\SeguricelDataModel.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\usuario\Source\Workspaces\Seguricel3\Seguricel3\Seguricel3\SeguricelDataModel.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

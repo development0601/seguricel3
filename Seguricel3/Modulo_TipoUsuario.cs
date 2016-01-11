@@ -14,6 +14,7 @@ namespace Seguricel3
     
     public partial class Modulo_TipoUsuario
     {
+        public string Culture { get; set; }
         public long IdModulo { get; set; }
         public int IdTipoUsuario { get; set; }
         public Nullable<System.DateTime> FechaAsignacion { get; set; }

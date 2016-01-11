@@ -18,23 +18,21 @@ namespace Seguricel3
         public Pais_Estado()
         {
             this.Contacto = new HashSet<Contacto>();
-            this.Contrato = new HashSet<Contrato>();
             this.Contrato_Administradora = new HashSet<Contrato_Administradora>();
             this.Cotizacion = new HashSet<Cotizacion>();
             this.Franquicia = new HashSet<Franquicia>();
             this.Pais_Estado_Ciudad = new HashSet<Pais_Estado_Ciudad>();
-            this.TipoContrato = new HashSet<TipoContrato>();
+            this.Contrato = new HashSet<Contrato>();
         }
     
         public int IdPais { get; set; }
         public int IdEstado { get; set; }
         public string Nombre { get; set; }
         public bool Activo { get; set; }
+        public System.Data.Entity.Spatial.DbGeography Ubicacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contacto> Contacto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato> Contrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Administradora> Contrato_Administradora { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -45,6 +43,6 @@ namespace Seguricel3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pais_Estado_Ciudad> Pais_Estado_Ciudad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TipoContrato> TipoContrato { get; set; }
+        public virtual ICollection<Contrato> Contrato { get; set; }
     }
 }

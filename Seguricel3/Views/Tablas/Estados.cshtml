@@ -1,0 +1,78 @@
+﻿@model Seguricel3.Models.PaisesViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<script src="~/Scripts/Seguricel-DataGrid.js"></script>
+
+<div>
+    @using (Html.BeginForm("Estados", "Tablas", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label(Resources.EtiquetasResource.labelDDLPais, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.IdPais, Model.Paises as IEnumerable<SelectListItem>, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control", onchange = "showDialog('#dialogoRegistro'); this.form.submit();" })
+            </div>
+        </div>
+    }
+</div>
+@if (Model.showEstados)
+{
+<div id="partialPlaceHolder" style="padding-top: 30px;">
+    <div style="margin-top: 20px;">
+        @Html.ActionLink(Resources.EtiquetasResource.labelNewLink, "CreateEstado", "Tablas", routeValues: new { IdPais = Model.IdPais }, htmlAttributes: new { @class = "btn btn-default place-right", onclick = "showDialog('#dialogoRegistro');" })
+    </div>
+    <div style="margin-top:60px; padding-top: 20px; border-top: 1px solid #000; width: 95%;">
+        <table id="dataTable" class="dataTable" cellspacing="0" style="margin: auto;  width:100%; font-size: 12pt;">
+            <thead>
+                <tr>
+                    <th style="text-align:center; width: 60%;">
+                        @Html.DisplayNameFor(m => m.Estados.FirstOrDefault().Nombre)
+                    </th>
+                    <th style="text-align:center; width: 10%;">
+                        @Html.DisplayNameFor(m => m.Estados.FirstOrDefault().Activo)
+                    </th>
+                    <th style="text-align:center; width: 10%;">
+                        @Html.DisplayNameFor(m => m.Estados.FirstOrDefault().Latitud)
+                    </th>
+                    <th style="text-align:center; width: 10%;">
+                        @Html.DisplayNameFor(m => m.Estados.FirstOrDefault().Longitud)
+                    </th>
+                    <th style="width: 5%;"></th>
+                    <th style="width: 5%;"></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model.Estados)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => item.Nombre)
+                        </td>
+                        <td style="vertical-align: middle;">
+                            @Html.DisplayFor(m => item.Activo)
+                        </td>
+                        <td style="vertical-align: middle;">
+                            @Html.DisplayFor(m => item.Latitud)
+                        </td>
+                        <td style="vertical-align: middle;">
+                            @Html.DisplayFor(m => item.Longitud)
+                        </td>
+                        <td style="text-align: center;">
+                            <a href="@Url.Action("EditEstado", "Tablas", routeValues: new { IdPais = Model.IdPais, Id = item.Id })" onclick = "showDialog('#dialogoRegistro');"><span class="mif-pencil" title=@Resources.EtiquetasResource.labelEditLink></span></a>
+                        </td>
+                        <td style="text-align: center;">
+                            <a href="@Url.Action("DeleteEstado", "Tablas", routeValues: new { IdPais = Model.IdPais, Id = item.Id })" onclick="return confirm('@item.Nombre @Resources.EtiquetasResource.DeleteConfirmMessage');"><span class="mif-bin" title=@Resources.EtiquetasResource.labelDeleteLink></span></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+}

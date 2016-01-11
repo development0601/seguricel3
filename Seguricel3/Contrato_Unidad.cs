@@ -23,7 +23,9 @@ namespace Seguricel3
             this.Contrato_JuntaCondominio = new HashSet<Contrato_JuntaCondominio>();
             this.Contrato_Mensaje = new HashSet<Contrato_Mensaje>();
             this.Contrato_Mensaje_Destinatario = new HashSet<Contrato_Mensaje_Destinatario>();
+            this.Contrato_Publicacion = new HashSet<Contrato_Publicacion>();
             this.Contrato_TipoArea_Evento = new HashSet<Contrato_TipoArea_Evento>();
+            this.Contrato_TipoArea_Evento1 = new HashSet<Contrato_TipoArea_Evento>();
             this.Contrato_Unidad_Anuncio = new HashSet<Contrato_Unidad_Anuncio>();
             this.Contrato_Unidad_Bloqueo_Acceso = new HashSet<Contrato_Unidad_Bloqueo_Acceso>();
             this.Contrato_Unidad_Factura = new HashSet<Contrato_Unidad_Factura>();
@@ -35,6 +37,7 @@ namespace Seguricel3
             this.Contrato_Unidad_Persona = new HashSet<Contrato_Unidad_Persona>();
             this.Contrato_Unidad_Vehiculo = new HashSet<Contrato_Unidad_Vehiculo>();
             this.Contrato_Unidad_Visitas = new HashSet<Contrato_Unidad_Visitas>();
+            this.Contrato_Usuario = new HashSet<Contrato_Usuario>();
             this.Ticket = new HashSet<Ticket>();
         }
     
@@ -43,22 +46,16 @@ namespace Seguricel3
         public string Nombre { get; set; }
         public string Torre { get; set; }
         public string Piso { get; set; }
-        public string Identificacion { get; set; }
         public long CodigoIdentificacionVigilancia { get; set; }
         public int CodigoAutorizacionAcceso { get; set; }
         public bool ModoVacaciones { get; set; }
         public bool Activa { get; set; }
         public System.Guid IdUnidadMaestra { get; set; }
-        public string NombrePrincipal { get; set; }
-        public string CorreoElectronicoPrincipal { get; set; }
-        public string Telefono { get; set; }
-        public string Ubicacion { get; set; }
         public bool Seguridad { get; set; }
-        public bool RetrasmisionSMS { get; set; }
-        public int MaximoSecundarios { get; set; }
-        public int MaximoInvitados { get; set; }
+        public bool AceptaSecundarios { get; set; }
+        public bool AceptaInvitados { get; set; }
         public byte[] Image { get; set; }
-        public bool AccesoVigilancia { get; set; }
+        public bool JuntaCondominio { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Cartelera> Contrato_Cartelera { get; set; }
@@ -73,7 +70,11 @@ namespace Seguricel3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Mensaje_Destinatario> Contrato_Mensaje_Destinatario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contrato_Publicacion> Contrato_Publicacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_TipoArea_Evento> Contrato_TipoArea_Evento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contrato_TipoArea_Evento> Contrato_TipoArea_Evento1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Unidad_Anuncio> Contrato_Unidad_Anuncio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -96,6 +97,8 @@ namespace Seguricel3
         public virtual ICollection<Contrato_Unidad_Vehiculo> Contrato_Unidad_Vehiculo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Unidad_Visitas> Contrato_Unidad_Visitas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contrato_Usuario> Contrato_Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ticket> Ticket { get; set; }
     }

@@ -19,9 +19,9 @@ namespace Seguricel3
         {
             this.Modulo1 = new HashSet<Modulo>();
             this.Modulo_TipoUsuario = new HashSet<Modulo_TipoUsuario>();
-            this.Usuario_Bitacora = new HashSet<Usuario_Bitacora>();
         }
     
+        public string Culture { get; set; }
         public long IdModulo { get; set; }
         public Nullable<long> IdModuloPadre { get; set; }
         public int IdTipoElemento { get; set; }
@@ -35,7 +35,5 @@ namespace Seguricel3
         public virtual Modulo Modulo2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Modulo_TipoUsuario> Modulo_TipoUsuario { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario_Bitacora> Usuario_Bitacora { get; set; }
     }
 }

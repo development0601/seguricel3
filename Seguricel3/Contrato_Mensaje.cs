@@ -31,14 +31,11 @@ namespace Seguricel3
         public int IdBandeja { get; set; }
         public int IdTipoMensaje { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Mensaje_Anexo> Contrato_Mensaje_Anexo { get; set; }
-        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Mensaje_Destinatario> Contrato_Mensaje_Destinatario { get; set; }
-        public virtual TipoBandeja TipoBandeja { get; set; }
-        public virtual TipoBandeja TipoBandeja1 { get; set; }
-        public virtual TipoMensaje TipoMensaje { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
     }
 }

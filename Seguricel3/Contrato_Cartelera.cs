@@ -27,18 +27,15 @@ namespace Seguricel3
         public System.Guid IdUnidad { get; set; }
         public System.DateTime FechaPublicacion { get; set; }
         public string Descripcion { get; set; }
-        public System.Guid IdUsuario { get; set; }
         public string TituloMensaje { get; set; }
         public bool Publico { get; set; }
         public int VotosPositivos { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Cartelera_Comentario> Contrato_Cartelera_Comentario { get; set; }
-        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
-        public virtual Contrato_Usuario Contrato_Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Cartelera_Imagen> Contrato_Cartelera_Imagen { get; set; }
-        public virtual TipoCartelera TipoCartelera { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
     }
 }

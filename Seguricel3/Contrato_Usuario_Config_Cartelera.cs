@@ -16,11 +16,12 @@ namespace Seguricel3
     {
         public System.Guid IdContrato { get; set; }
         public System.Guid IdUsuario { get; set; }
+        public System.Guid IdUnidad { get; set; }
         public System.Guid IdTipoCartelera { get; set; }
         public System.Guid IdConfiguracion { get; set; }
         public string Email { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Usuario Contrato_Usuario { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

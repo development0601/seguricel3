@@ -30,7 +30,35 @@
         // Here set the value of hidden field to the ClientTimeZone.
         minutes = convert(std_time_offset);
         $('#ClientTimeZone').val(minutes);
+
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        }
+
+        function showPosition(position) {
+            var latlondata = position.coords.latitude + "," + position.coords.longitude;
+            var latlon = "Latitude" + position.coords.latitude + "," + "Longitude" + position.coords.longitude;
+            $("#Longitud").val(position.coords.longitude);
+            $("#Latitud").val(position.coords.latitude);
+        }
+
+        function showError(error) {
+            if (error.code == 1) {
+                $("#message").html("User denied the request for Geolocation.");
+            }
+            else if (error.code == 2) {
+                $("#message").html("Location information is unavailable.");
+            }
+            else if (error.code == 3) {
+                $("#message").html("The request to get user location timed out.");
+            }
+            else {
+                $("#message").html("An unknown error occurred.");
+            }
+        }
     });
+
     function convert(value) {
         var hours = parseInt(value);
         value -= parseInt(value);
@@ -70,10 +98,10 @@
 
 <div class="padding10">
 
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Checklogin", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", onsubmit = "showDialog('#dialogoRegistro')" }))
     {
 
-        @Html.HiddenFor(m => m.UserTimeZone, new { id = "ClientTimeZone", name = "ClientTimeZone" })
+    @Html.HiddenFor(m => m.UserTimeZone, new { id = "ClientTimeZone", name = "ClientTimeZone" })
         @Html.AntiForgeryToken()
 
         <h4 class="text-light">@Model.LoginSubtitle</h4>
@@ -84,20 +112,21 @@
                 <span class="mif-user prepend-icon"></span>
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-            </div>
-            <div class="input-control text">
+                                                </div>
+            <br><br>
+                                            <div class="input-control text">
                 <span class="mif-lock prepend-icon"></span>
                 @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                        </div>
+                    </div>
         <div style="margin-top: 30px;">
             <div class="form-actions">
-                <input id="submitButton" type="submit" value=@Model.submitButtonText class="btn btn-default place-right" style="width: 100px;" />
-            </div>
+                <input id="submitButton" type="submit" value=@Model.submitButtonText class="btn btn-default place-right" style="width: 100px;"  />
+                </div>
             <div>
-                @Html.ActionLink(Model.ForgotPasswordText, "ForgotPassword", null, new { @style = "font-size: 10pt; " })
+                @Html.ActionLink(Model.ForgotPasswordText, "ForgotPassword", null, new { @style = "font-size: 10pt; ", onclick =  "showDialog('#dialogoRegistro')" })
             </div>
         </div>
-    }
+}
 </div>

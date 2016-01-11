@@ -25,8 +25,8 @@ namespace Seguricel3
         public int RechazosBiometrico { get; set; }
         public int AperturaExterna { get; set; }
     
+        public virtual Contrato_Dispositivo Contrato_Dispositivo { get; set; }
         public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Acceso Contrato_Acceso { get; set; }
-        public virtual Contrato_Dispositivo Contrato_Dispositivo { get; set; }
     }
 }

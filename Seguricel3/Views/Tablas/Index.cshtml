@@ -1,53 +1,38 @@
-﻿@model IEnumerable<Seguricel3.Models.TablaGeneralViewModel>
+﻿@model Seguricel3.Models.TablasViewModel
 
 @{
     Layout = "~/Views/Shared/_LayoutInternal.cshtml";
 }
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#dataTable').DataTable({
-            searching: true,
-            ordering: true,
-            select: true,
-            language: {
-                processing: 'Procesando información...',
-                search: "Buscar:",
-                lengthMenu: "Mostrar elementos _MENU_ ",
-                info: "Mostrando del elemento _START_ al _END_ de _TOTAL_ elementos",
-                infoEmpty: "Mostrando del elemento 0 al 0 de 0 elementos",
-                infoFiltered: "(_MAX_ elementos filtrados en total)",
-                infoPostFix: "",
-                loadingRecords: "Cargando...",
-                zeroRecords: "No hay datos disposibles",
-                emptyTable: "No hay datos disponibles en la tabla",
-                paginate: {
-                    first: "Primero",
-                    previous: "Anterior",
-                    next: "Siguiente",
-                    last: "Último"
-                },
-                aria: {
-                    sortAscending: ": habilitado para ordenar la columna en orden ascendente",
-                    sortDescending: ": habilitado para ordenar la columna en orden descendente"
-                }
-            }
-        });
-    });
-</script>
+<script type="text/javascript" src="~/Scripts/Seguricel-DataGrid.js"></script>
 
 <div>
-    @Html.ActionLink(Resources.EtiquetasResource.labelNewLink, "Create", "Tablas", routeValues: new { tipoTabla = (eTipoTabla)ViewBag.TipoTabla }, htmlAttributes: new { @class = "btn btn-default place-right" })
+    @using (Html.BeginForm("Index", "Tablas", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => Model.TipoTabla)
+        <div class="form-group">
+            @Html.Label(Resources.EtiquetasResource.labelDDLPais, htmlAttributes: new { @class = "control-label col-md-2", onChange = "this.form.submit();" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.IdPais, Model.Paises as IEnumerable<SelectListItem>, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control", onchange = "showDialog('#dialogoRegistro'); this.form.submit();" })
+            </div>
+        </div>
+    }
 </div>
-<div style="margin-top:60px; padding-top: 20px; border-top: 1px solid #000; width: 95%;">
+@if (Model.showDatos)
+{
+<div style="margin-top:60px;">
+    @Html.ActionLink(Resources.EtiquetasResource.labelNewLink, "Create", "Tablas", routeValues: new { tipoTabla = Model.TipoTabla, IdPais = Model.IdPais }, htmlAttributes: new { @class = "btn btn-default place-right" })
+</div>
+<div style="margin-top:100px; padding-top: 20px; border-top: 1px solid #000; width: 95%;">
+    @Html.HiddenFor(m => m.IdPais)
     <table id="dataTable" class="dataTable" cellspacing="0" style="margin: auto;  width:100%; font-size: 12pt;">
         <thead>
             <tr>
                 <th style="vertical-align: middle; width: 15%;">
-                    @Html.DisplayNameFor(m => m.Id)
+                    @Html.DisplayNameFor(m => m.DatosTabla.FirstOrDefault().Id)
                 </th>
                 <th style="text-align:center; width: 75%;">
-                    @Html.DisplayNameFor(m => m.Nombre)
+                    @Html.DisplayNameFor(m => m.DatosTabla.FirstOrDefault().Nombre)
                 </th>
                 <th style="width: 5%;"></th>
                 <th style="width: 5%;"></th>
@@ -59,7 +44,7 @@
             </tr>
         </tfoot>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.DatosTabla)
             {
                 <tr>
                     <td style="vertical-align: middle;">
@@ -69,15 +54,16 @@
                         @Html.DisplayFor(m => item.Nombre)
                     </td>
                     <td style="text-align: center;">
-                        <a href="@Url.Action("Edit", "Tablas", routeValues: new { id = item.Id, tipoTabla = item.TipoTabla })"><span class="mif-pencil" title=@Resources.EtiquetasResource.labelEditLink></span></a>
+                        <a href="@Url.Action("Edit", "Tablas", routeValues: new { id = item.Id, tipoTabla = item.TipoTabla, IdPais = Model.IdPais })"><span class="mif-pencil" title=@Resources.EtiquetasResource.labelEditLink></span></a>
                     </td>
                     <td style="text-align: center;">
-                        <a href="@Url.Action("Delete", "Tablas", routeValues: new { id = item.Id, tipoTabla = item.TipoTabla })" onclick="return confirm('@item.Nombre @Resources.EtiquetasResource.DeleteConfirmMessage');"><span class="mif-bin" title=@Resources.EtiquetasResource.labelDeleteLink></span></a>
+                        <a href="@Url.Action("Delete", "Tablas", routeValues: new { id = item.Id, tipoTabla = item.TipoTabla, IdPais = Model.IdPais })" onclick="return confirm('@item.Nombre @Resources.EtiquetasResource.DeleteConfirmMessage');"><span class="mif-bin" title=@Resources.EtiquetasResource.labelDeleteLink></span></a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+}
 
 

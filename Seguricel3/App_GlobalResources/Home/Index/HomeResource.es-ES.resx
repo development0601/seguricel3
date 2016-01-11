@@ -270,4 +270,13 @@
   <data name="ProgressBarText" xml:space="preserve">
     <value>Procesando Información. Por favor espere...</value>
   </data>
+  <data name="LoginClave" xml:space="preserve">
+    <value>Clave</value>
+  </data>
+  <data name="LoginCorreo" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Correo y/o clave no son validos</value>
+  </data>
 </root>

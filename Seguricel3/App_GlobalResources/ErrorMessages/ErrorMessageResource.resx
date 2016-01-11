@@ -120,17 +120,26 @@
   <data name="ConfirmarContraseñaCompareErrorMessage" xml:space="preserve">
     <value>La contraseña y la contraseña de confirmación no coinciden.</value>
   </data>
+  <data name="DateTimeVsTodayErrorMessage" xml:space="preserve">
+    <value>La {0} no puede ser mayor a la fecha del día</value>
+  </data>
   <data name="EmailAddressErrorMessage" xml:space="preserve">
     <value>La dirección de correo electrónico para {0} no es válida.</value>
   </data>
+  <data name="PhoneNumberMessage" xml:space="preserve">
+    <value>El valor indicado no es un número de teléfono válido</value>
+  </data>
   <data name="RangeErrorMessage" xml:space="preserve">
-    <value>El valor para {0} debe estar entre {0} y {1}</value>
+    <value>El valor para {0} debe estar entre {1} y {2}</value>
+  </data>
+  <data name="RegularExpressionMessage" xml:space="preserve">
+    <value>El valor no coincide con el tipo de información esperada.</value>
   </data>
   <data name="RequiredMessage" xml:space="preserve">
     <value>Debe indicar un valor para {0}</value>
   </data>
   <data name="StringLengthErrorMessage" xml:space="preserve">
-    <value>El número de caracteres de {0} debe ser al menos {2}</value>
+    <value>El número de caracteres de {0} debe ser máximo de {1}</value>
   </data>
   <data name="TypeValueErrorMessage" xml:space="preserve">
     <value>El valor indicado para {0} no es válido</value>

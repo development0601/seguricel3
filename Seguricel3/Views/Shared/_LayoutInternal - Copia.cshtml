@@ -12,99 +12,56 @@
 
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/metroUI/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-</head>
-<body>
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/metroUI")
 
+</head>
+<body>
     @RenderSection("scripts", required: false)
 
-
-    <div>
-        <div class="app-bar" style="margin: 0 auto; z-index: 100;">
-            <div class="col-md-12" style="padding: 5px;">
-                <div class="col-md-3">
-                    <div>
-                        <img class="logoimg" src="~/Imagenes/logo nuevo seguricel.png" height="50" />
-                    </div>
+    <div class="app-bar" style="margin: 0 auto;">
+        <div class="col-md-12" style="padding: 5px; background-color: #808080;">
+            <div class="col-md-3">
+                <div>
+                    <img class="logoimg" src="~/Imagenes/logo nuevo seguricel.png" height="50" />
                 </div>
-                <div class="col-md-9">
-                    @if (Request.IsAuthenticated)
+            </div>
+            <div class="col-md-5" style="text-align:center; font-size: 32pt; vertical-align: middle;">
+                @ViewBag.PageHeader
+            </div>
+            <div class="col-md-3">
+                @if (Request.IsAuthenticated)
                 {
-                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right", encType = "multipart/form-data", @style = "float: right" }))
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right", encType = "multipart/form-data", @style="float: right" }))
                     {
-                            @Html.AntiForgeryToken()
+                        @Html.AntiForgeryToken()
 
-                            <ul class="nav navbar-nav navbar-right">
-                                <li>
-                                    @Html.ActionLink("Bienvenido(a): " + (@User as CustomPrincipal).Name, "Perfil", "Account", new { @class="link" })
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("LogOff", "Account")"><span class="mif-exit link"></span></a>
-                                    @*@Html.ImageActionLink("Cerrar Sesión", "LogOff", "Account", new { model = Model }, new { @class = "btn btn-default" }, "~/Imagenes/close_session.jpg", 10)*@
-                                </li>
-                            </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                @Html.ActionLink("Bienvenido(a): " + (@User as CustomPrincipal).Name, "Perfil", "Account")
+                            </li>
+                            <li>
+                                @Html.ImageActionLink("Cerrar Sesión", "LogOff", "Account", htmlAttributes: new { @class = "btn btn-default" }, "~/Imagenes/close_session.jpg", 10)
+                            </li>
+                        </ul>
                     }
                 }
-                </div>
             </div>
         </div>
-        <div style="height:100%;">
-            <div class="col-md-3" style="height:100%; background-color: #f6f7f8;">
-                @if (ViewBag.Menu != null)
+    </div>
+    <div x|style="height:100%;">
+        <div class="col-md-3" style="height:100%; background-color: #f6f7f8;">
+            @if (ViewBag.Menu != null)
             {
-                    @Html.Raw(@ViewBag.menu)
+                @Html.Raw(@ViewBag.menu)
             }
-            </div>
-            <div class="col-md-9 place-right" style="height: auto;">
-                <div style="text-align:center; font-size: 32pt; vertical-align: middle; padding-top: 10px; padding-bottom: 10px;">
-                    @ViewBag.PageHeader
-                </div>
-                @RenderBody()
-            </div>
+        </div>
+        <div class="col-md-9" style="height: auto;">
+            @RenderBody()
         </div>
     </div>
-
-    <div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript">
-        $(function () {
-            // Initialize numeric spinner input boxes
-            //$(".numeric-spinner").spinedit();
-
-            // Initalize modal dialog
-            // attach modal-container bootstrap attributes to links with .modal-link class.
-            // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
-            $('body').on('click', '.modal-link', function (e) {
-                e.preventDefault();
-                $(this).attr('data-target', '#modal-container');    
-                $(this).attr('data-toggle', 'modal');
-            });
-
-            // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
-            $('body').on('click', '.modal-close-btn', function () {
-                $('#modal-container').modal('hide');
-            });
-
-            //clear modal cache, so that new content can be loaded
-            $('#modal-container').on('hidden.bs.modal', function () {
-                $(this).removeData('bs.modal');
-            });
-
-            $('#CancelModal').on('click', function () {
-                return false;
-            });
-        });
-    </script>
-
 </body>
 </html>
 

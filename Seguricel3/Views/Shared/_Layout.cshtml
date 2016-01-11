@@ -1,4 +1,5 @@
 ﻿@using System.Globalization;
+@using Resources;
 
 <!DOCTYPE html>
 <html>
@@ -17,9 +18,26 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/metroUI")
 
+    <script type="text/javascript">
+        function showDialogo(id) {
+            var dialog = $(id).data('dialog');
+            alert(dialog);
+            dialog.open();
+        }
+    </script>
+
 </head>
+
 <body>
     @RenderSection("scripts", required: false)
+
+    <div data-role="dialog" class="padding20" data-overlay="true" data-overlay-color="op-dark" id="dialogoRegistro">
+        <h3>Seguricel</h3>
+        <p style="color:green">
+            <span class="mif-spinner5 mif-ani-spin"></span>
+            @HomeResource.ProgressBarText
+        </p>
+    </div>
 
     @RenderBody()
 </body>

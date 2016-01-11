@@ -1,0 +1,141 @@
+﻿@model Seguricel3.Models.UsuarioContratoViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#IdPais").change(function () {
+            $("#IdEstado").empty();
+            $("#IdCiudad").empty();
+            $("#IdCiudad").enabled = false;
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetEstadosByPais", "Seguridad")',
+                dataType: 'json',
+                data: {
+                    Id: $("#IdPais").val()
+                },
+                success: function (Estados) {
+                    $.each(Estados, function (i, estado) {
+                        $("#IdEstado").append('<option value = "' + estado.Value + '">' + estado.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de estados. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+            return false;
+        })
+        $("#IdEstado").change(function () {
+            $("#IdCiudad").empty();
+            $("#IdCiudad").enabled = true;
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetCiudadesByPais", "Seguridad")',
+                dataType: 'json',
+                data: {
+                    IdP: $("#IdPais").val(),
+                    IdE: $("#IdEstado").val()
+                },
+                success: function (Ciudades) {
+                    $.each(Ciudades, function (i, ciudad) {
+                        $("#IdCiudad").append('<option value = "' + ciudad.Value + '">' + ciudad.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de ciudades. ' + ex);
+                }
+            });
+            return false;
+        })
+        $("#IdCiudad").change(function () {
+            $("#IdContrato").empty();
+            $("#IdContrato").enabled = true;
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetContratosbyGeografia", "Seguridad")',
+                dataType: 'json',
+                data: {
+                    IdP: $("#IdPais").val(),
+                    IdE: $("#IdEstado").val(),
+                    IdC: $("#IdCiudad").val()
+                },
+                success: function (Contratos) {
+                    $.each(Contratos, function (i, contrato) {
+                        $("#IdContrato").append('<option value = "' + contrato.Value + '">' + contrato.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de contratos. ' + ex);
+                }
+            });
+
+            return false;
+        })
+
+    });
+</script>
+
+@using (Html.BeginForm("UsuarioContrato", "Seguridad", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+   <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
+        <ul class="tabs-holder">
+            <li class="active"><a href="#tab_mailings">Edición</a></li>
+        </ul>
+        <div class="tabs-content form-actions">
+            <div class="tab-panel" id="tab_mailings">
+                <div class="tab-panel-group">
+                    <div class="tab-group-content">
+                        <button type="submit" id="approve-btn" class="fluent-big-button">
+                            <span class="icon mif-floppy-disk"></span>@Resources.EtiquetasResource.labelSaveLink<br />
+                        </button>
+                    </div>
+                    <div class="tab-group-caption">Edición</div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="datosContrato" style=" border:1px solid #CCC; width:100%; margin-top: 20px;">
+            <div class="form-horizontal padding10">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdUsuario, ClasesVarias.GetUsuariosTipoCliente(), Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdPais, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdPais, ClasesVarias.GetPaises(), Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdPais, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdEstado, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdEstado, new SelectList(string.Empty, "Value", "Text"), Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdCiudad, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdCiudad, new SelectList(string.Empty, "Value", "Text"), Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdCiudad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdContrato, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.IdContrato, new SelectList(string.Empty, "Value", "Text"), Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control", onchange = "this.form.submit();" })
+                        @Html.ValidationMessageFor(model => model.IdContrato, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

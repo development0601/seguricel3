@@ -18,11 +18,9 @@ namespace Seguricel3
         public System.Guid IdMensaje { get; set; }
         public System.Guid IdUnidadDestino { get; set; }
         public System.DateTime FechaLeido { get; set; }
-        public System.Guid IdUsuario { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Mensaje Contrato_Mensaje { get; set; }
+        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Unidad Contrato_Unidad { get; set; }
-        public virtual Contrato_Usuario Contrato_Usuario { get; set; }
     }
 }

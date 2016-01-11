@@ -25,9 +25,9 @@ namespace Seguricel3
         public Nullable<System.TimeSpan> HoraFinal2 { get; set; }
         public int duracion { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
         public virtual Contrato_Unidad_Persona Contrato_Unidad_Persona { get; set; }
         public virtual Contrato_Unidad_Persona_Acceso Contrato_Unidad_Persona_Acceso { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
     }
 }

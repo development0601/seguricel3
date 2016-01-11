@@ -1,0 +1,74 @@
+﻿@model Seguricel3.Models.AdministradorasViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<script src="~/Scripts/Seguricel-DataGrid.js"></script>
+<script type="text/javascript">
+    $("#IdPais").selectpicker({
+        noneResultsText: "@Resources.EtiquetasResource.labelDDLItemNotFound",
+        selectOnTab: true,
+        size: 10
+    });
+
+</script>
+
+<div>
+    @using (Html.BeginForm("Administradoras", "Administracion", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label(Resources.EtiquetasResource.labelDDLPais, htmlAttributes: new { @class = "control-label col-md-2", onChange = "this.form.submit();" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.IdPais, Model.Paises as SelectList, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control selectpicker show-menu-arrow", data_live_search = "true", onchange = "this.form.submit();" })
+            </div>
+        </div>
+    }
+</div>
+@if (Model.showAdministradoras)
+{
+    <div id="partialPlaceHolder" style="padding-top: 30px;">
+        <div style="margin-top: 20px;">
+            @Html.ActionLink(Resources.EtiquetasResource.labelNewLink, "CreateAdministradora", "Administracion", routeValues: new { IdPais = Model.IdPais }, htmlAttributes: new { @class = "btn btn-default place-right" })
+        </div>
+        <div style="margin-top:60px; padding-top: 20px; border-top: 1px solid #000; width: 95%;">
+            <table id="dataTable" class="dataTable" cellspacing="0" style="margin: auto;  width:100%; font-size: 12pt;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center; width: 45%;">
+                            @Html.DisplayNameFor(m => m.Administradoras.FirstOrDefault().Nombre)
+                        </th>
+                        <th style="text-align:center; width: 45%;">
+                            @Html.DisplayNameFor(m => m.Administradoras.FirstOrDefault().NombreContacto)
+                        </th>
+                        <th style="width: 5%;"></th>
+                        <th style="width: 5%;"></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">&nbsp;</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model.Administradoras)
+                {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.NombreContacto)
+                            </td>
+                            <td style="text-align: center;">
+                                <a href="@Url.Action("EditAdministradora", "Administracion", routeValues: new { IdPais = item.IdPais, Id = item.Id })"><span class="mif-pencil" title=@Resources.EtiquetasResource.labelEditLink></span></a>
+                            </td>
+                            <td style="text-align: center;">
+                                <a href="@Url.Action("DeleteAdministradora", "Administracion", routeValues: new { IdPais = item.IdPais, Id = item.Id })" onclick="return confirm('@item.Nombre @Resources.EtiquetasResource.DeleteConfirmMessage');"><span class="mif-bin" title=@Resources.EtiquetasResource.labelDeleteLink></span></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

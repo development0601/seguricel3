@@ -29,6 +29,5 @@ namespace Seguricel3
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Dispositivo> Contrato_Dispositivo { get; set; }
-        public virtual TipoDispositivo TipoDispositivo { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace Seguricel3
         public System.DateTime FechaRegistro { get; set; }
         public System.Guid IdUsuario { get; set; }
     
+        public virtual Usuario Usuario { get; set; }
         public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Usuario Contrato_Usuario { get; set; }
     }
 }

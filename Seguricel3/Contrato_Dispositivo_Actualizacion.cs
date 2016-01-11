@@ -26,9 +26,8 @@ namespace Seguricel3
         public System.DateTime FechaDescarga { get; set; }
         public System.DateTime FechaProcesado { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Dispositivo Contrato_Dispositivo { get; set; }
-        public virtual TipoAccion TipoAccion { get; set; }
         public virtual Usuario Usuario { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

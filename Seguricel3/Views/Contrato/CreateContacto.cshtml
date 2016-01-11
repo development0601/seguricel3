@@ -1,0 +1,147 @@
+﻿@model Seguricel3.Models.ContactoViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<script type="text/javascript">
+    function AddCargo() {
+        var $searchBox = $(".bs-searchbox input");
+        $.each($searchBox, function (i, $input) {
+            if ($input.value != "") {
+                var newText = $input.value;
+                var IdPais = $("#IdPais").val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("AddCargo", "Contrato")',
+                    dataType: 'json',
+                    data: {
+                        Nombre: newText,
+                        strIdPais: IdPais
+                    },
+                    success: function (CargosJunta) {
+                        $("#IdCargoJunta").removeAttr("disabled");
+                        $.each(CargosJunta, function (i, cargoJunta) {
+                            $("#IdCargoJunta").append('<option value = "' + cargoJunta.Value + '">' + cargoJunta.Text + '</option>');
+                            if (cargoJunta.Text == newText) {
+                                $("#IdCargoJunta").val(cargoJunta.Value);
+                            }
+                        });
+                        $('#IdCargoJunta').selectpicker('refresh');
+                    },
+                    error: function (ex) {
+                        alert('Falló la actualización de cargos para junta. ' + ex.status + ' ' + ex.statusText);
+                    }
+                });
+
+            }
+        });
+    }
+    $(document).ready(function () {
+        $("#IdCargoJunta").selectpicker({
+            noneResultsText: "@Resources.EtiquetasResource.labelDDLItemNotFound" + "<button class=\"btn btn-default place-right\" onclick=\"AddCargo();\">@Resources.EtiquetasResource.labelNewLink</button>",
+            selectOnTab: true,
+            size: 2
+        });
+        $("#botSaveCargoJunta").click(function () {
+            $("#CargoJunta").val($("#modalCargoJunta").val());
+            var frmData = $('#frmPpal').serialize();
+            $.ajax({
+                type: 'POST',
+                cache: false,
+                url: '@Url.Action("CreateTipoCargoJunta", "Contrato")',
+                dataType: 'json',
+                data: frmData,
+
+                success: function (result) {
+                    var tiposCargo = result.TiposCargoJunta;
+                    var newID = result.newID;
+                    $("#IdCargoJunta").empty();
+                    $.each(tiposCargo, function (i, tipoCargo) {
+                        $("#IdCargoJunta").append('<option value = "' + tipoCargo.Value + '">' + tipoCargo.Text + '</option>');
+                    });
+                    $("#IdCargoJunta").val(newID);
+                    $("#IdCargoJunta").selectpicker('refresh');
+                    $("#mwCargosJunta").modal('hide');
+
+                },
+                error: function (ex) {
+                    alert('Falló actualización de tipos de cargo. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+            return false;
+        });
+        $("#botCloseCargoJunta").click(function () {
+            $("#mwCargosJunta").modal('hide');
+        });
+    });
+    function ShowAddWindow() {
+        $("#CargoJunta").empty();
+        $("#CargoJunta").val("");
+        $("#mwCargosJunta").modal('show');
+    }
+
+</script>
+
+
+<div>
+    @using (Html.BeginForm("CreateContacto", "Contrato", FormMethod.Post, htmlAttributes: new { id = "frmPpal" }))
+    {
+        @Html.HiddenFor(m => m.IdContrato)
+        @Html.HiddenFor(m => m.IdPais)
+        @Html.HiddenFor(m => m.CargoJunta)
+        <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
+            <ul class="tabs-holder">
+                <li class="active"><a href="#tab_mailings">Edición</a></li>
+            </ul>
+            <div class="tabs-content form-actions">
+                <div class="tab-panel" id="tab_mailings">
+                    <div class="tab-panel-group">
+                        <div class="tab-group-content">
+                            <button type="submit" id="approve-btn" class="fluent-big-button" , onclick="showDialog('#dialogoRegistro');">
+                                <span class="icon mif-floppy-disk"></span>@Resources.EtiquetasResource.labelSaveLink<br />
+                            </button>
+                            @Html.ActionLlinkWithSpan("<span class=\"icon mif-cancel\"></span>" + Resources.EtiquetasResource.labelCancelLink, "Contactos", "Contrato", new { IdPais = Model.IdPais, IdContrato = Model.IdContrato }, new { @class = "fluent-big-button", @style = "text-decoration: none", onclick = "showDialog('#dialogoRegistro');" })
+                        </div>
+                        <div class="tab-group-caption">Edición</div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div style="border:1px solid #CCC; width:100%;">
+                <div class="form-horizontal padding10">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Nombre, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.IdCargoJunta, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.IdCargoJunta, Model.CargosJunta, htmlAttributes: new { @class = "form-control selectpicker show-menu-arrow", data_live_search="true" })
+                            @Html.ValidationMessageFor(model => model.IdCargoJunta, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.TelefonoFijo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.TelefonoFijo, htmlAttributes: new { @class = "form-control", onkeydown = "return ValidateNumber(event);" })
+                            @Html.ValidationMessageFor(model => model.TelefonoFijo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.TelefonoMovil, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.TelefonoMovil, htmlAttributes: new { @class = "form-control", onkeydown = "return ValidateNumber(event);" })
+                            @Html.ValidationMessageFor(model => model.TelefonoMovil, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

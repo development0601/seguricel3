@@ -14,19 +14,12 @@ namespace Seguricel3
     
     public partial class SubGrupo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SubGrupo()
-        {
-            this.Contrato_Dispositivo = new HashSet<Contrato_Dispositivo>();
-        }
-    
+        public string Cuture { get; set; }
         public System.Guid IdGrupo { get; set; }
         public System.Guid IdSubGrupo { get; set; }
         public string Nombre { get; set; }
         public string Codigo { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato_Dispositivo> Contrato_Dispositivo { get; set; }
         public virtual Grupo Grupo { get; set; }
     }
 }

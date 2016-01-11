@@ -1,0 +1,167 @@
+﻿@model Seguricel3.Models.CiudadViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var map;
+
+        Initialize();
+
+        var gmarkers = [];
+
+        var latlng = new google.maps.LatLng($("#Latitud").val(), $("#Longitud").val());
+
+        var mapOptions = {
+            zoom: 8,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+        });
+
+        gmarkers.push(marker);
+    })
+
+    function GetCoordenadas() {
+        var gmarkers = [];
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetCoordenadas", "GoogleMap")',
+            dataType: 'json',
+            data: {
+                name: $("#Nombre").val() + ", " + $("#PaisEstadoCiudad").val()
+            },
+            success: function (data) {
+                if (data.length > 0) {
+                    var result = data.split(" ");
+                    $("#Latitud").val(result[0]);
+                    $("#Longitud").val(result[1]);
+                    var latlng = new google.maps.LatLng(result[0], result[1]);
+
+                    var mapOptions = {
+                        zoom: 8,
+                        center: latlng,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                    var marker = new google.maps.Marker({
+                        position: latlng,
+                        map: map
+                    });
+
+                    gmarkers.push(marker);
+                }
+                else {
+                    clearMarkers();
+                }
+
+                return false;
+            },
+            error: function (ex) {
+                alert('Falló la extracción geográfica. ' + ex.status + ' ' + ex.statusText);
+            }
+        });
+        return false;
+    }
+
+    function clearMarkers() {
+        for (i = 0; i < gmarkers.length; i++) {
+            gmarkers[i].setmMap(null);
+        }
+    }
+</script>
+
+
+@using (Html.BeginForm("EditCiudad", "Tablas", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.IdPais)
+    @Html.HiddenFor(model => model.IdEstado)
+    @Html.HiddenFor(model => model.PaisEstadoCiudad)
+    <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
+        <ul class="tabs-holder">
+            <li class="active"><a href="#tab_mailings">Edición</a></li>
+        </ul>
+        <div class="tabs-content form-actions">
+            <div class="tab-panel" id="tab_mailings">
+                <div class="tab-panel-group">
+                    <div class="tab-group-content">
+                        <button type="submit" id="approve-btn" class="fluent-big-button" onclick = "showDialog('#dialogoRegistro');">
+                            <span class="icon mif-floppy-disk"></span>@Resources.EtiquetasResource.labelSaveLink<br />
+                        </button>
+                        @Html.ActionLlinkWithSpan("<span class=\"icon mif-cancel\"></span>" + Resources.EtiquetasResource.labelCancelLink, "Ciudades", "Tablas", routeValues: new { IdPais = Model.IdPais, IdEstado = Model.IdEstado }, htmlAttributes: new { @class = "fluent-big-button", @style = "text-decoration: none", onclick = "showDialog('#dialogoRegistro');" })
+                    </div>
+                    <div class="tab-group-caption">Edición</div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div style=" border:1px solid #CCC; width:100%;">
+            <div class="form-horizontal padding10">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Id, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Nombre, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.CheckBoxFor(model => model.Activo, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Latitud, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Latitud, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.Latitud, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Longitud, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Longitud, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.Longitud, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="col-md-3" style="margin-bottom: 5px;">
+                                    <div name="botGetCoordenadas" onclick="GetCoordenadas();" class="btn btn-default place-left">@Resources.EtiquetasResource.labelGetCoordenadas</div>
+                                </div>
+                                <div class="col-md-7" style="height: 300px; width: 100%; margin-left: auto; margin-right: auto;">
+                                    @Html.Partial("GoogleMapLocation")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+    </div>
+}
+
+

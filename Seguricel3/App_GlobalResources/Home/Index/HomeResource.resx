@@ -198,6 +198,15 @@
   <data name="HomeLink" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="LoginClave" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LoginCorreo" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Email and/or password invalid</value>
+  </data>
   <data name="LoginHeader" xml:space="preserve">
     <value>Users</value>
   </data>

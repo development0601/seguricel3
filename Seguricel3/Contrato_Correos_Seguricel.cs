@@ -29,9 +29,9 @@ namespace Seguricel3
         public string Asunto { get; set; }
         public byte[] Contenido { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
-        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Correos_Seguricel_Destinatarios> Contrato_Correos_Seguricel_Destinatarios { get; set; }
+        public virtual Contrato Contrato { get; set; }
+        public virtual Contrato_Unidad Contrato_Unidad { get; set; }
     }
 }

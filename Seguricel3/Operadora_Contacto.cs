@@ -14,6 +14,7 @@ namespace Seguricel3
     
     public partial class Operadora_Contacto
     {
+        public int IdPais { get; set; }
         public System.Guid IdOperadora { get; set; }
         public System.Guid IdContacto { get; set; }
         public int IdTipoContacto { get; set; }
@@ -22,6 +23,5 @@ namespace Seguricel3
         public string TelefonoMovil { get; set; }
     
         public virtual Operadora Operadora { get; set; }
-        public virtual TipoContacto TipoContacto { get; set; }
     }
 }

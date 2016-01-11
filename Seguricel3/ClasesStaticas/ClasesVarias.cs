@@ -44,14 +44,14 @@ namespace Seguricel3
         {
             return HttpContext.Current.Request.UserHostAddress;
         }
-        public static List<EstadoUsuarioViewModel> GetEstadosUsuario()
+        public static IEnumerable<SelectListItem> GetEstadosUsuario()
         {
             var tipos = Enum.GetValues(typeof(eEstadoUsuario)).
                  Cast<eEstadoUsuario>().
-                 Select(e => new EstadoUsuarioViewModel
+                 Select(e => new SelectListItem
                  {
-                     Id = (int)e,
-                     Nombre = e.ToString()
+                     Value = ((int)e).ToString(),
+                     Text = e.ToString()
                  }).ToList();
 
             return tipos;
@@ -70,10 +70,11 @@ namespace Seguricel3
                 FechaRegistro = DateTime.UtcNow,
                 IdModulo = ModuloId,
                 IdUsuario = serializeModel.Id,
-                IdBitacora = new Guid(),
+                IdBitacora = Guid.NewGuid(),
                 Observacion = Observacion
             };
 
+            db.Usuario_Bitacora.Add(bitacora);
             db.SaveChanges();
         }
         public static IEnumerable<SelectListItem> GetNivelesUsuario()
@@ -90,22 +91,37 @@ namespace Seguricel3
             }
             return new SelectList(Niveles, "Value", "Text");
         }
-        public static IEnumerable<SelectListItem> GetGrupos()
+        public static IEnumerable<SelectListItem> GetGrupos(int IdPais)
         {
-            List<SelectListItem> Grupos;
-            using (SeguricelEntities db = new SeguricelEntities())
+            List<SelectListItem> Grupos = new List<SelectListItem>();
+
+            if (IdPais > 0)
             {
-                Grupos = (from n in db.Grupo
-                           select new SelectListItem
-                           {
-                               Value = n.IdGrupo.ToString(),
-                               Text = n.Nombre
-                           }).ToList();
+
+                using (SeguricelEntities db = new SeguricelEntities())
+                {
+
+                    string _Culture = db.Pais.Where(x => x.IdPais == IdPais).FirstOrDefault().Culture;
+
+                    Grupos = (from n in db.Grupo
+                              where n.Culture == _Culture
+                              select new SelectListItem
+                              {
+                                  Value = n.IdGrupo.ToString(),
+                                  Text = n.Nombre
+                              }).ToList();
+                }
             }
+
+            Grupos.Insert(0, new SelectListItem
+            {
+                Value = null,
+                Text = Resources.EtiquetasResource.labelSelectValue
+            });
+
             return new SelectList(Grupos, "Value", "Text");
         }
-
-        public static IList<SelectListItem> GetPaises()
+        public static IEnumerable<SelectListItem> GetPaises()
         {
             List<SelectListItem> Paises;
             using (SeguricelEntities db = new SeguricelEntities())
@@ -118,9 +134,10 @@ namespace Seguricel3
                               Text = p.Nombre
                           }).ToList();
             }
-            return Paises.ToList();
+
+            return new SelectList(Paises, "Value", "Text");
         }
-        public static IList<SelectListItem> GetEstados(long IdPais)
+        public static IEnumerable<SelectListItem> GetEstados(long IdPais)
         {
             List<SelectListItem> Estados;
             using (SeguricelEntities db = new SeguricelEntities())
@@ -134,9 +151,15 @@ namespace Seguricel3
                            }).ToList();
             }
 
+            Estados.Insert(0, new SelectListItem
+            {
+                Value = "0",
+                Text = Resources.EtiquetasResource.labelSelectValue
+            });
+
             return Estados.ToList();
         }
-        public static IList<SelectListItem> GetCiudades(long IdPais, long IdEstado)
+        public static IEnumerable<SelectListItem> GetCiudades(long IdPais, long IdEstado)
         {
             List<SelectListItem> Ciudades;
             using (SeguricelEntities db = new SeguricelEntities())
@@ -149,117 +172,217 @@ namespace Seguricel3
                                 Text = c.Nombre
                             }).ToList();
             }
+
+            Ciudades.Insert(0, new SelectListItem
+            {
+                Value = "0",
+                Text = Resources.EtiquetasResource.labelSelectValue
+            });
+
             return Ciudades.ToList();
         }
-        public static IList<SelectListItem> GetTiposContrato(long IdPais, long IdEstado, long IdCiudad)
+        public static IEnumerable<SelectListItem> GetContratosbyGeografia(long IdPais, long IdEstado, long IdCiudad)
         {
-            List<SelectListItem> Datos;
+            List<SelectListItem> Contratos;
+            using (SeguricelEntities db = new SeguricelEntities())
+            {
+                Contratos = (from c in db.Contrato
+                            where c.IdPais == IdPais && c.IdEstado == IdEstado && c.IdCiudad == IdCiudad
+                            select new SelectListItem
+                            {
+                                Value = c.IdContrato.ToString(),
+                                Text = c.NombreCompleto
+                            }).ToList();
+            }
+            return Contratos.ToList();
+        }
+        public static IEnumerable<SelectListItem> GetUsuariosTipoCliente()
+        {
+            List<SelectListItem> Usuarios;
+            using (SeguricelEntities db = new SeguricelEntities())
+            {
+                Usuarios = (from n in db.Usuario
+                            where (eTipoUsuario)n.IdTipoUsuario == eTipoUsuario.Cliente
+                           select new SelectListItem
+                           {
+                               Value = n.IdUsuario.ToString(),
+                               Text = n.Nombre
+                           }).ToList();
+            }
+            return new SelectList(Usuarios, "Value", "Text");
+        }
+        public static IEnumerable<SelectListItem> GetModulos()
+        {
+            List<SelectListItem> Modulos;
+            using (SeguricelEntities db = new SeguricelEntities())
+            {
+                Modulos = (from m in db.Modulo
+                            orderby m.IdModulo
+                            select new SelectListItem
+                            {
+                                Value = m.IdModulo.ToString(),
+                                Text = m.Nombre
+                            }).ToList();
+            }
+            return new SelectList(Modulos, "Value", "Text");
+        }
+        public static IEnumerable<SelectListItem> GetTipoElemento()
+        {
+            List<SelectListItem> TiposElemento =
+                Enum.GetValues(typeof(eTipoElementoMenu)).Cast<eTipoElementoMenu>().Select(e => new SelectListItem
+                {
+                    Text = e.ToString(),
+                    Value = ((int)e).ToString()
+                }).ToList();
+
+            return new SelectList(TiposElemento, "Value", "Text");
+        }
+        public static IEnumerable<SelectListItem> GetTiposContrato(string Culture)
+        {
+            List<SelectListItem> Datos = new List<SelectListItem>();
             using (SeguricelEntities db = new SeguricelEntities())
             {
                 Datos = (from p in db.TipoContrato
-                         where p.IdPais == IdPais && p.IdEstado == IdEstado && p.IdCiudad == IdCiudad
+                         where p.Culture == Culture 
                          select new SelectListItem
                          {
                              Value = p.IdTipoContrato.ToString(),
                              Text = p.Nombre
                          }).ToList();
             }
-            return Datos.ToList();
+
+            Datos.Insert(0, new SelectListItem
+            {
+                Value = "0",
+                Text = Resources.EtiquetasResource.labelSelectValue
+            });
+
+            return new SelectList(Datos, "Value", "Text");
         }
-        public static IList<SelectListItem> GetAdministradoras(long IdPais, long IdEstado, long IdCiudad)
+        public static IEnumerable<SelectListItem> GetAdministradoras(long IdPais)
         {
             List<SelectListItem> Datos;
             using (SeguricelEntities db = new SeguricelEntities())
             {
                 Datos = (from p in db.Contrato_Administradora
-                         where p.IdPais == IdPais && p.IdEstado == IdEstado && p.IdCiudad == IdCiudad
+                         where p.IdPais == IdPais
                          select new SelectListItem
                          {
                              Value = p.IdAdministradora.ToString(),
                              Text = p.Nombre
                          }).ToList();
             }
-            return Datos.ToList();
-        }
 
-        public static string GetMenuUsuario_Old()
+            Datos.Insert(0, new SelectListItem
+            {
+                Value = null,
+                Text = Resources.EtiquetasResource.labelSelectValue
+            });
+
+            return new SelectList(Datos, "Value", "Text");
+        }
+        public static IEnumerable<SelectListItem> GetEstadosContrato(long IdPais)
         {
-
-            string MenuData = string.Empty;
-
-            try
+            List<SelectListItem> Datos = new List<SelectListItem>();
+            using (SeguricelEntities db = new SeguricelEntities())
             {
-                MenuData = "<ul class=\"v-menu subdown\">";
-                //MenuData = "<ul id=\"top-level\">";
-                int UltimoNivel = 0;
-                FormsAuthenticationTicket encTicket = FormsAuthentication.Decrypt(Session["user"].ToString());
-                CustomPrincipalSerializeModel serializeModel = JsonConvert.DeserializeObject<CustomPrincipalSerializeModel>(encTicket.UserData);
+                string _Culture = db.Pais.Where(x => x.IdPais == IdPais).FirstOrDefault().Culture;
 
-                using (SeguricelEntities db = new SeguricelEntities())
-                {
-                    List<Modulo> Data = (from m in db.Modulo_TipoUsuario
-                                         where m.IdTipoUsuario == serializeModel.IdTipoUsuario & m.Modulo.Activo
-                                         orderby m.IdModulo
-                                         select m.Modulo).ToList();
-
-                    foreach (Modulo _modulo in Data)
-                    {
-                        switch ((eTipoElementoMenu)_modulo.IdTipoElemento)
-                        {
-                            case eTipoElementoMenu.Nivel2:
-                                switch (UltimoNivel)
-                                {
-                                    case 2:
-                                        MenuData += "</ul>";
-                                        break;
-                                    case 3:
-                                        MenuData += "</ul></ul>";
-                                        break;
-                                    case 4:
-                                        MenuData += "</ul></ul></ul>";
-                                        break;
-                                }
-                                MenuData += string.Format("<li><a href=\"#\">{0}</a><ul class=\"sub-level\">", _modulo.Nombre);
-                                UltimoNivel = 2;
-                                break;
-                            case eTipoElementoMenu.Nivel3:
-                                switch (UltimoNivel)
-                                {
-                                    case 3:
-                                        MenuData += "</ul>";
-                                        break;
-                                    case 4:
-                                        MenuData += "</ul></ul>";
-                                        break;
-                                }
-                                MenuData += string.Format("<li><a href=\"#\">{0}</a><ul class=\"sub-level\">", _modulo.Nombre);
-                                UltimoNivel = 3;
-                                break;
-                            case eTipoElementoMenu.Nivel4:
-                                switch (UltimoNivel)
-                                {
-                                    case 4:
-                                        MenuData += "</ul>";
-                                        break;
-                                }
-                                MenuData += string.Format("<li><a href=\"#\">{0}</a><ul class=\"sub-level\">", _modulo.Nombre);
-                                UltimoNivel = 4;
-                                break;
-                            case eTipoElementoMenu.Elemento:
-                                MenuData += string.Format("<li><a href=\"../{1}/{2}\">{0}</a></li>", _modulo.Nombre, _modulo.Controller, _modulo.Action);
-                                break;
-                        }
-                    }
-                }
-            }
-            catch
-            {
-
+                Datos = (from p in db.EstadoContrato
+                         where p.Culture == _Culture
+                         select new SelectListItem
+                         {
+                             Value = p.IdEstadoContrato.ToString(),
+                             Text = p.Nombre
+                         }).ToList();
             }
 
-            return MenuData;
+            Datos.Insert(0, new SelectListItem
+            {
+                Value = null,
+                Text = Resources.EtiquetasResource.labelSelectValue
+            });
 
+            return new SelectList(Datos, "Value", "Text");
         }
+        //public static string GetMenuUsuario_Old()
+        //{
+
+        //    string MenuData = string.Empty;
+
+        //    try
+        //    {
+        //        MenuData = "<ul class=\"v-menu subdown\">";
+        //        //MenuData = "<ul id=\"top-level\">";
+        //        int UltimoNivel = 0;
+        //        FormsAuthenticationTicket encTicket = FormsAuthentication.Decrypt(Session["user"].ToString());
+        //        CustomPrincipalSerializeModel serializeModel = JsonConvert.DeserializeObject<CustomPrincipalSerializeModel>(encTicket.UserData);
+
+        //        using (SeguricelEntities db = new SeguricelEntities())
+        //        {
+        //            List<Modulo> Data = (from m in db.Modulo_TipoUsuario
+        //                                 where m.IdTipoUsuario == serializeModel.IdTipoUsuario & m.Modulo.Activo
+        //                                 orderby m.IdModulo
+        //                                 select m.Modulo).ToList();
+
+        //            foreach (Modulo _modulo in Data)
+        //            {
+        //                switch ((eTipoElementoMenu)_modulo.IdTipoElemento)
+        //                {
+        //                    case eTipoElementoMenu.Nivel2:
+        //                        switch (UltimoNivel)
+        //                        {
+        //                            case 2:
+        //                                MenuData += "</ul>";
+        //                                break;
+        //                            case 3:
+        //                                MenuData += "</ul></ul>";
+        //                                break;
+        //                            case 4:
+        //                                MenuData += "</ul></ul></ul>";
+        //                                break;
+        //                        }
+        //                        MenuData += string.Format("<li><a href=\"#\">{0}</a><ul class=\"sub-level\">", _modulo.Nombre);
+        //                        UltimoNivel = 2;
+        //                        break;
+        //                    case eTipoElementoMenu.Nivel3:
+        //                        switch (UltimoNivel)
+        //                        {
+        //                            case 3:
+        //                                MenuData += "</ul>";
+        //                                break;
+        //                            case 4:
+        //                                MenuData += "</ul></ul>";
+        //                                break;
+        //                        }
+        //                        MenuData += string.Format("<li><a href=\"#\">{0}</a><ul class=\"sub-level\">", _modulo.Nombre);
+        //                        UltimoNivel = 3;
+        //                        break;
+        //                    case eTipoElementoMenu.Nivel4:
+        //                        switch (UltimoNivel)
+        //                        {
+        //                            case 4:
+        //                                MenuData += "</ul>";
+        //                                break;
+        //                        }
+        //                        MenuData += string.Format("<li><a href=\"#\">{0}</a><ul class=\"sub-level\">", _modulo.Nombre);
+        //                        UltimoNivel = 4;
+        //                        break;
+        //                    case eTipoElementoMenu.Elemento:
+        //                        MenuData += string.Format("<li><a href=\"../{1}/{2}\">{0}</a></li>", _modulo.Nombre, _modulo.Controller, _modulo.Action);
+        //                        break;
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch
+        //    {
+
+        //    }
+
+        //    return MenuData;
+
+        //}
         public static string GetMenuUsuario()
         {
 
@@ -322,7 +445,7 @@ namespace Seguricel3
                                 UltimoNivel = 4;
                                 break;
                             case eTipoElementoMenu.Elemento:
-                                MenuData += string.Format("<li><a href=\"../{1}/{2}\">{0}</a></li>", _modulo.Nombre, _modulo.Controller, _modulo.Action);
+                                MenuData += string.Format("<li><a href=\"../{1}/{2}\"  onclick=\"showDialog('#dialogoRegistro')\">{0}</a></li>", _modulo.Nombre, _modulo.Controller, _modulo.Action);
                                 break;
                         }
                     }
@@ -337,7 +460,6 @@ namespace Seguricel3
             return MenuData;
 
         }
-
         public static IList<SelectListItem> GetVendedores()
         {
             List<SelectListItem> Datos = new List<SelectListItem>();
@@ -386,6 +508,184 @@ namespace Seguricel3
                 throw ex;
             }
 
+        }
+        public static string GetPaisCulture(int IdPais)
+        {
+            try
+            {
+                string _Culture = string.Empty;
+                using (SeguricelEntities db = new SeguricelEntities())
+                {
+                    _Culture = db.Pais.Where(x => x.IdPais == IdPais).FirstOrDefault().Culture;
+                    return _Culture;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static IList<SelectListItem> GetContratos()
+        {
+            List<SelectListItem> Datos = new List<SelectListItem>();
+            using (SeguricelEntities db = new SeguricelEntities())
+            {
+                Datos = (from p in db.Contrato
+                         select new SelectListItem
+                         {
+                             Value = p.IdContrato.ToString(),
+                             Text = p.NombreCompleto
+                         }).ToList();
+            }
+            return Datos.ToList();
+        }
+        public static string GetNroContrato(int IdPais, int IdTipoContrato)
+        {
+            string nextNroContrato = string.Empty;
+
+            using (SeguricelEntities db = new SeguricelEntities())
+            {
+                string _Culture = db.Pais.Where(x => x.IdPais == IdPais).FirstOrDefault().Culture;
+
+                TipoContrato tipoContrato = (from t in db.TipoContrato
+                                             where t.Culture == _Culture && t.IdTipoContrato == IdTipoContrato
+                                             select t).FirstOrDefault();
+
+                tipoContrato.UltimoNroContrato += 1;
+                db.SaveChanges();
+
+                nextNroContrato = string.Format("{0}-{1}-{2}-{3}", tipoContrato.LetraTipoContrato, DateTime.UtcNow.Year.ToString("0000"), DateTime.UtcNow.Month.ToString("00"), (tipoContrato.UltimoNroContrato).ToString("000"));
+            }
+
+            return nextNroContrato;
+        }
+        public static IEnumerable<SelectListItem> GetContratosByPais(int IdPais)
+        {
+            List<SelectListItem> Datos = new List<SelectListItem>();
+
+            if (IdPais > 0)
+            {
+                using (SeguricelEntities db = new SeguricelEntities())
+                {
+                    string _Culture = db.Pais.Where(x => x.IdPais == IdPais).FirstOrDefault().Culture;
+
+                    Datos = (from p in db.Contrato
+                             where p.IdPais == IdPais
+                             select new SelectListItem
+                             {
+                                 Value = p.IdContrato.ToString(),
+                                 Text = p.NombreCompleto
+                             }).ToList();
+                }
+            }
+            Datos.Insert(0, new SelectListItem
+            {
+                Value = null,
+                Text = Resources.EtiquetasResource.labelSelectValue
+            });
+
+            return new SelectList(Datos, "Value", "Text");
+        }
+        public static IEnumerable<SelectListItem> GetCargosJunta()
+        {
+            List<SelectListItem> Datos = new List<SelectListItem>();
+            using (SeguricelEntities db = new SeguricelEntities())
+            {
+                string _Culture = Session["Culture"].ToString();
+
+                Datos = (from p in db.TipoCargoJuntaCondominio
+                         where p.Culture == _Culture
+                         select new SelectListItem
+                         {
+                             Value = p.IdCargoJunta.ToString(),
+                             Text = p.Nombre
+                         }).ToList();
+            }
+
+            Datos.Insert(0, new SelectListItem
+            {
+                Value = null,
+                Text = Resources.EtiquetasResource.labelSelectValue
+            });
+
+            return new SelectList(Datos, "Value", "Text");
+        }
+        public static IEnumerable<SelectListItem> getUnidadesMaestrasContrato(Guid IdContrato, Guid? IdUnidad)
+        {
+            List<SelectListItem> Datos = new List<SelectListItem>();
+            using (SeguricelEntities db = new SeguricelEntities())
+            {
+
+                Datos = (from p in db.Contrato_Unidad
+                         where p.IdContrato == IdContrato && p.IdUnidad != (Guid)(IdUnidad != null ? IdUnidad : new Guid())
+                         select new SelectListItem
+                         {
+                             Value = p.IdUnidad.ToString(),
+                             Text = p.Nombre
+                         }).ToList();
+            }
+
+            Datos.Insert(0, new SelectListItem
+            {
+                Value = new Guid().ToString(),
+                Text = Resources.EtiquetasResource.lblddlUnidadMaestra
+            });
+
+            return new SelectList(Datos, "Value", "Text");
+        }
+        
+        public static string Generar_Clave()
+        {
+            try
+            {
+                Random random = new Random();
+                string s = "";
+                int i = 0;
+                int iChr = 0;
+                while (i < 5) //Clave de 5 caracteres de largo
+                {
+                    iChr = random.Next(48, 90);
+                    while ((iChr > 57) && (iChr < 65))
+                        iChr = random.Next(48, 90);
+                    s = String.Concat(s, (char)iChr);
+                    i++;
+                }
+
+                //Llevo todo a maysuculas
+                s = s.ToUpper();
+
+                //Elimino las letras que se prestan a enredo
+                s = s.Replace("0", "X");
+                s = s.Replace("O", "Z");
+                s = s.Replace("L", "9");
+                s = s.Replace("1", "8");
+                s = s.Replace("Ñ", "N");
+                s = s.Replace(" ", "A");
+                s = s.Replace("-", "B");
+                s = s.Replace("_", "B");
+
+                return s;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static IEnumerable<SelectListItem> GetDispositivos()
+        {
+            List<SelectListItem> Dispositivos;
+            using (SeguricelEntities db = new SeguricelEntities())
+            {
+                Dispositivos = (from p in db.TipoDispositivo
+                          select new SelectListItem
+                          {
+                              Value = p.IdTipoDispositivo.ToString(),
+                              Text = p.Nombre
+                          }).ToList();
+            }
+
+            return new SelectList(Dispositivos, "Value", "Text");
         }
 
     }

@@ -62,6 +62,8 @@ namespace Seguricel3.Models
         [Display(Name = "RecordarCuentaLabel", ResourceType = typeof(Resources.LoginResource))]
         public bool RememberMe { get; set; }
         public string UserTimeZone { get; set; }
+        public string Longitud { get; set; }
+        public string Latitud { get; set; }
 
         public string LoginSubtitle { get { return Resources.LoginResource.LoginSubTitle; } }
         public string ValidationSummaryText { get { return Resources.LoginResource.ValidationSummaryText; } }
@@ -126,6 +128,10 @@ namespace Seguricel3.Models
         [Display(Name = "EmailLabel", ResourceType = typeof(Resources.LoginResource))]
         [EmailAddress(ErrorMessageResourceType = typeof(Resources.LoginResource), ErrorMessageResourceName = "EmailAddressErrorMessge")]
         public string Email { get; set; }
+
+        [Required(ErrorMessageResourceName = "CaptchaRequiredErrorMessage", ErrorMessageResourceType = typeof(Resources.LoginResource))]
+        [Display(Name = "CaptchaLabel", ResourceType = typeof(Resources.LoginResource))]
+        public string Captcha { get; set; }
     }
 
     public class PerfilViewModel
@@ -176,12 +182,15 @@ namespace Seguricel3.Models
         [StringLength(500, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), MinimumLength = 10)]
         public string Pregunta2 { get; set; }
         [Display(Name = "LabelRespuestaSeguridad2", ResourceType = typeof(Resources.PerfilResource))]
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
         [StringLength(500, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), MinimumLength = 10)]
         public string Respuesta2 { get; set; }
         [Display(Name = "LabelPeguntaSeguridad3", ResourceType = typeof(Resources.PerfilResource))]
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
         [StringLength(500, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), MinimumLength = 10)]
         public string Pregunta3 { get; set; }
         [Display(Name = "LabelRespuestaSeguridad3", ResourceType = typeof(Resources.PerfilResource))]
+        [Required(ErrorMessageResourceName = "RequiredMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource))]
         [StringLength(500, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), MinimumLength = 10)]
         public string Respuesta3 { get; set; }
 

@@ -1,0 +1,24 @@
+﻿ @using Seguricel3.Models
+
+@{
+    string action = Html.ViewContext.RouteData.Values["action"].ToString();
+    string controller = Html.ViewContext.RouteData.Values["controller"].ToString();
+
+
+    if (controller == "Contrato" && (action == "CreateContacto"))
+    {
+        Html.RenderPartial("_ModalWindowTipoContacto");
+    }
+
+    if (controller == "Contrato" && (action == "Create"))
+    {
+        TablaGeneralViewModel modelTabla = new TablaGeneralViewModel();
+        Html.RenderPartial("_ModalWindowTipoContrato", modelTabla);
+
+        AdministradoraViewModel administradoraModel = new AdministradoraViewModel();
+        administradoraModel.Ciudades = new SelectList(string.Empty, "Value", "Text");
+        administradoraModel.EstadosDisponibles = ClasesVarias.GetEstados(administradoraModel.IdPais);
+        Html.RenderPartial("_ModalWindowAdministradora", administradoraModel);
+    }
+
+}

@@ -8,6 +8,22 @@ using System.Text;
 using System.Net.Mail;
 using System.Net.Mime;
 
+
+using System.Globalization;
+
+using System.Security.Claims;
+using System.Threading.Tasks;
+
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+
+using Newtonsoft.Json;
+using System.Web.Security;
+using Seguricel3.Helpers;
+
+using System.Data.Entity.Validation;
+
 namespace Seguricel3.Controllers
 {
     [OutputCacheAttribute(VaryByParam = "*", Duration = 0, NoStore = true)]
@@ -16,8 +32,174 @@ namespace Seguricel3.Controllers
 
         public ActionResult Index()
         {
-            LoginViewModel model = new LoginViewModel();
+            return View();
+        }
+
+        //
+        // POST: /Account/Login
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [HandleError()]
+        public ActionResult Checklogin(LoginViewModel model, string returnUrl)
+        {
+            ViewBag.Title = Resources.LoginResource.PageTitle;
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
+            // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
+            //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
+            Encriptador Encrypt = new Encriptador();
+
+            using (SeguricelEntities db = new SeguricelEntities())
+            {
+                Encrypt.InicioClaves("53gur1cel!n37", "4LC_C0MUN1C4C10N35@S3GUR1C3L!N37", "53gur1c3l!4lcC0mun1c4c10n35@s3gur1c3lgm41l!c0m", 5);
+                string encryptedPassword = Encrypt.Encriptar(model.Password, Encriptador.HasAlgorimt.SHA1, Encriptador.Keysize.KS256);
+
+                Usuario dataUsuario = (from u in db.Usuario
+                                       where (u.CodigoUsuario == model.Email | u.Email == model.Email) && u.ClaveUsuario == encryptedPassword
+                                       select u).FirstOrDefault();
+
+                if (dataUsuario != null)
+                {
+                    switch ((eEstadoUsuario)dataUsuario.IdEstadoUsuario)
+                    {
+                        case eEstadoUsuario.Conectado:
+                        case eEstadoUsuario.Activo:
+                            string[] utz = model.UserTimeZone.Split(':');
+                            int hourZone;
+                            int minZone;
+                            if (utz.Length <= 0)
+                            {
+                                hourZone = 0;
+                                minZone = 0;
+                            }
+                            else
+                            {
+                                hourZone = int.Parse(utz[0]);
+                                minZone = int.Parse(utz[1]);
+                            }
+
+                            CustomPrincipalSerializeModel serializeModel = new CustomPrincipalSerializeModel()
+                            {
+                                Email = dataUsuario.Email,
+                                Estado = (eEstadoUsuario)dataUsuario.IdEstadoUsuario,
+                                Id = dataUsuario.IdUsuario,
+                                FechaUltimaConexion = DateTime.UtcNow,
+                                Name = dataUsuario.Nombre,
+                                IdTipoUsuario = dataUsuario.IdTipoUsuario,
+                                HoursTimeZone = hourZone,
+                                MinutesTimeZone = minZone,
+                                Culture = Request.UserLanguages[0],
+                                DefaultCulture = "es-VE"
+                            };
+
+                            string _jsonUserData = JsonConvert.SerializeObject(serializeModel);
+                            FormsAuthenticationTicket authTicket =
+                                new FormsAuthenticationTicket(1, serializeModel.Email,
+                                    DateTime.UtcNow.AddHours(-4).AddMinutes(-30),
+                                    DateTime.UtcNow.AddHours(-4).AddMinutes(-15),
+                                    false, _jsonUserData);
+                            string encTicket = FormsAuthentication.Encrypt(authTicket);
+                            HttpCookie faCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+                            bool PrimeraVez = false;
+
+                            /*if (dataUsuario.FechaUltimaConexion == null)
+                                PrimeraVez = true;*/
+                            PrimeraVez = dataUsuario.PrimeraVez;
+
+                            Response.Cookies.Add(faCookie);
+                            Session["user"] = encTicket;
+
+                            if (PrimeraVez)
+                                return RedirectToAction("Perfil", "Account");
+                            else
+                            {
+                                return ConectarUsuario(dataUsuario, db);
+                            }
+                        case eEstadoUsuario.Inactivo:
+                            ModelState.AddModelError("", Resources.LoginResource.LoginFailedMessageInactivo);
+                            break;
+                        case eEstadoUsuario.Bloqueado:
+                            ModelState.AddModelError("", Resources.LoginResource.LoginFailedMessageBloqueado);
+                            break;
+                        default:
+                            ModelState.AddModelError("", Resources.LoginResource.LoginFailedMessage);
+                            break;
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", Resources.LoginResource.LoginFailedMessage);
+                }
+            }
             return View(model);
+
+        }
+
+        public ActionResult ForgotPassword(LoginViewModel model)
+        {
+            
+            return RedirectToAction("ForgotPassword", "Account");
+        }
+
+        private ActionResult ConectarUsuario(Usuario dataUsuario, SeguricelEntities db)
+        {
+            try
+            {
+                dataUsuario.IdEstadoUsuario = (int)eEstadoUsuario.Conectado;
+                dataUsuario.FechaUltimaConexion = DateTime.UtcNow;
+                dataUsuario.FechaCambioEstatus = DateTime.UtcNow;
+
+                Usuario_Bitacora newBitacora = new Usuario_Bitacora()
+                {
+                    Accion = "Ingresando al Sistema",
+                    DireccionIP_Privada = ClasesVarias.GetLocalIPAddress(),
+                    DireccionIP_Publica = ClasesVarias.GetPublicIPAddress(),
+                    FechaRegistro = DateTime.UtcNow,
+                    IdUsuario = dataUsuario.IdUsuario,
+                    IdBitacora = Guid.NewGuid(),
+                    Observacion = ""
+                };
+                db.Usuario_Bitacora.Add(newBitacora);
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                throw e;
+            }
+
+            if (Request.UserLanguages != null && Request.UserLanguages.Length > 0)
+                Session["Culture"] = Request.UserLanguages[0];
+            else
+                Session["Culture"] = "en-US";
+
+            switch ((eTipoUsuario)dataUsuario.IdTipoUsuario)
+            {
+                case eTipoUsuario.Instalador:
+                    return RedirectToAction("Index", "Instalacion");
+                case eTipoUsuario.Atención_Cliente:
+                    return RedirectToAction("Index", "Atencion");
+                case eTipoUsuario.Administrador_Sistema:
+                case eTipoUsuario.Administrador:
+                    return RedirectToAction("Index", "Administracion");
+                case eTipoUsuario.Vendedor:
+                    return RedirectToAction("Index", "Ventas");
+                case eTipoUsuario.Administradora:
+                    return RedirectToAction("Index", "Administradora");
+                case eTipoUsuario.Firmware:
+                    return RedirectToAction("Index", "Firmware");
+                case eTipoUsuario.Franquiciado:
+                    return RedirectToAction("Index", "Franquicia");
+                case eTipoUsuario.Software:
+                    return RedirectToAction("Index", "Software");
+                default:
+                    return RedirectToAction("Index", "Cliente");
+            }
         }
 
         public ActionResult Solucion()
@@ -73,7 +255,7 @@ namespace Seguricel3.Controllers
                 _htmlContent += "</tr>";
                 _htmlContent += "<tr>";
                 _htmlContent += "<td colspan='2' align='left' style='text-align:justify; padding: 10px 2px 0px 15px; font-weight:bold;'>";
-                _htmlContent += string.Format("{0}: {1}{2}", Resources.ContactoResource.NombreContactoLabel,  model.NombreContacto, "<br />");
+                _htmlContent += string.Format("{0}: {1}{2}", Resources.ContactoResource.NombreContactoLabel, model.NombreContacto, "<br />");
                 _htmlContent += string.Format("{0}: {1}{2}", Resources.ContactoResource.EmailContactoLabel, model.EmailContacto, "<br />");
                 _htmlContent += string.Format("{0}: {1}{2}", Resources.ContactoResource.TelefonoLocalContactoLabel, model.TelefonoLocalContacto, "<br />");
                 _htmlContent += string.Format("{0}: {1}{2}", Resources.ContactoResource.TelefonoMovilContactoLabel, model.TelefonoMovilContacto, "<br />");

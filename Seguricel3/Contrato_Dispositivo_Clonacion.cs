@@ -20,8 +20,8 @@ namespace Seguricel3
         public System.DateTime FechaClonacion { get; set; }
         public System.DateTime FechaInstalacion { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Dispositivo Contrato_Dispositivo { get; set; }
         public virtual Contrato_Dispositivo Contrato_Dispositivo1 { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

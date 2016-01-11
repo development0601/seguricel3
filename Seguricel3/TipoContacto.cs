@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class TipoContacto
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoContacto()
-        {
-            this.Operadora_Contacto = new HashSet<Operadora_Contacto>();
-        }
-    
+        public string Culture { get; set; }
         public int IdTipoContacto { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Operadora_Contacto> Operadora_Contacto { get; set; }
     }
 }

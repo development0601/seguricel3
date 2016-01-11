@@ -1,0 +1,91 @@
+﻿@model Seguricel3.Models.RolesViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<script src="~/Scripts/Seguricel-DataGrid.js"></script>
+<script type="text/javascript">
+    function AsignadoChange(cb, idE) {
+        var idRol = $("#RolID").val();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UpdateRol", "Seguridad")',
+            data: { IdRol: idRol, IdModulo: idE, Active: cb.checked },
+            success: function (result) {
+                window.location(result);
+            },
+            dataType: 'json'
+        });
+    }
+</script>
+
+<div>
+    @using (Html.BeginForm("Roles", "Seguridad", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label(Resources.EtiquetasResource.labelDDLNivelUsuario, htmlAttributes: new { @class = "control-label col-md-2", onChange = "this.form.submit();" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.RolID, Model.Roles as SelectList, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control", onchange = "this.form.submit();" })
+            </div>
+        </div>
+    }
+</div>
+@if (Model.showModulos)
+{
+    using (Html.BeginForm("UpdateRol", "Seguridad", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div id="partialPlaceHolder" style="padding-top: 30px;">
+            <div style="margin-top:60px; padding-top: 20px; border-top: 1px solid #000; width: 95%;">
+                <table id="dataTable" class="dataTable" cellspacing="0" style="margin: auto;  width:100%; font-size: 12pt;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center; width: 5%;">
+                                @Html.DisplayNameFor(m => m.Modulos.FirstOrDefault().IdModulo)
+                            </th>
+                            <th style="text-align:center; width: 40%;">
+                                @Html.DisplayNameFor(m => m.Modulos.FirstOrDefault().ModuloPadre)
+                            </th>
+                            <th style="text-align:center; width: 40%;">
+                                @Html.DisplayNameFor(m => m.Modulos.FirstOrDefault().Modulo)
+                            </th>
+                            <th style="text-align:center; width: 10%;">
+                                @Html.DisplayNameFor(m => m.Modulos.FirstOrDefault().FechaAsignacion)
+                            </th>
+                            <th style="width: 5%;">
+                                @Html.DisplayNameFor(m => m.Modulos.FirstOrDefault().Asignado)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">&nbsp;</td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model.Modulos)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(m => item.IdModulo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => item.ModuloPadre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => item.Modulo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => item.FechaAsignacion)
+                                </td>
+                                <td>
+                                    @Html.CheckBoxFor(m => item.Asignado, htmlAttributes: new { onchange = "AsignadoChange(this, " + item.IdModulo.ToString() + ");" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+}

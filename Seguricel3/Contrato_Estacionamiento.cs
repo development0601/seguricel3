@@ -26,8 +26,8 @@ namespace Seguricel3
         public int NroPuestoFijo { get; set; }
         public int NroPuestoVisitante { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato_Unidad_Vehiculo> Contrato_Unidad_Vehiculo { get; set; }
+        public virtual Contrato Contrato { get; set; }
     }
 }

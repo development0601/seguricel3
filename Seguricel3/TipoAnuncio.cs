@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class TipoAnuncio
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoAnuncio()
-        {
-            this.Contrato_Unidad_Anuncio = new HashSet<Contrato_Unidad_Anuncio>();
-        }
-    
+        public string Culture { get; set; }
         public int IdTipoAnuncio { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato_Unidad_Anuncio> Contrato_Unidad_Anuncio { get; set; }
     }
 }

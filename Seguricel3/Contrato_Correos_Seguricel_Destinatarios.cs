@@ -20,8 +20,8 @@ namespace Seguricel3
         public System.Guid IdDestinatario { get; set; }
         public string CorreoElectronico { get; set; }
     
-        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Correos_Seguricel Contrato_Correos_Seguricel { get; set; }
+        public virtual Contrato Contrato { get; set; }
         public virtual Contrato_Unidad Contrato_Unidad { get; set; }
     }
 }

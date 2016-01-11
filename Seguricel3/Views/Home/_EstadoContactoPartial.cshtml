@@ -1,0 +1,28 @@
+﻿@using Seguricel3.Models;
+@using System.Web.UI.WebControls;
+@model ContactoCondominioModel
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Theme = "aqua";
+        settings.Name = "Estado";
+        settings.Width = Unit.Percentage(100);
+        settings.EnableTheming = true;
+        settings.ShowModelErrors = true;
+        settings.ControlStyle.CssClass = "form-control";
+
+        settings.Properties.CallbackPageSize = 10;
+        settings.Properties.DropDownWidth = 600;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+        settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+        settings.Properties.TextFormatString = "{0}";
+        settings.Properties.ValueField = "Id";
+        settings.Properties.ValueType = typeof(long);
+        settings.Properties.TextField = "Nombre";
+        settings.Properties.ClientSideEvents.GotFocus = "function(s,e){ setTimeout( function(){ s.SelectAll();}, 0); }";
+
+    }
+).BindList(BaseDatosSQL.GetEstados(Model.Pais)).Bind(Model.Estado).GetHtml()
+
+

@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class EstadoPropuesta
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EstadoPropuesta()
-        {
-            this.Cotizacion = new HashSet<Cotizacion>();
-        }
-    
+        public string Culture { get; set; }
         public int IdEstadoPropuesta { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cotizacion> Cotizacion { get; set; }
     }
 }

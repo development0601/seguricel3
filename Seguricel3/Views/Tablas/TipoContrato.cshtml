@@ -1,0 +1,72 @@
+﻿@model Seguricel3.Models.TiposContratoViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<script src="~/Scripts/Seguricel-DataGrid.js"></script>
+
+<div>
+    @using (Html.BeginForm("TipoContrato", "Tablas", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label(Resources.EtiquetasResource.labelDDLPais, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.IdPais, Model.Paises as SelectList, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control", onchange = "showDialog('#dialogoRegistro'); this.form.submit();" })
+            </div>
+        </div>
+    }
+</div>
+@if (Model.showTiposContrato)
+{
+    <div id="partialPlaceHolder" style="padding-top: 30px;">
+        <div style="margin-top: 20px;">
+            @Html.ActionLink(Resources.EtiquetasResource.labelNewLink, "CreateTipoContrato", "Tablas", routeValues: new { IdPais = Model.IdPais }, htmlAttributes: new { @class = "btn btn-default place-right", onclick = "showDialog('#dialogoRegistro');" })
+        </div>
+        <div style="margin-top:60px; padding-top: 20px; border-top: 1px solid #000; width: 95%;">
+            <table id="dataTable" class="dataTable" cellspacing="0" style="margin: auto;  width:100%; font-size: 12pt;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center; width: 75%;">
+                            @Html.DisplayNameFor(m => m.TiposContrato.FirstOrDefault().Nombre)
+                        </th>
+                        <th style="text-align:center; width: 10%;">
+                            @Html.DisplayNameFor(m => m.TiposContrato.FirstOrDefault().Letra)
+                        </th>
+                        <th style="text-align:center; width: 5%;">
+                            @Html.DisplayNameFor(m => m.TiposContrato.FirstOrDefault().UltimoNro)
+                        </th>
+                        <th style="width: 5%;"></th>
+                        <th style="width: 5%;"></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">&nbsp;</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model.TiposContrato)
+                {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Letra)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.UltimoNro)
+                            </td>
+                            <td style="text-align: center;">
+                                <a href="@Url.Action("EditTipoContrato", "Tablas", routeValues: new { IdPais = item.IdPais, Id = item.Id })" onclick = "showDialog('#dialogoRegistro');"><span class="mif-pencil" title=@Resources.EtiquetasResource.labelEditLink></span></a>
+                            </td>
+                            <td style="text-align: center;">
+                                <a href="@Url.Action("DeleteTipoContrato", "Tablas", routeValues: new { IdPais = item.IdPais, Id = item.Id })" onclick="return confirm('@item.Nombre @Resources.EtiquetasResource.DeleteConfirmMessage');"><span class="mif-bin" title=@Resources.EtiquetasResource.labelDeleteLink></span></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

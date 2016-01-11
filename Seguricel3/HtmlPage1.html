@@ -1,16 +1,1240 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
     <meta charset="utf-8" />
-    <link href="Content/metroUI/metro-icons.css" rel="stylesheet" />
-    <link href="Content/metroUI/metro-icons.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguricel - Nuevo Contrato</title>
+
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-select.css" rel="stylesheet" />
+    <link href="/Content/Seguricel-Button.css" rel="stylesheet" />
+    <link href="/Content/Seguricel-GridExpand.css" rel="stylesheet" />
+    <link href="/Content/Seguricel-Menu.css" rel="stylesheet" />
+    <link href="/Content/Seguricel.css" rel="stylesheet" />
+
+    <link href="/Content/metroUI/metro.css" rel="stylesheet" />
+    <link href="/Content/metroUI/metro.min.css" rel="stylesheet" />
+    <link href="/Content/metro-icons.css" rel="stylesheet" />
+    <link href="/Content/metro-responsive.css" rel="stylesheet" />
+    <link href="/Content/metro-rtl.css" rel="stylesheet" />
+    <link href="/Content/metro-schemes.css" rel="stylesheet" />
+
+    <script src="/Scripts/modernizr-2.8.3.js"></script>
+
+
+    <script type="text/javascript">
+
+        function showDialog(id) {
+            var dialog = $(id).data('dialog');
+            dialog.open();
+        }
+
+    </script>
+
 </head>
 <body>
-    <div style="margin-left: 100px;">
-        OK
-        <h1><span class="mif-earth mif-2x"></span></h1>
+
+    <script src="/Scripts/jquery-2.1.4.js"></script>
+    <script src="/Scripts/jquery-ui-1.11.4.js"></script>
+    <script src="/Scripts/jquery-ui-1.9.0.js"></script>
+    <script src="/Scripts/jQuery.FileUpload/jquery.fileupload.js"></script>
+    <script src="/Scripts/DataTables/jquery.dataTables.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/bootstrap-datepicker.js"></script>
+    <script src="/Scripts/bootstrap-select.js"></script>
+    <script src="/Scripts/respond.js"></script>
+
+    <script src="/bundles/datetime"></script>
+
+    <script src="/Scripts/metroUI/global.js"></script>
+    <script src="/Scripts/metroUI/initiator.js"></script>
+    <script src="/Scripts/metro.js"></script>
+    <script src="/Scripts/metro.min.js"></script>
+    <script src="/Scripts/metroUI/requirements.js"></script>
+    <script src="/Scripts/metroUI/widget.js"></script>
+
+
+
+
+    <div class="padding20 dialog" id="dialogoRegistro" style="width: auto; height: auto; visibility: hidden;" data-role="dialog" data-overlay-color="op-dark" data-overlay="true">
+        <h3>Seguricel</h3>
+        <p style="color: green;">
+            <span class="mif-spinner5 mif-ani-spin"></span>
+            Procesando Información. Por favor espere...
+        </p>
     </div>
+
+    <div>
+        <div class="app-bar fixed-top darcula sub-header" data-role="appBar">
+            <div class="col-md-12" style="padding: 5px;">
+                <div class="col-md-3 position-left">
+                    <div style="padding-top: 5px; vertical-align: middle;">
+                        <img class="logoimg" src="/Imagenes/logo con nombre blanco.png">
+                    </div>
+                </div>
+                <span class="app-bar-divider position-left"></span>
+                <div class="app-bar-divider position-left text-center" style="width: 45%; color: rgb(255, 255, 255);">
+                    Nuevo Contrato
+                </div>
+                <div class="app-bar-element place-right">
+                    <a class="dropdown-toggle fg-white" style="text-decoration: none;" href="/Account/Perfil"><span class="mif-user"></span> &nbsp;Administrador del Sistema</a>                        <div class="app-bar-drop-container bg-white fg-dark place-right" data-role="dropdown" data-no-close="true">
+                        <div class="padding20">
+                            <form>
+                                <h4 class="text-light">Configuración</h4>
+                                <div class="input-control text">
+                                    <a class="dropdown-toggle fg-white" href="/Account/Perfil"><span class="mif-cogs icon" style="color: rgba(27, 110, 174, 0.7);">&nbsp;Perfil</span></a>
+                                </div>
+                                <hr class="thin bg-grayLighter">
+                                <div class="input-control text">
+                                    <a class="dropdown-toggle fg-white" href="/Account/LogOff"><span class="mif-exit icon" style="color: rgba(27, 110, 174, 0.7);">&nbsp;Cerrar Sesión</span></a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 60px;">
+            <div class="col-md-3" style="height: 100%; background-color: rgb(246, 247, 248);">
+            </div>
+            <div class="col-md-9" style="height: auto;">
+
+
+
+
+                <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script>
+                <script src="/Scripts/Seguricel-Contrato.js"></script>
+
+                <script type="text/javascript">
+                    function ShowAddAdministradora(ctrl) {
+                        // var obj = $(".bs-searchbox :input");
+                        //var obj = $("#IdAdministradora").find(".bs-searchbox");
+                        var obj = $("#IdAdministradora")
+                        var search = $searchbox;
+                        alert($searchbox);
+                        alert(obj.get(0).tagName);
+
+                        //$("#mwAdministradora").modal('show');
+                    }
+                    $(document).ready(function () {
+                        $('#IdPais').selectpicker({
+                            selectOnTab: true,
+                            size: 10
+                        });
+                        $('#IdEstado').selectpicker({
+                            noneResultsText: "No se encuentran coincidencias",
+                            selectOnTab: true,
+                            size: 10
+                        });
+                        $("#IdCiudad").selectpicker({
+                            noneResultsText: "No se encuentran coincidencias",
+                            selectOnTab: true,
+                            size: 10
+                        });
+                        $('#IdTipoContrato').selectpicker({
+                            noneResultsText: "No se encuentran coincidencias" + "<button class=\"btn btn-default place-right\" onclick=\"ShowAddTipoContrato();\">Agregar</button>",
+                            selectOnTab: true,
+                            size: 10
+                        });
+                        $('#IdAdministradora').selectpicker({
+                            noneResultsText: "No se encuentran coincidencias" + "<button class=\"btn btn-default place-right\" onclick=\"ShowAddAdministradora(this);\">Agregar</button>",
+                            selectOnTab: true,
+                            size: 10
+                        });
+                        $("#IdEstadoContrato").selectpicker({
+                            selectOnTab: true,
+                            size: 10
+                        });
+
+                        var map;
+
+                        Initialize();
+
+                        $("#IdPais").change(function () {
+                            $("#IdEstado").empty();
+                            $("#IdEstado").attr("disabled", "disabled");
+                            $('#IdEstado').selectpicker('refresh');
+                            $("#IdCiudad").empty();
+                            $("#IdCiudad").attr("disabled", "disabled");
+                            $('#IdCiudad').selectpicker('refresh');
+                            $("#IdTipoContrato").empty();
+                            $("#IdTipoContrato").attr("disabled", "disabled");
+                            $('#IdTipoContrato').selectpicker('refresh');
+                            $("#IdAdministradora").empty();
+                            $("#IdAdministradora").attr("disabled", "disabled");
+                            $('#IdAdministradora').selectpicker('refresh');
+                            $("#IdEstadoContrato").empty();
+                            $("#IdEstadoContrato").attr("disabled", "disabled");
+                            $('#IdEstadoContrato').selectpicker('refresh');
+                            $("#Direccion").empty();
+                            $("#Direccion").attr("readonly", "readonly");
+
+                            if ($("#IdPais").val() == 0 || $("#IdPais").val() == null) {
+                                return false;
+                            }
+
+                            var gmarkers = [];
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '/General/GetEstadosByPais',
+                                dataType: 'json',
+                                data: {
+                                    Id: $("#IdPais").val()
+                                },
+                                success: function (Estados) {
+                                    $("#IdEstado").removeAttr("disabled");
+                                    $.each(Estados, function (i, estado) {
+                                        $("#IdEstado").append('<option value = "' + estado.Value + '">' + estado.Text + '</option>');
+                                    });
+                                    $('#IdEstado').selectpicker('refresh');
+                                },
+                                error: function (ex) {
+                                    alert('Falló la consulta de estados. ' + ex.status + ' ' + ex.statusText);
+                                }
+                            });
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Contrato/GetTiposContrato',
+                                dataType: 'json',
+                                data: {
+                                    IdP: $("#IdPais").val(),
+                                },
+                                success: function (TiposContrato) {
+                                    $("#IdTipoContrato").removeAttr("disabled");
+                                    $.each(TiposContrato, function (i, tipoContrato) {
+                                        $("#IdTipoContrato").append('<option value = "' + tipoContrato.Value + '">' + tipoContrato.Text + '</option>');
+                                    });
+                                    $('#IdTipoContrato').selectpicker('refresh');
+                                },
+                                error: function (ex) {
+                                    alert('Falló la consulta de Tipos de Contrato. ' + ex);
+                                }
+                            });
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Contrato/GetAdministradoras',
+                                dataType: 'json',
+                                data: {
+                                    IdP: $("#IdPais").val(),
+                                },
+                                success: function (Administradoras) {
+                                    $("#IdAdministradora").removeAttr("disabled");
+                                    $.each(Administradoras, function (i, administradora) {
+                                        $("#IdAdministradora").append('<option value = "' + administradora.Value + '">' + administradora.Text + '</option>');
+                                    });
+                                    $('#IdAdministradora').selectpicker('refresh');
+                                },
+                                error: function (xhr, ajaxOptions, errorThrown) {
+                                    alert(xhr.responseText);
+                                }
+                            });
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Contrato/GetEstadosContrato',
+                                dataType: 'json',
+                                data: {
+                                    IdP: $("#IdPais").val(),
+                                },
+                                success: function (EstadosContrato) {
+                                    $("#IdEstadoContrato").removeAttr("disabled");
+                                    $.each(EstadosContrato, function (i, estadoContrato) {
+                                        $("#IdEstadoContrato").append('<option value = "' + estadoContrato.Value + '">' + estadoContrato.Text + '</option>');
+                                    });
+                                    $('#IdEstadoContrato').selectpicker('refresh');
+                                },
+                                error: function (ex) {
+                                    alert('Falló la consulta de EstadosContrato. ' + ex);
+                                }
+                            });
+                            $.ajax({
+                                type: 'POST',
+                                url: '/GoogleMap/GetCoordenadas',
+                                dataType: 'json',
+                                data: {
+                                    name: $("#IdPais option:selected").text()
+                                },
+                                success: function (data) {
+                                    if (data.length > 0) {
+                                        var result = data.split(" ");
+                                        $("#Latitud").val(result[0]);
+                                        $("#Longitud").val(result[1]);
+                                        var latlng = new google.maps.LatLng(result[0], result[1]);
+
+                                        var mapOptions = {
+                                            zoom: 4,
+                                            center: latlng,
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                                        };
+                                        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                                        var marker = new google.maps.Marker({
+                                            position: latlng,
+                                            map: map
+                                        });
+
+                                        for (i = 0; i < gmarkers.length; i++) {
+                                            gmarkers[i].setmMap(null);
+                                        }
+
+                                        gmarkers.push(marker);
+                                    }
+                                    else {
+                                        for (i = 0; i < gmarkers.length; i++) {
+                                            gmarkers[i].setmMap(null);
+                                        }
+
+                                    }
+
+                                    return false;
+                                },
+                                error: function (ex) {
+                                    alert('Falló la extracción geográfica. ' + ex.status + ' ' + ex.statusText);
+                                }
+                            });
+
+                            return false;
+                        }) // Cerrando bloque de IdPais
+                        $("#IdEstado").change(function () {
+                            $("#IdCiudad").empty();
+                            $("#IdCiudad").attr("disabled", "disabled");
+                            $('#IdCiudad').selectpicker('refresh');
+
+                            if ($("#IdEstado").val() == 0 || $("#IdEstado").val() == null) {
+                                return false;
+                            }
+
+                            var gmarkers = [];
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '/General/GetCiudadesByPais',
+                                dataType: 'json',
+                                data: {
+                                    IdP: $("#IdPais").val(),
+                                    IdE: $("#IdEstado").val()
+                                },
+                                success: function (Ciudades) {
+                                    $("#IdCiudad").removeAttr("disabled");
+                                    $.each(Ciudades, function (i, ciudad) {
+                                        $("#IdCiudad").append('<option value = "' + ciudad.Value + '">' + ciudad.Text + '</option>');
+                                    });
+                                    $('#IdCiudad').selectpicker('refresh');
+                                },
+                                error: function (ex) {
+                                    alert('Falló la consulta de ciudades. ' + ex);
+                                }
+                            });
+                            $.ajax({
+                                type: 'POST',
+                                url: '/GoogleMap/GetCoordenadas',
+                                dataType: 'json',
+                                data: {
+                                    name: $("#IdEstado option:selected").text() + ", " + $("#IdPais option:selected").text()
+                                },
+                                success: function (data) {
+                                    if (data.length > 0) {
+                                        var result = data.split(" ");
+                                        $("#Latitud").val(result[0]);
+                                        $("#Longitud").val(result[1]);
+                                        var latlng = new google.maps.LatLng(result[0], result[1]);
+
+                                        var mapOptions = {
+                                            zoom: 8,
+                                            center: latlng,
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                                        };
+                                        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                                        var marker = new google.maps.Marker({
+                                            position: latlng,
+                                            map: map
+                                        });
+
+                                        for (i = 0; i < gmarkers.length; i++) {
+                                            gmarkers[i].setmMap(null);
+                                        }
+                                        gmarkers.push(marker);
+                                    }
+                                    else {
+                                        for (i = 0; i < gmarkers.length; i++) {
+                                            gmarkers[i].setmMap(null);
+                                        }
+
+                                    }
+
+                                    return false;
+                                },
+                                error: function (ex) {
+                                    alert('Falló la extracción geográfica. ' + ex.status + ' ' + ex.statusText);
+                                }
+                            });
+
+                            return false;
+                        })// Cerrando bloque de IdEstado
+                        $("#IdCiudad").change(function () {
+                            $("#Direccion").empty();
+                            $("#Direccion").attr("readonly", "readonly");
+                            $("#NombreCompleto").empty();
+                            $("#NombreCompleto").attr("readonly", "readonly");
+                            $("#Contratante").empty();
+                            $("#Contratante").attr("readonly", "readonly");
+                            $("#CodigoPostal").empty();
+                            $("#CodigoPostal").attr("readonly", "readonly");
+                            $("#FechaContrato").empty();
+                            $("#FechaContrato").attr("readonly", "readonly");
+                            $("#RegistroFiscal").empty();
+                            $("#RegistroFiscal").attr("readonly", "readonly");
+
+                            $("#AccesoTelefonico").attr("disabled", "disabled");
+                            $("#AccesoDactilar").attr("disabled", "disabled");
+                            $("#AlarmaSilente").attr("disabled", "disabled");
+                            $("#CondominioVirtual").attr("disabled", "disabled");
+                            $("#ControlAscensores").attr("disabled", "disabled");
+                            $("#ControlEstacionamiento").attr("disabled", "disabled");
+                            $("#MaximoSecundarios").attr("readonly", "readonly");
+                            $("#MaximoInvitados").attr("readonly", "readonly");
+                            $("#MaximoPuestosFijos").attr("readonly", "readonly");
+                            $("#MaximoPuestosVisitantes").attr("readonly", "readonly");
+
+                            if ($("#IdEstado").val() == 0 || $("#IdEstado").val() == null) {
+                                return false;
+                            }
+                            var gmarkers = [];
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '/GoogleMap/GetCoordenadas',
+                                dataType: 'json',
+                                data: {
+                                    name: $("#IdCiudad option:selected").text() + ", " + $("#IdEstado option:selected").text() + ", " + $("#IdPais option:selected").text()
+                                },
+                                success: function (data) {
+                                    if (data.length > 0) {
+                                        var result = data.split(" ");
+                                        $("#Latitud").val(result[0]);
+                                        $("#Longitud").val(result[1]);
+                                        var latlng = new google.maps.LatLng(result[0], result[1]);
+
+                                        var mapOptions = {
+                                            zoom: 10,
+                                            center: latlng,
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                                        };
+                                        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                                        var marker = new google.maps.Marker({
+                                            position: latlng,
+                                            map: map
+                                        });
+
+                                        for (i = 0; i < gmarkers.length; i++) {
+                                            gmarkers[i].setmMap(null);
+                                        }
+
+                                        $("#Direccion").removeAttr("readonly");
+                                        $("#NombreCompleto").removeAttr("readonly");
+                                        $("#Contratante").removeAttr("readonly");
+                                        $("#CodigoPostal").removeAttr("readonly");
+                                        $("#FechaContrato").removeAttr("readonly");
+                                        $(".datepicker").datepicker();
+                                        $("#RegistroFiscal").removeAttr("readonly");
+                                        $("#AccesoTelefonico").removeAttr("disabled");
+                                        $("#AccesoDactilar").removeAttr("disabled");
+                                        $("#AlarmaSilente").removeAttr("disabled");
+                                        $("#CondominioVirtual").removeAttr("disabled");
+                                        $("#ControlAscensores").removeAttr("disabled");
+                                        $("#ControlEstacionamiento").removeAttr("disabled"); gmarkers.push(marker);
+                                    }
+                                    else {
+                                        for (i = 0; i < gmarkers.length; i++) {
+                                            gmarkers[i].setmMap(null);
+                                        }
+
+                                    }
+
+                                    return false;
+                                },
+                                error: function (ex) {
+                                    alert('Falló la extracción geográfica. ' + ex.status + ' ' + ex.statusText);
+                                }
+                            });
+
+                            return false;
+                        })// Cerrando bloque de IdCiudad
+                        $("#Direccion").focusout(function () {
+                            var gmarkers = [];
+                            var nearData = [];
+                            var actualData = [];
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '/GoogleMap/GetCoordenadas',
+                                dataType: 'json',
+                                data: {
+                                    name: $("#Direccion").val() + ", " + $("#IdCiudad option:selected").text() + ", " + $("#IdEstado option:selected").text() + ", " + $("#IdPais option:selected").text()
+                                },
+                                success: function (data) {
+                                    if (data.length > 0) {
+                                        actualData = data.split(" ");
+                                        setLocalPoint(actualData[0], actualData[1]);
+                                    }
+                                    else {
+                                        actualData = "";
+                                        for (i = 0; i < gmarkers.length; i++) {
+                                            gmarkers[i].setmMap(null);
+                                        }
+
+                                    }
+                                },
+                                error: function (ex) {
+                                    alert('Falló la extracción geográfica. ' + ex.status + ' ' + ex.statusText);
+                                }
+                            });
+
+                            return false;
+                        })// Cerrando bloque de Direccion
+
+                        $("#IdAdministradora").find("input").selectpicker().change(function (e) {
+                            alert("cambio");
+                        });
+
+                        $("#AccesoTelefonico").change(function () {
+
+                            if ($("#AccesoTelefonico").is(':checked')) {
+                                $("#CondominioVirtual").prop("checked", true);
+                                $("#CondominioVirtual").attr("disabled", "disabled");
+                                $("#MaximoSecundarios").val(99);
+                                $("#MaximoSecundarios").removeAttr("readonly");
+                                $("#MaximoInvitados").val(99);
+                                $("#MaximoInvitados").removeAttr("readonly");
+                            }
+                            else {
+                                $("#CondominioVirtual").prop("checked", false);
+                                $("#CondominioVirtual").removeAttr("disabled");
+                                $("#MaximoSecundarios").empty();
+                                $("#MaximoSecundarios").attr("readonly", "readonly");
+                                $("#MaximoInvitados").empty();
+                                $("#MaximoInvitados").attr("readonly", "readonly");
+                            }
+
+                            return false;
+                        })// Cerrando bloque de AccesoTelefonico
+                        $("#ControlEstacionamiento").change(function () {
+
+                            if ($("#ControlEstacionamiento").is(':checked')) {
+                                $("#MaximoPuestosFijos").val(0);
+                                $("#MaximoPuestosFijos").removeAttr("readonly");
+                                $("#MaximoPuestosVisitantes").val(0);
+                                $("#MaximoPuestosVisitantes").removeAttr("readonly");
+                            }
+                            else {
+                                $("#MaximoPuestosFijos").empty();
+                                $("#MaximoPuestosFijos").attr("readonly", "readonly");
+                                $("#MaximoPuestosVisitantes").empty();
+                                $("#MaximoPuestosVisitantes").attr("readonly", "readonly");
+                            }
+
+                            return false;
+                        })// Cerrando bloque de ControlEstacionamiento
+                        $('#fileupload').fileupload({
+                            type: "POST",
+                            dataType: 'json',
+                            url: '/Upload/UploadFiles?Folder=~%2FFotosContrato',
+                            autoUpload: true,
+                            done: function (e, data) {
+                                var showPath = "../../FotosContrato/" + data.result.name
+                                var _html = "<img alt='' src='" + showPath + "' style='max-height: 150px;' />";
+                                $("#LogoUrl").val(showPath);
+                                $("#partial").html(_html);
+                            }
+                        }).on('fileuploadprogressall', function (e, data) {
+                            var progress = parseInt(data.loaded / data.total * 100, 10);
+                            $('.progress .progress-bar').css('width', progress + '%');
+                        }); // Cerrando file upload
+                        $("#IdTipoContrato").change(function () {
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Contrato/GetNroContrato',
+                                dataType: 'json',
+                                data: {
+                                    IdP: $("#IdPais").val(),
+                                    IdTC: $("#IdTipoContrato").val()
+                                },
+                                success: function (nroContrato) {
+                                    $("#NroContrato").val(nroContrato)
+                                },
+                                error: function (ex) {
+                                    alert('Falló obtener último nro contrato. ' + ex);
+                                }
+                            });
+                            return false;
+                        })// Cerrando bloque de IdTipoContrato
+
+                    }); // Cerrando form
+
+                    function setLocalPoint(_latd, _long) {
+                        $("#Latitud").val(_latd);
+                        $("#Longitud").val(_long);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/GoogleMap/GetNearPoints',
+                            dataType: 'json',
+                            data: {
+                                lat: $("#Latitud").val(),
+                                lng: $("#Longitud").val()
+                            },
+                            success: function (data) {
+                                if (data.length > 0) {
+                                    nearData = data.split("/");
+                                    drawPoints(nearData);
+                                }
+                            },
+                            error: function (ex) {
+                                alert('Falló la extracción de puntos cercanos. ' + ex.status + ' ' + ex.statusText);
+                            }
+                        });
+                    }
+                    function ShowAddTipoContrato(ctrl) {
+                        // $("#mwTipoContrato").modal('show');
+                    }
+                </script>
+
+                <form action="/Contrato/Create" method="post">
+                    <input name="__RequestVerificationToken" type="hidden" value="r-2-nKZStC5XzCzbhV-jvNw7MlYivaSPinUvumqeu9YYiPWUjkXrwoKhtiQfD_D6_H12uDMahnQ_A0DT7Qv3Bsk_DSGIQfQuV5YkUIE3W9rTObdpqbldNgya-TM1UU8M0">    <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
+                        <ul class="tabs-holder">
+                            <li class="active"><a href="#tab_mailings">Edición</a></li>
+                        </ul>
+                        <div class="tabs-content form-actions">
+                            <div class="tab-panel" id="tab_mailings" style="display: block;">
+                                <div class="tab-panel-group">
+                                    <div class="tab-group-content">
+                                        <button class="fluent-big-button" id="approve-btn" onclick="showDialog('#dialogoRegistro')" type="submit">
+                                            <span class="icon mif-floppy-disk"></span>Guardar<br>
+                                        </button>
+                                        <a class="fluent-big-button" style="text-decoration: none;" onclick="showDialog('#dialogoRegistro')" href="/Contrato"><span class="icon mif-cancel"></span>Cancelar</a>
+                                    </div>
+                                    <div class="tab-group-caption">Edición</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div style="border: 1px solid rgb(204, 204, 204); border-image: none; width: 100%;">
+                            <div class="form-horizontal padding10">
+
+                                <div class="form-group">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="IdPais">País</label>
+                                            <div class="col-md-10">
+                                                <select name="IdPais" class="form-control selectpicker show-menu-arrow bs-select-hidden" id="IdPais" data-val-required="Debe indicar un valor para País" data-val="true" data-val-number="El campo País debe ser un número.">
+                                                    <option value="">Seleccione...</option>
+                                                    <option value="3">España</option>
+                                                    <option value="4">Estados Unidos</option>
+                                                    <option value="5">Venezuela</option>
+                                                </select><div class="btn-group bootstrap-select form-control show-menu-arrow"><button title="Venezuela" class="btn dropdown-toggle btn-default" aria-expanded="false" type="button" data-toggle="dropdown" data-id="IdPais"><span class="filter-option pull-left">Venezuela</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0"><a tabindex="0" data-tokens="null"><span class="text">Seleccione...</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" data-tokens="null"><span class="text">España</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" data-tokens="null"><span class="text">Estados Unidos</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li class="selected" data-original-index="3"><a tabindex="0" data-tokens="null"><span class="text">Venezuela</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+                                                <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="IdPais"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="IdEstado">Estado</label>
+                                            <div class="col-md-10">
+                                                <select name="IdEstado" class="form-control selectpicker show-menu-arrow bs-select-hidden" id="IdEstado" data-val-required="Debe indicar un valor para Estado" data-val="true" data-val-number="El campo Estado debe ser un número." data-live-search="true"><option value="0">Seleccione...</option><option value="1">Amazonas</option><option value="2">Anzoategui</option><option value="3">Apure</option><option value="4">Aragua</option><option value="5">Barinas</option><option value="6">Bolívar</option><option value="7">Carabobo</option><option value="8">Cojedes</option><option value="9">Delta Amacuro</option><option value="10">Distrito Capital</option><option value="11">Falcón</option><option value="12">Guárico</option><option value="13">Lara</option><option value="14">Mérida</option><option value="15">Miranda</option><option value="16">Monagas</option><option value="17">Nueva Esparta</option><option value="18">Portuguesa</option><option value="19">Sucre</option><option value="20">Táchira</option><option value="21">Trujillo</option><option value="22">Vargas</option><option value="23">Yaracuy</option><option value="24">Zulia</option><option value="25">Dependencia Federal</option></select><div class="btn-group bootstrap-select form-control show-menu-arrow"><button title="Seleccione..." class="btn dropdown-toggle btn-default" type="button" data-toggle="dropdown" data-id="IdEstado"><span class="filter-option pull-left">Seleccione...</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><div class="bs-searchbox"><input class="form-control" type="text" autocomplete="off"></div><ul class="dropdown-menu inner" role="menu"><li class="selected" data-original-index="0"><a tabindex="0" data-tokens="null"><span class="text">Seleccione...</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" data-tokens="null"><span class="text">Amazonas</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" data-tokens="null"><span class="text">Anzoategui</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" data-tokens="null"><span class="text">Apure</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" data-tokens="null"><span class="text">Aragua</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" data-tokens="null"><span class="text">Barinas</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" data-tokens="null"><span class="text">Bolívar</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" data-tokens="null"><span class="text">Carabobo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" data-tokens="null"><span class="text">Cojedes</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" data-tokens="null"><span class="text">Delta Amacuro</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" data-tokens="null"><span class="text">Distrito Capital</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" data-tokens="null"><span class="text">Falcón</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12"><a tabindex="0" data-tokens="null"><span class="text">Guárico</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13"><a tabindex="0" data-tokens="null"><span class="text">Lara</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="14"><a tabindex="0" data-tokens="null"><span class="text">Mérida</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15"><a tabindex="0" data-tokens="null"><span class="text">Miranda</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16"><a tabindex="0" data-tokens="null"><span class="text">Monagas</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="17"><a tabindex="0" data-tokens="null"><span class="text">Nueva Esparta</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="18"><a tabindex="0" data-tokens="null"><span class="text">Portuguesa</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="19"><a tabindex="0" data-tokens="null"><span class="text">Sucre</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="20"><a tabindex="0" data-tokens="null"><span class="text">Táchira</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="21"><a tabindex="0" data-tokens="null"><span class="text">Trujillo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="22"><a tabindex="0" data-tokens="null"><span class="text">Vargas</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="23"><a tabindex="0" data-tokens="null"><span class="text">Yaracuy</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="24"><a tabindex="0" data-tokens="null"><span class="text">Zulia</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="25"><a tabindex="0" data-tokens="null"><span class="text">Dependencia Federal</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+                                                <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="IdEstado"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="IdCiudad">Ciudad</label>
+                                            <div class="col-md-10">
+                                                <select name="IdCiudad" disabled="disabled" class="form-control bs-select-hidden" id="IdCiudad" data-val-required="Debe indicar un valor para Ciudad" data-val="true" data-val-number="El campo Ciudad debe ser un número."></select><div class="btn-group bootstrap-select disabled form-control"><button tabindex="-1" title="Nothing selected" class="btn dropdown-toggle disabled btn-default" type="button" data-toggle="dropdown" data-id="IdCiudad"><span class="filter-option pull-left">Nothing selected</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"></ul></div></div>
+                                                <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="IdCiudad"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="IdTipoContrato">Tipo de Contrato</label>
+                                            <div class="col-md-10">
+                                                <select name="IdTipoContrato" class="form-control bs-select-hidden" id="IdTipoContrato" data-val-required="Debe indicar un valor para Tipo de Contrato" data-val="true" data-val-number="El campo Tipo de Contrato debe ser un número."><option value="0">Seleccione...</option><option value="1">Residencial</option><option value="2">Corporativo</option><option value="3">Vivienda Particular</option><option value="4">Empresas / Oficinas</option><option value="5">Otro</option><option value="6">Grupo Vecinal</option><option value="7">Condominio Virtual</option></select><div class="btn-group bootstrap-select form-control"><button title="Seleccione..." class="btn dropdown-toggle btn-default" type="button" data-toggle="dropdown" data-id="IdTipoContrato"><span class="filter-option pull-left">Seleccione...</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li class="selected" data-original-index="0"><a tabindex="0" data-tokens="null"><span class="text">Seleccione...</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" data-tokens="null"><span class="text">Residencial</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" data-tokens="null"><span class="text">Corporativo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" data-tokens="null"><span class="text">Vivienda Particular</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" data-tokens="null"><span class="text">Empresas / Oficinas</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" data-tokens="null"><span class="text">Otro</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" data-tokens="null"><span class="text">Grupo Vecinal</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" data-tokens="null"><span class="text">Condominio Virtual</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+                                                <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="IdTipoContrato"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="NroContrato">No. Contrato</label>
+                                            <div class="col-md-10">
+                                                <input name="NroContrato" class="form-control" id="NroContrato" type="text" value="" data-val-required="Debe indicar un valor para No. Contrato" data-val="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="NombreCompleto">Nombre Completo Contratante</label>
+                                            <div class="col-md-10">
+                                                <input name="NombreCompleto" class="form-control" id="NombreCompleto" type="text" readonly="readonly" value="" data-val-required="Debe indicar un valor para Nombre Completo Contratante" data-val="true">
+                                                <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="NombreCompleto"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="Contratante">Contratante</label>
+                                            <div class="col-md-10">
+                                                <input name="Contratante" class="form-control" id="Contratante" type="text" readonly="readonly" value="" data-val-required="Debe indicar un valor para Contratante" data-val="true">
+                                                <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="Contratante"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 place-right ">
+                                        <h3>Imágen del Contratante</h3>
+                                        <ul style="list-style: none;">
+                                            <li>
+                                                <div id="partial" style="margin-top: 10px; margin-bottom: 10px;">
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="container" style="width: 310px; margin-left: -70px;">
+                                                    <span class="btn btn-success fileinput-button">
+                                                        <i class="glyphicon glyphicon-plus"></i>
+                                                        <span>Agregar archivo...</span>
+                                                        <input name="files[]" id="fileupload" type="file" multiple="">
+                                                    </span>
+                                                    <br>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                                            <span class="sr-only">
+                                                                0% complete
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="Direccion">Ubicación</label>
+                                            <div class="col-md-8">
+                                                <textarea name="Direccion" class="form-control" id="Direccion" style="height: 100px;" rows="2" cols="20" readonly="readonly" data-val-required="Debe indicar un valor para Ubicación" data-val="true"></textarea>
+                                                <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="Direccion"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="CodigoPostal">Código Postal</label>
+                                            <div class="col-md-8">
+                                                <input name="CodigoPostal" class="form-control" id="CodigoPostal" type="text" readonly="readonly" value="" data-val-required="Debe indicar un valor para Código Postal" data-val="true">
+                                                <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="CodigoPostal"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="FechaContrato">Fecha de Contrato</label>
+                                            <div class="col-md-8">
+                                                <input name="FechaContrato" class="form-control datefield" id="FechaContrato" type="date" value="10/12/2015" data-val-required="Debe indicar un valor para Fecha de Contrato" data-val="true" data-val-date="El campo Fecha de Contrato debe ser una fecha.">
+                                                <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="FechaContrato"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="RegistroFiscal">RIF</label>
+                                            <div class="col-md-8">
+                                                <input name="RegistroFiscal" class="form-control" id="RegistroFiscal" type="text" readonly="readonly" value="" data-val-required="Debe indicar un valor para RIF" data-val="true">
+                                                <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="RegistroFiscal"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="Latitud">Longitud</label>
+                                            <div class="col-md-8">
+                                                <input name="Latitud" class="form-control" id="Latitud" type="text" readonly="readonly" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" style="width: 100%; height: 255px; margin-right: auto; margin-left: auto;">
+
+
+                                            <script type="text/javascript">
+
+                                                // This code tells the browser to execute the "Initialize" method only when the complete document model has been loaded. -->
+                                                // Where all the fun happens
+                                                function Initialize() {
+
+                                                    // Google has tweaked their interface somewhat - this tells the api to use that new UI
+                                                    google.maps.visualRefresh = true;
+                                                    var Ubicacion = new google.maps.LatLng(0, 0);
+
+                                                    // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+                                                    var mapOptions = {
+                                                        zoom: 2,
+                                                        center: Ubicacion,
+                                                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                                                    };
+
+                                                    // This makes the div with id "map_canvas" a google map
+                                                    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+                                                }
+
+                                            </script>
+
+                                            <div id="map_canvas" style="border-radius: 10px; border: 1px solid rgb(0, 0, 0); border-image: none; width: 100%; height: 100%; overflow: hidden; position: relative; background-color: rgb(229, 227, 223);"><div class="gm-style" style="left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; position: absolute; z-index: 0;"><div style="left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; position: absolute; z-index: 0; cursor: url(http://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;"><div style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 1;"><div style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 100;"><div style="left: 0px; top: 0px; position: absolute; z-index: 0;"><div aria-hidden="true" style="left: 0px; top: 0px; visibility: inherit; position: absolute; z-index: 1;"><div class="gmnoprint" style="left: -58px; top: -56px; width: 256px; height: 256px; position: absolute; opacity: 0.01; background-color: white;"></div><div class="gmnoprint" style="left: -58px; top: 200px; width: 256px; height: 256px; position: absolute; opacity: 0.01; background-color: white;"></div><div class="gmnoprint" style="left: 198px; top: -56px; width: 256px; height: 256px; position: absolute; opacity: 0.01; background-color: white;"></div><div class="gmnoprint" style="left: 198px; top: 200px; width: 256px; height: 256px; position: absolute; opacity: 0.01; background-color: white;"></div></div></div></div><div style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 101;"></div><div style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 102;"></div><div style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 103;"><div style="left: 0px; top: 0px; position: absolute; z-index: -1;"><div aria-hidden="true" style="left: 0px; top: 0px; visibility: inherit; position: absolute; z-index: 1;"><div style="left: -58px; top: -56px; width: 256px; height: 256px; overflow: hidden; position: absolute;"><canvas width="256" height="256" style="left: 0px; top: 0px; width: 256px; height: 256px; position: absolute; -ms-user-select: none;" draggable="false"></canvas></div><div style="left: -58px; top: 200px; width: 256px; height: 256px; overflow: hidden; position: absolute;"></div><div style="left: 198px; top: -56px; width: 256px; height: 256px; overflow: hidden; position: absolute;"><canvas width="256" height="256" style="left: 0px; top: 0px; width: 256px; height: 256px; position: absolute; -ms-user-select: none;" draggable="false"></canvas></div><div style="left: 198px; top: 200px; width: 256px; height: 256px; overflow: hidden; position: absolute;"></div></div></div></div><div style="left: 0px; top: 0px; position: absolute; z-index: 0;"><div style="width: 417px; height: 253px; overflow: hidden;"><img style="width: 417px; height: 253px;" src="http://maps.googleapis.com/maps/api/js/StaticMapService.GetMapImage?1m2&amp;1i1082&amp;2i1848&amp;2e1&amp;3u4&amp;4m2&amp;1u417&amp;2u253&amp;5m5&amp;1e0&amp;5ses-VE&amp;6sus&amp;10b1&amp;12b1&amp;token=85321"></div></div><div style="left: 0px; top: 0px; position: absolute; z-index: 0;"><div aria-hidden="true" style="left: 0px; top: 0px; visibility: inherit; position: absolute; z-index: 1;"><div style="transition:opacity 200ms ease-out; left: -58px; top: -56px; position: absolute;"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: 0px; top: 0px; width: 256px; height: 256px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" alt="" src="http://mt0.googleapis.com/maps/vt?pb=!1m5!1m4!1i4!2i4!3i7!4i256!2m3!1e0!2sm!3i332415976!3m9!2ses-VE!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0"></div><div style="transition:opacity 200ms ease-out; left: -58px; top: 200px; position: absolute;"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: 0px; top: 0px; width: 256px; height: 256px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" alt="" src="http://mt0.googleapis.com/maps/vt?pb=!1m5!1m4!1i4!2i4!3i8!4i256!2m3!1e0!2sm!3i332415976!3m9!2ses-VE!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0"></div><div style="transition:opacity 200ms ease-out; left: 198px; top: 200px; position: absolute;"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: 0px; top: 0px; width: 256px; height: 256px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" alt="" src="http://mt1.googleapis.com/maps/vt?pb=!1m5!1m4!1i4!2i5!3i8!4i256!2m3!1e0!2sm!3i332415976!3m9!2ses-VE!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0"></div></div></div></div><div style="left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; z-index: 2;"></div><div style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 3;"><div style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 104;"></div><div style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 105;"></div><div style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 106;"></div><div style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 107;"></div></div></div><div style="padding: 15px 21px; border: 1px solid rgb(171, 171, 171); border-image: none; left: 59px; top: 37px; width: 256px; height: 148px; color: rgb(34, 34, 34); font-family: Roboto,Arial,sans-serif; display: none; position: absolute; z-index: 10000002; box-shadow: 0px 4px 16px rgba(0,0,0,0.2); background-color: white;"><div style="padding: 0px 0px 10px; font-size: 16px;">Datos del mapa</div><div style="font-size: 13px;">Datos del mapa ©2015 Google, INEGI</div><div style="top: 12px; width: 13px; height: 13px; right: 12px; overflow: hidden; position: absolute; z-index: 10000; cursor: pointer; opacity: 0.7;"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: -2px; top: -336px; width: 59px; height: 492px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png"></div></div><div class="gmnoprint" style="width: 179px; right: 121px; bottom: 0px; position: absolute; z-index: 1000001;"><div class="gm-style-cc" style="height: 14px; line-height: 14px; -ms-user-select: none;" draggable="false"><div style="width: 100%; height: 100%; position: absolute; opacity: 0.7;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="text-align: right; color: rgb(68, 68, 68); padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; vertical-align: middle; display: inline-block; white-space: nowrap; position: relative; direction: ltr;"><a style="color: rgb(68, 68, 68); text-decoration: none; display: none; cursor: pointer;">Datos del mapa</a><span>Datos del mapa ©2015 Google, INEGI</span></div></div></div><div class="gmnoscreen" style="right: 0px; bottom: 0px; position: absolute;"><div style="text-align: right; color: rgb(68, 68, 68); font-family: Roboto,Arial,sans-serif; font-size: 11px; direction: ltr; background-color: rgb(245, 245, 245);">Datos del mapa ©2015 Google, INEGI</div></div><div class="gmnoprint gm-style-cc" style="height: 14px; right: 0px; bottom: 0px; line-height: 14px; position: absolute; z-index: 1000001; -ms-user-select: none;" draggable="false"><div style="width: 100%; height: 100%; position: absolute; opacity: 0.7;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="text-align: right; color: rgb(68, 68, 68); padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; vertical-align: middle; display: inline-block; white-space: nowrap; position: relative; direction: ltr;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer;" href="https://www.google.com/intl/es-VE_US/help/terms_maps.html" target="_blank">Condiciones del servicio</a></div></div><div class="gm-style-cc" style="height: 14px; right: 0px; bottom: 0px; line-height: 14px; display: none; position: absolute; -ms-user-select: none;" draggable="false"><div style="width: 100%; height: 100%; position: absolute; opacity: 0.7;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="text-align: right; color: rgb(68, 68, 68); padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; vertical-align: middle; display: inline-block; white-space: nowrap; position: relative; direction: ltr;"><a title="Informar a Google errores en las imágenes o el mapa de carreteras." style="color: rgb(68, 68, 68); font-family: Roboto,Arial,sans-serif; font-size: 10px; text-decoration: none; position: relative;" href="https://www.google.com/maps/@6.42375,-66.58973,4z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" target="_new">Informar un error en el mapa</a></div></div><div class="gmnoprint" style="margin: 10px; right: 28px; bottom: 107px; position: absolute; -ms-user-select: none;" draggable="false" controlWidth="28" controlHeight="93"><div class="gmnoprint" style="left: 0px; top: 38px; position: absolute;" controlWidth="28" controlHeight="55"><div style="border-radius: 2px; width: 28px; height: 55px; cursor: pointer; box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.3); -ms-user-select: none; background-color: rgb(255, 255, 255);" draggable="false"><div title="Acercar" style="left: 0px; top: 0px; width: 28px; height: 27px; position: relative;"><div style="left: 7px; top: 6px; width: 15px; height: 15px; overflow: hidden; position: absolute;"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: 0px; top: 0px; width: 120px; height: 54px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl.png"></div></div><div style="left: 16%; top: 0px; width: 67%; height: 1px; overflow: hidden; position: relative; background-color: rgb(230, 230, 230);"></div><div title="Alejar" style="left: 0px; top: 0px; width: 28px; height: 27px; position: relative;"><div style="left: 7px; top: 6px; width: 15px; height: 15px; overflow: hidden; position: absolute;"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: 0px; top: -15px; width: 120px; height: 54px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl.png"></div></div></div></div><div style="border-radius: 2px; left: 0px; top: 0px; width: 28px; height: 28px; position: absolute; cursor: url(http://maps.gstatic.com/mapfiles/openhand_8_8.cur), default; box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.3); background-color: rgb(255, 255, 255);" controlWidth="28" controlHeight="28"><div style="left: 1px; top: 1px; position: absolute;"></div><div style="left: 1px; top: 1px; position: absolute;"><div style="left: 0px; top: 0px; width: 26px; height: 26px; overflow: hidden; position: absolute;" aria-label="Control del hombrecito naranja en Street View"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: -147px; top: -26px; width: 215px; height: 835px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png"></div><div style="left: 0px; top: 0px; width: 26px; height: 26px; overflow: hidden; visibility: hidden; position: absolute;" aria-label="El hombrecito naranja está en la parte superior del mapa."><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: -147px; top: -52px; width: 215px; height: 835px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png"></div><div style="left: 0px; top: 0px; width: 26px; height: 26px; overflow: hidden; visibility: hidden; position: absolute;" aria-label="Control del hombrecito naranja en Street View"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: -147px; top: -78px; width: 215px; height: 835px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png"></div></div></div><div class="gmnoprint" style="display: none; position: absolute;" controlWidth="28" controlHeight="0"><div title="Rotar mapa 90 grados" style="border-radius: 2px; width: 28px; height: 28px; overflow: hidden; display: none; position: absolute; cursor: pointer; box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.3); background-color: rgb(255, 255, 255);"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: -141px; top: 6px; width: 170px; height: 54px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl4.png"></div><div class="gm-tilt" style="border-radius: 2px; top: 0px; width: 28px; height: 28px; overflow: hidden; position: absolute; cursor: pointer; box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.3); background-color: rgb(255, 255, 255);"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: -141px; top: -13px; width: 170px; height: 54px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/tmapctrl4.png"></div></div></div><div class="gmnoprint" style="margin: 10px; left: 0px; top: 0px; position: absolute; z-index: 0; cursor: pointer;"><div class="gm-style-mtc" style="float: left;"><div title="Mostrar mapa de calles" style="padding: 8px; text-align: center; color: rgb(0, 0, 0); overflow: hidden; font-family: Roboto,Arial,sans-serif; font-size: 11px; font-weight: 500; position: relative; direction: ltr; min-width: 28px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.3); -ms-user-select: none; background-clip: padding-box; background-color: rgb(255, 255, 255);" draggable="false">Mapa</div><div style="padding: 2px; left: 0px; top: 28px; text-align: left; display: none; position: absolute; z-index: -1; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.3); background-color: white;"><div title="Mostrar mapa de calles con relieve" style="padding: 6px 8px 6px 6px; text-align: left; color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; font-size: 11px; white-space: nowrap; direction: ltr; -ms-user-select: none; background-color: rgb(255, 255, 255);" draggable="false"><span role="checkbox" style="margin: 0px 5px 0px 0px; border-radius: 1px; border: 1px solid rgb(198, 198, 198); border-image: none; width: 13px; height: 13px; line-height: 0; font-size: 0px; vertical-align: middle; display: inline-block; position: relative; box-sizing: border-box; background-color: rgb(255, 255, 255);"><div style="left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none; position: absolute;"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: -52px; top: -44px; width: 68px; height: 67px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/mv/imgs8.png"></div></span><label style="vertical-align: middle; cursor: pointer;">Relieve</label></div></div></div><div class="gm-style-mtc" style="float: left;"><div title="Mostrar imágenes satelitales" style="padding: 8px; text-align: center; color: rgb(86, 86, 86); overflow: hidden; font-family: Roboto,Arial,sans-serif; font-size: 11px; border-left-color: currentColor; border-left-width: 0px; border-left-style: none; position: relative; direction: ltr; min-width: 37px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.3); -ms-user-select: none; background-clip: padding-box; background-color: rgb(255, 255, 255);" draggable="false">Satélite</div><div style="padding: 2px; top: 28px; text-align: left; right: 0px; display: none; position: absolute; z-index: -1; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.3); background-color: white;"><div title="Mostrar imágenes con nombres de calles" style="padding: 6px 8px 6px 6px; text-align: left; color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; font-size: 11px; white-space: nowrap; direction: ltr; -ms-user-select: none; background-color: rgb(255, 255, 255);" draggable="false"><span role="checkbox" style="margin: 0px 5px 0px 0px; border-radius: 1px; border: 1px solid rgb(198, 198, 198); border-image: none; width: 13px; height: 13px; line-height: 0; font-size: 0px; vertical-align: middle; display: inline-block; position: relative; box-sizing: border-box; background-color: rgb(255, 255, 255);"><div style="left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; position: absolute;"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: -52px; top: -44px; width: 68px; height: 67px; position: absolute; max-width: none; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/mv/imgs8.png"></div></span><label style="vertical-align: middle; cursor: pointer;">Etiquetas</label></div></div></div></div><div style="left: 0px; bottom: 0px; margin-right: 5px; margin-left: 5px; position: absolute; z-index: 1000000;"><a title="Haz clic para ver esta área en Google Maps" style="overflow: visible; float: none; display: inline; position: static;" href="https://maps.google.com/maps?ll=6.42375,-66.58973&amp;z=4&amp;t=m&amp;hl=es-VE&amp;gl=US&amp;mapclient=apiv3" target="_blank"><div style="width: 66px; height: 26px; cursor: pointer;"><img style="margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; left: 0px; top: 0px; width: 66px; height: 26px; position: absolute; -ms-user-select: none;" draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/google4.png"><div class="gmnoprint" style="left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; opacity: 0.01; background-color: white;"></div></div></a></div></div></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="Longitud">Latitud</label>
+                                            <div class="col-md-8">
+                                                <input name="Longitud" class="form-control" id="Longitud" type="text" readonly="readonly" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="IdAdministradora">Administradora</label>
+                                    <div class="col-md-10">
+                                        <select name="IdAdministradora" class="form-control selectpicker show-menu-arrow bs-select-hidden" id="IdAdministradora" data-val-required="El campo Administradora es obligatorio." data-val="true" data-live-search="true">
+                                            <option value="">Seleccione...</option>
+                                            <option value="561acce9-9dfa-4f54-aaf6-7f0a5c07bbf1">ADMINISTRADORA OBELISCO, C.A.</option>
+                                        </select>
+                                        <div class="btn-group bootstrap-select form-control show-menu-arrow open">
+                                            <button title="Seleccione..." class="btn dropdown-toggle btn-default" aria-expanded="true" type="button" data-toggle="dropdown" data-id="IdAdministradora">
+                                                <span class="filter-option pull-left">Seleccione...</span>&nbsp;
+                                                <span class="bs-caret">
+                                                    <span class="caret"></span>
+                                                </span>
+                                            </button>
+                                            <div class="dropdown-menu open">
+                                                <div class="bs-searchbox">
+                                                    <input class="form-control" type="text" autocomplete="off">
+                                                </div>
+                                                <ul class="dropdown-menu inner" role="menu">
+                                                    <li class="selected hidden" data-original-index="0">
+                                                        <a tabindex="0" data-tokens="null">
+                                                            <span class="text">Seleccione...</span>
+                                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="hidden" data-original-index="1">
+                                                        <a tabindex="0" data-tokens="null">
+                                                            <span class="text">ADMINISTRADORA OBELISCO, C.A.</span>
+                                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="no-results" style="display: list-item;">No se encuentran coincidencias
+                                                        <button class="btn btn-default place-right" onclick="ShowAddAdministradora(this);">Agregar</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="IdAdministradora"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="IdEstadoContrato">Estado de Contrato</label>
+                                    <div class="col-md-10">
+                                        <select name="IdEstadoContrato" class="form-control selectpicker show-menu-arrow bs-select-hidden" id="IdEstadoContrato" data-val-required="Debe indicar un valor para Estado de Contrato" data-val="true" data-val-number="El campo Estado de Contrato debe ser un número."><option value="">Seleccione...</option><option value="1">Activo</option><option value="2">En Negociación</option><option value="3">Cancelado</option><option value="4">Bloqueado</option></select><div class="btn-group bootstrap-select form-control show-menu-arrow"><button title="Seleccione..." class="btn dropdown-toggle btn-default" type="button" data-toggle="dropdown" data-id="IdEstadoContrato"><span class="filter-option pull-left">Seleccione...</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li class="selected" data-original-index="0"><a tabindex="0" data-tokens="null"><span class="text">Seleccione...</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" data-tokens="null"><span class="text">Activo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" data-tokens="null"><span class="text">En Negociación</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" data-tokens="null"><span class="text">Cancelado</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" data-tokens="null"><span class="text">Bloqueado</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+                                        <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="IdEstadoContrato"></span>
+                                    </div>
+                                </div>
+                                <h3>Caracteríticas del Contrato</h3>
+                                <div>
+                                    <div class="form-group col-md-4">
+                                        <label class="control-label col-md-9" for="AutoGestion">Gestionado por Contratante</label>
+                                        <div class="col-md-3">
+                                            <input name="AutoGestion" class="form-control" id="AutoGestion" type="checkbox" value="true" data-val-required="El campo Gestionado por Contratante es obligatorio." data-val="true"><input name="AutoGestion" type="hidden" value="false">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="border-radius: 10px; border: 1px solid rgb(0, 0, 0); border-image: none; width: 90%; margin-right: auto; margin-left: auto;">
+                                    <div>
+                                        <div class="form-group col-md-4">
+                                            <label class="control-label col-md-9" for="AccesoTelefonico">Acceso Telefónico</label>
+                                            <div class="col-md-3">
+                                                <input name="AccesoTelefonico" disabled="disabled" class="form-control" id="AccesoTelefonico" type="checkbox" value="true" data-val-required="El campo Acceso Telefónico es obligatorio." data-val="true"><input name="AccesoTelefonico" type="hidden" value="false">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="control-label col-md-9" for="AccesoDactilar">Acceso Biométrico</label>
+                                            <div class="col-md-3">
+                                                <input name="AccesoDactilar" disabled="disabled" class="form-control" id="AccesoDactilar" type="checkbox" value="true" data-val-required="El campo Acceso Biométrico es obligatorio." data-val="true"><input name="AccesoDactilar" type="hidden" value="false">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="control-label col-md-9" for="AlarmaSilente">Alarma Silente</label>
+                                            <div class="col-md-3">
+                                                <input name="AlarmaSilente" disabled="disabled" class="form-control" id="AlarmaSilente" type="checkbox" value="true" data-val-required="El campo Alarma Silente es obligatorio." data-val="true"><input name="AlarmaSilente" type="hidden" value="false">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group col-md-4">
+                                            <label class="control-label col-md-9" for="CondominioVirtual">Condominio Virtual</label>
+                                            <div class="col-md-3">
+                                                <input name="CondominioVirtual" disabled="disabled" class="form-control" id="CondominioVirtual" type="checkbox" value="true" data-val-required="El campo Condominio Virtual es obligatorio." data-val="true"><input name="CondominioVirtual" type="hidden" value="false">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="control-label col-md-9" for="ControlAscensores">Control de Ascensores</label>
+                                            <div class="col-md-3">
+                                                <input name="ControlAscensores" disabled="disabled" class="form-control" id="ControlAscensores" type="checkbox" value="true" data-val-required="El campo Control de Ascensores es obligatorio." data-val="true"><input name="ControlAscensores" type="hidden" value="false">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="control-label col-md-9" for="ControlEstacionamiento">Control de Estacionamiento</label>
+                                            <div class="col-md-3">
+                                                <input name="ControlEstacionamiento" disabled="disabled" class="form-control" id="ControlEstacionamiento" type="checkbox" value="true" data-val-required="El campo Control de Estacionamiento es obligatorio." data-val="true"><input name="ControlEstacionamiento" type="hidden" value="false">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label col-md-9" for="MaximoSecundarios">Total Secundarios por Unidad</label>
+                                            <div class="col-md-3">
+                                                <input name="MaximoSecundarios" class="form-control" id="MaximoSecundarios" type="text" readonly="readonly" value="99" data-val-required="El campo Total Secundarios por Unidad es obligatorio." data-val="true" data-val-number="El campo Total Secundarios por Unidad debe ser un número.">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label col-md-9" for="MaximoInvitados">Total Invitados por Unidad</label>
+                                            <div class="col-md-3">
+                                                <input name="MaximoInvitados" class="form-control" id="MaximoInvitados" type="text" readonly="readonly" value="0" data-val-required="El campo Total Invitados por Unidad es obligatorio." data-val="true" data-val-number="El campo Total Invitados por Unidad debe ser un número.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label col-md-9" for="MaximoPuestosFijos">No. Maximo Puestos Fijos</label>
+                                            <div class="col-md-3">
+                                                <input name="MaximoPuestosFijos" class="form-control" id="MaximoPuestosFijos" type="text" readonly="readonly" value="0" data-val-required="El campo No. Maximo Puestos Fijos es obligatorio." data-val="true" data-val-number="El campo No. Maximo Puestos Fijos debe ser un número.">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label col-md-9" for="MaximoPuestosVisitantes">No. Máximo Puestos Visitantes</label>
+                                            <div class="col-md-3">
+                                                <input name="MaximoPuestosVisitantes" class="form-control" id="MaximoPuestosVisitantes" type="text" readonly="readonly" value="0" data-val-required="El campo No. Máximo Puestos Visitantes es obligatorio." data-val="true" data-val-number="El campo No. Máximo Puestos Visitantes debe ser un número.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div tabindex="-1" class="modal fade" id="modal-container" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mwCargosJunta" style="margin-top: 150px;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Agregar nuevo contacto</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="border: 1px solid rgb(204, 204, 204); border-image: none; width: 100%;">
+                        <div class="form-horizontal padding10">
+                            <input name="__RequestVerificationToken" type="hidden" value="CCpu_eSdax78YxrRbyfLOGlKZb_dknLvdPTWopIV5CeM1M9I2kMQ1mUUveG5j7yKZPWh-w20eMNwHfu_MHFoMTJLjssZHz3EhvcVJtxAPMaseSUgRZLFf2Uon-SBjuTT0">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="Nombre">Nombre</label>
+                                <div class="col-md-10">
+                                    <input name="Nombre" class="form-control" id="modalCargoJunta" type="text" value="" data-val-required="Debe indicar un valor para Nombre" data-val="true" data-val-length-max="500" data-val-length="El número de caracteres de Nombre debe ser máximo de 500">
+                                    <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="Nombre"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" id="botCloseCargoJunta" type="button">Cancelar</button>
+                        <button class="btn btn-default" id="botSaveCargoJunta" type="Button">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#modalIdEstado").selectpicker({
+                noneResultsText: "No se encuentran coincidencias",
+                selectOnTab: true,
+                size: 5
+            });
+            $("#modalIdCiudad").selectpicker({
+                noneResultsText: "No se encuentran coincidencias",
+                selectOnTab: true,
+                size: 5
+            });
+            $("#IdPais").change(function () {
+                $("#modalIdEstado").empty();
+                $("#modalIdEstado").attr("disabled", "disabled");
+                $('#modalIdEstado').selectpicker('refresh');
+                $("#modalIdCiudad").empty();
+                $("#modalIdCiudad").attr("disabled", "disabled");
+                $('#modalIdCiudad').selectpicker('refresh');
+
+                if ($("#IdPais").val() == 0 || $("#IdPais").val() == null) {
+                    return false;
+                }
+
+                $("#modalIdPais").val($("#IdPais").val());
+                $.ajax({
+                    type: 'POST',
+                    url: '/General/GetEstadosByPais',
+                    dataType: 'json',
+                    data: {
+                        Id: $("#IdPais").val()
+                    },
+                    success: function (Estados) {
+                        $("#modalIdEstado").removeAttr("disabled");
+                        $.each(Estados, function (i, estado) {
+                            $("#modalIdEstado").append('<option value = "' + estado.Value + '">' + estado.Text + '</option>');
+                        });
+                        $('#modalIdEstado').selectpicker('refresh');
+                    },
+                    error: function (ex) {
+                        alert('Falló la consulta de estados. ' + ex.status + ' ' + ex.statusText);
+                    }
+                });
+
+                return false;
+            }) // Cerrando bloque de IdPais
+            $("#modalIdEstado").change(function () {
+                $("#modalIdCiudad").empty();
+                $("#modalIdCiudad").enabled = true;
+                $("#modalIdCiudad").selectpicker("refresh");
+                $.ajax({
+                    type: 'POST',
+                    url: '/General/GetCiudadesByPais',
+                    dataType: 'json',
+                    data: {
+                        IdP: $("#IdPais").val(),
+                        IdE: $("#modalIdEstado").val()
+                    },
+                    success: function (Ciudades) {
+                        $("#modalIdCiudad").empty();
+                        $("#modalIdCiudad").removeAttr("disabled");
+                        $.each(Ciudades, function (i, ciudad) {
+                            $("#modalIdCiudad").append('<option value = "' + ciudad.Value + '">' + ciudad.Text + '</option>');
+                        });
+                        $("#modalIdCiudad").selectpicker("refresh");
+                    },
+                    error: function (ex) {
+                        alert('Falló la consulta de ciudades. ' + ex);
+                    }
+                });
+                return false;
+            })
+            $("#botSaveAdministradora").click(function (e) {
+                e.preventDefault();
+
+                $("#mwAdministradora").modal('hide');
+                var frmData = $('#frmModalAdministradora').serialize();
+                $.ajax({
+                    type: 'POST',
+                    cache: false,
+                    url: '/Contrato/CreateAdministradora',
+                    data: frmData,
+                    success: function (result) {
+                        if (result.success) {
+                            alert("done");
+                        }
+                        else {
+                            $("#frmModalAdministradora").html(result);
+                            $("#mwAdministradora").modal('show');
+                        }
+                        //var tiposCargo = result.TiposCargoJunta;
+                        //var newID = result.newID;
+                        //$("#IdCargoJunta").empty();
+                        //$.each(tiposCargo, function (i, tipoCargo) {
+                        //    $("#IdCargoJunta").append('<option value = "' + tipoCargo.Value + '">' + tipoCargo.Text + '</option>');
+                        //});
+                        //$("#IdCargoJunta").val(newID);
+                        //$("#IdCargoJunta").selectpicker('refresh');
+                        //$("#mwCargosJunta").modal('hide');
+
+                    },
+                    error: function (ex) {
+                        alert('Falló actualización de administradora. ' + ex.status + ' ' + ex.statusText);
+                    }
+                });
+                return false;
+            })
+            $("#botCloseAdministradora").click(function (e) {
+                e.preventDefault();
+                $("#mwAdministradora").modal('hide');
+            })
+
+        });
+
+        //function ShowAddTipoContrato() {
+        //    $("#mwTipoContrato").modal('show');
+        //}
+        //function ShowAddAdministradora() {
+        //    $("#mwAdministradora").modal('show');
+        //}
+    </script>
+
+    <form id="frmModalAdministradora" action="/Contrato/CreateAdministradora" method="post">
+        <div class="modal fade" id="mwAdministradora" style="margin-top: 150px;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                        <h4 class="modal-title">Agregar nueva administradora</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input name="__RequestVerificationToken" type="hidden" value="n7TmHAyGIVUQvkAbBzQhAdYrHM6vAES0Af0McT1N6OPdj5YRMu8tJ2n-NyxiowZ7ASQH9EYvdf5cZzrSjXLzQ_fu5CVSjhTi6KV7jZ_XhsLvIns55aetRaip3mR7LMNl0">
+                        <input name="IdPais" id="modalIdPais" type="hidden" value="5" data-val-required="Debe indicar un valor para País" data-val="true" data-val-number="El campo País debe ser un número.">
+                        <div style="border: 1px solid rgb(204, 204, 204); border-image: none; width: 100%;">
+                            <div class="form-horizontal padding10">
+
+                                <fieldset class="groupBox">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="Nombre">Nombre</label>
+                                        <div class="col-md-10">
+                                            <input name="Nombre" class="form-control" id="modalNombre" type="text" value="" data-val-required="Debe indicar un valor para Nombre" data-val="true" data-val-length-max="500" data-val-length="El número de caracteres de Nombre debe ser máximo de 500">
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="Nombre"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="Rif">Registro Fiscal</label>
+                                        <div class="col-md-10">
+                                            <input name="Rif" class="form-control" id="modalRif" type="text" value="" data-val-required="Debe indicar un valor para Registro Fiscal" data-val="true" data-val-length-max="50" data-val-length="El número de caracteres de Registro Fiscal debe ser máximo de 50">
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="Rif"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="Direccion">Dirección</label>
+                                        <div class="col-md-10">
+                                            <textarea name="Direccion" class="form-control" id="modalDireccion" style="height: 200px;" rows="2" cols="20" data-val-required="Debe indicar un valor para Dirección" data-val="true"></textarea>
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="Direccion"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="IdEstado">Estado</label>
+                                        <div class="col-md-10">
+                                            <select name="IdEstado" class="form-control selectpicker show-menu-arrow bs-select-hidden" id="modalIdEstado" data-val-required="Debe indicar un valor para Estado" data-val="true" data-val-number="El campo Estado debe ser un número." data-live-search="true"><option value="0">Seleccione...</option><option value="1">Amazonas</option><option value="2">Anzoategui</option><option value="3">Apure</option><option value="4">Aragua</option><option value="5">Barinas</option><option value="6">Bolívar</option><option value="7">Carabobo</option><option value="8">Cojedes</option><option value="9">Delta Amacuro</option><option value="10">Distrito Capital</option><option value="11">Falcón</option><option value="12">Guárico</option><option value="13">Lara</option><option value="14">Mérida</option><option value="15">Miranda</option><option value="16">Monagas</option><option value="17">Nueva Esparta</option><option value="18">Portuguesa</option><option value="19">Sucre</option><option value="20">Táchira</option><option value="21">Trujillo</option><option value="22">Vargas</option><option value="23">Yaracuy</option><option value="24">Zulia</option><option value="25">Dependencia Federal</option></select><div class="btn-group bootstrap-select form-control show-menu-arrow"><button title="Seleccione..." class="btn dropdown-toggle btn-default" type="button" data-toggle="dropdown" data-id="modalIdEstado"><span class="filter-option pull-left">Seleccione...</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><div class="bs-searchbox"><input class="form-control" type="text" autocomplete="off"></div><ul class="dropdown-menu inner" role="menu"><li class="selected" data-original-index="0"><a tabindex="0" data-tokens="null"><span class="text">Seleccione...</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" data-tokens="null"><span class="text">Amazonas</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" data-tokens="null"><span class="text">Anzoategui</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" data-tokens="null"><span class="text">Apure</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" data-tokens="null"><span class="text">Aragua</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" data-tokens="null"><span class="text">Barinas</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" data-tokens="null"><span class="text">Bolívar</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" data-tokens="null"><span class="text">Carabobo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" data-tokens="null"><span class="text">Cojedes</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" data-tokens="null"><span class="text">Delta Amacuro</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" data-tokens="null"><span class="text">Distrito Capital</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" data-tokens="null"><span class="text">Falcón</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12"><a tabindex="0" data-tokens="null"><span class="text">Guárico</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13"><a tabindex="0" data-tokens="null"><span class="text">Lara</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="14"><a tabindex="0" data-tokens="null"><span class="text">Mérida</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15"><a tabindex="0" data-tokens="null"><span class="text">Miranda</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16"><a tabindex="0" data-tokens="null"><span class="text">Monagas</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="17"><a tabindex="0" data-tokens="null"><span class="text">Nueva Esparta</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="18"><a tabindex="0" data-tokens="null"><span class="text">Portuguesa</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="19"><a tabindex="0" data-tokens="null"><span class="text">Sucre</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="20"><a tabindex="0" data-tokens="null"><span class="text">Táchira</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="21"><a tabindex="0" data-tokens="null"><span class="text">Trujillo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="22"><a tabindex="0" data-tokens="null"><span class="text">Vargas</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="23"><a tabindex="0" data-tokens="null"><span class="text">Yaracuy</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="24"><a tabindex="0" data-tokens="null"><span class="text">Zulia</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="25"><a tabindex="0" data-tokens="null"><span class="text">Dependencia Federal</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="IdEstado"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="IdCiudad">Ciudad</label>
+                                        <div class="col-md-10">
+                                            <select name="IdCiudad" disabled="disabled" class="form-control selectpicker show-menu-arrow bs-select-hidden" id="modalIdCiudad" data-val-required="Debe indicar un valor para Ciudad" data-val="true" data-val-number="El campo Ciudad debe ser un número." data-live-search="true"></select><div class="btn-group bootstrap-select form-control show-menu-arrow disabled"><button tabindex="-1" title="Nothing selected" class="btn dropdown-toggle disabled btn-default" type="button" data-toggle="dropdown" data-id="modalIdCiudad"><span class="filter-option pull-left">Nothing selected</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open"><div class="bs-searchbox"><input class="form-control" type="text" autocomplete="off"></div><ul class="dropdown-menu inner" role="menu"></ul></div></div>
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="IdCiudad"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="CodigoPostal">Código Postal</label>
+                                        <div class="col-md-10">
+                                            <input name="CodigoPostal" class="form-control" id="modalCodigoPostal" type="text" value="" data-val-required="Debe indicar un valor para Código Postal" data-val="true" data-val-range-min="1" data-val-range-max="9999" data-val-range="El valor para Código Postal debe estar entre 1 y 9999">
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="CodigoPostal"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="CorreoAdministradora">Correo Electrónico Corporativo</label>
+                                        <div class="col-md-10">
+                                            <input name="CorreoAdministradora" class="form-control" id="modalCorreoAdministradora" type="text" value="" data-val-required="Debe indicar un valor para Correo Electrónico Corporativo" data-val-email="La dirección de correo electrónico para Correo Electrónico Corporativo no es válida." data-val="true">
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="CorreoAdministradora"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="NombreContacto">Contacto</label>
+                                        <div class="col-md-10">
+                                            <input name="NombreContacto" class="form-control" id="modalNombreContacto" type="text" value="" data-val-required="Debe indicar un valor para Contacto" data-val="true" data-val-length-max="500" data-val-length="El número de caracteres de Contacto debe ser máximo de 500">
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="NombreContacto"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="CorreoContacto">Correo Electrónico Contacto</label>
+                                        <div class="col-md-10">
+                                            <input name="CorreoContacto" class="form-control" id="modalCorreoContacto" type="text" value="" data-val-required="Debe indicar un valor para Correo Electrónico Contacto" data-val-email="La dirección de correo electrónico para Correo Electrónico Contacto no es válida." data-val="true">
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="CorreoContacto"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="TelefonoOficina">Teléfono Oficina</label>
+                                        <div class="col-md-10">
+                                            <input name="TelefonoOficina" class="form-control" id="modalTelefonoOficina" type="text" value="" data-val-required="Debe indicar un valor para Teléfono Oficina" data-val="true">
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="TelefonoOficina"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="TelefonoFax">Telefono Fax</label>
+                                        <div class="col-md-10">
+                                            <input name="TelefonoFax" class="form-control" id="modalTelefonoFax" type="text" value="">
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="TelefonoFax"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="TelefonoCelular1">Teléfono Celular Principal</label>
+                                        <div class="col-md-10">
+                                            <input name="TelefonoCelular1" class="form-control" id="modalTelefonoCelular1" type="text" value="" data-val-required="Debe indicar un valor para Teléfono Celular Principal" data-val="true">
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="TelefonoCelular1"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="TelefonoCelular2">Teléfono Celular Secundario</label>
+                                        <div class="col-md-10">
+                                            <input name="TelefonoCelular2" class="form-control" id="modalTelefonoCelular2" type="text" value="">
+                                            <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="TelefonoCelular2"></span>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" id="botCloseAdministradora" type="button">Cancelar</button>
+                        <button class="btn btn-default" id="botSaveAdministradora" type="Button">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $(function () {
+            // Initialize numeric spinner input boxes
+            //$(".numeric-spinner").spinedit();
+
+            // Initalize modal dialog
+            // attach modal-container bootstrap attributes to links with .modal-link class.
+            // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+            $('body').on('click', '.modal-link', function (e) {
+                e.preventDefault();
+                $(this).attr('data-target', '#modal-container');
+                $(this).attr('data-toggle', 'modal');
+            });
+
+            // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+            $('body').on('click', '.modal-close-btn', function () {
+                $('#modal-container').modal('hide');
+            });
+
+            //clear modal cache, so that new content can be loaded
+            $('#modal-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+
+            $('#CancelModal').on('click', function () {
+                return false;
+            });
+        });
+    </script>
+
+    <!-- Visual Studio Browser Link -->
+    <script id="__browserLink_initializationData" type="application/json">
+        {"appName":"Internet Explorer","requestId":"b5a5f8f56d7440b59bb7bb126571c31e"}
+    </script>
+    <script src="http://localhost:21130/bbf7ebcaf179405b95b25a4b2ef8b40a/browserLink" type="text/javascript" async="async"></script>
+    <!-- End Browser Link -->
 </body>
+
 </html>

@@ -14,16 +14,8 @@ namespace Seguricel3
     
     public partial class EstadoContrato
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EstadoContrato()
-        {
-            this.Contrato = new HashSet<Contrato>();
-        }
-    
+        public string Culture { get; set; }
         public int IdEstadoContrato { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato> Contrato { get; set; }
     }
 }
