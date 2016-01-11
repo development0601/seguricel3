@@ -1,0 +1,112 @@
+﻿#navigation {
+    font-size: 0.75em;
+    width: 150px;
+    background-color: #d1cece;
+    z-index: 20;
+    overflow: visible;
+    width: auto;
+    font-size: 18px;
+}
+
+    #navigation ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #navigation li {
+        list-style: none;
+        width: 100%;
+    }
+
+ul.top-level li {
+    border-radius: 5px;
+    margin-top: 5px;
+    background: #666;
+}
+
+#navigation a {
+    transition: all .5s ease-out 0s;
+    color: #808080;
+    cursor: pointer;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    text-indent: 10px;
+    text-decoration: none;
+    width: 100%;
+    border-radius: 5px;
+}
+
+    #navigation a:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+
+#navigation li:hover {
+    transition: all .5s ease-out 0s;
+    position: relative;
+    color: #fff;
+    width: 100%;
+}
+
+ul.sub-level {
+    display: none;
+}
+
+li:hover .sub-level {
+    transition: all .5s ease-out 0s;
+    background: #d1cece;
+    border: #fff solid;
+    border-width: 1px;
+    display: block;
+    position: absolute;
+    left: 75px;
+    top: 5px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+ul.sub-level li {
+    border: none;
+    float: left;
+    width: 150px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/*Seconda Level*/
+#navigation .sub-level {
+    background: #d1cece;
+    transition: all .5s ease-out 0s;
+}
+
+    /*Third Level*/
+    #navigation .sub-level .sub-level {
+        background: #d1cece;
+        transition: all .5s ease-out 0s;
+    }
+        /*Four Level*/
+        #navigation .sub-level .sub-level .sub-level {
+            background: #d1cece;
+            transition: all .5s ease-out 0s;
+        }
+
+/*RESET STYLES*/
+li:hover .sub-level .sub-level .sub-level {
+    display: none;
+}
+
+li:hover .sub-level .sub-level {
+    display: none;
+}
+
+.sub-level li:hover .sub-level {
+    display: block;
+    transition: all .5s ease-out 0s;
+}
+
+ul.top-level li span {
+    float: right;
+    margin-right: 10px;
+    margin-top: -20px;
+}

@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Seguricel - Technology for comfort and security access control, vigilance and community</value>
+  </data>
+  <data name="AtencionLinea1" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="AtencionLinea2" xml:space="preserve">
+    <value>The whole community</value>
+  </data>
+  <data name="AtencionLinea3" xml:space="preserve">
+    <value>involves safety</value>
+  </data>
+  <data name="AtencionLinea4" xml:space="preserve">
+    <value>and they are more careful.</value>
+  </data>
+  <data name="CompanyLink" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="ContactoLink" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="ContentLine1" xml:space="preserve">
+    <value>We were waiting</value>
+  </data>
+  <data name="ContentLine2" xml:space="preserve">
+    <value>It is the most comprehensive preventive system for residential, attacking</value>
+  </data>
+  <data name="ContentLine3_1" xml:space="preserve">
+    <value>vulnerabilities of communities to cover</value>
+  </data>
+  <data name="ContentLine3_2" xml:space="preserve">
+    <value>three pillars of security.</value>
+  </data>
+  <data name="ContentLine4" xml:space="preserve">
+    <value>And all this based on the daily use of mobile and Internet</value>
+  </data>
+  <data name="ContentLine5" xml:space="preserve">
+    <value>Safety, comfort and control for your home and family</value>
+  </data>
+  <data name="ContentLine6" xml:space="preserve">
+    <value>Singularity</value>
+  </data>
+  <data name="ContentLine7" xml:space="preserve">
+    <value>A single system, product development and integration of technologies</value>
+  </data>
+  <data name="ContentLine8" xml:space="preserve">
+    <value>electronics, telecommunications and the Internet, which seeks tranquility in</value>
+  </data>
+  <data name="ContentLine9" xml:space="preserve">
+    <value>people with security in their homes.</value>
+  </data>
+  <data name="ControlAccesoLinea1" xml:space="preserve">
+    <value>Access control</value>
+  </data>
+  <data name="ControlAccesoLinea2" xml:space="preserve">
+    <value>Only members of the</value>
+  </data>
+  <data name="ControlAccesoLinea3" xml:space="preserve">
+    <value>community open</value>
+  </data>
+  <data name="ControlAccesoLinea4" xml:space="preserve">
+    <value>the doors.</value>
+  </data>
+  <data name="FooterCopyright1" xml:space="preserve">
+    <value>All rights reserved</value>
+  </data>
+  <data name="FooterCopyright2" xml:space="preserve">
+    <value>Seguricel 2015</value>
+  </data>
+  <data name="FooterLinea1" xml:space="preserve">
+    <value>Interconnected digital protection</value>
+  </data>
+  <data name="FooterLinea2" xml:space="preserve">
+    <value>The evolution of your safety!</value>
+  </data>
+  <data name="FooterLink1" xml:space="preserve">
+    <value>See "The solution"</value>
+  </data>
+  <data name="HomeLink" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="LoginHeader" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="LoginLink" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="PageHeaderContactLink" xml:space="preserve">
+    <value>Ask for information</value>
+  </data>
+  <data name="PageHeaderLine1" xml:space="preserve">
+    <value>Feel safe</value>
+  </data>
+  <data name="PageHeaderLine2" xml:space="preserve">
+    <value>at home</value>
+  </data>
+  <data name="PageHeaderLine3" xml:space="preserve">
+    <value>Shielding your residential complex</value>
+  </data>
+  <data name="PageHeaderLine4" xml:space="preserve">
+    <value>with the most comprehensive and innovative</value>
+  </data>
+  <data name="PageHeaderLine5" xml:space="preserve">
+    <value>preventive security system</value>
+  </data>
+  <data name="PageHeaderVideo" xml:space="preserve">
+    <value>See video</value>
+  </data>
+  <data name="ParticipacionLinea1" xml:space="preserve">
+    <value>Participation</value>
+  </data>
+  <data name="ParticipacionLinea2" xml:space="preserve">
+    <value>The community</value>
+  </data>
+  <data name="ParticipacionLinea3" xml:space="preserve">
+    <value>communicate and participate</value>
+  </data>
+  <data name="ParticipacionLinea4" xml:space="preserve">
+    <value>using comfortable</value>
+  </data>
+  <data name="ParticipacionLinea5" xml:space="preserve">
+    <value>tools.</value>
+  </data>
+  <data name="ProgressBarText" xml:space="preserve">
+    <value>Processing Requirement. Please wait...</value>
+  </data>
+  <data name="RegistroLinea1" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="RegistroLinea2" xml:space="preserve">
+    <value>It is documented all</value>
+  </data>
+  <data name="RegistroLinea3" xml:space="preserve">
+    <value>activity, eliminating</value>
+  </data>
+  <data name="RegistroLinea4" xml:space="preserve">
+    <value>anonymity.</value>
+  </data>
+  <data name="SolucionLink" xml:space="preserve">
+    <value>The solution</value>
+  </data>
+  <data name="VIgilantesLinea1" xml:space="preserve">
+    <value>watchers</value>
+  </data>
+  <data name="VigilantesLinea2" xml:space="preserve">
+    <value>Optimizes use</value>
+  </data>
+  <data name="VigilantesLinea3" xml:space="preserve">
+    <value>vigilant and not fall asleep</value>
+  </data>
+  <data name="VigilantesLinea4" xml:space="preserve">
+    <value>and they do their work.</value>
+  </data>
+</root>

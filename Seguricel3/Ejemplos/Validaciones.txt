@@ -1,0 +1,6 @@
+﻿    [Display(Name = "<Nombre del Recurso>", ResourceType = typeof(Resources.<Nombre del Resource>))]
+    [DataType(DataType.Date, ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), ErrorMessageResourceName = "TypeValueErrorMessage")]
+    [Required(ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), ErrorMessageResourceName = "RequiredMessage")]
+    [Range(1, 99, ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), ErrorMessageResourceName = "RangeErrorMessage")]
+    [EmailAddress(ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), ErrorMessageResourceName = "RequiredMessage")]
+    [StringLength(500, ErrorMessageResourceType = typeof(Resources.ErrorMessageResource), ErrorMessageResourceName = "StringLengthErrorMessage")]

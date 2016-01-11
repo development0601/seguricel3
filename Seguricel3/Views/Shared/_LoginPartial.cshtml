@@ -1,0 +1,25 @@
+﻿@using Seguricel3.Models
+@Model PerfilViewModel
+
+@{ 
+@*@if (Request.IsAuthenticated)
+{*@
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right", encType = "multipart/form-data" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Bienvenido(a): " + (@User as CustomPrincipal).Name, "Perfil", "Account")
+       </li>
+        <li>
+            @Html.ImageActionLink("Cerrar Sesión",
+               "LogOff",
+               "Account",
+              new { model = Model },
+              new { @class = "btn btn-default" },
+               "~/images/close_session.jpg", 30)
+        </li>
+    </ul>
+    }
+}

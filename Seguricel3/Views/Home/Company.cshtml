@@ -1,0 +1,178 @@
+﻿@using Resources;
+
+@{
+    ViewBag.Title = HomeResource.AppTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div>
+            <img src="~/Imagenes/logo nuevo seguricel.png" style="width: 100%; height: 100px;" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="MenuOpciones">
+            <ul>
+                <li>@Html.ActionLink(HomeResource.HomeLink, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.SolucionLink, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.ContactoLink, "Contacto", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.CompanyLink, "Company", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+<div class="PageHeader" style="font-size: 18pt;">
+    <div style="background-image: url('../../Imagenes/Compañia.jpg'); height: 200px; width: 100%; background-repeat: no-repeat;  text-align:left; ">
+        <div style="position: relative; float:left; font-size: 48pt; color: #fff; height: 100%; padding-top: 60px; padding-left: 2em; line-height: 30px;">
+            @CompanyResource.TituloPagina<br />
+            <span class="RobotoLight" style="font-size: 20pt">@CompanyResource.SubtituloPagina</span>
+        </div>
+        <div style="position: relative; float: right;">
+            @Html.ActionLink(CompanyResource.ButtonFranquiciaTexto, "Franquicia", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @style = "font-size: 24pt; margin-top: 20px; margin-right: 160px;" })
+        </div>
+    </div>
+</div>
+<div class="row" style=" margin: auto; margin-top: 20px; text-align:center; width: 50%;">
+    <div class="col-md-3">
+        <a href="#Historia" style="text-decoration: none; color: #808080;">
+            <table style="text-align:center; font-size: 18pt; margin: auto;">
+                <tr>
+                    <td>
+                        <img src="~/Imagenes/historia.png" height="40" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @CompanyResource.HistoriaHeader
+                    </td>
+                </tr>
+            </table>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="#Equipo" style="text-decoration: none; color: #808080;">
+            <table style="text-align:center; font-size: 18pt; margin: auto;">
+                <tr>
+                    <td>
+                        <img src="~/Imagenes/equipo.png" height="40" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @CompanyResource.EquipoHeader
+                    </td>
+                </tr>
+            </table>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="#Mision" style="text-decoration: none; color: #808080;">
+            <table style="text-align:center; font-size: 18pt; margin: auto;">
+                <tr>
+                    <td>
+                        <img src="~/Imagenes/mision.png" height="40" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @CompanyResource.MisionHeader
+                    </td>
+                </tr>
+            </table>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="#Vision" style="text-decoration: none; color: #808080;">
+            <table style="text-align:center; font-size: 18pt; margin: auto;">
+                <tr>
+                    <td>
+                        <img src="~/Imagenes/vision.png" height="40" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @CompanyResource.VisionHeader
+                    </td>
+                </tr>
+            </table>
+        </a>
+    </div>
+</div>
+<div class="row" style="margin-top: 40px;">
+    <div class="col-md-11" style="margin: auto;">
+        <a name="Historia" style="text-decoration: none;" />
+        <div style="font-size: 48pt; color: #808080; text-align: center;">
+            @CompanyResource.HistoriaHeader
+        </div>
+        <div style="color: #000; font-size: 16pt; text-align: justify; width: 70%; margin: auto;border: 1px solid #8f8e8e; border-radius: 20px; padding: 20px;">
+            <p>
+                @CompanyResource.HistoriaParrafo1
+            </p>
+            <p>
+                @CompanyResource.HistoriaParrafo2
+            </p>
+            <p>
+                @CompanyResource.HistoriaParrafo3
+            </p>
+        </div>
+    </div>
+    <div class="col-md-11" style="margin: auto;">
+        <a name="Equipo" style="text-decoration: none;" />
+        <div style="font-size: 48pt; color: #808080; text-align: center;">
+            @CompanyResource.EquipoHeader
+        </div>
+        <div style="color: #000; font-size: 16pt; text-align: justify; width: 70%; margin: auto;border: 1px solid #8f8e8e; border-radius: 20px; padding: 20px;">
+            <p>
+                @CompanyResource.EquipoParrafo1
+            </p>
+            <p>
+                @CompanyResource.EquipoParrafo2
+            </p>
+            <p>
+                @CompanyResource.EquipoParrafo3
+            </p>
+        </div>
+    </div>
+    <div class="col-md-11" style="margin: auto;">
+        <a name="Mision" style="text-decoration: none;" />
+        <div style="font-size: 48pt; color: #808080; text-align: center;">
+            @CompanyResource.MisionHeader
+        </div>
+        <div style="color: #000; font-size: 16pt; text-align: justify; width: 70%; margin: auto;border: 1px solid #8f8e8e; border-radius: 20px; padding: 20px;">
+            <p>
+                @CompanyResource.MisionParrafo1
+            </p>
+        </div>
+    </div>
+    <div class="col-md-11" style="margin: auto; margin-left: 20px;">
+        <a name="Vision" style="text-decoration: none;" />
+        <div style="font-size: 48pt; color: #808080; text-align: center;">
+            @CompanyResource.VisionHeader
+        </div>
+        <div style="color: #000; font-size: 16pt; text-align: justify; width: 70%; margin: auto;border: 1px solid #8f8e8e; border-radius: 20px; padding: 20px;">
+            <p>
+                @CompanyResource.VisionParrafo1
+            </p>
+            <p>
+                @CompanyResource.ValoresHeader
+            </p>
+            <ul style="list-style: disc">
+                <li>@CompanyResource.Valores_Valor1</li>
+                <li>@CompanyResource.Valores_Valor2</li>
+                <li>@CompanyResource.Valores_Valor3</li>
+                <li>@CompanyResource.Valores_Valor4</li>
+            </ul>
+            <p>
+                @CompanyResource.PoliticaCalidadHeader
+            </p>
+            <ul style="list-style: hanging;">
+                <li>@CompanyResource.PoliticaCalidad_Valor1</li>
+                <li>@CompanyResource.PoliticaCalidad_Valor2</li>
+                <li>@CompanyResource.PoliticaCalidad_Valor3</li>
+            </ul>
+        </div>
+    </div>
+</div>

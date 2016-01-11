@@ -1,0 +1,198 @@
+﻿@using System.Globalization;
+@using Resources;
+@{
+    ViewBag.Title = HomeResource.AppTitle;
+}
+
+<div class="row linearBg">
+    <div class="app-bar">
+        <div class="app-bar-element place-right">
+            <a class="dropdown-toggle fg-white"><span class="mif-enter"></span> Enter</a>
+            <div class="app-bar-drop-container bg-white fg-dark place-right"
+                 data-role="dropdown" data-no-close="true">
+                <div class="padding20">
+                    @Html.Partial("Login", new Seguricel3.Models.LoginViewModel())
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="PageHeader" style="color: #fff;">
+            <div>
+                <img src="~/Imagenes/P1 imagen ppal foto_fondo azul.png" style="width:100%;" />
+            </div>
+            <div class="divTexto">
+                <span style="font-size: 35pt">
+                    @HomeResource.PageHeaderLine1
+                    <br />
+                    @HomeResource.PageHeaderLine2
+                </span>
+                <br />
+                <span style="font-size: 16pt;">
+                    @HomeResource.PageHeaderLine3
+                </span>
+                <br />
+                <span style="font-size: 14pt;">
+                    @HomeResource.PageHeaderLine4
+                    <br />
+                    @HomeResource.PageHeaderLine5
+                </span>
+                <ul>
+                    <li>
+                        <a href="Contactos.aspx" style="border: 1px solid #b7b2b2; border-radius: 10px;">@HomeResource.PageHeaderContactLink</a>
+                    </li>
+                    <li>
+                        <a href="#" style="border: 1px solid #b7b2b2;border-radius: 10px;">
+                            <img src="~/Imagenes/VideoIcon.png" width="32" style="vertical-align: middle;" />
+                            <span style="margin-left: 5px; bottom: 5px;">@HomeResource.PageHeaderVideo</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <table style="width: 100%; margin-top: 50px; font-family: Calibri; text-align: center;">
+                <tr>
+                    <td style="font-size: 42pt; color: #000;">
+                        @HomeResource.ContentLine1
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: #b9b7b7; font-size: 15pt; line-height: 30px;">
+                        <div style="width: 50%; margin: 0 auto;">
+                            <span>
+                                @HomeResource.ContentLine2
+                                <br />
+                                @HomeResource.ContentLine3_1
+                                <span style="color: #7fd9e5; text-decoration: underline;">@HomeResource.ContentLine3_2</span>
+                                <br />
+                                @HomeResource.ContentLine4
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: #909090; font-size: 18pt; height: 100px; vertical-align: middle;">
+                        @HomeResource.ContentLine5
+                    </td>
+                </tr>
+            </table>
+            <table style="margin: 0 auto;">
+                <tr>
+                    <td>
+                        <img src="~/Imagenes/p1%20fondo%20circular%20imagen%20dedo.png" />
+                    </td>
+                    <td>
+                        <img src="~/Imagenes/p1%20fondo%20circular%20imagen%20vigilante.png" />
+                    </td>
+                    <td>
+                        <img src="~/Imagenes/p1%20fondo%20circular%20imagen%20telefono%20en%20mano.png" />
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 100%; margin-top: 50px; font-family: Calibri; text-align: center; color: #fff;">
+                <tr>
+                    <td style="font-size: 42pt"><span style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">@HomeResource.ContentLine6</span></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 17pt; line-height: 30px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+                        <div style="width: 80%; margin: 0 auto; text-align:center;">
+                            @HomeResource.ContentLine7
+                            <br />
+                            @HomeResource.ContentLine8
+                            <br />
+                            @HomeResource.ContentLine9
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="margin: 80px auto">
+                            <tr>
+                                <td>
+                                    <img src="~/Imagenes/p1%20icono%20blanco%20control%20de%20acceso.png" />
+                                </td>
+                                <td>
+                                    <img src="~/Imagenes/p1%20icono%20blanco%20atención.png" />
+                                </td>
+                                <td>
+                                    <img src="~/Imagenes/p1%20icono%20blanco%20vigilantes.png" style="width: 60px;" />
+                                </td>
+                                <td>
+                                    <img src="~/Imagenes/p1%20icono%20blanco%20registro.png" />
+                                </td>
+                                <td>
+                                    <img src="~/Imagenes/p1%20icono%20blanco%20participación.png" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="white-space: nowrap; font-size: 20pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.ControlAccesoLinea1
+                                </td>
+                                <td style="white-space: nowrap; font-size: 20pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.AtencionLinea1
+                                </td>
+                                <td style="white-space: nowrap; font-size: 20pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.VIgilantesLinea1
+                                </td>
+                                <td style="white-space: nowrap; font-size: 20pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.RegistroLinea1
+                                </td>
+                                <td style="white-space: nowrap; font-size: 20pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.ParticipacionLinea1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="white-space: nowrap; font-size: 15pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.ControlAccesoLinea2
+                                    <br />
+                                    @HomeResource.ControlAccesoLinea3
+                                    <br />
+                                    @HomeResource.ControlAccesoLinea4
+                                </td>
+                                <td style="white-space: nowrap; font-size: 15pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.AtencionLinea2
+                                    <br />
+                                    @HomeResource.AtencionLinea3
+                                    <br />
+                                    @HomeResource.AtencionLinea4
+                                </td>
+                                <td style="white-space: nowrap; font-size: 15pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.VigilantesLinea2
+                                    <br />
+                                    @HomeResource.VigilantesLinea3
+                                    <br />
+                                    @HomeResource.VigilantesLinea4
+                                </td>
+                                <td style="white-space: nowrap; font-size: 15pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.RegistroLinea2
+                                    <br />
+                                    @HomeResource.RegistroLinea3
+                                    <br />
+                                    @HomeResource.RegistroLinea4
+                                </td>
+                                <td style="white-space: nowrap; font-size: 15pt; padding-left: 10px; padding-right: 10px;">
+                                    @HomeResource.ParticipacionLinea2
+                                    <br />
+                                    @HomeResource.ParticipacionLinea3
+                                    <br />
+                                    @HomeResource.ParticipacionLinea4
+                                    <br />
+                                    @HomeResource.ParticipacionLinea5
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 24pt;">
+                        @HomeResource.FooterLinea1
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 32pt;">
+                        @HomeResource.FooterLinea2
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

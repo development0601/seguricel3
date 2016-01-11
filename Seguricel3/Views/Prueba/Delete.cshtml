@@ -1,0 +1,201 @@
+﻿@model Seguricel3.Cotizacion
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Cotizacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaEstadoPropuesta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaEstadoPropuesta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalTorres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalTorres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NroResidenciasXTorre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroResidenciasXTorre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalResidencias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalResidencias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NroLocalesComerciales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroLocalesComerciales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionAccesoActual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionAccesoActual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccesoTelefonico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccesoTelefonico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccesoBiometrico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccesoBiometrico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlarmaSilente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlarmaSilente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ControlVigilancia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControlVigilancia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccesoRFID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccesoRFID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VigilanciaContratada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VigilanciaContratada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreEmpresaVigilancia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreEmpresaVigilancia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contrato.Contratante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contrato.Contratante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoPropuesta.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoPropuesta.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais_Estado.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais_Estado.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais_Estado_Ciudad.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais_Estado_Ciudad.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoPropuesta.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoPropuesta.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vendedor.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendedor.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

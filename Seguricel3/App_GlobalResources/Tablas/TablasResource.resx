@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="labelId" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="labelNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="TipoDispositivoHeaderPage" xml:space="preserve">
+    <value>Tipos de Dispositivo</value>
+  </data>
+  <data name="TipoDispositivoPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Dispositivo</value>
+  </data>
+  <data name="TipoDispositivoTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Dispositivo</value>
+  </data>
+  <data name="CreateTipoAccionHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Acción</value>
+  </data>
+  <data name="CreateTipoAccionPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Acción</value>
+  </data>
+  <data name="CreateTipoAnuncioHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Anuncio</value>
+  </data>
+  <data name="CreateTipoAnuncioPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Anuncio</value>
+  </data>
+  <data name="CreateTipoBandejaHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Bandeja</value>
+  </data>
+  <data name="CreateTipoBandejaPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Bandeja</value>
+  </data>
+  <data name="CreateTipoCargoJuntaCondominioHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Cargo en Junta de Condominio</value>
+  </data>
+  <data name="CreateTipoCargoJuntaCondominioPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Cargo en Junta de Condominio</value>
+  </data>
+  <data name="CreateTipoCarteleraHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Cartelera</value>
+  </data>
+  <data name="CreateTipoCarteleraPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Cartelera</value>
+  </data>
+  <data name="CreateTipoCarteleraTableHeader" xml:space="preserve">
+    <value>Relación de Nuevo Tipo de Cartelera</value>
+  </data>
+  <data name="CreateTipoContactoHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Contacto</value>
+  </data>
+  <data name="CreateTipoContactoPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Contacto</value>
+  </data>
+  <data name="CreateTipoContactoTableHeader" xml:space="preserve">
+    <value>Relación de Nuevo Tipo de Contacto</value>
+  </data>
+  <data name="CreateTipoContratoHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Contrato</value>
+  </data>
+  <data name="CreateTipoContratoPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Contrato</value>
+  </data>
+  <data name="CreateTipoDispositivoHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Dispositivo</value>
+  </data>
+  <data name="CreateTipoDispositivoPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Dispositivo</value>
+  </data>
+  <data name="CreateTipoMensajeHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Mensaje</value>
+  </data>
+  <data name="CreateTipoMensajePageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Mensaje</value>
+  </data>
+  <data name="CreateTipoPersonaHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Persona</value>
+  </data>
+  <data name="CreateTipoPersonaPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Persona</value>
+  </data>
+  <data name="CreateTipoPropuestaHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Propuesta</value>
+  </data>
+  <data name="CreateTipoPropuestaPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Propuesta</value>
+  </data>
+  <data name="CreateTipoTicketHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Ticket</value>
+  </data>
+  <data name="CreateTipoTicketPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Ticket</value>
+  </data>
+  <data name="CreateTipoUsuarioHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Usuario</value>
+  </data>
+  <data name="CreateTipoUsuarioPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Usuario</value>
+  </data>
+  <data name="CreateTipoVehiculoHeaderPage" xml:space="preserve">
+    <value>Nuevo Tipo de Vehiculo</value>
+  </data>
+  <data name="CreateTipoVehiculoPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Tipo de Vehiculo</value>
+  </data>
+  <data name="EditTipoAccionHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Acción</value>
+  </data>
+  <data name="EditTipoAccionPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Acción</value>
+  </data>
+  <data name="EditTipoAnuncioHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Anuncio</value>
+  </data>
+  <data name="EditTipoAnuncioPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Anuncio</value>
+  </data>
+  <data name="EditTipoBandejaHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Bandeja</value>
+  </data>
+  <data name="EditTipoBandejaPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Bandeja</value>
+  </data>
+  <data name="EditTipoCargoJuntaCondominioHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Cargo en Junta de Condominio</value>
+  </data>
+  <data name="EditTipoCargoJuntaCondominioPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Cargo en Junta de Condominio</value>
+  </data>
+  <data name="EditTipoCarteleraHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Cartelera</value>
+  </data>
+  <data name="EditTipoCarteleraPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Cartelera</value>
+  </data>
+  <data name="EditTipoCarteleraTableHeader" xml:space="preserve">
+    <value>Relación de Actualizar Tipo de Cartelera</value>
+  </data>
+  <data name="EditTipoContactoHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Contacto</value>
+  </data>
+  <data name="EditTipoContactoPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Contacto</value>
+  </data>
+  <data name="EditTipoContactoTableHeader" xml:space="preserve">
+    <value>Relación de Actualizar Tipo de Contacto</value>
+  </data>
+  <data name="EditTipoContratoHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Contrato</value>
+  </data>
+  <data name="EditTipoContratoPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Contrato</value>
+  </data>
+  <data name="EditTipoDispositivoHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Dispositivo</value>
+  </data>
+  <data name="EditTipoDispositivoPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Dispositivo</value>
+  </data>
+  <data name="EditTipoMensajeHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Mensaje</value>
+  </data>
+  <data name="EditTipoMensajePageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Mensaje</value>
+  </data>
+  <data name="EditTipoPersonaHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Persona</value>
+  </data>
+  <data name="EditTipoPersonaPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Persona</value>
+  </data>
+  <data name="EditTipoPropuestaHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Propuesta</value>
+  </data>
+  <data name="EditTipoPropuestaPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Propuesta</value>
+  </data>
+  <data name="EditTipoTicketHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Ticket</value>
+  </data>
+  <data name="EditTipoTicketPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Ticket</value>
+  </data>
+  <data name="EditTipoUsuarioHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Usuario</value>
+  </data>
+  <data name="EditTipoUsuarioPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Usuario</value>
+  </data>
+  <data name="EditTipoVehiculoHeaderPage" xml:space="preserve">
+    <value>Actualizar Tipo de Vehiculo</value>
+  </data>
+  <data name="EditTipoVehiculoPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Tipo de Vehiculo</value>
+  </data>
+  <data name="TipoAccionHeaderPage" xml:space="preserve">
+    <value>Tipos de Acción</value>
+  </data>
+  <data name="TipoAccionPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Acción</value>
+  </data>
+  <data name="TipoAccionTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Acción</value>
+  </data>
+  <data name="TipoAnuncioHeaderPage" xml:space="preserve">
+    <value>Tipos de Anuncio</value>
+  </data>
+  <data name="TipoAnuncioPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Anuncio</value>
+  </data>
+  <data name="TipoAnuncioTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Anuncio</value>
+  </data>
+  <data name="TipoBandejaHeaderPage" xml:space="preserve">
+    <value>Tipos de Bandeja</value>
+  </data>
+  <data name="TipoBandejaPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Bandeja</value>
+  </data>
+  <data name="TipoBandejaTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Bandeja</value>
+  </data>
+  <data name="TipoCargoJuntaCondominioHeaderPage" xml:space="preserve">
+    <value>Tipos de Cargo en Junta de Condominio</value>
+  </data>
+  <data name="TipoCargoJuntaCondominioPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Cargo en Junta de Condominio</value>
+  </data>
+  <data name="TipoCargoJuntaCondominioTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Cargo en Junta de Condominio</value>
+  </data>
+  <data name="TipoCarteleraHeaderPage" xml:space="preserve">
+    <value>Tipos de Cartelera</value>
+  </data>
+  <data name="TipoCarteleraPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Cartelera</value>
+  </data>
+  <data name="TipoCarteleraTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Cartelera</value>
+  </data>
+  <data name="TipoContactoHeaderPage" xml:space="preserve">
+    <value>Tipos de Contacto</value>
+  </data>
+  <data name="TipoContactoPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Contacto</value>
+  </data>
+  <data name="TipoContactoTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Contacto</value>
+  </data>
+  <data name="TipoContratoHeaderPage" xml:space="preserve">
+    <value>Tipos de Contrato</value>
+  </data>
+  <data name="TipoContratoPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Contrato</value>
+  </data>
+  <data name="TipoContratoTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Contrato</value>
+  </data>
+  <data name="TipoMensajeHeaderPage" xml:space="preserve">
+    <value>Tipos de Mensaje</value>
+  </data>
+  <data name="TipoMensajePageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Mensaje</value>
+  </data>
+  <data name="TipoMensajeTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Mensaje</value>
+  </data>
+  <data name="TipoPersonaHeaderPage" xml:space="preserve">
+    <value>Tipos de Persona</value>
+  </data>
+  <data name="TipoPersonaPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Persona</value>
+  </data>
+  <data name="TipoPersonaTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Persona</value>
+  </data>
+  <data name="TipoPropuestaHeaderPage" xml:space="preserve">
+    <value>Tipos de Propuesta</value>
+  </data>
+  <data name="TipoPropuestaPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Propuesta</value>
+  </data>
+  <data name="TipoPropuestaTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Propuesta</value>
+  </data>
+  <data name="TipoTicketHeaderPage" xml:space="preserve">
+    <value>Tipos de Ticket</value>
+  </data>
+  <data name="TipoTicketPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Ticket</value>
+  </data>
+  <data name="TipoTicketTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Ticket</value>
+  </data>
+  <data name="TipoUsuarioHeaderPage" xml:space="preserve">
+    <value>Tipos de Usuario</value>
+  </data>
+  <data name="TipoUsuarioPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Usuario</value>
+  </data>
+  <data name="TipoUsuarioTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Usuario</value>
+  </data>
+  <data name="TipoVehiculoHeaderPage" xml:space="preserve">
+    <value>Tipos de Vehiculo</value>
+  </data>
+  <data name="TipoVehiculoPageTitle" xml:space="preserve">
+    <value>Seguricel - Tipos de Vehiculo</value>
+  </data>
+  <data name="TipoVehiculoTableHeader" xml:space="preserve">
+    <value>Relación de Tipos de Vehiculo</value>
+  </data>
+  <data name="CreateGrupoHeaderPage" xml:space="preserve">
+    <value>Nuevo Grupo</value>
+  </data>
+  <data name="CreateGrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo Grupo</value>
+  </data>
+  <data name="CreateSubGrupoHeaderPage" xml:space="preserve">
+    <value>Nuevo SubGrupo</value>
+  </data>
+  <data name="CreateSubGrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - Nuevo SubGrupo</value>
+  </data>
+  <data name="EditGrupoHeaderPage" xml:space="preserve">
+    <value>Actualizar Grupo</value>
+  </data>
+  <data name="EditGrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar Grupo</value>
+  </data>
+  <data name="EditSubGrupoHeaderPage" xml:space="preserve">
+    <value>Actualizar SubGrupo</value>
+  </data>
+  <data name="EditSubGrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - Actualizar SubGrupo</value>
+  </data>
+  <data name="GrupoHeaderPage" xml:space="preserve">
+    <value>Grupos</value>
+  </data>
+  <data name="GrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - Grupos</value>
+  </data>
+  <data name="GrupoTableHeader" xml:space="preserve">
+    <value>Relación de Grupos</value>
+  </data>
+  <data name="labelCodigoGrupo" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="labelCodigoSubGrupo" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="labelNombreGrupo" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="labelNombreSubGrupo" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="labelSubGrupo_IdGrupo" xml:space="preserve">
+    <value>Grupo</value>
+  </data>
+  <data name="SubGrupoHeaderPage" xml:space="preserve">
+    <value>SubGrupos</value>
+  </data>
+  <data name="SubGrupoPageTitle" xml:space="preserve">
+    <value>Seguricel - SubGrupos</value>
+  </data>
+  <data name="SubGrupoTableHeader" xml:space="preserve">
+    <value>Relación de SubGrupos</value>
+  </data>
+</root>

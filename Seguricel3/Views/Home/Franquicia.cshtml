@@ -1,0 +1,278 @@
+﻿@using Resources;
+
+@{
+    ViewBag.Title = "Franquicia - Una oportunidad de emprendimiento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div>
+            <img class="logoimg" src="~/Imagenes/logo nuevo seguricel.png" height="50" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="MenuOpciones">
+            <ul>
+                <li>@Html.ActionLink(HomeResource.HomeLink, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.SolucionLink, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.ContactoLink, "Contacto", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.CompanyLink, "Company", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+<div class="PageHeader" style="font-size: 18pt;">
+    <div>
+        <img id="fondo" class="imgLeft" src="~/Imagenes/p8 shake hands.png" />
+    </div>
+    <div class="divTexto" style="margin: auto; margin-top: -4em;">
+        <p style="font-size: 30pt; color: #000; line-height: 1em;">
+            Una oportunidad<br />
+            de emprendimiento
+        </p>
+        <p style="color: #b9b7b7; font-size: 26pt;">
+            Franquicias
+        </p>
+    </div>
+</div>
+<div class="InternalPart">
+    <div class="Header">
+        para quienes creen en la evolución
+    </div>
+    <div class="Descripcion" style="font-size: 16pt;">
+        Desarrollamos los equipos y la tecnología para lograr un sistema único, <br />
+        la evolución que está cambiando cómo las personas entran y salen de <br />
+        sus hogares, cómo manejan su seguridad y se comunican con sus <br />
+        vecinos, todo ello con sistemas y procesos cómodos y sencillos.<br />
+        Porque creemos en la comodidad, seguridad y conectividad... <br />
+        Si también crees y quieres ser parte de este negocio, Seguricel es para ti.
+    </div>
+    <div id="Recuadros">
+        <div class="RecuadroIzquierdo" style="background-color: #fff;">
+            <table style="margin: auto;">
+                <tr>
+                    <td>
+                        <img style="margin-left: 2em; margin-top: -4em;" src="~/Imagenes/p8 grafico de barras.png" height="200" />
+                    </td>
+                    <td rowspan="2" class="imgRightBottom">
+                        <img style="margin-top: 16em;" src="~/Imagenes/p8 tatuaje.png" height="200" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 14pt; text-align:center; color: #a5a2a2;">
+                        &nbsp; <br />&nbsp;<br />&nbsp;
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="RecuadroDerecho">
+            <table class="tblContent">
+                <tr>
+                    <td style="font-size: 18pt;">
+                        <ul style="font-size: 18pt; list-style-type: circle; list-style-image: url(~/Imagenes/icono-checkmark.png); list-style-position: outside;">
+                            <li>
+                                Un negocio gratificante:
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li>
+                                        Un negocio de baja inversión, con ingresos recurrentes y un patrón de crecimiento exponencial, con ventas constantes. Si tiene usted el perfil y cumple con nuestros requisitos, anímese.
+                                    </li>
+                                    <li>
+                                        Una operación muy atractiva económicamente y que desarrolla  alianzas con los clientes a largo plazo, pero además, le dará el reconocimiento en su comunidad por innovador, lo disfrutará!
+                                    </li>
+                                </ul>
+                            </li>
+                            <li style="margin-top: 15px;">
+                                Ya es fan?
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li>
+                                        Los clientes se convierten en fans de Seguricel, son personas que aman la tecnología y les gusta tener el control de cada aspecto de su vida. A ellos nos debemos y nuestra energía está dedicada a su satisfacción. Si es apasionado como nosotros por lo que hacemos y comparte el compromiso con los clientes, este es un reto para usted.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="line-height: 1.5em;">
+            <span style="font-size: 25pt;">Seguricel como franquicia, la inversión correcta,</span><br />
+            <span style="font-size: 18pt;"> son las formas más cómodas de entrar y salir de tu casa!</span>
+        </p>
+    </div>
+</div>
+<div class="InternalPart">
+    <div class="Header">
+        El negocio
+    </div>
+    <div class="Descripcion">
+        La Franquicia Seguricel está concebida para comercializar los<br />
+        sistemas de seguridad residencial, desde la venta, instalación,<br />
+        soporte telefónico y servicio técnico de nuestros  sistemas, para el<br />
+        mercado Residencial dentro de su área de influencia
+    </div>
+    <div id="Recuadros">
+        <div class="RecuadroIzquierdo">
+            <table>
+                <tr>
+                    <td>
+                        <img style="position: relative; float: left; margin-top: -17em;" src="~/Imagenes/p8 ciudad.png" />
+                    </td>
+                    <td class="imgRightBottom">
+                        <img src="~/Imagenes/p8 planta en manos.png" height="200"
+                             style="margin-left: -12.2em; margin-top: 22em; margin-bottom: -1em;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="RecuadroDerecho">
+            <table class="tblContent">
+                <tr>
+                    <td>
+                        <ul style="font-size: 18pt; list-style-type: circle; list-style-image: url(~/Imagenes/icono-checkmark.png); list-style-position: outside;">
+                            <li>
+                                Tu ciudad:
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li>
+                                        Los franquiciados tienen los derechos exclusivos para operar comercialmente Seguricel en un territorio definido, que usualmente es un sector de una ciudad o ella completa. El área en la que el emprendedor demuestre poder cubrir comercialmente y ofrecer un servicio técnico eficiente, sin grandes desplazamientos.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li style="margin-top: 15px;">
+                                Qué ofrecemos
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li>
+                                        Crecer juntos! ya nos encargamos de casi todo!, le proveemos de la plataforma tecnológica del sistema, la procura de equipos electrónicos, herramientas informáticas y soporte técnico constante. También le entrenamos para vender, instalar, dar soporte y servicio técnico, le apoyamos y siempre estaremos a su lado.
+                                    </li>
+                                    <li>
+                                        Seguimos constantemente desarrollando tecnología para ofrecer cada día más y mejores servicios a nuestros clientes y los suyos, así como abrir nuevas oportunidades de negocios en el área.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="line-height: 1.5em;">
+            <span style="font-size: 25pt;">Actualizar la seguridad en las comunidades</span><br />
+        </p>
+    </div>
+</div>
+<div class="InternalPart">
+    <a name="Comunicacion"></a>
+    <div class="Header">
+        Acerca de usted...
+    </div>
+    <div class="Descripcion">
+        Aparte de ciertos requisitos, lo importante es ser un fan del<br />
+        sistema y compartir nuestra pasión y vocación de servicio. Como<br />
+        dijimos, nosotros proveeremos de las herramientas tecnológicas,<br />
+        pero el emprendedor y franquiciado, quien conoce su gente por<br />
+        años es quien sabrá construir las relaciones con sus clientes…
+    </div>
+    <div id="Recuadros">
+        <div class="RecuadroIzquierdo">
+            <table>
+                <tr>
+                    <td>
+                        <img class="flipImageHoriz" style="margin-left: 3em; margin-top: 2em;" src="~/Imagenes/p8 imagen grafico de barras con personas.png" height="200" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="RecuadroDerecho">
+            <table class="tblContent">
+                <tr>
+                    <td>
+                        <ul style="font-size: 18pt; list-style: none;">
+                            <li style="margin-top: 15px;">
+                                Requisitos:
+                                <ul style="list-style: circle; padding-left: -1em;">
+                                    <li>
+                                        Ser operador directo de la franquicia.
+                                    </li>
+                                    <li>
+                                        Residir en la cuidad de la franquiciada.
+                                    </li>
+                                    <li>
+                                        Capacidad gerencial.
+                                    </li>
+                                    <li>
+                                        Facilidad para las relaciones personales.
+                                    </li>
+                                    <li>
+                                        Interés en adquirir conocimientos técnicos inherentes.
+                                    </li>
+                                    <li>
+                                        Con deseos de tener y hacer crecer un negocio propio.
+                                    </li>
+                                    <li>
+                                        Comprometido con la marca y sus productos.
+                                    </li>
+                                    <li>
+                                        Orientado a la excelencia en el servicio.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="line-height: 1.5em;">
+            <span style="font-size: 25pt;">Hagámoslo</span><br />
+        </p>
+    </div>
+</div>
+<div class="InternalPart">
+    <div class="Header">
+        Cómo te ayudamos?
+    </div>
+    <div class="Descripcion">
+        Estamos abiertos a escuchar y hacer sinergia para crecer juntos<br />
+        Si quieres saber más, no dudes en hacérnoslo saber
+    </div>
+    <div class="PageHeader divTexto">
+        <ul style="margin-top: 3em;">
+            <li>
+                @Html.ActionLink("Contáctanos","ContactoFranquicia", "Home", routeValues: null, htmlAttributes: new { @style= "border: 1px solid #b7b2b2;border-radius: 10px;" })
+            </li>
+        </ul>
+    </div>
+</div>
+<div style="margin-top: 5em; clear:both;">
+    <table style="margin:0 auto; width:100%; text-align:center;">
+        <tr>
+            <td style="color: #b9b7b7; font-size: 8pt;">
+                Todos los derechos reservados <br /> Seguricel 2015
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="border-collapse: separate; border-spacing: 10px; margin: 0 auto; ">
+                    <tr>
+                        <td>
+                            <img src="~/Imagenes/LogoFacebook.png" height="20" />
+                        </td>
+                        <td>
+                            <img src="~/Imagenes/LogoTwitter.png" height="20" />
+                        </td>
+                        <td>
+                            <img src="~/Imagenes/LogoYouTube.png" height="20" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+

@@ -1,0 +1,27 @@
+﻿    <div class="col-md-3">
+        <div>
+            <img class="logoimg" src="~/Imagenes/logo nuevo seguricel.png" height="50" />
+        </div>
+    </div>
+    <div class="col-md-5" style="text-align:center; font-size: 32pt; vertical-align: middle;">
+        @ViewBag.PageHeader
+    </div>
+    <div class="col-md-3">
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right", encType = "multipart/form-data" }))
+    {
+                @Html.AntiForgeryToken()
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @Html.ActionLink("Bienvenido(a): " + (@User as CustomPrincipal).Name, "Perfil", "Account")
+                        @*@Html.ActionLink("Bienvenido(a): ", "Perfil", "Account")*@
+                    </li>
+                    <li>
+                        @Html.ImageActionLink("Cerrar Sesión", "LogOff", "Account", new { model = Model }, new { @class = "btn btn-default" }, "~/Imagenes/close_session.jpg", 20)
+                    </li>
+                </ul>
+    }
+}
+    </div>

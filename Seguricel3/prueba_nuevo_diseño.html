@@ -1,0 +1,539 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Metro, a sleek, intuitive, and powerful framework for faster and easier web development for Windows Metro Style.">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, metro, front-end, frontend, web development">
+    <meta name="author" content="Sergey Pimenov and Metro UI CSS contributors">
+
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+
+    <title>Template :: Metro UI CSS - The front-end framework for developing projects on the web in Windows Metro Style</title>
+
+    <link href="Content/metroUI/metro.css" rel="stylesheet" />
+    <link href="Content/metro-icons.css" rel="stylesheet">
+    <link href="Content/metro-responsive.css" rel="stylesheet">
+
+    <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <script src="Scripts/DataTables/jquery.dataTables.min.js"></script>
+
+    <script src="Scripts/metro.js"></script>
+    <link href="Content/metro-schemes.css" rel="stylesheet">
+
+    <!--<link href="css/docs.css" rel="stylesheet">-->
+    <!--<script src="js/docs.js"></script>-->
+    <script src="Scripts/metroUI/prettify/run_prettify.js"></script>
+    <script src="Scripts/metroUI/ga.js"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <script>
+        function specialClick() {
+            var charm = $("#notificaciones").data("charm");
+            if (charm.element.data("opened") === true) {
+                charm.close();
+            } else {
+                charm.open();
+            }
+        }
+        //funcion para validar
+        function notifyOnErrorInput(input) {
+            var message = input.data('validateHint');
+            $.Notify({
+                caption: 'Error',
+                content: message,
+                type: 'alert'
+            });
+        }
+    </script>
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+        }
+
+        .page-content {
+            padding-top: 3.125rem;
+            min-height: 100%;
+            height: 100%;
+        }
+
+        .table .input-control.checkbox {
+            line-height: 1;
+            min-height: 0;
+            height: auto;
+        }
+
+        @media screen and (max-width: 800px) {
+            #cell-sidebar {
+                flex-basis: 52px;
+            }
+
+            #cell-content {
+                flex-basis: calc(100% - 52px);
+            }
+        }
+    </style>
+
+    <script>
+        function pushMessage(t) {
+            var mes = 'Info|Implement independently';
+            $.Notify({
+                caption: mes.split("|")[0],
+                content: mes.split("|")[1],
+                type: t
+            });
+        }
+
+        $(function () {
+            $('.sidebar').on('click', 'li', function () {
+                if (!$(this).hasClass('active')) {
+                    $('.sidebar li').removeClass('active');
+                    $(this).addClass('active');
+                }
+            })
+        })
+
+        function submit(form) {
+            console.log(form);
+            return true;
+        }
+
+        function showDialog(id) {
+            var dialog = $(id).data('dialog');
+            dialog.open();
+        }
+    </script>
+</head>
+<body style="margin:0 10% 0 10%" class="bg-white">
+
+    <!-- Contenedores de mensajes de dialogo -->
+    <div data-role="dialog" class="padding20" data-close-button="true" data-overlay="true" data-overlay-color="op-dark" data-overlay-click-close="true" id="dialogoRegistro">
+        <h3>Seguricel</h3>
+        <p style="color:green">
+            <span class="mif-checkmark"></span>
+            El registro de los datos se realizó de manera Exitosa!
+        </p>
+    </div>
+    <div data-role="charm" data-position="right" id="notificaciones" style="overflow: auto;">
+        <h1 class="text-light">Notificaciones</h1>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+        <div style="height:60px; width:100%; cursor:pointer; background-color:#0072c6; padding-left:10px; z-index:0;">
+            <h4 style="z-index:2; color:White;"><span class="mif-mail"> Seguricel Informa</span></h4>
+            <p class="text-small">El día xxxxxxxx se efectuará un operativo...</p>
+        </div>
+
+    </div>
+    <div class="app-bar fixed-top darcula sub-header" data-role="appbar">
+        <a class="app-bar-element">
+            <span id="toggle-tiles-dropdown" class="mif-apps mif-2x"></span>
+            <div class="app-bar-drop-container"
+                 data-role="dropdown"
+                 data-toggle-element="#toggle-tiles-dropdown"
+                 data-no-close="false" style="width: 324px;">
+                <div class="tile-container bg-white">
+                    <div class="tile-small bg-cyan">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-onedrive"></span>
+                        </div>
+                    </div>
+                    <div class="tile-small bg-yellow">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-google"></span>
+                        </div>
+                    </div>
+                    <div class="tile-small bg-red">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-facebook"></span>
+                        </div>
+                    </div>
+                    <div class="tile-small bg-green">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-twitter"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <span class="app-bar-divider "></span>
+        <a class="app-bar-element" href="#" style="text-align:right; width:50%; text-decoration: none;">WAYRA DEMO</a>
+        <div class="app-bar-element place-right">
+            <a class="dropdown-toggle fg-white"><span class="mif-user"></span> Humberto Parisi</a>
+            <div class="app-bar-drop-container bg-white fg-dark place-right"
+                 data-role="dropdown" data-no-close="true">
+                <div class="padding20">
+                    <form>
+                        <h4 class="text-light">Configuración</h4>
+                        <div class="input-control text">
+                            <a href="#"><span class="mif-cogs icon" style="color:rgba(27, 110, 174, 0.7);"></span> Modificar datos</a>
+                        </div>
+
+                        <hr class="thin bg-grayLighter">
+
+                        <div class="input-control text">
+                            <a href="#"><span class="mif-exit icon" style="color:rgba(27, 110, 174, 0.7)"></span> Cerrar Sesión</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="app-bar-element place-right">
+            <a class="mif-bell mif-ani-fast" onclick="specialClick()" ; style="color:White; z-index:0" href="#"></a>
+            <a class="text-secondary" style="color:Red; font-weight: bold; z-index:2" href="#">3</a>
+        </div>
+
+    </div>
+
+    <form data-on-submit="submit" data-role="validator" action="javascript:void(0)" data-show-required-state="false" data-hint-background="bg-red" data-hint-color="fg-white" data-hide-error="5000">
+        <div class="page-content">
+            <div class="flex-grid no-responsive-future" style="height: 100%;">
+                <div class="row" style="height: 100%">
+                    <div class="cell size-x200" id="cell-sidebar2" height 100%">
+                        <ul class="v-menu navy min-size-required" style="margin-left: 10px; margin-bottom: 10px;">
+                            <li class="menu-title">First Title</li>
+                            <li><a href="#"><span class="mif-home icon"></span> Home</a></li>
+                            <li class="menu-title">Second Title</li>
+                            <li><a href="#"><span class="mif-user icon"></span> Profile</a></li>
+                            <li><a href="#"><span class="mif-calendar icon"></span> Calendar</a></li>
+                            <li><a href="#"><span class="mif-image icon"></span> Photo</a></li>
+                            <li class="menu-title">Third Title</li>
+                            <li>
+                                <a href="#" class="dropdown-toggle"><span class="mif-my-location icon"></span> Location</a>
+                                <ul class="d-menu" data-role="dropdown">
+                                    <li class="menu-title">Title for dropdown</li>
+                                    <li><a href="#">Коллеги</a></li>
+                                    <li><a href="#">Интересно</a></li>
+                                    <li>
+                                        <div class="item-block text-center">
+                                            <button class="square-button"><img class="icon" src="images/round.png"></button>
+                                            <button class="square-button"><img class="icon" src="images/location.png"></button>
+                                            <button class="square-button"><img class="icon" src="images/group.png"></button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-toggle">Еще...</a>
+                                        <ul class="d-menu" data-role="dropdown">
+                                            <li><a href="#">Коллеги</a></li>
+                                            <li><a href="#">Интересно</a></li>
+                                            <li>
+                                                <div class="item-block text-center">
+                                                    <button class="round-button"><img class="icon" src="images/round.png"></button>
+                                                    <button class="round-button"><img class="icon" src="images/location.png"></button>
+                                                    <button class="round-button"><img class="icon" src="images/group.png"></button>
+                                                    <button class="round-button"><img class="icon" src="images/power.png"></button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><span class="mif-bubbles icon"></span> Community</a></li>
+                        </ul>
+                    </div>
+                    <div style="margin-left:4%; margin-right:4%" class="cell auto-size padding20 bg-white" id="cell-content">
+                        <h1 class="text-light"> &nbsp;Registro de Contrato<span class="mif-versions place-left"></span></h1>
+
+                        <hr class="thin bg-grayLighter">
+                        <!--<button class="button primary" onclick="pushMessage('info')"><span class="mif-plus"></span> Create...</button>
+                        <button class="button success" onclick="pushMessage('success')"><span class="mif-play"></span> Start</button>
+                        <button class="button warning" onclick="pushMessage('warning')"><span class="mif-loop2"></span> Restart</button>
+                        <button class="button alert" onclick="pushMessage('alert')">Stop all machines</button>-->
+                        <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
+                            <ul class="tabs-holder">
+                                <!--<li class="special"><a href="#">File</a></li>-->
+                                <li class="active"><a href="#tab_home">Acciones</a></li>
+                                <li class="active"><a href="#tab_mailings">Edición</a></li>
+                                <li><a href="#tab_view">Consulta</a></li>
+                                <!--<li><a href="#tab_view">View</a></li>-->
+                            </ul>
+                            <div class="tabs-content form-actions">
+                                <div class="tab-panel" id="tab_home">
+                                    <div class="tab-panel-group">
+                                        <div class="tab-group-content">
+                                            <button class="fluent-big-button" type="submit" onclick="showDialog('#dialogoRegistro')">
+                                                <span class="icon mif-floppy-disk"></span>
+                                                Guardar<br />
+                                            </button>
+                                            <div class="tab-content-segment">
+                                                <button class="fluent-big-button">
+                                                    <span class="icon mif-pencil"></span>
+                                                    <span class="label">Modificar<br /></span>
+                                                </button>
+                                                <!--<ul class="d-menu" data-role="dropdown">
+                                                    <li><a href="#">Message</a></li>
+                                                    <li><a href="#">Event</a></li>
+                                                    <li><a href="#">Meeting</a></li>
+                                                    <li><a href="#">Contact</a></li>
+                                                </ul>-->
+                                            </div>
+                                            <div class="tab-content-segment">
+                                                <button class="fluent-big-button">
+                                                    <span class="mif-bin"></span>
+                                                    <span class="label">Eliminar</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="tab-group-caption">Edición</div>
+                                    </div>
+                                    <div class="tab-panel-group">
+                                        <div class="tab-group-content">
+                                            <div class="input-control text">
+                                                <input type="text">
+                                                <button class="button"><span class="mif-search"></span></button>
+                                            </div>
+                                            <button class="fluent-button"><span class="icon-book on-left"></span>Nombre Contrato</button>
+                                            <div class="tab-content-segment">
+                                                <button class="fluent-button dropdown-toggle">
+                                                    <span class="mif-filter on-left"></span>
+                                                    <span class="label">Más Filtros</span>
+                                                </button>
+                                                <ul class="d-menu" data-role="dropdown">
+                                                    <li><a href="#">Código</a></li>
+                                                    <li><a href="#">Dirección</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Correo</a></li>
+                                                    <li><a href="#">xxxxx</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="tab-group-caption">Buscar</div>
+                                    </div>
+                                </div>
+                                <div class="tab-panel" id="tab_mailings">
+                                    <div class="tab-panel-group">
+                                        <div class="tab-group-content">
+                                            <button class="fluent-big-button">
+                                                <span class="icon mif-floppy-disk"></span>
+                                                Guardar<br />
+                                            </button>
+                                            <div class="tab-content-segment">
+                                                <button class="fluent-big-button">
+                                                    <span class="icon mif-pencil"></span>
+                                                    <span class="label">Modificar<br /></span>
+                                                </button>
+                                                <!--<ul class="d-menu" data-role="dropdown">
+                                                    <li><a href="#">Message</a></li>
+                                                    <li><a href="#">Event</a></li>
+                                                    <li><a href="#">Meeting</a></li>
+                                                    <li><a href="#">Contact</a></li>
+                                                </ul>-->
+                                            </div>
+                                            <div class="tab-content-segment">
+                                                <button class="fluent-big-button">
+                                                    <span class="mif-bin"></span>
+                                                    <span class="label">Eliminar</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="tab-group-caption">Edición</div>
+                                    </div>
+                                </div>
+                                <div class="tab-panel" id="tab_folder">
+                                    <div class="tab-panel-group">
+                                        <div class="tab-group-content">
+                                            <div class="tab-content-segment">
+                                                <button class="fluent-button"><span class="mif-loop"></span>Replay</button>
+                                                <button class="fluent-button"><span class="mif-infinite"></span>Replay all</button>
+                                                <button class="fluent-button"><span class="mif-loop2"></span>Forward</button>
+                                            </div>
+                                            <div class="tab-content-segment">
+                                                <button class="fluent-tool-button"><img src="images/Notebook-Save.png"></button>
+                                                <button class="fluent-tool-button"><img src="images/Folder-Rename.png"></button>
+                                                <button class="fluent-tool-button"><img src="images/Calendar-Next.png"></button>
+                                            </div>
+                                        </div>
+                                        <div class="tab-group-caption">Reply</div>
+                                    </div>
+                                </div>
+                                <div class="tab-panel" id="tab_view">
+                                    <div class="tab-panel-group">
+                                        <div class="tab-group-content">
+                                            <div class="input-control text">
+                                                <input type="text">
+                                                <button class="button"><span class="mif-search"></span></button>
+                                            </div>
+                                            <button class="fluent-button"><span class="icon-book on-left"></span>Address Book</button>
+                                            <div class="tab-content-segment">
+                                                <button class="fluent-button dropdown-toggle">
+                                                    <span class="mif-filter on-left"></span>
+                                                    <span class="label">Mail Filters</span>
+                                                </button>
+                                                <ul class="d-menu" data-role="dropdown">
+                                                    <li><a href="#">Unread messages</a></li>
+                                                    <li><a href="#">Has attachments</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Important</a></li>
+                                                    <li><a href="#">Broken</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="tab-group-caption">Buscar</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--<hr class="thin bg-grayLighter">-->
+                            <br />
+                            <div style=" border:1px solid #CCC; width:100%;">
+                                <table style="margin:1% 10% 1% 5%; width: 100%;">
+                                    <tr>
+                                        <td>
+                                            Nombre:
+                                        </td>
+                                        <td>
+                                            <div class="input-control text" data-role="input">
+                                                <input type="text" data-validate-func="required" data-validate-hint="Este campo es obligatorio!">
+                                                <span class="input-state-error mif-warning"></span>
+                                                <span class="input-state-success mif-checkmark"></span>
+                                                <!-- Boton para limppiar el campo-->
+                                                <!--<button class="button helper-button clear"><span class="mif-cross"></span></button>-->
+                                            </div>
+                                            <span class="mif-info" data-role="popover" data-popover-mode="click" data-popover-position="right" data-popover-text="Escriba el Nombre del contrato"
+                                                  data-popover-background="bg-cyan" data-popover-color="fg-white" style="color:navy; cursor:pointer"></span>
+                                        </td>
+                                        <td>
+                                            Clave:
+                                        </td>
+                                        <td>
+                                            <div class="input-control text">
+                                                <input type="password" data-validate-func="required" data-validate-hint="Este campo es obligatorio!">
+                                                <span class="input-state-error mif-warning"></span>
+                                                <span class="input-state-success mif-checkmark"></span>
+                                            </div>
+                                            <span class="mif-info" style="color:navy; cursor:pointer"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nombre:
+                                        </td>
+                                        <td>
+                                            <div class="input-control text">
+                                                <input type="text" data-validate-func="required" data-validate-hint="Este campo es obligatorio!">
+                                                <span class="input-state-error mif-warning"></span>
+                                                <span class="input-state-success mif-checkmark"></span>
+                                            </div>
+                                            <span class="mif-info" style="color:navy; cursor:pointer"></span>
+                                        </td>
+                                        <td>
+                                            Repetir Clave:
+                                        </td>
+                                        <td>
+                                            <div class="input-control text">
+                                                <input type="password">
+                                            </div>
+                                            <span class="mif-info" style="color:navy; cursor:pointer"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Activo:
+                                        </td>
+                                        <td>
+                                            <label class="input-control checkbox">
+                                                <input type="checkbox" checked>
+                                                <span class="check"></span>
+                                                <span class="caption">Checkbox</span>
+                                            </label>
+                                            <span class="mif-info" style="color:navy; cursor:pointer"></span>
+                                        </td>
+                                        <td>
+                                            Modo Vacaciones:
+                                        </td>
+                                        <td>
+                                            <label class="input-control radio small-check">
+                                                <input type="radio">
+                                                <span class="check"></span>
+                                                <span class="caption">Small radio</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Dirección:
+                                        </td>
+                                        <td colspan="3">
+                                            <div class="input-control textarea" style="width:90.3%">
+                                                <textarea></textarea>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            País:
+                                        </td>
+                                        <td>
+                                            <div class="input-control select">
+                                                <select>
+                                                    <option>Seleccione...</option>
+                                                    <option>E.E.U.U</option>
+                                                    <option>España</option>
+                                                    <option>Venezuela</option>
+
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            Archivo:
+                                        </td>
+                                        <td>
+                                            <div class="input-control file" data-role="input">
+                                                <input type="file">
+                                                <button class="button"><span class="mif-folder"></span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

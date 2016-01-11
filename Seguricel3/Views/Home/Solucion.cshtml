@@ -1,0 +1,328 @@
+﻿@using Resources;
+
+@{
+    ViewBag.Title = HomeResource.AppTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div>
+            <img class="logoimg" src="~/Imagenes/logo nuevo seguricel.png" height="50" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="MenuOpciones">
+            <ul>
+                <li>@Html.ActionLink(HomeResource.HomeLink, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.SolucionLink, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.ContactoLink, "Contacto", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.CompanyLink, "Company", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+<div class="PageHeader" style="font-size: 18pt;">
+    <div>
+        <img id="fondo" class="imgLeft flipImageHoriz" src="~/Imagenes/Pilares.png" height="500" width="400" />
+    </div>
+    <div class="divTexto" style="top: 5em;">
+        <span style="font-size: 30pt; color: #000;">
+            La seguridad
+        </span>
+        <span style="color: #b9b7b7;"> en los conjuntos residenciales <br /> se fundamenta </span>
+        <span style="font-size: 30pt;">
+            en tres pilares
+        </span>
+        <br />
+        <ul>
+            <li>
+                <a href="#ControlAcceso">
+                    <div>
+                        <div>
+                            <img src="~/Imagenes/icono y fondo titulo pilar 1 control de acceso.png" />
+                        </div>
+                        <div style="position: absolute; top: 5.5em; font-size: 30pt; color:#000; left: 60px;">
+                            1
+                        </div>
+                        <div style="position: absolute; top: 17em; font-size: 14pt; color:#000;">
+                            <span style="position: relative; left: 20px;">
+                                @HomeResource.ControlAccesoLinea1
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#Vigilantes">
+                    <div>
+                        <div>
+                            <img src="~/Imagenes/icono y fondo titulo pilar 2 vigilantes.png" />
+                        </div>
+                        <div style="position: absolute; top: 5.5em; font-size: 30pt; color:#000; text-align: center; left: 270px;">
+                            2
+                        </div>
+                        <div style="position: absolute; top: 17em; font-size: 14pt; color:#000; line-height: 16px;">
+                            <span style="position: relative; left: 12px;">
+                                @HomeResource.VIgilantesLinea1
+                                <br />
+                                <span style="font-size: 8pt;">(Opcional)</span>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#Comunicacion">
+                    <div>
+                        <img src="~/Imagenes/icono y fondo titulo pilar 3 comunicación.png" />
+                    </div>
+                    <div style="position: absolute; top: 5.5em; font-size: 30pt; color:#000;">
+                        3
+                    </div>
+                    <div style="position: absolute; top: 17em; font-size: 14pt; color:#000;">
+                        <span style="position: relative; left: 33px;">@SolucionResource.HeaderComunicacion</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="InternalPart">
+    <a name="ControlAcceso"></a>
+    <div class="Header">
+        @SolucionResource.ControlAcceso_Header1
+    </div>
+    <div class="Descripcion">
+        @SolucionResource.ControlAcceso_Descripcion_Linea1 <br />
+        @SolucionResource.ControlAcceso_Descripcion_Linea2 <br />
+        @SolucionResource.ControlAcceso_Descripcion_Linea3 <br />
+        @SolucionResource.ControlAcceso_Descripcion_Linea4
+    </div>
+    <div id="Recuadros">
+        <div class="RecuadroIzquierdo">
+            <table>
+                <tr>
+                    <td>
+                        <img class="flipImageHoriz" style="margin-left: -35px; margin-top: -5px;" src="~/Imagenes/acceso movil.png" height="200" />
+                    </td>
+                    <td rowspan="2" class="imgRightBottom">
+                        <img src="~/Imagenes/capta huellas.png" height="200" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 14pt; text-align:center; color: #a5a2a2;">
+                        @SolucionResource.ControlAcceso_Left_Message<br />&nbsp;<br />&nbsp;
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="RecuadroDerecho">
+            <table class="tblContent">
+                <tr>
+                    <td style="font-size: 26pt;">
+                        @SolucionResource.ControlAcceso_Right_Header
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 18pt;">
+                        <ul style="list-style-type: circle; list-style-image: url(~/Imagenes/icono-checkmark.png); list-style-position: outside;">
+                            <li>
+                                @SolucionResource.ControlAcceso_Right_Opcion1
+                            </li>
+                            <li>
+                                @SolucionResource.ControlAcceso_Right_Opcion2
+                            </li>
+                            <li>
+                                @SolucionResource.ControlAcceso_Right_Opcion3
+                            </li>
+                            <li>
+                                @SolucionResource.ControlAcceso_Right_Opcion4
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 25pt;">
+                        @SolucionResource.ControlAcceso_Right_Footer
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="line-height: 1.5em;">
+            <span style="font-size: 25pt;">@SolucionResource.ControlAcceso_RibbonBottom_Linea1</span><br />
+            <span style="font-size: 18pt;">@SolucionResource.ControlAcceso_RibbonBottom_Linea2</span>
+        </p>
+    </div>
+</div>
+<div class="InternalPart">
+    <a name="Vigilantes"></a>
+    <div class="Header">
+        @SolucionResource.Vigilante_Header
+    </div>
+    <div class="Descripcion">
+        @SolucionResource.Vigilante_Descripcion_Linea1 <br />
+        @SolucionResource.Vigilante_Descripcion_Linea2
+    </div>
+    <div id="Recuadros">
+        <div class="RecuadroIzquierdo">
+            <table>
+                <tr>
+                    <td>
+                        <img class="flipImageHoriz" style="position: relative; float: left; margin-left: 50px; margin-top: -5px;" src="~/Imagenes/vigilante-dormido.png" height="300" />
+                    </td>
+                    <td class="imgRightBottom">
+                        <img src="~/Imagenes/dedo-con-teclado-pag2.png" height="200"
+                             style="margin-left: -12.2em; margin-top: 8em; margin-bottom: -1em;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="RecuadroDerecho">
+            <table class="tblContent">
+                <tr>
+                    <td>
+                        <ul style="font-size: 18pt; list-style-type: circle; list-style-image: url(~/Imagenes/icono-checkmark.png); list-style-position: outside;">
+                            <li>
+                                @SolucionResource.Vigilante_Right_Opcion1_Header
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li>
+                                        @SolucionResource.Vigilante_Right_Opcion1_Contenido1
+                                    </li>
+                                    <li>
+                                        @SolucionResource.Vigilante_Right_Opcion1_Contenido2
+                                    </li>
+                                </ul>
+                            </li>
+                            <li style="margin-top: 15px;">
+                                @SolucionResource.Vigilante_Right_Opcion2_Header
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li>
+                                        @SolucionResource.Vigilante_Right_Opcion2_Contenido1
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="line-height: 1.5em;">
+            <span style="font-size: 25pt;">@SolucionResource.Vigilante_RibbonBottom_Linea1</span><br />
+            <span style="font-size: 16pt;">@SolucionResource.Vigilante_RibbonBottom_Linea2</span>
+        </p>
+    </div>
+</div>
+<div class="InternalPart">
+    <a name="Comunicacion"></a>
+    <div class="Header">
+        @SolucionResource.Comunicacion_Header
+    </div>
+    <div class="Descripcion">
+        @SolucionResource.Comunicacion_Descripcion_Linea1<br />
+        @SolucionResource.Comunicacion_Descripcion_Linea2
+    </div>
+    <div id="Recuadros">
+        <div class="RecuadroIzquierdo">
+            <table style="margin-top: 3em;">
+                <tr>
+                    <td>
+                        <img class="flipImageHoriz" style="margin-left: 3em; margin-top: 2em;" src="~/Imagenes/sms.png" height="200" />
+                    </td>
+                    <td rowspan="2" class="imgRightBottom">
+                        <img src="~/Imagenes/comunidad.png" height="200" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 14pt; text-align:center; color: #a5a2a2;">
+                        <p style="margin-top: 2em;">
+                            @SolucionResource.Comunicacion_Left_Linea1<br />
+                            @SolucionResource.Comunicacion_Left_Linea2
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="RecuadroDerecho">
+            <table class="tblContent">
+                <tr>
+                    <td>
+                        <ul style="font-size: 18pt; list-style-type: circle; list-style-image: url(~/Imagenes/icono-checkmark.png); list-style-position: outside;">
+                            <li>
+                                @SolucionResource.Comunicacion_Right_Opcion1_Header
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li>
+                                        @SolucionResource.Comunicacion_Right_Opcion1_Contenido1
+                                    </li>
+                                </ul>
+                            </li>
+                            <li style="margin-top: 15px;">
+                                @SolucionResource.Comunicacion_Right_Opcion2_Header
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li>
+                                        @SolucionResource.Comunicacion_Right_Opcion2_Contenido1
+                                    </li>
+                                </ul>
+                            </li>
+                            <li style="margin-top: 15px;">
+                                @SolucionResource.Comunicacion_Right_Opcion3_Header
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li>
+                                        @SolucionResource.Comunicacion_Right_Opcion3_Contenido1
+                                    </li>
+                                </ul>
+                            </li>
+                            <li style="margin-top: 15px;">
+                                @SolucionResource.Comunicacion_Right_Opcion4_Header
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li>
+                                        @SolucionResource.Comunicacion_Right_Opcion4_Contenido1
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="line-height: 1.5em;">
+            <span style="font-size: 25pt;">@SolucionResource.Comunicacion_RibbonBottom_Linea1</span><br />
+            <span style="font-size: 18pt;">@SolucionResource.Comunicacion_RibbonBottom_Linea2</span>
+        </p>
+    </div>
+</div>
+<div style="margin-top: 5em; clear:both;">
+    <table style="margin:0 auto; width:100%; text-align:center;">
+        <tr>
+            <td style="color: #b9b7b7; font-size: 8pt;">
+                @HomeResource.FooterCopyright1 <br /> @HomeResource.FooterCopyright2
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="border-collapse: separate; border-spacing: 10px; margin: 0 auto; ">
+                    <tr>
+                        <td>
+                            <img src="~/Imagenes/LogoFacebook.png" height="20" />
+                        </td>
+                        <td>
+                            <img src="~/Imagenes/LogoTwitter.png" height="20" />
+                        </td>
+                        <td>
+                            <img src="~/Imagenes/LogoYouTube.png" height="20" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Seguricel3.Models.GrupoViewModel>
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            searching: true,
+            ordering: true,
+            select: true,
+            language: {
+                processing: 'Procesando información...',
+                search: "Buscar:",
+                lengthMenu: "Mostrar elementos _MENU_ ",
+                info: "Mostrando del elemento _START_ al _END_ de _TOTAL_ elementos",
+                infoEmpty: "Mostrando del elemento 0 al 0 de 0 elementos",
+                infoFiltered: "(_MAX_ elementos filtrados en total)",
+                infoPostFix: "",
+                loadingRecords: "Cargando...",
+                zeroRecords: "No hay datos disposibles",
+                emptyTable: "No hay datos disponibles en la tabla",
+                paginate: {
+                    first: "Primero",
+                    previous: "Anterior",
+                    next: "Siguiente",
+                    last: "Último"
+                },
+                aria: {
+                    sortAscending: ": habilitado para ordenar la columna en orden ascendente",
+                    sortDescending: ": habilitado para ordenar la columna en orden descendente"
+                }
+            }
+        });
+    });
+</script>
+
+<div>
+    @Html.ActionLink(Resources.EtiquetasResource.labelNewLink, "CreateGrupo", "Tablas", null, htmlAttributes: new { @class = "btn btn-default place-right" })
+</div>
+<div style="margin-top:60px; padding-top: 20px; border-top: 1px solid #000; width: 95%;">
+    <table id="dataTable" class="dataTable" cellspacing="0" style="margin: auto;  width:100%; font-size: 12pt;">
+        <thead>
+            <tr>
+                <th style="text-align:center; width: 80%;">
+                    @Html.DisplayNameFor(m => m.Nombre)
+                </th>
+                <th style="text-align:center; width: 10%;">
+                    @Html.DisplayNameFor(m => m.Codigo)
+                </th>
+                <th style="width: 5%;"></th>
+                <th style="width: 5%;"></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Codigo)
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="@Url.Action("EditGrupo", "Tablas", routeValues: new { id = item.Id })"><span class="mif-pencil" title=@Resources.EtiquetasResource.labelEditLink></span></a>
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="@Url.Action("DeleteGrupo", "Tablas", routeValues: new { id = item.Id })" onclick="return confirm('@item.Nombre @Resources.EtiquetasResource.DeleteConfirmMessage');"><span class="mif-bin" title=@Resources.EtiquetasResource.labelDeleteLink></span></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

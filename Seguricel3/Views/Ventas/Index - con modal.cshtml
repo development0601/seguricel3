@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Seguricel3.Models.CotizacionViewModel>
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#dataTable').DataTable({
+        searching: true,
+        ordering: true,
+        select: true,
+        language: {
+            processing: 'Procesando información...',
+            search: "Buscar&nbsp;:",
+            lengthMenu: "Mostrar elementos _MENU_ ",
+            info: "Mostrando del elemento _START_ al _END_ de _TOTAL_ elementos",
+            infoEmpty: "Mostrando del elemento 0 al 0 de 0 elementos",
+            infoFiltered: "(_MAX_ elementos filtrados en total)",
+            infoPostFix: "",
+            loadingRecords: "Cargando...",
+            zeroRecords: "No hay datos disposibles",
+            emptyTable: "No hay datos disponibles en la tabla",
+            paginate: {
+                first: "Primero",
+                previous: "Anterior",
+                next: "Siguiente",
+                last: "Último"
+            },
+            aria: {
+                sortAscending: ": habilitado para ordenar la columna en orden ascendente",
+                sortDescending: ": habilitado para ordenar la columna en orden descendente"
+            }
+        },
+    });
+    //$("#report tr:odd").addClass("odd");
+    //$("#report tr:not(.odd)").hide();
+    //$("#report tr:first-child").show();
+
+    //$("#report tr.odd").click(function () {
+    //    $(this).next("tr").toggle();
+    //    $(this).find(".arrow").toggleClass("up");
+    //});
+    //$("#report").jExpand();
+});
+</script>
+
+<div>
+    @Html.ActionLink("Create", "Create", "Ventas", null, new { @class = "modal-link btn btn-success place-right" })
+</div>
+<div style="margin-top:60px; padding-top: 20px; border-top: 1px solid #000;">
+    <table id="dataTable" class="dataTable hover cell-border order-column" cellspacing="0" style="margin: auto;  width:100%; font-size: 12pt;">
+        <thead>
+            <tr>
+                <th rowspan="2" style="vertical-align: middle; width: 60%;">
+                    @Html.DisplayNameFor(m => m.Nombre)
+                </th>
+                <th colspan="5" style="text-align:center;">
+                    Características
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    @{
+                        string _title = string.Format("<span class=\"mif-phone\" title=\"{0}\"></span>", ViewBag.TitleAccesoTelefonico);
+                        @Html.Raw(_title);
+                    }
+                </th>
+                <th>
+                    @{
+                        _title = string.Format("<span class=\"mif-thumbs-up\" title=\"{0}\"></span>", ViewBag.TitleAccesoBiometrico);
+                        @Html.Raw(_title);
+                    }
+                </th>
+                <th>
+                    @{
+                        _title = string.Format("<span class=\"mif-alarm-on\" title=\"{0}\"></span>", ViewBag.TitleAlarmaSilente);
+                        @Html.Raw(_title);
+                    }
+                </th>
+                <th>
+                    @{
+                        _title = string.Format("<span class=\"mif-security\" title=\"{0}\"></span>", ViewBag.TitleControlVigilancia);
+                        @Html.Raw(_title);
+                    }
+                </th>
+                <th>
+                    @{
+                        _title = string.Format("<span class=\"mif-barcode\" title=\"{0}\"></span>", ViewBag.TitleAccesoRFID);
+                        @Html.Raw(_title);
+                    }
+                </th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="6">&nbsp;</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td rowspan="2" style="vertical-align: middle;">
+                        @Html.DisplayNameFor(m => m.Nombre)
+                    </td>
+                    <td>
+                        Características
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(m => m.AccesoTelefonico)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(m => m.AccesoBiometrico)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(m => m.AlarmaSilente)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(m => m.ControlVigilancia)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(m => m.AccesoRFID)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

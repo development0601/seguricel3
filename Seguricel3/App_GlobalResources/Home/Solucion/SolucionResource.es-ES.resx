@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Comunicacion_Descripcion_Linea1" xml:space="preserve">
+    <value>Una página web exclusiva de la comunidad para comunicarse,</value>
+  </data>
+  <data name="Comunicacion_Descripcion_Linea2" xml:space="preserve">
+    <value>participar, votar en línea, reservar áreas, y mucho más</value>
+  </data>
+  <data name="Comunicacion_Header" xml:space="preserve">
+    <value>3. Conectividad y comunicación</value>
+  </data>
+  <data name="Comunicacion_Left_Linea1" xml:space="preserve">
+    <value>Comunicación y Participación</value>
+  </data>
+  <data name="Comunicacion_Left_Linea2" xml:space="preserve">
+    <value>desde Internet</value>
+  </data>
+  <data name="Comunicacion_RibbonBottom_Linea1" xml:space="preserve">
+    <value>Por fin desde la Web!</value>
+  </data>
+  <data name="Comunicacion_RibbonBottom_Linea2" xml:space="preserve">
+    <value>La dinámica del condominio, sin reuniones, sin abstinencia, con participación.</value>
+  </data>
+  <data name="Comunicacion_Right_Opcion1_Contenido1" xml:space="preserve">
+    <value>Para emergencias, información relevante y convocatorias a propietarios, enviados desde la web.</value>
+  </data>
+  <data name="Comunicacion_Right_Opcion1_Header" xml:space="preserve">
+    <value>Envío masivo de SMS.</value>
+  </data>
+  <data name="Comunicacion_Right_Opcion2_Contenido1" xml:space="preserve">
+    <value>La de los vigilantes y de los accesos con sus responsables. Esta información y mucha más, disponible en la nube, le puede ser enviada por correo electrónico o SMS según corresponda.</value>
+  </data>
+  <data name="Comunicacion_Right_Opcion2_Header" xml:space="preserve">
+    <value>Registro de toda actividad del sistema</value>
+  </data>
+  <data name="Comunicacion_Right_Opcion3_Contenido1" xml:space="preserve">
+    <value>Una página web exclusiva de la comunidad para comunicarse, participar en foros, reservar áreas y hasta votar con un solo clic, desde su computadora, entre otras.</value>
+  </data>
+  <data name="Comunicacion_Right_Opcion3_Header" xml:space="preserve">
+    <value>Condominio virtual</value>
+  </data>
+  <data name="Comunicacion_Right_Opcion4_Contenido1" xml:space="preserve">
+    <value>Reduzca la dedicación y logre mucho más de sus vecinos a través de los servicios diseñados para las juntas.</value>
+  </data>
+  <data name="Comunicacion_Right_Opcion4_Header" xml:space="preserve">
+    <value>Beneficios para las Juntas de vecinos o condominio</value>
+  </data>
+  <data name="ControlAcceso_Descripcion_Linea1" xml:space="preserve">
+    <value>Utilizamos Los dos únicos métodos “no transferibles” de validación</value>
+  </data>
+  <data name="ControlAcceso_Descripcion_Linea2" xml:space="preserve">
+    <value>de identidad, con acceso telefónico y biométrico. Elimiando el riesgo</value>
+  </data>
+  <data name="ControlAcceso_Descripcion_Linea3" xml:space="preserve">
+    <value>de los tradicionales accesorios físicos como llaves, controles y tarjetas</value>
+  </data>
+  <data name="ControlAcceso_Descripcion_Linea4" xml:space="preserve">
+    <value>entre otros, que pueden caer en manos equivocadas.</value>
+  </data>
+  <data name="ControlAcceso_Header1" xml:space="preserve">
+    <value>1. Control de acceso total</value>
+  </data>
+  <data name="ControlAcceso_Left_Message" xml:space="preserve">
+    <value>Con una llamada gratis, o con tu huella, abre  puertas y portones</value>
+  </data>
+  <data name="ControlAcceso_RibbonBottom_Linea1" xml:space="preserve">
+    <value>Pero además, mira!</value>
+  </data>
+  <data name="ControlAcceso_RibbonBottom_Linea2" xml:space="preserve">
+    <value>son las formas más cómodas de entrar y salir de tu casa!</value>
+  </data>
+  <data name="ControlAcceso_Right_Footer" xml:space="preserve">
+    <value>Con Seguricel, solo tú tienes la llave...</value>
+  </data>
+  <data name="ControlAcceso_Right_Header" xml:space="preserve">
+    <value>Evolución con características únicas</value>
+  </data>
+  <data name="ControlAcceso_Right_Opcion1" xml:space="preserve">
+    <value>Cómodos seguros e incopiables.</value>
+  </data>
+  <data name="ControlAcceso_Right_Opcion2" xml:space="preserve">
+    <value>Solo los miembros de la comunidad pueden abrir las puertas</value>
+  </data>
+  <data name="ControlAcceso_Right_Opcion3" xml:space="preserve">
+    <value>Toda activación queda registrada</value>
+  </data>
+  <data name="ControlAcceso_Right_Opcion4" xml:space="preserve">
+    <value>Autogestión: cada familia administra su lista de autorizados</value>
+  </data>
+  <data name="HeaderComunicacion" xml:space="preserve">
+    <value>Comunicación</value>
+  </data>
+  <data name="HeaderLine1_1" xml:space="preserve">
+    <value>La seguridad</value>
+  </data>
+  <data name="HeaderLine1_2" xml:space="preserve">
+    <value>en los conjuntos residenciales</value>
+  </data>
+  <data name="HeaderLine2_1" xml:space="preserve">
+    <value>se fundamenta</value>
+  </data>
+  <data name="HeaderLine2_2" xml:space="preserve">
+    <value>en tres pilares</value>
+  </data>
+  <data name="Vigilante_Descripcion_Linea1" xml:space="preserve">
+    <value>Un conjunto de dispositivos y un sistema web interactuando con el</value>
+  </data>
+  <data name="Vigilante_Descripcion_Linea2" xml:space="preserve">
+    <value>personal para apoyar, controlar y supervisar el desempeño</value>
+  </data>
+  <data name="Vigilante_Header" xml:space="preserve">
+    <value>2. Vigilancia responsable y productiva</value>
+  </data>
+  <data name="Vigilante_RibbonBottom_Linea1" xml:space="preserve">
+    <value>Capitalizando tu inversión mensual en seguridad</value>
+  </data>
+  <data name="Vigilante_RibbonBottom_Linea2" xml:space="preserve">
+    <value>Con tecnología que ofrezca efectividad y rendimiento en el desempeño</value>
+  </data>
+  <data name="Vigilante_Right_Opcion1_Contenido1" xml:space="preserve">
+    <value>Un terminal inteligente como única herramienta de trabajo para accesos y control de la gestión.</value>
+  </data>
+  <data name="Vigilante_Right_Opcion1_Contenido2" xml:space="preserve">
+    <value>Solo después de haber documentado la visita, se abrirá la puerta y con aviso inmediato al propietario de la llegada del visitante, por SMS.</value>
+  </data>
+  <data name="Vigilante_Right_Opcion1_Header" xml:space="preserve">
+    <value>Accesos controlados.</value>
+  </data>
+  <data name="Vigilante_Right_Opcion2_Contenido1" xml:space="preserve">
+    <value>Sistema automatizado de supervisión, para mantener atento al personal las 24 horas. Interactuando con el personal y reportando en tiempo real o programada a quienes corresponda incidentes o faltas.</value>
+  </data>
+  <data name="Vigilante_Right_Opcion2_Header" xml:space="preserve">
+    <value>Siempre alertas</value>
+  </data>
+</root>

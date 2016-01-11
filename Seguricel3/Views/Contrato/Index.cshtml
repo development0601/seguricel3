@@ -1,0 +1,285 @@
+﻿@model IEnumerable<Seguricel3.Models.ContratoViewModel>
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<script type="text/javascript">
+
+        $(document).ready(function(){
+            $("#report tr:odd").addClass("odd");
+            $("#report tr:not(.odd)").hide();
+            $("#report tr:first-child").show();
+
+            $("#report tr.odd").click(function(){
+                $(this).next("tr").toggle();
+                $(this).find(".arrow").toggleClass("up");
+            });
+            //$("#report").jExpand();
+        });
+</script>
+
+<div>
+    <h2 style="float:left; position:relative;">@ViewBag.TableHeader</h2>
+    <p style="float:right; margin-bottom: 20px;  margin-top: 20px; margin-right: 10px; position:relative;">
+        @{ 
+            string newButton = ViewBag.NewButton;
+            @Html.ActionLink(newButton, "Create", null, new { @class = "Button" });
+        }
+    </p>
+</div>
+<table id="report">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NroContrato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contratante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoContrato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaContrato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCompleto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MesCorte)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NroContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contratante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreCompleto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MesCorte)
+        </td>
+        <td>
+            <div class="arrow"></div>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.IdContrato }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdContrato }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdContrato })*@
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7">
+            <div>
+                <div class="col-md-4">
+                    <table style="width: 100%; border-collapse:collapse; ">
+                        <tr>
+                            <td>
+                                Dirección
+                            </td>
+                            <td colspan="2">
+                                @Html.DisplayFor(modelItem => item.Direccion)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Pais)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ciudad)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-8">
+
+                </div>
+            </div>
+        </td>
+        Agregar Información con formato en jExpand+Samples
+    </tr>
+
+    @*<tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NroContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contratante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoPostal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaContrato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistroFiscal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreRespresentanteLegal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoRepresentanteLegal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreEncargadoServicios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoEncargadoServicios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreEncargadoSeguridad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoEncargadoSeguridad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccesoTelefonico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccesoDactilar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vigicel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlarmaSilente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CondominioVirtual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControlAscensores)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmergenciaVecinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaximoSecundarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaximoInvitados)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControlEstacionamiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaximoPuestosVisitantes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaximoPuestosFijos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorreoElectronicoJunta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorreoElectronicoComunida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PuertoPOPGeneral)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PuertoSMTPGeneral)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServidorPOPGeneral)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServidorSMTPGeneral)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PuertoPOPJC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PuertoSMTPJC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServidorPOPJC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServidorSMTPJC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioCorreoComunidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContraseñaCorreoComunidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioCorreoJC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContraseñaCorreoJC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NroRedesInstalacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreCompleto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DetieneSMS_Emergencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DetieneSMS_JC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MesCorte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AutoGestion_Aptos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImagenEdificio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdRedMiwi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UbicacionGeografica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contrato_Administradora.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoContrato.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais_Estado.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais_Estado_Ciudad.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoContrato.Nombre)
+        </td>
+        <td>
+            <div class="arrow">
+            </div>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdContrato }) |
+                @Html.ActionLink("Details", "Details", new { id=item.IdContrato }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IdContrato })
+        </td>
+    </tr>*@
+
+}
+
+</table>

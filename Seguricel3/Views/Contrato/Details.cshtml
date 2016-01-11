@@ -1,0 +1,443 @@
+﻿@model Seguricel3.Contrato
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contrato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NroContrato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroContrato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contratante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contratante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoPostal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoPostal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaContrato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaContrato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistroFiscal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistroFiscal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreRespresentanteLegal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreRespresentanteLegal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonoRepresentanteLegal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonoRepresentanteLegal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreEncargadoServicios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreEncargadoServicios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonoEncargadoServicios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonoEncargadoServicios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreEncargadoSeguridad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreEncargadoSeguridad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonoEncargadoSeguridad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonoEncargadoSeguridad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccesoTelefonico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccesoTelefonico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccesoDactilar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccesoDactilar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vigicel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vigicel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlarmaSilente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlarmaSilente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CondominioVirtual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CondominioVirtual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ControlAscensores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControlAscensores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmergenciaVecinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmergenciaVecinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximoSecundarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaximoSecundarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximoInvitados)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaximoInvitados)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ControlEstacionamiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControlEstacionamiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximoPuestosVisitantes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaximoPuestosVisitantes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximoPuestosFijos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaximoPuestosFijos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoElectronicoJunta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoElectronicoJunta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoElectronicoComunida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoElectronicoComunida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PuertoPOPGeneral)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuertoPOPGeneral)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PuertoSMTPGeneral)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuertoSMTPGeneral)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServidorPOPGeneral)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServidorPOPGeneral)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServidorSMTPGeneral)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServidorSMTPGeneral)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PuertoPOPJC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuertoPOPJC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PuertoSMTPJC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuertoSMTPJC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServidorPOPJC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServidorPOPJC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServidorSMTPJC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServidorSMTPJC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioCorreoComunidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioCorreoComunidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContraseñaCorreoComunidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContraseñaCorreoComunidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioCorreoJC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioCorreoJC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContraseñaCorreoJC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContraseñaCorreoJC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NroRedesInstalacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroRedesInstalacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreCompleto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetieneSMS_Emergencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetieneSMS_Emergencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetieneSMS_JC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetieneSMS_JC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MesCorte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MesCorte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AutoGestion_Aptos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AutoGestion_Aptos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagenEdificio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagenEdificio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdRedMiwi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdRedMiwi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UbicacionGeografica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UbicacionGeografica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contrato_Administradora.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contrato_Administradora.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoContrato.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoContrato.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais_Estado.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais_Estado.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais_Estado_Ciudad.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais_Estado_Ciudad.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoContrato.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoContrato.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdContrato }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

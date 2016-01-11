@@ -1,0 +1,160 @@
+﻿@model IEnumerable<Seguricel3.Cotizacion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaEstadoPropuesta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalTorres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NroResidenciasXTorre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalResidencias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NroLocalesComerciales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescripcionAccesoActual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccesoTelefonico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccesoBiometrico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlarmaSilente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ControlVigilancia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccesoRFID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VigilanciaContratada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreEmpresaVigilancia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contrato.Contratante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoPropuesta.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais_Estado.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais_Estado_Ciudad.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoPropuesta.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vendedor.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaEstadoPropuesta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalTorres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NroResidenciasXTorre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalResidencias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NroLocalesComerciales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescripcionAccesoActual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccesoTelefonico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccesoBiometrico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlarmaSilente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControlVigilancia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccesoRFID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VigilanciaContratada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreEmpresaVigilancia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contrato.Contratante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoPropuesta.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais_Estado.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais_Estado_Ciudad.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoPropuesta.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vendedor.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdCotizacion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdCotizacion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdCotizacion })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,52 @@
+﻿@model Seguricel3.Models.GrupoViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+
+@using (Html.BeginForm("EditGrupo", "Tablas", FormMethod.Post))
+{
+<div>
+    <div class="fluent-menu" data-role="fluentmenu" data-on-special-click="specialClick">
+        <ul class="tabs-holder">
+            <li class="active"><a href="#tab_mailings">Edición</a></li>
+        </ul>
+        <div class="tabs-content form-actions">
+            <div class="tab-panel" id="tab_mailings">
+                <div class="tab-panel-group">
+                    <div class="tab-group-content">
+                        <button type="submit" id="approve-btn" class="fluent-big-button">
+                            <span class="icon mif-floppy-disk"></span>@Resources.EtiquetasResource.labelSaveLink<br />
+                        </button>
+                        @Html.ActionLlinkWithSpan("<span class=\"icon mif-cancel\"></span>" + Resources.EtiquetasResource.labelCancelLink, "Grupos", "Tablas", null, new { @class = "fluent-big-button", @style = "text-decoration: none" })
+                    </div>
+                    <div class="tab-group-caption">Edición</div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div style=" border:1px solid #CCC; width:100%;">
+            <div class="form-horizontal padding10">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Nombre, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Codigo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Codigo, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Codigo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+

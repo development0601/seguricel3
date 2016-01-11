@@ -1,0 +1,139 @@
+﻿@using Seguricel3.Models
+@model CotizacionViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#IdPais").change(function () {
+            $("#IdEstado").empty();
+            $("#IdCiudad").empty();
+            $("#IdCiudad").enabled = false;
+            var myUrl = '<%= UrlHelper.Action("GetEstadosByPais", "Ventas") %>';
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetEstadosByPais", "Ventas")',
+                dataType: 'json',
+                data: {
+                    Id: $("#IdPais").val()
+                },
+                success: function (Estados) {
+                    $.each(Estados, function (i, estado) {
+                        $("#IdEstado").append('<option value = "' + estado.Value + '">' + estado.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de estados. ' + ex.status + ' ' + ex.statusText);
+                }
+            });
+            return false;
+        })
+        $("#IdEstado").change(function () {
+            $("#IdCiudad").empty();
+            $("#IdCiudad").enabled = true;
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetCiudadesByPais", "Ventas")',
+                dataType: 'json',
+                data: {
+                    IdP: $("#IdPais").val(),
+                    IdE: $("#IdEstado").val()
+                },
+                success: function (Ciudades) {
+                    $.each(Ciudades, function (i, ciudad) {
+                        $("#IdCiudad").append('<option value = "' + ciudad.Value + '">' + ciudad.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Falló la consulta de ciudades. ' + ex);
+                }
+            });
+            return false;
+        })
+
+    });
+</script>
+
+<div>
+    @using (Html.BeginForm("Create", "Ventas", FormMethod.Post))
+    {
+        <div class="form-horizontal">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <fieldset class="groupBox">
+                <legend>Información Básica</legend>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Nombre, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Direccion, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Direccion, htmlAttributes: new { @class = "form-control", @style = "height: 200px;" })
+                        @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdPais, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdPais, Model.PaisesDisponibles, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdPais, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdEstado, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdEstado, new SelectList(string.Empty, "Value", "Text"), Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdCiudad, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdCiudad, new SelectList(string.Empty, "Value", "Text"), Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdCiudad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdVendedor, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdVendedor, Model.Vendedores, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdVendedor, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdTipoPropuesta, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdTipoPropuesta, Model.TiposPropuesta, Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdTipoPropuesta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="groupBox">
+                <legend>Contactos</legend>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IdCiudad, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.IdCiudad, new SelectList(string.Empty, "Value", "Text"), Resources.EtiquetasResource.labelSelectValue, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdCiudad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div style="margin-left: auto; margin-right: auto;">
+                    @Html.ActionLink(Resources.EtiquetasResource.labelCancelLink, "Index", "Ventas", null, new { @class = "btn btn-default place-right" })
+                    <button type="submit" id="approve-btn" class="btn btn-danger">@Resources.EtiquetasResource.labelSaveLink</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,268 @@
+﻿@using Resources;
+@using Seguricel3.Models;
+@model ContactoCondominioModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Pais").change(function () {
+            $("#Estado").empty();
+            var Progress = $("#estados-loading-progress");
+            Progress.show();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetEstadosByPais")',
+                dataType: 'json',
+                data: { IdPais: $("#Pais").val() },
+                success: function (states) {
+                    $.each(states, function (i, state) {
+                        $("#Estado").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                    });
+                    Progress.hide();
+                },
+                error: function (ex) {
+                    alert('Error: ' + ex);
+                    Progress.hide();
+                }
+            });
+            return false;
+        });
+
+        $("#Estado").change(function () {
+            $("#Ciudad").empty();
+            var Progress = $("#ciudades-loading-progress");
+            Progress.show();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetCiudadesByEstado")',
+                dataType: 'json',
+                data: { IdPais: $("#Pais").val(), IdEstado: $("#Estado").val() },
+                success: function (states) {
+                    $.each(states, function (i, state) {
+                        $("#Ciudad").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                    });
+                    Progress.hide();
+                },
+                error: function (ex) {
+                    alert('Error: ' + ex);
+                    Progress.hide();
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-3">
+        <div>
+            <img src="~/Imagenes/logo nuevo seguricel.png" style="width: 100%; height: 100px;" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="MenuOpciones">
+            <ul>
+                <li>@Html.ActionLink(HomeResource.HomeLink, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.SolucionLink, "Solucion", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.ContactoLink, "Contacto", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+                <li>@Html.ActionLink(HomeResource.CompanyLink, "Company", "Home", routeValues: null, htmlAttributes: new { @class = "link-black" })</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+<div class="PageHeader" style="font-size: 18pt;">
+    <div style="background-image: url('../../Imagenes/fondo contacto.png'); height: 200px; text-align:left; ">
+        <img id="fondo" src="~/Imagenes/soporte.png" height="200" style="position: relative; float: right;" />
+        <div style="position: relative; float:left; font-size: 48pt; color: #fff; height: 100%; padding-top: 60px; padding-left: 5em; line-height: 30px;">
+            @Model.TituloPagina <br />
+            <span class="RobotoLight" style="font-size: 20pt">@Model.SubtituloPagina</span>
+        </div>
+    </div>
+</div>
+@using (Html.BeginForm("Contacto", "Home", FormMethod.Post, new
+{
+    @class = "form-horizontal",
+    role = "form",
+    encType = "multipart/form-data",
+    id = "myform",
+    name = "myform"
+}))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ValidationSummary(true, Model.ValidationSummaryMessage, htmlAttributes: new { @class = "text-danger", @style="font-size: 24pt; font-weight: bold;" })
+        </div>
+        <div class="col-md-6" style="margin-top: 40px;">
+            <table style="width: 80%; margin: 0 auto; white-space: nowrap;">
+                <tr style="background-color: #aeaeae;">
+                    <td colspan="2" style="font-size: 14pt; text-align: center; font-weight: bold;">
+                        <table style="margin: auto; border-spacing: 10px 0px; border-collapse: separate;">
+                            <tr>
+                                <td>
+                                    <img src="~/Imagenes/icon-persona.png" height="25" />
+                                </td>
+                                <td>
+                                    @Model.ContactoHeader
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.NombreContacto)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.TextBoxFor(m => m.NombreContacto, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.NombreContacto, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.TelefonoLocalContacto)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.TextBoxFor(m => m.TelefonoLocalContacto, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.TelefonoLocalContacto, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.TelefonoMovilContacto)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.TextBoxFor(m => m.TelefonoMovilContacto, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.TelefonoMovilContacto, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.EmailContacto)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.TextBoxFor(m => m.EmailContacto, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.EmailContacto, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.OpcionesEnterar)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.DropDownListFor(m => m.OpcionesEnterar, Model.ListOpcionesEnterar, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.OpcionesEnterar, "", new { @class = "text-danger" })
+                   </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6" style="margin-top: 40px;">
+            <table style="width: 80%; margin: 0 auto; white-space: nowrap;">
+                <tr style="background-color: #aeaeae;">
+                    <td colspan="2" style="font-size: 14pt; text-align: center; font-weight: bold;">
+                        <table style="margin: auto; border-spacing: 10px 0px; border-collapse: separate;">
+                            <tr>
+                                <td>
+                                    <img src="~/Imagenes/comunidad.png" height="25" />
+                                </td>
+                                <td>
+                                    @Model.ResidenciaHeader
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.NombreResidencia)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.TextBoxFor(m => m.NombreResidencia, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.NombreResidencia, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.CantidadViviendas)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.TextBoxFor(m => m.CantidadViviendas, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CantidadViviendas, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.NombreUrbanizacion)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.TextBoxFor(m => m.NombreUrbanizacion, "", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.NombreUrbanizacion, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.Pais)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.DropDownListFor(m => m.Pais, Model.Paises, new { id = "Pais", name = "Pais", @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Pais, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.Estado)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.DropDownListFor(m => m.Estado, Model.Estados, new { id = "Estado", name = "Estado", @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Estado, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon-bold">@Html.LabelFor(m => m.Ciudad)</span>
+                    </td>
+                    <td style="width: 100%;">
+                        @Html.DropDownListFor(m => m.Ciudad, Model.Ciudades, new { id = "Ciudad", name = "Ciudad", @class = "form-control" })   
+                        @Html.ValidationMessageFor(m => m.Ciudad, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table style="width: 80%; margin: auto;">
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => m.Comentario)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextAreaFor(m => m.Comentario, new { @style = " height: 150px;" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="float:right; margin-top: 40px; margin-right: 100px;">
+            <a href='#' class="btn btn-default" title="Enviar" onclick="$('#myform').submit();">@Model.BotonEnviarLabel</a>
+        </div>
+    </div>
+}
+<div style="width: 95%; margin: auto; margin-top: 50px; text-align:center;">
+    <div class="col-md-3" style="border: 1px solid #808080; border-radius: 10px; margin-right: 2px;">
+        @Model.TituloDireccionVenezuela
+    </div>
+    <div class="col-md-3" style="border: 1px solid #808080; border-radius: 10px; margin-right: 1px;">
+        @Model.TituloDireccionEspaña
+    </div>
+    <div class="col-md-3" style="border: 1px solid #808080; border-radius: 10px;">
+        @Model.TituloDireccionMiami
+    </div>
+</div>

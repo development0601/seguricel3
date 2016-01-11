@@ -1,0 +1,112 @@
+﻿@using System.Globalization;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/metroUI/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/metroUI")
+
+    @RenderSection("scripts", required: false)
+
+
+    <div>
+        <div class="app-bar fixed-top darcula sub-header" data-role="appBar">
+            <div class="col-md-12" style="padding: 5px;">
+                <div class="col-md-3 position-left">
+                    <div style="vertical-align:middle; padding-top: 5px;">
+                        <img class="logoimg" src="~/Imagenes/logo nuevo seguricel.png" />
+                    </div>
+                </div>
+                <span class="app-bar-divider position-left"></span>
+                <div class="app-bar-divider position-left text-center" style="width:45%; color: #fff;">
+                    @ViewBag.PageHeader
+                </div>
+                <div class="app-bar-element place-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        @Html.ActionLlinkWithSpan("<span class=\"mif-user\"></span> &nbsp;" + (@User as CustomPrincipal).Name, "Perfil", "Account", null, htmlAttributes: new { @class = "dropdown-toggle fg-white", @style="text-decoration: none" })
+                        <div class="app-bar-drop-container bg-white fg-dark place-right"
+                             data-role="dropdown" data-no-close="true">
+                            <div class="padding20">
+                                <form>
+                                    <h4 class="text-light">Configuración</h4>
+                                    <div class="input-control text">
+                                        @Html.ActionLlinkWithSpan("<span class=\"mif-cogs icon\" style=\"color: rgba(27, 110, 174, 0.7); \">&nbsp;Perfil</span>", "Perfil", "Account", null, htmlAttributes: new { @class = "dropdown-toggle fg-white" })
+                                    </div>
+                                    <hr class="thin bg-grayLighter">
+                                    <div class="input-control text">
+                                        @Html.ActionLlinkWithSpan("<span class=\"mif-exit icon\" style=\"color: rgba(27, 110, 174, 0.7); \">&nbsp;Cerrar Sesión</span>", "LogOff", "Account", null, htmlAttributes: new { @class = "dropdown-toggle fg-white" })
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 60px;">
+            <div class="col-md-3" style="height:100%; background-color: #f6f7f8;">
+                @if (ViewBag.Menu != null)
+            {
+                    @Html.Raw(@ViewBag.menu)
+                }
+            </div>
+            <div class="col-md-9 place-right" style="height: auto;">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            // Initialize numeric spinner input boxes
+            //$(".numeric-spinner").spinedit();
+
+            // Initalize modal dialog
+            // attach modal-container bootstrap attributes to links with .modal-link class.
+            // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+            $('body').on('click', '.modal-link', function (e) {
+                e.preventDefault();
+                $(this).attr('data-target', '#modal-container');
+                $(this).attr('data-toggle', 'modal');
+            });
+
+            // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+            $('body').on('click', '.modal-close-btn', function () {
+                $('#modal-container').modal('hide');
+            });
+
+            //clear modal cache, so that new content can be loaded
+            $('#modal-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+
+            $('#CancelModal').on('click', function () {
+                return false;
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ButtonFranquiciaTexto" xml:space="preserve">
+    <value>Franquicia</value>
+  </data>
+  <data name="EquipoHeader" xml:space="preserve">
+    <value>Equipo</value>
+  </data>
+  <data name="EquipoParrafo1" xml:space="preserve">
+    <value>Somos un grupo de empresarios venezolanos con trayectoria en desarrollo de proyectos, donde contamos con profesionales con amplia experiencia en diseño industrial, electrónica, informática y telecomunicaciones, pero además contamos con el apoyo de genios en Mercadeo y Planificación financiera.</value>
+  </data>
+  <data name="EquipoParrafo2" xml:space="preserve">
+    <value>Cada miembro del equipo que lidera Seguricel tiene tiene amplia experiencia en su área, alta motivación, compromiso y confianza en el proyecto; pero contamos también con el networking y apuntalamiento de la estructura de Telefónica.</value>
+  </data>
+  <data name="EquipoParrafo3" xml:space="preserve">
+    <value>Detrás del equipo líder hay un grupo importante de ingenieros, técnicos y asesores, que ha intervenido en el desarrollo y hacen posible el día a día de Seguricel.</value>
+  </data>
+  <data name="HistoriaHeader" xml:space="preserve">
+    <value>Historia</value>
+  </data>
+  <data name="HistoriaParrafo1" xml:space="preserve">
+    <value>En 2008 Seguricel surge como una iniciativa de la empresa ALC Comunicaciones, C.A., la cual ha desarrollado equipos electrónicos para diferentes aplicaciones desde 1991. Inicialmente solo se pretendía abrir las puertas con el celular, pero el proyecto comienza a pivotar por la exigencia del mercado para convertirse en un sistema de seguridad. Seguricel es el producto de cientos de feedback, ideas y objeciones de nuestros amigos, allegados y potenciales clientes que cada vez querían o se les ocurría algo nuevo, es un compendio que recoge las inquietudes del venezolano que explota su creatividad por una necesidad, la de tener un hogar más seguro.</value>
+  </data>
+  <data name="HistoriaParrafo2" xml:space="preserve">
+    <value>En 2012 Seguricel es seleccionado como uno de los emprendimientos tecnológicos más destacados de Lationamérica por el grupo Telefónica a través de su iniciativa Global Wayra, siendo acelerado el proyecto y creada la empresa formalmente como SeguriCel Telemática, C.A. con la participación de Wayra.</value>
+  </data>
+  <data name="HistoriaParrafo3" xml:space="preserve">
+    <value>Seguricel es tiene el objetivo de proveer soluciones de seguridad a las comunidades residenciales. Luego de años de desarrollo y bajo el concepto de “Seguridad, Comodidad y Control”, Seguricel  provee soluciones de seguridad fáciles de usar, operando por celular e internet; el producto de la integración de tecnologías actuales en electrónica, informática y telecomunicaciones y ha sido diseñado 100% en Venezuela, específicamente para el problema de la seguridad actual en Latinoamérica. Contamos con una solución para cada exigencia y un departamento de desarrollo abierto a nuevos proyectos.</value>
+  </data>
+  <data name="MisionHeader" xml:space="preserve">
+    <value>Misión</value>
+  </data>
+  <data name="MisionParrafo1" xml:space="preserve">
+    <value>Proveer a nuestros clientes alternativas innovadoras, seguras e integrales basadas en soluciones telemáticas que puedan satisfacer sus necesidades de seguridad y mejorar su calidad de vida. Ofreciéndoles equipos, sistemas y servicios de la más avanzada tecnología y calidad con rapidez y probada eficiencia. Crear y mantener un equipo de trabajo saludable y emprendedor, con una sana administración que proporcione a sus miembros recompensas financieras, desarrollo y crecimiento personal, esforzándonos en mantener los más altos principios morales y éticos.</value>
+  </data>
+  <data name="PoliticaCalidadHeader" xml:space="preserve">
+    <value>Política de Calidad</value>
+  </data>
+  <data name="PoliticaCalidad_Valor1" xml:space="preserve">
+    <value>Satisfacción de sus necesidades.</value>
+  </data>
+  <data name="PoliticaCalidad_Valor2" xml:space="preserve">
+    <value>La puesta en el mercado de sistemas de calidad elaborados con alta tecnología.</value>
+  </data>
+  <data name="PoliticaCalidad_Valor3" xml:space="preserve">
+    <value>El compromiso de todos los empleados y proveedores de SEGURICEL, adoptarán el principio de hacer las cosas bien hechas  desde la primera vez, siempre.</value>
+  </data>
+  <data name="PolíticaCalidadParrafo1" xml:space="preserve">
+    <value>Es política de la calidad de SEGURICEL Venezuela brindar absoluta confianza y seguridad a sus clientes mediante:&lt;br /&gt;</value>
+  </data>
+  <data name="SubtituloPagina" xml:space="preserve">
+    <value>¿Quiénes somos?, ¿Qué hacemos? y ¿Por qué lo hacemos?</value>
+  </data>
+  <data name="TituloPagina" xml:space="preserve">
+    <value>Compañía</value>
+  </data>
+  <data name="ValoresHeader" xml:space="preserve">
+    <value>Valores</value>
+  </data>
+  <data name="Valores_Valor1" xml:space="preserve">
+    <value>Honestidad</value>
+  </data>
+  <data name="Valores_Valor2" xml:space="preserve">
+    <value>Responsabilidd</value>
+  </data>
+  <data name="Valores_Valor3" xml:space="preserve">
+    <value>Calidad</value>
+  </data>
+  <data name="Valores_Valor4" xml:space="preserve">
+    <value>Lealtad</value>
+  </data>
+  <data name="VisionHeader" xml:space="preserve">
+    <value>Visión</value>
+  </data>
+  <data name="VisionParrafo1" xml:space="preserve">
+    <value>Ser líderes consolidados dentro y fuera de Venezuela en soluciones integrales (hardware y software) de telemática para seguridad residencial. Lograr que cada cliente, que cada usuario disfrute realmente de nuestros servicios y se convierta en un fan.</value>
+  </data>
+</root>
